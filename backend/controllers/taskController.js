@@ -34,3 +34,49 @@ export const createTask = async (req, res) => {
         ? res.status(201).json({ message: "Task created" })
         : res.status(400).json({ message: "Invalid Task Data recieved" });
 };
+
+//- update a task
+export const updateTask = async (req, res) => {
+    const { name, user_id } = req.body;
+
+    //- confirm data
+    if (!name || !user_id) {
+        return res.status(400).json({ message: "All Fields are required" });
+    }
+
+    //- find the task
+    const task = await Task.findOne({ user_id });
+
+    if (!task) {
+        res.status(404).json({ message: "Task not found" });
+    }
+
+    //- add the new values to the task
+    task.name = name;
+
+    //- save the recently updated task
+    await task.save();
+
+    res.json({ message: "Task updated successfully" });
+};
+
+//- delete a task
+export const deleteTask = async (req, res) => {
+    const { user_id } = req.body;
+
+    //- confirm data
+    if (!user_id) {
+        return res.status(400).json({ message: "Task id Required" });
+    }
+
+    //- find the task
+    const task = await Task.findOne({ user_id });
+
+    if (!task) {
+        res.status(404).json({ message: "Task not found" });
+    }
+
+    await task.deleteOne();
+
+    res.status(200).json({ message: "Task successfully deleted" });
+};
