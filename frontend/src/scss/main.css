@@ -1,1 +1,13 @@
-/*# sourceMappingURL=main.css.map */
+.carousel {
+  position: relative;
+  height: 100vh;
+  background-color: red;
+}
+.carousel .slide {
+  overflow: hidden;
+}
+.carousel .slider_btns {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}/*# sourceMappingURL=main.css.map */
