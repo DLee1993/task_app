@@ -1,0 +1,25 @@
+//- SPECIFIC ELEMENT STYLING
+
+.login_cta,
+.register_cta {
+    width: 327px;
+    height: 40px;
+    margin: 20px 0;
+    opacity: 75%;
+    text-transform: uppercase;
+
+    &:hover {
+        opacity: 100%;
+    }
+}
+
+.login_cta {
+    background-color: #8687e7;
+    color: #fff;
+}
+
+.register_cta {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #8687e7;
+}

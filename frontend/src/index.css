@@ -1,13 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap");
 @import "./scss/main.css";
 
-:root {
-    --thin: 100;
-    --light: 300;
-    --regular: 400;
-    --bold: 700;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -16,5 +9,13 @@
 
 body {
     font-family: "Lato", sans-serif;
-    font-weight: var(--regular);
+    background-color: #121212;
+    color: #fff;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
