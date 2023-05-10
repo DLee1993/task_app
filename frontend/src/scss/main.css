@@ -34,6 +34,88 @@
   opacity: 0;
 }
 
+.register_page_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+}
+.register_page_container .prev_page--link {
+  color: #fff;
+  text-decoration: none;
+  margin-right: auto;
+}
+.register_page_container .prev_page--link svg {
+  font-size: 25px;
+}
+.register_page_container .register_user--form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  min-height: 40vh;
+}
+.register_page_container .register_user--form fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+.register_page_container .register_user--form fieldset label {
+  padding-bottom: 5px;
+}
+.register_page_container .register_user--form fieldset input {
+  width: auto;
+  min-width: 320px;
+  height: 28px;
+  padding-left: 5px;
+  color: #fff;
+  border: 1px solid #979797;
+  background-color: rgba(18, 18, 18, 0.5019607843);
+}
+.register_page_container .register_user--form button {
+  width: auto;
+  min-width: 320px;
+  height: 28px;
+  color: #fff;
+  background-color: #8687e7;
+  border: none;
+}
+.register_page_container .third_party-signIn-options {
+  min-height: 40vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+.register_page_container .third_party-signIn-options .divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+}
+.register_page_container .third_party-signIn-options .divider .line2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+.register_page_container .third_party-signIn-options .divider .line1,
+.register_page_container .third_party-signIn-options .divider .line3 {
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+.register_page_container .third_party-signIn-options .google-signIn-goes-here {
+  min-width: 320px;
+  height: 48px;
+  color: #fff;
+  border: 2px solid #8687e7;
+  background-color: transparent;
+}
+
 .login_cta,
 .register_cta {
   width: 327px;
