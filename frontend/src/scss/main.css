@@ -16,14 +16,22 @@
   flex-direction: column;
   padding: 10px;
   border-radius: 4px;
-  background-color: rgba(18, 18, 18, 0.7);
+  background-color: transparent;
 }
 .onboarding_page .onboarding_container h1 {
   font-size: 3rem;
+  transform: translateY(50px);
+  opacity: 0;
 }
 .onboarding_page .onboarding_container p {
   max-width: 300px;
   text-align: center;
+  transform: translateY(50px);
+  opacity: 0;
+}
+.onboarding_page .onboarding_container .cta_container {
+  transform: translateY(50px);
+  opacity: 0;
 }
 
 .login_cta,
@@ -31,21 +39,22 @@
   width: 327px;
   height: 40px;
   margin: 20px 0;
-  opacity: 75%;
   text-transform: uppercase;
-}
-.login_cta:hover,
-.register_cta:hover {
-  opacity: 100%;
 }
 
 .login_cta {
   background-color: #8687e7;
   color: #fff;
 }
+.login_cta:hover {
+  filter: brightness(110%);
+}
 
 .register_cta {
   background-color: transparent;
   color: #fff;
   border: 1px solid #8687e7;
+}
+.register_cta:hover {
+  border-width: 2px;
 }/*# sourceMappingURL=main.css.map */

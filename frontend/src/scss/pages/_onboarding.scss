@@ -16,15 +16,24 @@
         flex-direction: column;
         padding: 10px;
         border-radius: 4px;
-        background-color: rgba(18, 18, 18, 0.7);
+        background-color: transparent;
 
         & h1 {
             font-size: 3rem;
+            transform: translateY(50px);
+            opacity: 0;
         }
 
         & p {
             max-width: 300px;
             text-align: center;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        & .cta_container {
+            transform: translateY(50px);
+            opacity: 0;
         }
     }
 }
