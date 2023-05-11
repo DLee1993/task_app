@@ -3,7 +3,8 @@ dotenv.config();
 import { connectDB } from "./config/connectDB.js";
 import mongoose from "mongoose";
 import express from "express";
-import router from "./routes/taskRoutes.js";
+import taskRouter from "./routes/taskRoutes.js";
+import userRouter from "./routes/userRoutes.js";
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -16,7 +17,8 @@ connectDB();
 app.use(express.json());
 app.use("/", express.static(path.join(__dirname, "public")));
 
-app.use("/", router);
+app.use("/tasks", taskRouter);
+app.use("/users", userRouter);
 
 mongoose.connection.once("open", () => {
     console.log("Connected to database");
