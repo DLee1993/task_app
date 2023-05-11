@@ -6,6 +6,8 @@ import express from "express";
 import taskRouter from "./routes/taskRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import rootRouter from "./routes/root.js";
+import { logger } from "./middleware/logger.js";
+import { errorHandler } from "./middleware/errorHandler.js";
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -14,6 +16,8 @@ const app = express();
 const PORT = process.env.PORT || 3500;
 
 connectDB();
+
+app.use(logger);
 
 app.use(express.json());
 
@@ -35,6 +39,8 @@ app.all("*", (req, res) => {
         res.type("text").send("404 Not Found");
     }
 });
+
+app.use(errorHandler);
 
 mongoose.connection.once("open", () => {
     console.log("Connected to database");
