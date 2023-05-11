@@ -3,6 +3,9 @@ dotenv.config();
 import { connectDB } from "./config/connectDB.js";
 import mongoose from "mongoose";
 import express from "express";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import { corsOptions } from "./config/corsOptions.js";
 import taskRouter from "./routes/taskRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import rootRouter from "./routes/root.js";
@@ -19,7 +22,11 @@ connectDB();
 
 app.use(logger);
 
+app.use(cors(corsOptions));
+
 app.use(express.json());
+
+app.use(cookieParser());
 
 app.use("/", express.static(path.join(__dirname, "public")));
 
