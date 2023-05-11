@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import express from "express";
 import taskRouter from "./routes/taskRoutes.js";
 import userRouter from "./routes/userRoutes.js";
+import rootRouter from "./routes/root.js";
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -15,10 +16,25 @@ const PORT = process.env.PORT || 3500;
 connectDB();
 
 app.use(express.json());
+
 app.use("/", express.static(path.join(__dirname, "public")));
 
+app.use("/", rootRouter);
+
 app.use("/tasks", taskRouter);
+
 app.use("/users", userRouter);
+
+app.all("*", (req, res) => {
+    res.status(404);
+    if (req.accepts("html")) {
+        res.sendFile(path.join(__dirname, "views", "404.html"));
+    } else if (req.accepts("json")) {
+        res.json({ message: "404 Not Found" });
+    } else {
+        res.type("text").send("404 Not Found");
+    }
+});
 
 mongoose.connection.once("open", () => {
     console.log("Connected to database");
