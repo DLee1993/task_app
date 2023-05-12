@@ -1,82 +1,109 @@
 import { Task } from "../model/Tasks.js";
+import asyncHandler from "express-async-handler";
 
 //- Get All tasks
-export const getAllTasks = async (req, res) => {
-    const tasks = await Task.find();
+export const getAllTasks = asyncHandler(async (req, res) => {
+    const tasks = await Task.find().lean();
 
     if (!tasks?.length) {
         return res.status(400).json({ message: "No Tasks found" });
     }
 
     res.json(tasks);
-};
+});
 
 //- Create a new task
-export const createTask = async (req, res) => {
-    const { name, user_id } = req.body;
+export const createTask = asyncHandler(async (req, res) => {
+    const { user, task_title, task_description } = req.body;
 
     //- confirm data
-    if (!name || !user_id) {
-        return res.status(400).json({ message: "All Fields are required" });
+    if (!user || !task_title || !task_description) {
+        return res.status(400).json({ message: "All Fields required" });
     }
 
-    //- check for duplicate task
-    const duplicate = await Task.findOne({ name });
+    //- check for existing user with same data
+    const duplicate = await Task.findOne({ task_title }).lean().exec();
 
     if (duplicate) {
-        return res.status(409).json({ message: "Note Already Exists" });
+        return res.status(409).json({ message: "username already exists" });
     }
 
-    //- create and store the new task
-    const task = await Task.create({ name, user_id });
+    //- create new user
+    const taskObject = { user, task_title, task_description };
 
-    task
-        ? res.status(201).json({ message: "Task created" })
-        : res.status(400).json({ message: "Invalid Task Data recieved" });
-};
+    const task = await Task.create(taskObject);
+
+    if (task) {
+        //created
+        res.status(201).json({ message: `New task created` });
+    } else {
+        res.status(400).json({ message: "Invalid user data received" });
+    }
+});
 
 //- update a task
-export const updateTask = async (req, res) => {
-    const { name, user_id } = req.body;
+export const updateTask = asyncHandler(async (req, res) => {
+    const { id, user, task_title, category, task_description, completed } = req.body;
 
     //- confirm data
-    if (!name || !user_id) {
+    if (
+        !id ||
+        !user ||
+        !task_title ||
+        !task_description ||
+        !category ||
+        typeof completed !== "boolean"
+    ) {
         return res.status(400).json({ message: "All Fields are required" });
     }
 
     //- find the task
-    const task = await Task.findOne({ user_id });
+    const task = await Task.findById(id).exec();
 
     if (!task) {
         res.status(404).json({ message: "Task not found" });
     }
 
+    //- check for duplicate title
+    const duplicate = await Task.findOne({ task_title })
+        .collation({ locale: "en", strength: 2 })
+        .lean()
+        .exec();
+
+    if (duplicate && duplicate?._id.toString() !== id) {
+        return res.status(409).json({ message: "Duplicate Note title" });
+    }
+
     //- add the new values to the task
-    task.name = name;
+    task.user = user;
+    task.task_title = task_title;
+    task.task_description = task_description;
+    task.category = category;
+    task.completed = completed;
 
     //- save the recently updated task
-    await task.save();
+    const updatedTask = await task.save();
 
-    res.json({ message: "Task updated successfully" });
-};
+    res.json({ message: `${updatedTask.task_title} updated successfully` });
+});
 
 //- delete a task
-export const deleteTask = async (req, res) => {
-    const { user_id } = req.body;
+export const deleteTask = asyncHandler(async (req, res) => {
+    const { id } = req.body;
 
     //- confirm data
-    if (!user_id) {
+    if (!id) {
         return res.status(400).json({ message: "Task id Required" });
     }
 
     //- find the task
-    const task = await Task.findOne({ user_id });
+    const task = await Task.findById(id);
 
     if (!task) {
         res.status(404).json({ message: "Task not found" });
     }
 
-    await task.deleteOne();
+    const result = await task.deleteOne();
 
-    res.status(200).json({ message: "Task successfully deleted" });
-};
+    res.status(200).json({ title: result.task_title, ID: result.id, status: "Deleted" });
+});
