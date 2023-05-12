@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import Inc from "mongoose-sequence";
-const AutoIncrement = Inc(mongoose);
+import { v4 as uuid } from "uuid";
+const genID = uuid(); 
 
 const taskSchema = new mongoose.Schema(
     {
@@ -25,16 +25,14 @@ const taskSchema = new mongoose.Schema(
             type: Boolean,
             default: false,
         },
+        task_id: {
+            type: String,
+            default: genID
+        },
     },
     {
         timestamps: true,
     }
 );
-
-// taskSchema.plugin(AutoIncrement, {
-//     inc_field: "task_id",
-//     id: "taskNums",
-//     start_sequence: 1,
-// });
 
 export const Task = mongoose.model("tasks", taskSchema);
