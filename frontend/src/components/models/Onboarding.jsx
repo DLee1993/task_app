@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { onboarding_Anim } from "../../animations/Animations";
 
@@ -6,7 +6,7 @@ const Onboarding = () => {
     let header = useRef(null);
     let subText = useRef(null);
     let ctaContainer = useRef(null);
-    let containerBackground = useRef(null); 
+    let containerBackground = useRef(null);
 
     useEffect(() => {
         onboarding_Anim(containerBackground, header, subText, ctaContainer);

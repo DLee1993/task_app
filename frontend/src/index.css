@@ -11,6 +11,8 @@ body {
     font-family: "Lato", sans-serif;
     background-color: #121212;
     color: #fff;
+    background-image: url("./assets/onboarding_bg.jpg");
+    background-size: cover;
 }
 
 a {
