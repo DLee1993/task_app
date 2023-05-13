@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -26,6 +26,8 @@ const Register = () => {
     const onPasswordChanged = (e) => setPassword(e.target.value);
     const onConfirmPasswordChanged = (e) => setConfirmPassword(e.target.value);
 
+    const navigate = useNavigate()
+
     const canSave = [validUsername, validPassword].every(Boolean);
 
     const toastWarning = () => {
@@ -46,7 +48,7 @@ const Register = () => {
     const verifyUser = (e) => {
         e.preventDefault();
         if (canSave) {
-            console.log("add new user here");
+            navigate('/dashboard')
         } else {
             toastWarning();
         }

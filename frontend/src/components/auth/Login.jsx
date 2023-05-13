@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,6 +10,8 @@ const Login = () => {
 
     const onUsernameChanged = (e) => setUsername(e.target.value);
     const onPasswordChanged = (e) => setPassword(e.target.value);
+
+    const navigate = useNavigate();
 
     const toastWarning = () => {
         toast("Please enter valid credentials", {
@@ -31,7 +33,7 @@ const Login = () => {
     const verifyUser = (e) => {
       e.preventDefault();
       if (canSave) {
-          console.log("login user");
+          navigate('/dashboard')
       } else {
           toastWarning();
       }
