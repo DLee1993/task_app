@@ -1,7 +1,11 @@
-const Dashboard = () => {
-  return (
-    <div>Dashboard</div>
-  )
-}
+import Header from "../partials/Header";
 
-export default Dashboard
+const Dashboard = () => {
+    return (
+        <main className="dashboard">
+            <Header />
+        </main>
+    );
+};
+
+export default Dashboard;
