@@ -32,7 +32,7 @@ app.use("/", express.static(path.join(__dirname, "public")));
 
 app.use("/", rootRouter);
 
-app.use("/tasks", taskRouter);
+app.use("/dashboard", taskRouter);
 
 app.use("/users", userRouter);
 
