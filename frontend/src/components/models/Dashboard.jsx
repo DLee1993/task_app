@@ -3,10 +3,12 @@ import TaskList from "../../features/tasks/TasksList";
 
 const Dashboard = () => {
     return (
-        <main className="dashboard">
-            <Header/>
-            <TaskList />
-        </main>
+        <>
+            <Header />
+            <main className="dashboard">
+                <TaskList />
+            </main>
+        </>
     );
 };
 

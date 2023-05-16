@@ -21,18 +21,24 @@ const TasksList = () => {
     ));
 
     return (
-        <Table>
-            <thead>
-                <tr>
-                    <th>Task Title and date created</th>
-                    <th>Task category</th>
-                    <th>Task priority</th>
-                    <th>Task completed status</th>
-                    <th>Task Edit Button</th>
-                </tr>
-            </thead>
-            <tbody>{rows}</tbody>
-        </Table>
+        <>
+            <section className="filter_tasks">this is for the search bar</section>
+            <section className="open_tasks">
+                <Table>
+                    <thead>
+                        <tr>
+                            <th>Task Title and date created</th>
+                            <th>Task category</th>
+                            <th>Task priority</th>
+                            <th>Task completed status</th>
+                            <th>Task Edit Button</th>
+                        </tr>
+                    </thead>
+                    <tbody>{rows}</tbody>
+                </Table>
+            </section>
+            <section className="completed_tasks">this is for completed tasks</section>
+        </>
     );
 };
 
