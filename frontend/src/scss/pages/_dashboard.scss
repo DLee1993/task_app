@@ -1,63 +1,60 @@
 .dashboard {
     position: relative;
     width: 100%;
-    height: 100vh;
     background-color: #121212;
+
+    & table {
+        color: #fff;
+    }
+}
+
+.app_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
 
-    & .app_header {
+    & .menu_btn,
+    .profile_btn {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        min-height: 10vh;
-        margin-bottom: 50px;
+        width: 20px;
+        background-color: transparent;
+    }
 
-        & .menu_btn,
-        .profile_btn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 20px;
-            background-color: transparent;
+    & .menu_modal {
+        background-color: #363636;
+        border: none;
+
+        & .mantine-Menu-label {
+            color: #fff;
         }
 
-        & .menu_modal {
-            background-color: #363636;
-            border: none;
+        & .mantine-Menu-item {
+            color: #fff;
 
-            & .mantine-Menu-label {
-                color: #fff;
-            }
-
-            & .mantine-Menu-item {
-                color: #fff;
-
-                &[data-hovered] {
-                    color: #8687e7;
-                    background-color: #404040;
-                }
-            }
-
-            & .delete_account {
-                color: red;
-
-                &[data-hovered] {
-                    color: #fff;
-                    background-color: rgba(255, 0, 0, 0.5);
-                }
+            &[data-hovered] {
+                color: #8687e7;
+                background-color: #404040;
             }
         }
 
-        & svg {
-            cursor: pointer;
+        & .delete_account {
+            color: red;
 
-            @media (min-width: 700px) {
-                font-size: 30px;
+            &[data-hovered] {
+                color: #fff;
+                background-color: rgba(255, 0, 0, 0.5);
             }
         }
     }
 
-    & table{
-        color: #fff;
+    & svg {
+        cursor: pointer;
+
+        @media (min-width: 700px) {
+            font-size: 30px;
+        }
     }
 }
