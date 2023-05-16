@@ -5,7 +5,7 @@ import TaskList from "../../features/tasks/TasksList";
 const Dashboard = () => {
     return (
         <main className="dashboard">
-            <Header />
+            <Header/>
             <TaskList />
             <FloatingDock />
         </main>

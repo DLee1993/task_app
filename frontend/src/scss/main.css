@@ -173,18 +173,41 @@
   align-items: center;
   padding: 20px;
 }
-.dashboard .app_header svg {
-  font-size: 30px;
+.dashboard .app_header .menu_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  background-color: transparent;
+}
+.dashboard .app_header .menu_modal {
+  background-color: #363636;
+  border: none;
+}
+.dashboard .app_header .menu_modal .mantine-Menu-label {
   color: #fff;
+}
+.dashboard .app_header .menu_modal .mantine-Menu-item {
+  color: #fff;
+}
+.dashboard .app_header .menu_modal .mantine-Menu-item[data-hovered] {
+  color: #8687E7;
+  background-color: #404040;
+}
+.dashboard .app_header .menu_modal .delete_account {
+  color: red;
+}
+.dashboard .app_header .menu_modal .delete_account[data-hovered] {
+  color: #fff;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+.dashboard .app_header svg {
   cursor: pointer;
 }
 @media (min-width: 700px) {
   .dashboard .app_header svg {
     font-size: 40px;
   }
-}
-.dashboard .app_header .menu {
-  display: none;
 }
 
 .login_cta,
