@@ -9,8 +9,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        min-height: 10vh;
+        margin-bottom: 50px;
 
-        & .menu_btn, .profile_btn{
+        & .menu_btn,
+        .profile_btn {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,27 +21,27 @@
             background-color: transparent;
         }
 
-        & .menu_modal{
+        & .menu_modal {
             background-color: #363636;
             border: none;
 
-            & .mantine-Menu-label{
+            & .mantine-Menu-label {
                 color: #fff;
             }
 
-            & .mantine-Menu-item{
+            & .mantine-Menu-item {
                 color: #fff;
 
-                &[data-hovered]{
-                    color: #8687E7;
+                &[data-hovered] {
+                    color: #8687e7;
                     background-color: #404040;
                 }
             }
 
-            & .delete_account{
+            & .delete_account {
                 color: red;
 
-                &[data-hovered]{
+                &[data-hovered] {
                     color: #fff;
                     background-color: rgba(255, 0, 0, 0.5);
                 }
@@ -52,5 +55,9 @@
                 font-size: 30px;
             }
         }
+    }
+
+    & table{
+        color: #fff;
     }
 }

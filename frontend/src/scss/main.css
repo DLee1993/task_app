@@ -172,8 +172,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 10vh;
+  margin-bottom: 50px;
 }
-.dashboard .app_header .menu_btn, .dashboard .app_header .profile_btn {
+.dashboard .app_header .menu_btn,
+.dashboard .app_header .profile_btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -191,7 +194,7 @@
   color: #fff;
 }
 .dashboard .app_header .menu_modal .mantine-Menu-item[data-hovered] {
-  color: #8687E7;
+  color: #8687e7;
   background-color: #404040;
 }
 .dashboard .app_header .menu_modal .delete_account {
@@ -208,6 +211,9 @@
   .dashboard .app_header svg {
     font-size: 30px;
   }
+}
+.dashboard table {
+  color: #fff;
 }
 
 .login_cta,
