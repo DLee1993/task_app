@@ -57,7 +57,7 @@
   height: 90%;
   width: 90%;
   max-width: 800px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.702);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -83,6 +83,7 @@
   border: 1px solid #979797;
   background-color: rgba(18, 18, 18, 0.5019607843);
   margin: 10px 0;
+  font-size: 16px;
 }
 .register_page_container .register_user--form button {
   width: auto;
@@ -95,6 +96,7 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: background-color 0.5s ease;
+  font-size: 18px;
 }
 .register_page_container .register_user--form button:hover {
   background-color: #7a7ce5;
@@ -123,7 +125,7 @@
   height: 90%;
   width: 90%;
   max-width: 800px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -149,6 +151,7 @@
   border: 1px solid #979797;
   background-color: rgba(18, 18, 18, 0.5019607843);
   margin: 10px 0;
+  font-size: 16px;
 }
 .login_page_container .login_user--form button {
   width: auto;
@@ -161,6 +164,7 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: background-color 0.5s ease;
+  font-size: 18px;
 }
 .login_page_container .login_user--form button:hover {
   background-color: #7a7ce5;
@@ -172,7 +176,29 @@
   background-color: #121212;
 }
 .dashboard table {
+  width: 100%;
   color: #fff;
+}
+.dashboard table tr:nth-child(odd) {
+  background-color: #404040;
+}
+.dashboard table tr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.dashboard table td {
+  flex-grow: 1;
+}
+.dashboard table .task_category {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-direction: column;
+}
+.dashboard table .task_category .mantine-Badge-root {
+  margin: 3px 0px;
 }
 
 .app_header {

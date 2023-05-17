@@ -64,35 +64,38 @@ const Register = () => {
                 <section className="register_form">
                     <form onSubmit={verifyUser} className="register_user--form">
                         <fieldset className="username_elements">
-                            <label htmlFor="username">Username</label>
+                            <label htmlFor="username">What do you want us to call you?</label>
                             <input
                                 type="text"
                                 aria-label="username"
                                 id="username"
                                 name="username"
+                                placeholder="Username"
                                 value={username}
                                 onChange={onUsernameChanged}
                                 autoFocus
                             />
                         </fieldset>
                         <fieldset className="name_elements">
-                            <label htmlFor="password">Password</label>
+                            <label htmlFor="password">Create a Password</label>
                             <input
                                 type="password"
                                 aria-label="password"
                                 id="password"
                                 name="password"
+                                placeholder="Password"
                                 value={password}
                                 onChange={onPasswordChanged}
                             />
                         </fieldset>
                         <fieldset className="name_elements">
-                            <label htmlFor="confirmPassword">Confirm Password</label>
+                            <label htmlFor="confirmPassword">Confirm your password</label>
                             <input
                                 type="password"
                                 aria-label="confirmPassword"
                                 id="confirmPassword"
                                 name="confirmPassword"
+                                placeholder="Confirm Password"
                                 value={confirmPassword}
                                 onChange={onConfirmPasswordChanged}
                             />

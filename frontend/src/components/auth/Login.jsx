@@ -31,13 +31,13 @@ const Login = () => {
     const canSave = [username, password].every(Boolean);
 
     const verifyUser = (e) => {
-      e.preventDefault();
-      if (canSave) {
-          navigate('/dashboard')
-      } else {
-          toastWarning();
-      }
-  };
+        e.preventDefault();
+        if (canSave) {
+            navigate("/dashboard");
+        } else {
+            toastWarning();
+        }
+    };
 
     return (
         <section className="login_page_container">
@@ -48,25 +48,27 @@ const Login = () => {
             <section className="login_container">
                 <section className="login_form">
                     <form onSubmit={verifyUser} className="login_user--form">
-                        <fieldset className="username_fieldset">
-                            <label htmlFor="username">Username</label>
+                        <fieldset className="username_elements">
+                            <label htmlFor="username">Who are you?</label>
                             <input
                                 type="text"
                                 aria-label="username"
                                 id="username"
                                 name="username"
+                                placeholder="Username"
                                 value={username}
                                 onChange={onUsernameChanged}
                                 autoFocus
                             />
                         </fieldset>
-                        <fieldset className="password_fieldset">
-                            <label htmlFor="password">Password</label>
+                        <fieldset className="name_elements">
+                            <label htmlFor="password">Um, the password?</label>
                             <input
                                 type="password"
                                 aria-label="password"
                                 id="password"
                                 name="password"
+                                placeholder="Password"
                                 value={password}
                                 onChange={onPasswordChanged}
                             />

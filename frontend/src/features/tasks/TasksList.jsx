@@ -1,40 +1,37 @@
-import { Table } from "@mantine/core";
-// import { HiFlag } from "react-icons/hi2";
+import { Table, Checkbox, Badge } from "@mantine/core";
+import { HiFlag, HiAcademicCap } from "react-icons/hi2";
 
 const TasksList = () => {
-    const elements = [
-        { position: 6, mass: 12.011, symbol: "C", name: "Carbon", edit: "yes" },
-        { position: 7, mass: 14.007, symbol: "N", name: "Nitrogen", edit: "yes" },
-        { position: 39, mass: 88.906, symbol: "Y", name: "Yttrium", edit: "yes" },
-        { position: 56, mass: 137.33, symbol: "Ba", name: "Barium", edit: "yes" },
-        { position: 58, mass: 140.12, symbol: "Ce", name: "Cerium", edit: "yes" },
-    ];
-
-    const rows = elements.map((element) => (
-        <tr key={element.name}>
-            <td>{element.position}</td>
-            <td>{element.name}</td>
-            <td>{element.symbol}</td>
-            <td>{element.mass}</td>
-            <td>{element.edit}</td>
-        </tr>
-    ));
-
     return (
         <>
             <section className="filter_tasks">this is for the search bar</section>
             <section className="open_tasks">
                 <Table>
-                    <thead>
+                    <tbody>
                         <tr>
-                            <th>Task Title and date created</th>
-                            <th>Task category</th>
-                            <th>Task priority</th>
-                            <th>Task completed status</th>
-                            <th>Task Edit Button</th>
+                            <td className="task_status">
+                                <Checkbox />
+                            </td>
+                            <td className="task_details">
+                                <h2>Task name</h2>
+                                <p>Today At 16:45</p>
+                            </td>
+                            <td className="task_category">
+                                <Badge>
+                                    <span className="category_icon">
+                                        <HiAcademicCap />
+                                    </span>
+                                    <span className="category_name">University</span>
+                                </Badge>
+                                <Badge>
+                                    <span className="task_priority">
+                                        <HiFlag />
+                                    </span>
+                                    <span className="priority_num">1</span>
+                                </Badge>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>{rows}</tbody>
+                    </tbody>
                 </Table>
             </section>
             <section className="completed_tasks">this is for completed tasks</section>
