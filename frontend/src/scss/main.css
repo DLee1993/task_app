@@ -205,7 +205,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+}
+.app_header {
+  padding: 10px;
+}
+@media screen and (min-width: 375px) {
+  .app_header {
+    padding: calc(1.9047619048vw + 2.8571428571px);
+  }
+}
+@media screen and (min-width: 900px) {
+  .app_header {
+    padding: 20px;
+  }
+}
+.app_header .page_title {
+  display: none;
+}
+@media (min-width: 500px) {
+  .app_header .page_title {
+    display: block;
+  }
 }
 .app_header .menu_btn,
 .app_header .profile_btn {
@@ -232,17 +252,16 @@
 .app_header .menu_modal .delete_account {
   color: red;
 }
+.app_header .menu_modal .delete_account svg {
+  color: #fff;
+}
 .app_header .menu_modal .delete_account[data-hovered] {
   color: #fff;
   background-color: rgba(255, 0, 0, 0.5);
 }
 .app_header svg {
   cursor: pointer;
-}
-@media (min-width: 700px) {
-  .app_header svg {
-    font-size: 30px;
-  }
+  font-size: 25px;
 }
 
 .login_cta,

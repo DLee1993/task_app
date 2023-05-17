@@ -4,6 +4,9 @@ import {
     HiCog8Tooth,
     HiUserCircle,
     HiBars3CenterLeft,
+    HiPencilSquare,
+    HiCalendar,
+    HiExclamationTriangle,
 } from "react-icons/hi2";
 
 const Header = () => {
@@ -19,18 +22,27 @@ const Header = () => {
 
                 <Menu.Dropdown className="menu_modal">
                     <Menu.Label>Settings</Menu.Label>
-                    <Menu.Item
-                        icon={<HiCog8Tooth size={25} />}
-                        component="a"
-                        href="/dashboard/settings"
-                    >
+
+                    <Menu.Item icon={<HiPencilSquare />} component="a" href="/dashboard/settings">
+                        Add a Task
+                    </Menu.Item>
+
+                    <Menu.Item icon={<HiCalendar />} component="a" href="/dashboard/settings">
+                        Calender
+                    </Menu.Item>
+
+                    <Menu.Item icon={<HiCog8Tooth />} component="a" href="/dashboard/settings">
                         Settings
                     </Menu.Item>
+
                     <Menu.Divider />
 
                     <Menu.Label>Account</Menu.Label>
-                    <Menu.Item icon={<HiUserCircle size={25} />}>Account</Menu.Item>
-                    <Menu.Item icon={<HiUserCircle size={25} />} className="delete_account">
+                    <Menu.Item icon={<HiUserCircle />} onClick={open}>
+                        Profile
+                    </Menu.Item>
+
+                    <Menu.Item icon={<HiExclamationTriangle />} className="delete_account">
                         Delete my account
                     </Menu.Item>
                 </Menu.Dropdown>

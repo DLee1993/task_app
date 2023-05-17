@@ -1,0 +1,37 @@
+//* The below calculations are used to adjust the font size based on the screen size
+//* This allows the text to always be proportionate to the size of the screen
+//* You can see this in action if you open the developer tools and adjust the screen width
+
+@mixin fluidType($properties, $min-screen, $max-screen, $min-value, $max-value) {
+    & {
+        @each $property in $properties {
+            #{$property}: $min-value;
+        }
+
+        @media screen and (min-width: $min-screen) {
+            @each $property in $properties {
+                #{$property}: calculateFluidType($min-screen, $max-screen, $min-value, $max-value);
+            }
+        }
+
+        @media screen and (min-width: $max-screen) {
+            @each $property in $properties {
+                #{$property}: $max-value;
+            }
+        }
+    }
+}
+
+// Requires the calc-interpolation function which can also be used independently
+
+@function calculateFluidType($min-screen, $max-screen, $min-value, $max-value) {
+    $a: ($max-value - $min-value) / ($max-screen - $min-screen);
+    $b: $min-value - $a * $min-screen;
+
+    $sign: "+";
+    @if ($b < 0) {
+        $sign: "-";
+        $b: abs($b);
+    }
+    @return calc(#{$a * 100}vw #{$sign} #{$b});
+}
