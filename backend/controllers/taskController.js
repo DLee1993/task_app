@@ -25,7 +25,7 @@ export const createTask = asyncHandler(async (req, res) => {
     const duplicate = await Task.findOne({ task_title }).lean().exec();
 
     if (duplicate) {
-        return res.status(409).json({ message: "username already exists" });
+        return res.status(409).json({ message: "task title already exists" });
     }
 
     //- create new user
