@@ -10,56 +10,60 @@ import {
 } from "react-icons/hi2";
 
 const Header = () => {
-    const [opened, { open, close }] = useDisclosure(false);
+    const [profileModalIsOpen, { open: openProfile, close: profileClose }] = useDisclosure(false);
+
     return (
-        <header className="app_header">
-            <Menu closeOnItemClick position="bottom-start" className="menu">
-                <Menu.Target className="menu_btn">
-                    <Button>
-                        <HiBars3CenterLeft />
-                    </Button>
-                </Menu.Target>
+        <>
+            <header className="app_header">
+                <Menu closeOnItemClick position="bottom-start" className="menu">
+                    <Menu.Target className="menu_btn">
+                        <Button>
+                            <HiBars3CenterLeft />
+                        </Button>
+                    </Menu.Target>
 
-                <Menu.Dropdown className="menu_modal">
-                    <Menu.Label>Settings</Menu.Label>
+                    <Menu.Dropdown className="menu_modal">
+                        <Menu.Label>Settings</Menu.Label>
 
-                    <Menu.Item icon={<HiPencilSquare />} component="a" href="/dashboard/settings">
-                        Add a Task
-                    </Menu.Item>
+                        <Menu.Item icon={<HiPencilSquare />}>
+                            Add a Task
+                        </Menu.Item>
 
-                    <Menu.Item icon={<HiCalendar />} component="a" href="/dashboard/settings">
-                        Calender
-                    </Menu.Item>
+                        <Menu.Item icon={<HiCalendar />}>Calender</Menu.Item>
 
-                    <Menu.Item icon={<HiCog8Tooth />} component="a" href="/dashboard/settings">
-                        Settings
-                    </Menu.Item>
+                        <Menu.Item icon={<HiCog8Tooth />}>Settings</Menu.Item>
 
-                    <Menu.Divider />
+                        <Menu.Divider />
 
-                    <Menu.Label>Account</Menu.Label>
-                    <Menu.Item icon={<HiUserCircle />} onClick={open}>
-                        Profile
-                    </Menu.Item>
+                        <Menu.Label>Account</Menu.Label>
+                        <Menu.Item icon={<HiUserCircle />} onClick={openProfile}>
+                            Profile
+                        </Menu.Item>
 
-                    <Menu.Item icon={<HiExclamationTriangle />} className="delete_account">
-                        Delete my account
-                    </Menu.Item>
-                </Menu.Dropdown>
-            </Menu>
-            <h1 className="page_title">Dashboard</h1>
-            <section className="account_link">
-                <Modal opened={opened} onClose={close} title="Profile" size="90%">
-                    modal content here
-                </Modal>
+                        <Menu.Item icon={<HiExclamationTriangle />} className="delete_account">
+                            Delete my account
+                        </Menu.Item>
+                    </Menu.Dropdown>
+                </Menu>
+                <h1 className="page_title">Dashboard</h1>
+                <section className="account_link">
+                    <Modal
+                        opened={profileModalIsOpen}
+                        onClose={profileClose}
+                        title="Profile"
+                        size="90%"
+                    >
+                        modal content here
+                    </Modal>
 
-                <Group position="center">
-                    <Button onClick={open} className="profile_btn">
-                        <HiUserCircle />
-                    </Button>
-                </Group>
-            </section>
-        </header>
+                    <Group position="center">
+                        <Button onClick={openProfile} className="profile_btn">
+                            <HiUserCircle />
+                        </Button>
+                    </Group>
+                </section>
+            </header>
+        </>
     );
 };
 
