@@ -1,9 +1,10 @@
+import Task from "./Task";
 const TasksList = () => {
     return (
         <>
-            <section className="open_tasks">
-                tasks
-            </section>
+            <ul className="open_tasks">
+                <Task />
+            </ul>
         </>
     );
 };
