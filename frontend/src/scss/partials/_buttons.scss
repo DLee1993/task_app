@@ -2,7 +2,7 @@
 
 .login_cta,
 .register_cta {
-    width: 327px;
+    min-width: 300px;
     height: 40px;
     margin: 20px 0;
     text-transform: uppercase;
@@ -13,7 +13,7 @@
     color: #fff;
 
     &:hover {
-        filter: brightness(110%);   
+        filter: brightness(110%);
     }
 }
 
@@ -23,6 +23,6 @@
     border: 1px solid #8687e7;
 
     &:hover {
-        border-width: 2px;  
+        border-width: 2px;
     }
 }

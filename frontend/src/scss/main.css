@@ -1,4 +1,4 @@
-.onboarding_page {
+.onboarding_bg_container {
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -6,32 +6,39 @@
   background-image: url("../assets/onboarding_bg.jpg");
   background-size: cover;
 }
-.onboarding_page .onboarding_container {
-  height: 90%;
-  width: 90%;
-  max-width: 800px;
+.onboarding_bg_container .onboarding_sign-in_options {
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   padding: 10px;
   border-radius: 4px;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.7);
 }
-.onboarding_page .onboarding_container h1 {
-  font-size: 3rem;
-  transform: translateY(50px);
-  opacity: 0;
+.onboarding_bg_container .onboarding_sign-in_options h1 {
+  font-size: 30px;
 }
-.onboarding_page .onboarding_container p {
+@media screen and (min-width: 375px) {
+  .onboarding_bg_container .onboarding_sign-in_options h1 {
+    font-size: calc(3.8095238095vw + 15.7142857143px);
+  }
+}
+@media screen and (min-width: 900px) {
+  .onboarding_bg_container .onboarding_sign-in_options h1 {
+    font-size: 50px;
+  }
+}
+.onboarding_bg_container .onboarding_sign-in_options p {
   max-width: 300px;
   text-align: center;
-  transform: translateY(50px);
-  opacity: 0;
 }
-.onboarding_page .onboarding_container .cta_container {
-  transform: translateY(50px);
-  opacity: 0;
+@media (min-width: 500px) {
+  .onboarding_bg_container .onboarding_sign-in_options {
+    width: 90%;
+    height: 90%;
+  }
 }
 
 .register_page_container {
@@ -266,7 +273,7 @@
 
 .login_cta,
 .register_cta {
-  width: 327px;
+  min-width: 300px;
   height: 40px;
   margin: 20px 0;
   text-transform: uppercase;
