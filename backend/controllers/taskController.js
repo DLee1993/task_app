@@ -84,7 +84,7 @@ export const updateTask = asyncHandler(async (req, res) => {
     //- save the recently updated task
     const updatedTask = await task.save();
 
-    res.json({ message: `${updatedTask.task_title} updated successfully` });
+    res.json({ message: "Task Updated" });
 });
 
 //- delete a task
@@ -105,5 +105,5 @@ export const deleteTask = asyncHandler(async (req, res) => {
 
     const result = await task.deleteOne();
 
-    res.status(200).json({ title: result.task_title, ID: result.id, status: "Deleted" });
+    res.status(200).json({ message: "Task Deleted" });
 });
