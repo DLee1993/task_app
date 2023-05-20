@@ -1,0 +1,52 @@
+.login_form {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("../assets/onboarding_bg.jpg");
+    background-size: cover;
+
+    & .login_bg {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+        border-radius: 4px;
+        background-color: rgba($color: #000000, $alpha: 0.7);
+
+        & fieldset {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            flex-direction: column;
+            border: none;
+            margin: 20px 0px;
+
+            & label, input{
+                width: 300px;
+                height: 40px;
+            }
+
+            & input{
+                background-color: transparent;
+                border: 1px solid #fff;
+                padding-left: 5px;
+                color: #fff;
+
+                &::placeholder{
+                    color: #fff;
+                }
+            }
+        }
+
+        @media (min-width: 500px) {
+            width: 90%;
+            height: 90%;
+        }
+    }
+}

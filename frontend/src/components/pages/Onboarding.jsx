@@ -5,7 +5,7 @@ const Onboarding = () => {
         <section className="onboarding_bg_container">
             <section className="onboarding_sign-in_options">
                 <h1>Welcome to UpTo</h1>
-                <p>Improve your productivity by managing your daily tasks effeciently</p>
+                <p>Improve your productivity by managing your daily tasks efficiently</p>
                 <section className="sign-in_links">
                     <Link to="/login" className="login_cta">
                         LOGIN
