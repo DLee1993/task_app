@@ -18,7 +18,7 @@ const taskSchema = new mongoose.Schema(
             required: true,
         },
         category: {
-            type: [String],
+            type: String,
             default: "Home",
         },
         priority: {
