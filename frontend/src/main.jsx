@@ -10,7 +10,7 @@ import { MantineProvider } from "@mantine/core";
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <BrowserRouter>
-            <MantineProvider theme={{ colorScheme: "dark" }}>
+            <MantineProvider>
                 <App />
             </MantineProvider>
         </BrowserRouter>
