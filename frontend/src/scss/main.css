@@ -277,6 +277,7 @@
   height: 40px;
   margin: 20px 0;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .login_cta {

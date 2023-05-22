@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDisclosure } from "@mantine/hooks";
@@ -14,36 +15,47 @@ import {
 } from "@mantine/core";
 import { SlSettings, SlExclamation, SlPencil } from "react-icons/sl";
 import { RiAccountPinCircleFill } from "react-icons/ri";
-import { useState } from "react";
 
 const Header = () => {
     const [title, setTitle] = useState("");
-    const [category, setCategory] = useState("");
+    const [category, setCategory] = useState("Home");
+    const [priority, setPriority] = useState(1);
     const [description, setDescription] = useState("");
 
     const [addTaskModalOpened, { open: openTaskModal, close: closeTaskModal }] =
         useDisclosure(false);
+
     const [profileDrawOpened, { open: openProfileDraw, close: closeProfileDraw }] =
+        useDisclosure(false);
+
+    const [deleteModalOpened, { open: openDeleteModal, close: closeDeleteModal }] =
         useDisclosure(false);
 
     const titleChanged = (e) => {
         if (e.target.value !== 0) setTitle(e.target.value);
     };
+
     const descriptionChanged = (e) => {
         if (e.target.value !== 0) setDescription(e.target.value);
     };
 
-    const canSave = [title, description].every(Boolean);
+    const canSave = [title, description, priority, category].every(Boolean);
 
     const addTaskFormSubmitted = (e) => {
         e.preventDefault();
-        //! - THIS IS WHERE WE VALIDATE
+        //! - THIS IS WHERE WE ADD THE TASK TO THE DATABASE
         canSave
-            ? console.log({ title, description, category })
+            ? console.log({ title, description, category, priority })
             : toast.error("Please Fill in all Fields");
+
         setTitle("");
         setDescription("");
         setCategory("");
+    };
+
+    const deleteAccount = () => {
+        alert("Account deleted from action");
+        closeDeleteModal(true);
     };
 
     return (
@@ -67,7 +79,7 @@ const Header = () => {
                         <Menu.Divider />
 
                         <Menu.Label>Danger zone</Menu.Label>
-                        <Menu.Item color="red" icon={<SlExclamation />}>
+                        <Menu.Item color="red" icon={<SlExclamation />} onClick={openDeleteModal}>
                             Delete my account
                         </Menu.Item>
                     </Menu.Dropdown>
@@ -79,16 +91,16 @@ const Header = () => {
                 />
             </nav>
 
-            <Modal opened={addTaskModalOpened} onClose={closeTaskModal}>
-                <h1>Add a Task</h1>
-                <Box maw={300} mx="auto">
-                    <form onSubmit={addTaskFormSubmitted}>
+            <Modal opened={addTaskModalOpened} onClose={closeTaskModal} className="add-task_modal">
+                <h1 className="add-task_modal-header">Add a Task</h1>
+                <Box>
+                    <form onSubmit={addTaskFormSubmitted} className="add-task_form">
                         <TextInput
-                            withAsterisk
                             label="Title"
                             placeholder="Task title"
                             value={title}
                             onChange={titleChanged}
+                            required
                         />
 
                         <Textarea
@@ -96,18 +108,38 @@ const Header = () => {
                             label="Title Description"
                             value={description}
                             onChange={descriptionChanged}
-                            withAsterisk
+                            required
                         />
 
                         <NativeSelect
-                            data={["", "Home", "Work"]}
+                            data={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
+                            label="Task Priority"
+                            value={priority}
+                            onChange={(event) => setPriority(event.target.value)}
+                            required
+                        />
+
+                        <NativeSelect
+                            data={[
+                                "Home",
+                                "Work",
+                                "Grocery",
+                                "Fitness",
+                                "University",
+                                "health",
+                                "Music",
+                                "Movies",
+                            ]}
                             label="Task Category"
                             value={category}
                             onChange={(event) => setCategory(event.target.value)}
+                            required
                         />
 
                         <Group position="right" mt="md">
-                            <Button type="submit" onClick={closeTaskModal} disabled={!canSave}>Submit</Button>
+                            <Button type="submit" onClick={closeTaskModal} disabled={!canSave}>
+                                Submit
+                            </Button>
                         </Group>
                     </form>
                 </Box>
@@ -121,6 +153,22 @@ const Header = () => {
             >
                 USER PROFILE SIDE DRAW
             </Drawer>
+
+            <Modal
+                opened={deleteModalOpened}
+                onClose={closeDeleteModal}
+                className="delete_account-modal"
+                title="Delete Your account?"
+            >
+                <p>
+                    <SlExclamation /> Warning
+                </p>
+                <p>This Action will remove your account permanently!</p>
+                <section className="account_cta">
+                    <button onClick={closeDeleteModal}>Cancel</button>
+                    <button onClick={deleteAccount}>Confirm</button>
+                </section>
+            </Modal>
         </>
     );
 };

@@ -32,36 +32,38 @@ const Register = () => {
     };
 
     return (
-        <form className="login_form" onSubmit={onSaveUserClicked}>
-            <section className="login_bg">
-                <fieldset className="email">
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={onEmailChange}
-                        placeholder="Enter your email address"
-                        autoFocus
-                    />
-                </fieldset>
-                <fieldset className="password">
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={password}
-                        onChange={onPasswordChange}
-                        placeholder="Enter your password"
-                    />
-                </fieldset>
-                <button type="submit" className="login_cta" disabled={!canSave}>
-                    login
-                </button>
-            </section>
-        </form>
+        <>
+            <form className="login_form" onSubmit={onSaveUserClicked}>
+                <section className="login_bg">
+                    <fieldset className="email">
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={email}
+                            onChange={onEmailChange}
+                            placeholder="Enter your email address"
+                            autoFocus
+                        />
+                    </fieldset>
+                    <fieldset className="password">
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={password}
+                            onChange={onPasswordChange}
+                            placeholder="Enter your password"
+                        />
+                    </fieldset>
+                    <button type="submit" className="login_cta" disabled={!canSave}>
+                        register
+                    </button>
+                </section>
+            </form>
+        </>
     );
 };
 
