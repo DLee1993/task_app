@@ -5,6 +5,7 @@
   align-items: center;
   background-image: url("../assets/onboarding_bg.jpg");
   background-size: cover;
+  color: #fff;
 }
 .onboarding_bg_container .onboarding_sign-in_options {
   height: 100%;
@@ -31,8 +32,18 @@
   }
 }
 .onboarding_bg_container .onboarding_sign-in_options p {
-  max-width: 300px;
+  max-width: 450px;
   text-align: center;
+}
+.onboarding_bg_container .onboarding_sign-in_options .register_cta, .onboarding_bg_container .onboarding_sign-in_options .login_cta {
+  background-color: purple;
+  border: none;
+  width: 100px;
+  height: 48px;
+  transition: all 0.2s cubic-bezier(0.08, 0.52, 0.52, 1);
+}
+.onboarding_bg_container .onboarding_sign-in_options .register_cta:hover, .onboarding_bg_container .onboarding_sign-in_options .login_cta:hover {
+  background-color: #fff;
 }
 @media (min-width: 500px) {
   .onboarding_bg_container .onboarding_sign-in_options {

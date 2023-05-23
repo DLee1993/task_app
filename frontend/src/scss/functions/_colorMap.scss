@@ -1,0 +1,41 @@
+$colorMap: (
+    colorPallette: (
+        black: #121212,
+        gray: #979797,
+        white: #ffffffde,
+        purple: #8687e7,
+    ),
+    groceries: (
+        background: #ccff80,
+        fontColor: #21a300,
+    ),
+    Work: (
+        background: #ff9680,
+        fontColor: #a31d00,
+    ),
+    Home: (
+        background: #ffcc80,
+        fontColor: #a36200,
+    ),
+    Health: (
+        background: #80ffa3,
+        fontColor: #00a3a3,
+    ),
+    University: (
+        background: #809cff,
+        fontColor: #0055a3,
+    ),
+    Movies: (
+        background: #80d1ff,
+        fontColor: #0069a3,
+    ),
+    Music: (
+        background: #fc80ff,
+        fontColor: #a000a3,
+    ),
+);
+
+@function clr($palette, $color) {
+    $color: map-get(map-get($colorMap, $palette), $color);
+    @return $color;
+}

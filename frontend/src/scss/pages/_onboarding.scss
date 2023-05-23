@@ -5,6 +5,7 @@
     align-items: center;
     background-image: url("../assets/onboarding_bg.jpg");
     background-size: cover;
+    color: #fff;
 
     & .onboarding_sign-in_options {
         height: 100%;
@@ -22,8 +23,20 @@
         }
 
         & p {
-            max-width: 300px;
+            max-width: 450px;
             text-align: center;
+        }
+
+        & .register_cta, .login_cta{
+            background-color: purple;
+            border: none;
+            width: 100px;   
+            height: 48px;
+            transition: all 0.2s cubic-bezier(.08,.52,.52,1);
+
+            &:hover{
+                background-color: #fff;
+            }
         }
 
         @media (min-width: 500px){
