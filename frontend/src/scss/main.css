@@ -5,7 +5,7 @@
   align-items: center;
   background-image: url("../assets/onboarding_bg.jpg");
   background-size: cover;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.8705882353);
 }
 .onboarding_bg_container .onboarding_sign-in_options {
   height: 100%;
@@ -16,7 +16,7 @@
   flex-direction: column;
   padding: 10px;
   border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7019607843);
 }
 .onboarding_bg_container .onboarding_sign-in_options h1 {
   font-size: 30px;
@@ -36,14 +36,14 @@
   text-align: center;
 }
 .onboarding_bg_container .onboarding_sign-in_options .register_cta, .onboarding_bg_container .onboarding_sign-in_options .login_cta {
-  background-color: purple;
+  background-color: rgba(134, 135, 231, 0.8);
   border: none;
-  width: 100px;
+  width: 150px;
   height: 48px;
   transition: all 0.2s cubic-bezier(0.08, 0.52, 0.52, 1);
 }
 .onboarding_bg_container .onboarding_sign-in_options .register_cta:hover, .onboarding_bg_container .onboarding_sign-in_options .login_cta:hover {
-  background-color: #fff;
+  background-color: #8687e7;
 }
 @media (min-width: 500px) {
   .onboarding_bg_container .onboarding_sign-in_options {

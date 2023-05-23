@@ -5,7 +5,7 @@
     align-items: center;
     background-image: url("../assets/onboarding_bg.jpg");
     background-size: cover;
-    color: #fff;
+    color: clr(colorPallette, white);
 
     & .onboarding_sign-in_options {
         height: 100%;
@@ -16,7 +16,7 @@
         flex-direction: column;
         padding: 10px;
         border-radius: 4px;
-        background-color: rgba($color: #000000, $alpha: 0.7);
+        background-color: clr(colorPallette, fadedBlack);
 
         & h1 {
             @include fluidType(font-size, 375px, 900px, 30px, 50px);
@@ -28,14 +28,14 @@
         }
 
         & .register_cta, .login_cta{
-            background-color: purple;
+            background-color: clr(colorPallette, fadedPurple);
             border: none;
-            width: 100px;   
+            width: 150px;   
             height: 48px;
             transition: all 0.2s cubic-bezier(.08,.52,.52,1);
 
             &:hover{
-                background-color: #fff;
+                background-color: clr(colorPallette, purple);
             }
         }
 
