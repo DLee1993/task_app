@@ -14,7 +14,7 @@ const Onboarding = () => {
                         <Button className="login_cta">login</Button>
                     </Link>
                     <Link to="/register">
-                        <Button className="register_cta">Cancel</Button>
+                        <Button className="register_cta">register</Button>
                     </Link>
                 </ButtonGroup>
             </section>

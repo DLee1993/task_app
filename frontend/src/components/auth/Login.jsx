@@ -1,42 +1,55 @@
-import { useState } from "react";
-import {
-    FormControl,
-    FormLabel,
-    Input,
-    FormErrorMessage,
-    FormHelperText,
-    useToast,
-} from "@chakra-ui/react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
+import { IoArrowBack } from "react-icons/io5";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
 
 const Login = () => {
     const [email, setEmail] = useState("");
+    const [validEmail, setValidEmail] = useState(false);
     const [password, setPassword] = useState("");
+    const [validPassword, setValidPassword] = useState(false);
 
     const onEmailChange = (e) => setEmail(e.target.value);
     const onPasswordChange = (e) => setPassword(e.target.value);
 
-    const isError = email || password === "";
+    const navigate = useNavigate();
+    const errorNotification = "custom-error-id";
 
-    const notification = useToast();
+    useEffect(() => {
+        setValidEmail(EMAIL_REGEX.test(email));
+    }, [email]);
+
+    useEffect(() => {
+        setValidPassword(PWD_REGEX.test(password));
+    }, [password]);
+
+    const canSave = [validEmail, validPassword].every(Boolean);
 
     const onSubmitClicked = (e) => {
         e.preventDefault();
-        isError
-            ? notification({
-                  title: "Error",
-                  description: "Please Enter the correct account details",
-                  status: "error",
-                  duration: 3000,
-                  isClosable: true,
-              })
-            : console.log("logging in");
+        canSave
+            ? console.log("Logging in")
+            : toast.error("Incorrect Credentials", {
+                  theme: "dark",
+                  position: "bottom-center",
+                  toastId: errorNotification,
+              });
         //! - THIS IS WHERE WE ADD THE TOKENS AND CHECK THE LOGIN DETAILS
     };
 
     return (
         <section className="login_page_container">
+            <ToastContainer theme="dark" position="bottom-center" />
+            <Button className="go_back_link_cta" variant="outline" onClick={() => navigate(-1)}>
+                <IoArrowBack />
+            </Button>
             <form className="login_form">
-                <FormControl className="form-control-container">
+                <FormControl className="form-control-container" isRequired autoFocus>
                     <FormLabel>Email address</FormLabel>
                     <Input
                         type="email"
@@ -44,13 +57,8 @@ const Login = () => {
                         value={email}
                         onChange={onEmailChange}
                     />
-                    {!isError ? (
-                        <FormHelperText>We will never share your email.</FormHelperText>
-                    ) : (
-                        <FormErrorMessage>Email is required.</FormErrorMessage>
-                    )}
                 </FormControl>
-                <FormControl className="form-control-container">
+                <FormControl className="form-control-container" isRequired>
                     <FormLabel>Password</FormLabel>
                     <Input
                         type="password"
@@ -58,15 +66,18 @@ const Login = () => {
                         value={password}
                         onChange={onPasswordChange}
                     />
-                    {!isError ? (
-                        <FormHelperText>We will never share your email.</FormHelperText>
-                    ) : (
-                        <FormErrorMessage>Password is required.</FormErrorMessage>
-                    )}
                 </FormControl>
-                <button type="submit" onClick={onSubmitClicked}>
-                    Login
-                </button>
+                <section className="submit_btn_flex_container">
+                    <Button
+                        type="submit"
+                        onClick={onSubmitClicked}
+                        variant="solid"
+                        className="form_submit_btn"
+                        disabled={!canSave}
+                    >
+                        Login
+                    </Button>
+                </section>
             </form>
         </section>
     );

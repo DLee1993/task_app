@@ -5,72 +5,54 @@
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    padding: 20px;
     background-image: url("../assets/onboarding_bg.jpg");
     background-size: cover;
 
-    & .prev_page--link {
-        color: #fff;
-        text-decoration: none;
+    & .go_back_link_cta {
+        position: absolute;
+        top: 20px;
+        left: 20px;
         margin-right: auto;
+        border: 1px solid clr(colorPalette, purple);
 
-        & svg {
-            font-size: 25px;
+        &:hover {
+            background-color: clr(colorPalette, fadedPurple);
         }
     }
 
-    & .register_container {
-        height: 90%;
-        width: 90%;
-        max-width: 800px;
-        background-color: rgba(0, 0, 0, 0.702);
+    & .register_form {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
         flex-direction: column;
-        padding: 10px;
-        border-radius: 4px;
-    }
+        width: 100%;
+        height: 100%;
+        background-color: clr(colorPalette, fadedBlack);
 
-    & .register_user--form {
-        & fieldset {
-            display: flex;
-            flex-direction: column;
-            border: none;
-            margin: 20px 0;
-
-            & label {
-                padding-bottom: 5px;
-            }
-
-            & input {
-                width: auto;
-                min-width: 320px;
-                height: 48px;
-                padding-left: 5px;
-                color: #fff;
-                border: 1px solid #979797;
-                background-color: #12121280;
-                margin: 10px 0;
-                font-size: 16px;
-            }
+        & .form-control-container {
+            width: 90%;
+            max-width: 400px;
+            margin: 10px 0;
         }
 
-        & button {
-            width: auto;
-            min-width: 320px;
-            height: 48px;
-            color: #fff;
-            background-color: #8687e7;
-            border: none;
-            margin-top: 10px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background-color 0.5s ease;
-            font-size: 18px;
+        & .submit_btn_flex_container {
+            display: flex;
+            justify-content: end;
+            width: 90%;
+            max-width: 400px;
+            margin-top: 40px;
 
-            &:hover {
-                background-color: #7a7ce5;
+            & .form_submit_btn {
+                width: 100%;
+                background-color: clr(colorPalette, purple);
+
+                &:hover {
+                    background-color: clr(colorPalette, fadedPurple);
+                }
+            }
+
+            & .form_submit_btn[disabled] {
+                background-color: clr(colorPalette, gray);
             }
         }
     }

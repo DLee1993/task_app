@@ -1,17 +1,26 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
+import { IoArrowBack } from "react-icons/io5";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
 
 const Register = () => {
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [validEmail, setValidEmail] = useState(false);
-
     const [password, setPassword] = useState("");
     const [validPassword, setValidPassword] = useState(false);
 
+    const onNameChange = (e) => setName(e.target.value);
     const onEmailChange = (e) => setEmail(e.target.value);
     const onPasswordChange = (e) => setPassword(e.target.value);
+
+    const navigate = useNavigate();
+    const errorNotification = "custom-error-id";
 
     useEffect(() => {
         setValidEmail(EMAIL_REGEX.test(email));
@@ -21,49 +30,67 @@ const Register = () => {
         setValidPassword(PWD_REGEX.test(password));
     }, [password]);
 
-    const canSave = [validEmail, validPassword].every(Boolean);
+    const canSave = [name, validEmail, validPassword].every(Boolean);
 
-    const onSaveUserClicked = async (e) => {
+    const onSubmitClicked = (e) => {
         e.preventDefault();
-        if (canSave) {
-            console.log("able to save");
-            //! - IF INPUTS ARE VALID ADD A NEW USER
-        }
+        canSave
+            ? console.log("Logging in")
+            : toast.error("Please Fill in all fields", {
+                  theme: "dark",
+                  position: "bottom-center",
+                  toastId: errorNotification,
+              });
+        //! - THIS IS WHERE WE ADD THE TOKENS AND CHECK THE REGISTER DETAILS
     };
 
     return (
-        <>
-            <form className="login_form" onSubmit={onSaveUserClicked}>
-                <section className="login_bg">
-                    <fieldset className="email">
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={email}
-                            onChange={onEmailChange}
-                            placeholder="Enter your email address"
-                            autoFocus
-                        />
-                    </fieldset>
-                    <fieldset className="password">
-                        <label htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            value={password}
-                            onChange={onPasswordChange}
-                            placeholder="Enter your password"
-                        />
-                    </fieldset>
-                    <button type="submit" className="login_cta" disabled={!canSave}>
-                        register
-                    </button>
+        <section className="register_page_container">
+            <ToastContainer theme="dark" position="bottom-center" />
+            <Button className="go_back_link_cta" variant="outline" onClick={() => navigate(-1)}>
+                <IoArrowBack />
+            </Button>
+            <form className="register_form">
+                <FormControl className="form-control-container" isRequired autoFocus>
+                    <FormLabel>Name</FormLabel>
+                    <Input
+                        type="name"
+                        aria-label="name_input"
+                        value={name}
+                        onChange={onNameChange}
+                    />
+                </FormControl>
+                <FormControl className="form-control-container" isRequired>
+                    <FormLabel>Email address</FormLabel>
+                    <Input
+                        type="email"
+                        aria-label="email_input"
+                        value={email}
+                        onChange={onEmailChange}
+                    />
+                </FormControl>
+                <FormControl className="form-control-container" isRequired>
+                    <FormLabel>Password</FormLabel>
+                    <Input
+                        type="password"
+                        aria-label="password_input"
+                        value={password}
+                        onChange={onPasswordChange}
+                    />
+                </FormControl>
+                <section className="submit_btn_flex_container">
+                    <Button
+                        type="submit"
+                        onClick={onSubmitClicked}
+                        variant="solid"
+                        className="form_submit_btn"
+                        disabled={!canSave}
+                    >
+                        Register
+                    </Button>
                 </section>
             </form>
-        </>
+        </section>
     );
 };
 
