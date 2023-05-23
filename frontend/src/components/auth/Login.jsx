@@ -1,4 +1,12 @@
 import { useState } from "react";
+import {
+    FormControl,
+    FormLabel,
+    Input,
+    FormErrorMessage,
+    FormHelperText,
+    useToast,
+} from "@chakra-ui/react";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -7,43 +15,60 @@ const Login = () => {
     const onEmailChange = (e) => setEmail(e.target.value);
     const onPasswordChange = (e) => setPassword(e.target.value);
 
+    const isError = email || password === "";
+
+    const notification = useToast();
+
     const onSubmitClicked = (e) => {
         e.preventDefault();
-        console.log("loggin in");
+        isError
+            ? notification({
+                  title: "Error",
+                  description: "Please Enter the correct account details",
+                  status: "error",
+                  duration: 3000,
+                  isClosable: true,
+              })
+            : console.log("logging in");
         //! - THIS IS WHERE WE ADD THE TOKENS AND CHECK THE LOGIN DETAILS
     };
 
     return (
-        <form className="login_form">
-            <section className="login_bg">
-                <fieldset className="email">
-                    <label htmlFor="email">Email</label>
-                    <input
+        <section className="login_page_container">
+            <form className="login_form">
+                <FormControl className="form-control-container">
+                    <FormLabel>Email address</FormLabel>
+                    <Input
                         type="email"
-                        id="email"
-                        name="email"
+                        aria-label="email_input"
                         value={email}
                         onChange={onEmailChange}
-                        placeholder="Enter your email address"
-                        autoFocus
                     />
-                </fieldset>
-                <fieldset className="password">
-                    <label htmlFor="password">Password</label>
-                    <input
+                    {!isError ? (
+                        <FormHelperText>We will never share your email.</FormHelperText>
+                    ) : (
+                        <FormErrorMessage>Email is required.</FormErrorMessage>
+                    )}
+                </FormControl>
+                <FormControl className="form-control-container">
+                    <FormLabel>Password</FormLabel>
+                    <Input
                         type="password"
-                        id="password"
-                        name="password"
+                        aria-label="password_input"
                         value={password}
                         onChange={onPasswordChange}
-                        placeholder="Enter your password"
                     />
-                </fieldset>
-                <button className="login_cta" onClick={onSubmitClicked}>
-                    login
+                    {!isError ? (
+                        <FormHelperText>We will never share your email.</FormHelperText>
+                    ) : (
+                        <FormErrorMessage>Password is required.</FormErrorMessage>
+                    )}
+                </FormControl>
+                <button type="submit" onClick={onSubmitClicked}>
+                    Login
                 </button>
-            </section>
-        </form>
+            </form>
+        </section>
     );
 };
 
