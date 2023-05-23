@@ -4,13 +4,13 @@ import Footer from "../partials/Footer";
 
 const Dashboard = () => {
     return (
-        <>
+        <main className="dashboard">
             <Header />
             <section className="main">
                 <TasksList />
             </section>
             <Footer />
-        </>
+        </main>
     );
 };
 

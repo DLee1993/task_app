@@ -1,6 +1,3 @@
-import { Button, ButtonGroup } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-
 const Onboarding = () => {
     return (
         <section className="onboarding_bg_container">
@@ -9,14 +6,6 @@ const Onboarding = () => {
                 <p>
                     Utilise our software to organise your daily tasks and increase your productivity
                 </p>
-                <ButtonGroup variant="outline" spacing="6">
-                    <Link to="/login">
-                        <Button className="login_cta">login</Button>
-                    </Link>
-                    <Link to="/register">
-                        <Button className="register_cta">register</Button>
-                    </Link>
-                </ButtonGroup>
             </section>
         </section>
     );
