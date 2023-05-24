@@ -1,6 +1,6 @@
-import Header from "../partials/Header";
-import TasksList from "../../features/tasks/TasksList";
-import Footer from "../partials/Footer";
+import Header from "../partials/Dashboard/Header";
+import TasksList from "../../appFeatures/TasksList";
+import Footer from "../partials/Dashboard/Footer";
 
 const Dashboard = () => {
     return (
