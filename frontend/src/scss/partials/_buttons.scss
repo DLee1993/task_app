@@ -1,0 +1,26 @@
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.filled_btn {
+    background-color: clr(colorPalette, brightPurple);
+
+    &:hover {
+        border-radius: 5px;
+        background-color: clr(colorPalette, fadedPurple);
+    }
+}
+
+.outline_btn {
+    background-color: transparent;
+    border: 1px solid clr(colorPalette, brightPurple);
+
+    &:hover {
+        border-radius: 5px;
+        background-color: clr(colorPalette, brightPurple);
+    }
+}

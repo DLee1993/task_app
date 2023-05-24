@@ -1,1 +1,128 @@
-/*# sourceMappingURL=main.css.map */
+.onboarding_bg_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+}
+.onboarding_bg_container .onboarding_message {
+  text-align: center;
+}
+.onboarding_bg_container .onboarding_message h1 {
+  transform: translateY(50px);
+  opacity: 0;
+}
+.onboarding_bg_container .onboarding_message h1 {
+  font-size: 30px;
+}
+@media screen and (min-width: 320px) {
+  .onboarding_bg_container .onboarding_message h1 {
+    font-size: calc(5.2631578947vw + 13.1578947368px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .onboarding_bg_container .onboarding_message h1 {
+    font-size: 50px;
+  }
+}
+.onboarding_bg_container .onboarding_message p {
+  max-width: 500px;
+  transform: translateY(50px);
+  opacity: 0;
+}
+.onboarding_bg_container .onboarding_message p {
+  font-size: 16px;
+}
+@media screen and (min-width: 320px) {
+  .onboarding_bg_container .onboarding_message p {
+    font-size: calc(1.0526315789vw + 12.6315789474px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .onboarding_bg_container .onboarding_message p {
+    font-size: 20px;
+  }
+}
+.onboarding_bg_container .onboarding_message p {
+  margin-top: 16px;
+}
+@media screen and (min-width: 320px) {
+  .onboarding_bg_container .onboarding_message p {
+    margin-top: calc(1.0526315789vw + 12.6315789474px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .onboarding_bg_container .onboarding_message p {
+    margin-top: 20px;
+  }
+}
+.onboarding_bg_container .onboarding_sign-in_options {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+@media (min-width: 700px) {
+  .onboarding_bg_container .onboarding_sign-in_options {
+    flex-direction: row;
+  }
+}
+.onboarding_bg_container .onboarding_sign-in_options .login_cta,
+.onboarding_bg_container .onboarding_sign-in_options .register_cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  margin: 10px 0;
+  transform: translateY(50px);
+  opacity: 0;
+}
+.onboarding_bg_container .onboarding_sign-in_options .login_cta,
+.onboarding_bg_container .onboarding_sign-in_options .register_cta {
+  width: 280px;
+}
+@media screen and (min-width: 320px) {
+  .onboarding_bg_container .onboarding_sign-in_options .login_cta,
+  .onboarding_bg_container .onboarding_sign-in_options .register_cta {
+    width: calc(-28.9473684211vw + 372.6315789474px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .onboarding_bg_container .onboarding_sign-in_options .login_cta,
+  .onboarding_bg_container .onboarding_sign-in_options .register_cta {
+    width: 170px;
+  }
+}
+@media (min-width: 700px) {
+  .onboarding_bg_container .onboarding_sign-in_options .login_cta,
+  .onboarding_bg_container .onboarding_sign-in_options .register_cta {
+    margin: 0;
+  }
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.filled_btn {
+  background-color: #8687e7;
+}
+.filled_btn:hover {
+  border-radius: 5px;
+  background-color: rgba(134, 135, 231, 0.8);
+}
+
+.outline_btn {
+  background-color: transparent;
+  border: 1px solid #8687e7;
+}
+.outline_btn:hover {
+  border-radius: 5px;
+  background-color: #8687e7;
+}/*# sourceMappingURL=main.css.map */
