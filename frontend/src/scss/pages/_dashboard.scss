@@ -1,0 +1,33 @@
+.dashboard {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+    .app_header {
+        width: 100%;
+        min-height: 15vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+
+        & .header_title {
+            @include fluidType(font-size, 320px, 700px, 30px, 40px);
+        }
+
+        & .navMenu_cta,
+        .profileDraw_cta {
+            background-color: clr(colorPalette, brightPurple);
+        }
+
+        & .delete_cta {
+            color: clr(colorPalette, warningRed);
+
+            &:hover {
+                background-color: clr(colorPalette, warningRed);
+            }
+        }
+    }
+}
