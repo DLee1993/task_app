@@ -1,0 +1,17 @@
+.addTaskForm {
+    fieldset {
+        display: flex;
+        flex-direction: column;
+        border: none;
+        margin: 20px 0 0 0;
+    }
+
+    input, textarea {
+        color: clr(colorPalette, black);
+    }
+}
+
+
+.login_page_container, .register_page_container{
+    color: clr(colorPalette, white);
+}

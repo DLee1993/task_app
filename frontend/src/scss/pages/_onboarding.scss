@@ -7,6 +7,10 @@
     width: fit-content;
     margin: auto;
 
+    & * {
+        color: clr(colorPalette, white);
+    }
+
     & .onboarding_message {
         text-align: center;
         h1 {

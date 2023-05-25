@@ -27,7 +27,16 @@
 
             &:hover {
                 background-color: clr(colorPalette, warningRed);
+                color: clr(colorPalette, white);
             }
         }
+    }
+}
+
+.mantine-Menu-item{
+    color: clr(colorPalette, plainGray);
+
+    &:hover{
+        color: clr(colorPalette, white);
     }
 }

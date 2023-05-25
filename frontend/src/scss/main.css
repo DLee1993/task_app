@@ -8,6 +8,9 @@
   width: fit-content;
   margin: auto;
 }
+.onboarding_bg_container * {
+  color: rgba(255, 255, 255, 0.8705882353);
+}
 .onboarding_bg_container .onboarding_message {
   text-align: center;
 }
@@ -141,6 +144,14 @@
 }
 .dashboard .app_header .delete_cta:hover {
   background-color: #a31d00;
+  color: rgba(255, 255, 255, 0.8705882353);
+}
+
+.mantine-Menu-item {
+  color: #979797;
+}
+.mantine-Menu-item:hover {
+  color: rgba(255, 255, 255, 0.8705882353);
 }
 
 a {
@@ -164,4 +175,18 @@ a {
 .outline_btn:hover {
   border-radius: 5px;
   background-color: #8687e7;
+}
+
+.addTaskForm fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  margin: 20px 0 0 0;
+}
+.addTaskForm input, .addTaskForm textarea {
+  color: #121212;
+}
+
+.login_page_container, .register_page_container {
+  color: rgba(255, 255, 255, 0.8705882353);
 }/*# sourceMappingURL=main.css.map */
