@@ -17,7 +17,6 @@ const Login = () => {
     const onPasswordChange = (e) => setPassword(e.target.value);
 
     const navigate = useNavigate();
-    const errorNotification = "custom-error-id";
 
     useEffect(() => {
         setValidEmail(EMAIL_REGEX.test(email));
@@ -33,34 +32,42 @@ const Login = () => {
         e.preventDefault();
         canSave
             ? console.log("Logging in")
-            : toast.error("Incorrect Credentials", {
-                  theme: "dark",
-                  position: "bottom-center",
-                  toastId: errorNotification,
+            : toast.error("Please Enter Valid Credentials", {
+                  theme: "colored",
               });
-        //! - THIS IS WHERE WE ADD THE TOKENS AND CHECK THE LOGIN DETAILS
+        //! - THIS IS WHERE WE ADD THE TOKENS AND CHECK THE REGISTER DETAILS
     };
 
     return (
-        <section className="login_page_container">
+        <>
             <ToastContainer />
-            <IoArrowBack onClick={() => navigate(-1)} />
-            <form onSubmit={onSubmitClicked}>
-                <fieldset className="email_input">
-                    <label htmlFor="email">Email</label>
-                    <input type="text" id="email" value={email} onChange={onEmailChange} />
-                </fieldset>
-                <fieldset className="password_input">
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={onPasswordChange}
-                    />
-                </fieldset>
-            </form>
-        </section>
+            <section className="login_page_container">
+                <IoArrowBack onClick={() => navigate(-1)} className="return_btn" />
+                <form onSubmit={onSubmitClicked}>
+                    <fieldset className="email_input" autoFocus>
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="text"
+                            id="email"
+                            value={email}
+                            onChange={onEmailChange}
+                            required
+                        />
+                    </fieldset>
+                    <fieldset className="password_input">
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={onPasswordChange}
+                            required
+                        />
+                    </fieldset>
+                    <button className="login_btn filled_btn">Login</button>
+                </form>
+            </section>
+        </>
     );
 };
 

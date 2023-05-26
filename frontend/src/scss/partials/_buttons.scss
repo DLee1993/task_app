@@ -6,6 +6,18 @@ a {
     transition: all 0.3s;
 }
 
+.login_btn, .register_btn {
+    border: none;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    cursor: pointer;
+    color: clr(colorPalette, white);
+    min-width: 300px;
+    height: 38px;
+}
+
 .filled_btn {
     background-color: clr(colorPalette, brightPurple);
 
