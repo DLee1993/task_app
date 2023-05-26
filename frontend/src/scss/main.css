@@ -113,6 +113,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  color: rgba(255, 255, 255, 0.8705882353);
 }
 .dashboard .app_header {
   width: 100%;
@@ -177,16 +178,96 @@ a {
   background-color: #8687e7;
 }
 
+.addTaskForm {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+@media (min-width: 700px) {
+  .addTaskForm {
+    flex-direction: row;
+  }
+}
 .addTaskForm fieldset {
   display: flex;
   flex-direction: column;
   border: none;
   margin: 20px 0 0 0;
 }
-.addTaskForm input, .addTaskForm textarea {
+.addTaskForm input,
+.addTaskForm textarea {
+  width: auto;
   color: #121212;
+  padding: 5px;
+}
+.addTaskForm label {
+  margin-bottom: 3px;
+}
+.addTaskForm input {
+  height: 38px;
+  margin-bottom: 20px;
+}
+.addTaskForm textarea {
+  resize: none;
+  height: 200px;
+  margin-bottom: 20px;
+}
+.addTaskForm select {
+  height: 38px;
+}
+.addTaskForm option {
+  border-radius: 0px;
+}
+.addTaskForm .task_details,
+.addTaskForm .date_select {
+  width: 100%;
+  text-align: center;
+}
+@media (min-width: 700px) {
+  .addTaskForm .task_details,
+  .addTaskForm .date_select {
+    width: 50%;
+  }
+}
+.addTaskForm .task_details label,
+.addTaskForm .date_select label {
+  text-align: left;
+}
+.addTaskForm .task_details h5,
+.addTaskForm .date_select h5 {
+  margin-bottom: 10px;
+}
+.addTaskForm .mantine-ButtonGroup-root {
+  margin-top: 50px;
+}
+@media (min-width: 700px) {
+  .addTaskForm .mantine-ButtonGroup-root {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    margin: 0;
+  }
+}
+.addTaskForm .mantine-ButtonGroup-root .submit-cta,
+.addTaskForm .mantine-ButtonGroup-root .cancel-cta {
+  width: 100px;
+  color: white;
+  margin: 0 10px;
+  border-radius: 0;
+}
+.addTaskForm .mantine-ButtonGroup-root .submit-cta:disabled,
+.addTaskForm .mantine-ButtonGroup-root .cancel-cta:disabled {
+  background-color: #979797;
+}
+.addTaskForm .mantine-ButtonGroup-root .submit-cta {
+  background-color: #8687e7;
+}
+.addTaskForm .mantine-ButtonGroup-root .cancel-cta {
+  background-color: #a31d00;
 }
 
-.login_page_container, .register_page_container {
+.login_page_container,
+.register_page_container {
   color: rgba(255, 255, 255, 0.8705882353);
 }/*# sourceMappingURL=main.css.map */

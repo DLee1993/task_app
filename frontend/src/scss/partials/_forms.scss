@@ -1,4 +1,13 @@
 .addTaskForm {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+
+    @media (min-width: 700px) {
+        flex-direction: row;
+    }
+
     fieldset {
         display: flex;
         flex-direction: column;
@@ -6,12 +15,87 @@
         margin: 20px 0 0 0;
     }
 
-    input, textarea {
+    input,
+    textarea {
+        width: auto;
         color: clr(colorPalette, black);
+        padding: 5px;
+    }
+
+    label {
+        margin-bottom: 3px;
+    }
+
+    input {
+        height: 38px;
+        margin-bottom: 20px;
+    }
+
+    textarea {
+        resize: none;
+        height: 200px;
+        margin-bottom: 20px;
+    }
+
+    select {
+        height: 38px;
+    }
+
+    option {
+        border-radius: 0px;
+    }
+
+    .task_details,
+    .date_select {
+        width: 100%;
+        text-align: center;
+
+        @media (min-width: 700px) {
+            width: 50%;
+        }
+
+        & label {
+            text-align: left;
+        }
+
+        & h5 {
+            margin-bottom: 10px;
+        }
+    }
+
+    & .mantine-ButtonGroup-root {
+        margin-top: 50px;
+
+        @media (min-width: 700px) {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            margin: 0;
+        }
+
+        & .submit-cta,
+        .cancel-cta {
+            width: 100px;
+            color: white;
+            margin: 0 10px;
+            border-radius: 0;
+
+            &:disabled {
+                background-color: clr(colorPalette, plainGray);
+            }
+        }
+
+        & .submit-cta {
+            background-color: clr(colorPalette, brightPurple);
+        }
+
+        & .cancel-cta {
+            background-color: clr(colorPalette, warningRed);
+        }
     }
 }
 
-
-.login_page_container, .register_page_container{
+.login_page_container,
+.register_page_container {
     color: clr(colorPalette, white);
 }
