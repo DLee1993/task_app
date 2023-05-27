@@ -16,15 +16,21 @@ const AddTaskModal = ({ taskMenuOpened, close }) => {
         setTaskDescription("");
         setDate(null);
         setCategoryValue("home");
-        close(true)
+        close(true);
     };
-    
+
     const formSubmitted = (e) => {
         e.preventDefault();
         setTaskTitle("");
         setTaskDescription("");
         setDate(null);
         setCategoryValue("home");
+        console.log({
+            title: taskTitle,
+            description: taskDescription,
+            category: categoryValue,
+            date,
+        });
     };
 
     return (

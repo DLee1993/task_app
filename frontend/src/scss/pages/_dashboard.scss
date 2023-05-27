@@ -14,12 +14,7 @@
         align-items: center;
         padding: 0 10px;
 
-        & .header_title {
-            @include fluidType(font-size, 320px, 700px, 30px, 40px);
-        }
-
-        & .navMenu_cta,
-        .profileDraw_cta {
+        & .navMenu_cta {
             background-color: clr(colorPalette, brightPurple);
         }
 

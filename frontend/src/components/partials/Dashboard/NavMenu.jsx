@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { useDisclosure } from "@mantine/hooks";
+import { PropTypes } from "prop-types";
 import { Menu, Button } from "@mantine/core";
 import { HiMenuAlt2, HiPlus, HiCalendar, HiTrash } from "react-icons/hi";
-import AddTaskModal from "./AddTaskModal";
 
-const NavMenu = () => {
+const NavMenu = ({ taskMenuOpen, deleteAccountOpen }) => {
     const [menuOpened, setMenuOpened] = useState(false);
-    const [taskMenuOpened, { open: taskMenuOpen, close: taskMenuClose }] = useDisclosure(false);
 
     return (
         <>
@@ -26,16 +24,22 @@ const NavMenu = () => {
                     <Menu.Divider />
 
                     <Menu.Label>Account Settings</Menu.Label>
-                    <Menu.Item icon={<HiTrash size={14} />} className="delete_cta">
+                    <Menu.Item
+                        icon={<HiTrash size={14} />}
+                        className="delete_cta"
+                        onClick={deleteAccountOpen}
+                    >
                         Delete my account
-                        {/* THIS NEEDS TO TRIGGER A CONFIRM MODAL */}
                     </Menu.Item>
                 </Menu.Dropdown>
             </Menu>
-
-            <AddTaskModal taskMenuOpened={taskMenuOpened} close={taskMenuClose} />
         </>
     );
+};
+
+NavMenu.propTypes = {
+    taskMenuOpen: PropTypes.func,
+    deleteAccountOpen: PropTypes.func,
 };
 
 export default NavMenu;
