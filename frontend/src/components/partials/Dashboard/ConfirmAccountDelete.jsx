@@ -20,10 +20,10 @@ const ConfirmAccountDelete = ({ deleteAccountOpened, close }) => {
                 <h1>Confirm you want to Delete your account</h1>
                 <p>This action can not be undone</p>
                 <Button.Group>
-                    <Button className="cancel-cta" onClick={close}>
+                    <Button className="cancel-cta filled_btn" onClick={close}>
                         Cancel
                     </Button>
-                    <Button className="delete_account-cta" onClick={onDeleteClicked}>
+                    <Button className="delete_account-cta warning_btn" onClick={onDeleteClicked}>
                         Delete
                     </Button>
                 </Button.Group>

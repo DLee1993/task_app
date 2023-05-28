@@ -1,0 +1,76 @@
+//- Mantine has its own selectors for you to style the components
+
+.addTaskModal {
+    & .mantine-Modal-header {
+        margin: 20px 0;
+        & .mantine-Modal-title {
+            @include fluidType(font-size, 320px, 700px, 25px, 35px);
+        }
+
+        & .mantine-Modal-close {
+            width: 2rem;
+            height: 2rem;
+            border: 1px solid clr(colorPalette, brightPurple);
+            transition: all 0.3s;
+
+            &:hover {
+                background-color: clr(colorPalette, brightPurple);
+            }
+        }
+    }
+
+    & .mantine-Modal-body {
+        & .addTaskForm {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+
+            & .task_details {
+                min-height: 400px;
+                width: 100%;
+                margin-bottom: 50px;
+
+                & fieldset {
+                    display: flex;
+                    flex-direction: column;
+
+                    & label {
+                        margin: 20px 0;
+                    }
+
+                    input,
+                    textarea {
+                        padding: 5px;
+                        font-size: 18px;
+                    }
+
+                    & input,
+                    select {
+                        height: 38px;
+                    }
+
+                    & textarea {
+                        min-height: 200px;
+                        resize: none;
+                    }
+                }
+            }
+
+            & .date_select {
+                margin: 20px 0 100px 0;
+
+                & .mantine-DatePickerInput-label {
+                    font-size: 18px;
+                    margin: 0 0 20px 0;
+                }
+            }
+
+            & .addTask_btns {
+                margin-left: auto;
+            }
+        }
+    }
+}

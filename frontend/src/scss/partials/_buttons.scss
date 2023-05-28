@@ -6,7 +6,8 @@ a {
     transition: all 0.3s;
 }
 
-.login_btn, .register_btn {
+.login_btn,
+.register_btn {
     border: none;
     text-transform: uppercase;
     -webkit-transition: all 0.3s;
@@ -16,6 +17,17 @@ a {
     color: clr(colorPalette, white);
     min-width: 300px;
     height: 38px;
+}
+
+.cancel-cta,
+.save-cta,
+.delete_account-cta {
+    width: 100px;
+    margin: 50px 1px 0px 1px;
+
+    @media (min-width: 600px) {
+        margin: 0px 1px;
+    }
 }
 
 .filled_btn {
@@ -34,5 +46,14 @@ a {
     &:hover {
         border-radius: 5px;
         background-color: clr(colorPalette, brightPurple);
+    }
+}
+
+.warning_btn {
+    background-color: clr(colorPalette, warningRed);
+
+    &:hover {
+        border-radius: 5px;
+        background-color: clr(colorPalette, fadedWarningRed);
     }
 }

@@ -166,13 +166,83 @@
   color: rgba(255, 255, 255, 0.8705882353);
 }
 
+.addTaskModal .mantine-Modal-header {
+  margin: 20px 0;
+}
+.addTaskModal .mantine-Modal-header .mantine-Modal-title {
+  font-size: 25px;
+}
+@media screen and (min-width: 320px) {
+  .addTaskModal .mantine-Modal-header .mantine-Modal-title {
+    font-size: calc(2.6315789474vw + 16.5789473684px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .addTaskModal .mantine-Modal-header .mantine-Modal-title {
+    font-size: 35px;
+  }
+}
+.addTaskModal .mantine-Modal-header .mantine-Modal-close {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #8687e7;
+  transition: all 0.3s;
+}
+.addTaskModal .mantine-Modal-header .mantine-Modal-close:hover {
+  background-color: #8687e7;
+}
+.addTaskModal .mantine-Modal-body .addTaskForm {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.addTaskModal .mantine-Modal-body .addTaskForm .task_details {
+  min-height: 400px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+.addTaskModal .mantine-Modal-body .addTaskForm .task_details fieldset {
+  display: flex;
+  flex-direction: column;
+}
+.addTaskModal .mantine-Modal-body .addTaskForm .task_details fieldset label {
+  margin: 20px 0;
+}
+.addTaskModal .mantine-Modal-body .addTaskForm .task_details fieldset input,
+.addTaskModal .mantine-Modal-body .addTaskForm .task_details fieldset textarea {
+  padding: 5px;
+  font-size: 18px;
+}
+.addTaskModal .mantine-Modal-body .addTaskForm .task_details fieldset input,
+.addTaskModal .mantine-Modal-body .addTaskForm .task_details fieldset select {
+  height: 38px;
+}
+.addTaskModal .mantine-Modal-body .addTaskForm .task_details fieldset textarea {
+  min-height: 200px;
+  resize: none;
+}
+.addTaskModal .mantine-Modal-body .addTaskForm .date_select {
+  margin: 20px 0 100px 0;
+}
+.addTaskModal .mantine-Modal-body .addTaskForm .date_select .mantine-DatePickerInput-label {
+  font-size: 18px;
+  margin: 0 0 20px 0;
+}
+.addTaskModal .mantine-Modal-body .addTaskForm .addTask_btns {
+  margin-left: auto;
+}
+
 a {
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.3s;
 }
 
-.login_btn, .register_btn {
+.login_btn,
+.register_btn {
   border: none;
   text-transform: uppercase;
   transition: all 0.3s;
@@ -180,6 +250,20 @@ a {
   color: rgba(255, 255, 255, 0.8705882353);
   min-width: 300px;
   height: 38px;
+}
+
+.cancel-cta,
+.save-cta,
+.delete_account-cta {
+  width: 100px;
+  margin: 50px 1px 0px 1px;
+}
+@media (min-width: 600px) {
+  .cancel-cta,
+  .save-cta,
+  .delete_account-cta {
+    margin: 0px 1px;
+  }
 }
 
 .filled_btn {
@@ -199,6 +283,14 @@ a {
   background-color: #8687e7;
 }
 
+.warning_btn {
+  background-color: #a31d00;
+}
+.warning_btn:hover {
+  border-radius: 5px;
+  background-color: #951c01;
+}
+
 .login_page_container,
 .register_page_container {
   display: flex;
@@ -216,6 +308,10 @@ a {
   border: none;
   margin: 20px 0;
 }
+.login_page_container fieldset label,
+.register_page_container fieldset label {
+  margin-bottom: 10px;
+}
 .login_page_container fieldset input,
 .register_page_container fieldset input {
   min-width: 300px;
@@ -232,4 +328,9 @@ a {
   top: 30px;
   left: 30px;
   cursor: pointer;
+}
+
+input, textarea, select {
+  background-color: #25262b;
+  color: white;
 }/*# sourceMappingURL=main.css.map */
