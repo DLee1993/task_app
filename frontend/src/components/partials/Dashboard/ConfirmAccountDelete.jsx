@@ -8,11 +8,9 @@ const ConfirmAccountDelete = ({ deleteAccountOpened, close }) => {
     const [confirmDelete, setConfirmDelete] = useState(false);
 
     const onDeleteClicked = () => {
-        setConfirmDelete(true);
-        if (confirmDelete) {
-            close();
-            toast.success("You have successfully deleted your account");
-        }
+        setConfirmDelete(!confirmDelete);
+        toast.success("You have successfully deleted your account");
+        close();
     };
 
     return (

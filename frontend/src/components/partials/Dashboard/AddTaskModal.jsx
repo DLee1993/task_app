@@ -35,7 +35,7 @@ const AddTaskModal = ({ taskMenuOpened, close }) => {
 
     return (
         <>
-            <Modal opened={taskMenuOpened} onClose={close} title="Add a Task" fullScreen>
+            <Modal opened={taskMenuOpened} onClose={close} title="Add a Task" fullScreen className="addTaskModal">
                 <form className="addTaskForm" onSubmit={formSubmitted}>
                     <fieldset className="task_details">
                         <label htmlFor="task_title">Title: </label>

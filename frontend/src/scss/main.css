@@ -117,11 +117,36 @@
 }
 .dashboard .app_header {
   width: 100%;
-  min-height: 15vh;
+  min-height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+}
+.dashboard .app_header {
+  padding-left: 10px;
+}
+@media screen and (min-width: 320px) {
+  .dashboard .app_header {
+    padding-left: calc(2.6315789474vw + 1.5789473684px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .dashboard .app_header {
+    padding-left: 20px;
+  }
+}
+.dashboard .app_header {
+  padding-right: 10px;
+}
+@media screen and (min-width: 320px) {
+  .dashboard .app_header {
+    padding-right: calc(2.6315789474vw + 1.5789473684px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .dashboard .app_header {
+    padding-right: 20px;
+  }
 }
 .dashboard .app_header .navMenu_cta {
   background-color: #8687e7;
@@ -172,95 +197,6 @@ a {
 .outline_btn:hover {
   border-radius: 5px;
   background-color: #8687e7;
-}
-
-.addTaskForm {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  flex-direction: column;
-}
-@media (min-width: 700px) {
-  .addTaskForm {
-    flex-direction: row;
-  }
-}
-.addTaskForm fieldset {
-  display: flex;
-  flex-direction: column;
-  border: none;
-  margin: 20px 0 0 0;
-}
-.addTaskForm input,
-.addTaskForm textarea {
-  width: auto;
-  color: #121212;
-  padding: 5px;
-}
-.addTaskForm label {
-  margin-bottom: 3px;
-}
-.addTaskForm input {
-  height: 38px;
-  margin-bottom: 20px;
-}
-.addTaskForm textarea {
-  resize: none;
-  height: 200px;
-  margin-bottom: 20px;
-}
-.addTaskForm select {
-  height: 38px;
-}
-.addTaskForm option {
-  border-radius: 0px;
-}
-.addTaskForm .task_details,
-.addTaskForm .date_select {
-  width: 100%;
-  text-align: center;
-}
-@media (min-width: 700px) {
-  .addTaskForm .task_details,
-  .addTaskForm .date_select {
-    width: 50%;
-  }
-}
-.addTaskForm .task_details label,
-.addTaskForm .date_select label {
-  text-align: left;
-}
-.addTaskForm .task_details h5,
-.addTaskForm .date_select h5 {
-  margin-bottom: 10px;
-}
-.addTaskForm .mantine-ButtonGroup-root {
-  margin-top: 50px;
-}
-@media (min-width: 700px) {
-  .addTaskForm .mantine-ButtonGroup-root {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    margin: 0;
-  }
-}
-.addTaskForm .mantine-ButtonGroup-root .submit-cta,
-.addTaskForm .mantine-ButtonGroup-root .cancel-cta {
-  width: 100px;
-  color: white;
-  margin: 0 10px;
-  border-radius: 0;
-}
-.addTaskForm .mantine-ButtonGroup-root .submit-cta:disabled,
-.addTaskForm .mantine-ButtonGroup-root .cancel-cta:disabled {
-  background-color: #979797;
-}
-.addTaskForm .mantine-ButtonGroup-root .submit-cta {
-  background-color: #8687e7;
-}
-.addTaskForm .mantine-ButtonGroup-root .cancel-cta {
-  background-color: #a31d00;
 }
 
 .login_page_container,
