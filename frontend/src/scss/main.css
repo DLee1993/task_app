@@ -129,74 +129,8 @@
 .dashboard .app_header .mantine-Button-root:hover {
   background-color: rgba(134, 135, 231, 0.8);
 }
-
-.addTaskModal .mantine-Modal-header {
-  margin: 20px 0;
-}
-.addTaskModal .mantine-Modal-header .mantine-Modal-title {
-  font-size: 25px;
-}
-@media screen and (min-width: 320px) {
-  .addTaskModal .mantine-Modal-header .mantine-Modal-title {
-    font-size: calc(2.6315789474vw + 16.5789473684px);
-  }
-}
-@media screen and (min-width: 700px) {
-  .addTaskModal .mantine-Modal-header .mantine-Modal-title {
-    font-size: 35px;
-  }
-}
-.addTaskModal .mantine-Modal-header .mantine-Modal-close {
-  width: 2rem;
-  height: 2rem;
-  border: 1px solid #8687e7;
-  transition: all 0.3s;
-}
-.addTaskModal .mantine-Modal-header .mantine-Modal-close:hover {
-  background-color: #8687e7;
-}
-.addTaskModal .mantine-Modal-body .addTaskForm {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.addTaskModal .mantine-Modal-body .addTaskForm .task_details {
-  min-height: 400px;
-  width: 100%;
-  margin-bottom: 50px;
-}
-.addTaskModal .mantine-Modal-body .addTaskForm .task_details fieldset {
-  display: flex;
-  flex-direction: column;
-}
-.addTaskModal .mantine-Modal-body .addTaskForm .task_details fieldset label {
-  margin: 20px 0;
-}
-.addTaskModal .mantine-Modal-body .addTaskForm .task_details fieldset input,
-.addTaskModal .mantine-Modal-body .addTaskForm .task_details fieldset textarea {
-  padding: 5px;
-  font-size: 18px;
-}
-.addTaskModal .mantine-Modal-body .addTaskForm .task_details fieldset input,
-.addTaskModal .mantine-Modal-body .addTaskForm .task_details fieldset select {
-  height: 38px;
-}
-.addTaskModal .mantine-Modal-body .addTaskForm .task_details fieldset textarea {
-  min-height: 200px;
-  resize: none;
-}
-.addTaskModal .mantine-Modal-body .addTaskForm .date_select {
-  margin: 20px 0 100px 0;
-}
-.addTaskModal .mantine-Modal-body .addTaskForm .date_select .mantine-DatePickerInput-label {
-  font-size: 18px;
-  margin: 0 0 20px 0;
-}
-.addTaskModal .mantine-Modal-body .addTaskForm .addTask_btns {
-  margin-left: auto;
+.dashboard .app_header .mantine-ButtonGroup-root {
+  background-color: red;
 }
 
 a {

@@ -62,6 +62,8 @@ const AddTaskModal = ({ taskMenuOpened, close }) => {
                                 onChange={(e) => setTaskDescription(e.target.value)}
                             />
                         </fieldset>
+                    </fieldset>
+                    <fieldset className="date_select">
                         <fieldset>
                             <label htmlFor="task_category">Select a Category:</label>
                             <select
@@ -79,8 +81,6 @@ const AddTaskModal = ({ taskMenuOpened, close }) => {
                                 <option value="music">Music</option>
                             </select>
                         </fieldset>
-                    </fieldset>
-                    <fieldset className="date_select">
                         <DatePickerInput
                             label="Pick date ( optional )"
                             placeholder="Pick date"

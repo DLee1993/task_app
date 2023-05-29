@@ -9,16 +9,22 @@ const ConfirmAccountLogout = ({ logoutAccountOpened, close }) => {
 
     const onLogoutClicked = () => {
         setConfirmLogout(!confirmLogout);
-        toast.success("You have successfully logged out of your account");
+        toast.success("You have successfully logged out of your account", {
+            position: "bottom-right",
+            autoClose: 2500,
+        });
         close();
     };
 
     return (
         <>
             <ToastContainer />
-            <Modal opened={logoutAccountOpened} onClose={close}>
-                <h1>Confirm you want to Logout of your account</h1>
-                <p>This action can not be undone</p>
+            <Modal
+                opened={logoutAccountOpened}
+                onClose={close}
+                title="Confirm you want to Logout of your account?"
+                padding="xl"
+            >
                 <Button.Group>
                     <Button className="cancel-cta filled_btn" onClick={close}>
                         Cancel
