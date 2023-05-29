@@ -2,7 +2,7 @@ import { Group, Button } from "@mantine/core";
 import { IoAdd, IoPersonCircleOutline, IoLogOut } from "react-icons/io5";
 import { PropTypes } from "prop-types";
 
-const NavIconBar = ({ taskMenuOpen, deleteAccountOpen }) => {
+const NavIconBar = ({ taskMenuOpen, logoutAccountOpen }) => {
     return (
         <Group>
             <Button variant="subtle" onClick={taskMenuOpen}>
@@ -11,7 +11,7 @@ const NavIconBar = ({ taskMenuOpen, deleteAccountOpen }) => {
             <Button variant="subtle">
                 <IoPersonCircleOutline size={25} />
             </Button>
-            <Button variant="subtle" onClick={deleteAccountOpen}>
+            <Button variant="subtle" onClick={logoutAccountOpen}>
                 <IoLogOut size={25} />
             </Button>
         </Group>
@@ -20,7 +20,7 @@ const NavIconBar = ({ taskMenuOpen, deleteAccountOpen }) => {
 
 NavIconBar.propTypes = {
     taskMenuOpen: PropTypes.func,
-    deleteAccountOpen: PropTypes.func,
+    logoutAccountOpen: PropTypes.func,
 };
 
 export default NavIconBar;
