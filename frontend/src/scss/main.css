@@ -131,7 +131,7 @@
 
 .addTaskForm {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: column;
   min-height: 450px;
 }
@@ -171,18 +171,19 @@
 @media (min-width: 700px) {
   .addTaskForm .flex_container {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
   .addTaskForm .flex_container .task_details,
   .addTaskForm .flex_container .date_select {
     width: 45%;
+    height: 100%;
     min-height: 400px;
   }
 }
 .addTaskForm .addTask_btns {
   position: relative;
-  margin: 30px 0 0 auto;
+  margin-left: auto;
 }
 
 a {

@@ -1,6 +1,6 @@
 .addTaskForm {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
     min-height: 450px;
 
@@ -39,12 +39,13 @@
 
         @media (min-width: 700px) {
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
 
             & .task_details,
             .date_select {
                 width: 45%;
+                height: 100%;
                 min-height: 400px;
             }
         }
@@ -52,6 +53,6 @@
 
     & .addTask_btns {
         position: relative;
-        margin: 30px 0 0 auto;
+        margin-left: auto;
     }
 }
