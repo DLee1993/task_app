@@ -43,51 +43,53 @@ const AddTaskModal = ({ taskMenuOpened, close }) => {
                 className="addTaskModal"
             >
                 <form className="addTaskForm" onSubmit={formSubmitted}>
-                    <fieldset className="task_details">
-                        <fieldset>
-                            <label htmlFor="task_title">Title: </label>
-                            <input
-                                type="text"
-                                id="task_title"
-                                value={taskTitle}
-                                onChange={(e) => setTaskTitle(e.target.value)}
+                    <section className="flex_container">
+                        <fieldset className="task_details">
+                            <fieldset>
+                                <label htmlFor="task_title">Title: </label>
+                                <input
+                                    type="text"
+                                    id="task_title"
+                                    value={taskTitle}
+                                    onChange={(e) => setTaskTitle(e.target.value)}
+                                />
+                            </fieldset>
+                            <fieldset>
+                                <label htmlFor="task_description">Description: </label>
+                                <textarea
+                                    type="text"
+                                    id="task_description"
+                                    value={taskDescription}
+                                    onChange={(e) => setTaskDescription(e.target.value)}
+                                />
+                            </fieldset>
+                        </fieldset>
+                        <fieldset className="date_select">
+                            <fieldset>
+                                <label htmlFor="task_category">Select a Category:</label>
+                                <select
+                                    name="category"
+                                    id="task_category"
+                                    value={categoryValue}
+                                    onChange={(e) => setCategoryValue(e.target.value)}
+                                >
+                                    <option value="home">Home</option>
+                                    <option value="university">University</option>
+                                    <option value="gym">Gym</option>
+                                    <option value="groceries">Groceries</option>
+                                    <option value="work">Work</option>
+                                    <option value="movies">Movies</option>
+                                    <option value="music">Music</option>
+                                </select>
+                            </fieldset>
+                            <DatePickerInput
+                                label="Pick date ( optional )"
+                                placeholder="Pick date"
+                                value={date}
+                                onChange={setDate}
                             />
                         </fieldset>
-                        <fieldset>
-                            <label htmlFor="task_description">Description: </label>
-                            <textarea
-                                type="text"
-                                id="task_description"
-                                value={taskDescription}
-                                onChange={(e) => setTaskDescription(e.target.value)}
-                            />
-                        </fieldset>
-                    </fieldset>
-                    <fieldset className="date_select">
-                        <fieldset>
-                            <label htmlFor="task_category">Select a Category:</label>
-                            <select
-                                name="category"
-                                id="task_category"
-                                value={categoryValue}
-                                onChange={(e) => setCategoryValue(e.target.value)}
-                            >
-                                <option value="home">Home</option>
-                                <option value="university">University</option>
-                                <option value="gym">Gym</option>
-                                <option value="groceries">Groceries</option>
-                                <option value="work">Work</option>
-                                <option value="movies">Movies</option>
-                                <option value="music">Music</option>
-                            </select>
-                        </fieldset>
-                        <DatePickerInput
-                            label="Pick date ( optional )"
-                            placeholder="Pick date"
-                            value={date}
-                            onChange={setDate}
-                        />
-                    </fieldset>
+                    </section>
                     <Button.Group className="addTask_btns">
                         <Button className="cancel-cta filled_btn" onClick={formCancelled}>
                             Cancel

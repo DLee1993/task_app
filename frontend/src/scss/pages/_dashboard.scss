@@ -1,9 +1,5 @@
 .dashboard {
     height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
     color: clr(colorPalette, white);
 
     & .app_header {
