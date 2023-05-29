@@ -6,34 +6,20 @@
     flex-direction: column;
     color: clr(colorPalette, white);
 
-    .app_header {
+    & .app_header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
         width: 100%;
         min-height: 10vh;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        @include fluidType(padding-left, 320px, 700px, 10px, 20px);
-        @include fluidType(padding-right, 320px, 700px, 10px, 20px);
+        padding: 0px 20px;
 
-        & .navMenu_cta {
-            background-color: clr(colorPalette, brightPurple);
-        }
-
-        & .delete_cta {
-            color: clr(colorPalette, warningRed);
+        & .mantine-Button-root {
+            color: white;
 
             &:hover {
-                background-color: clr(colorPalette, warningRed);
-                color: clr(colorPalette, white);
+                background-color: clr(colorPalette, fadedPurple);
             }
         }
-    }
-}
-
-.mantine-Menu-item{
-    color: clr(colorPalette, plainGray);
-
-    &:hover{
-        color: clr(colorPalette, white);
     }
 }

@@ -116,54 +116,18 @@
   color: rgba(255, 255, 255, 0.8705882353);
 }
 .dashboard .app_header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   width: 100%;
   min-height: 10vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 0px 20px;
 }
-.dashboard .app_header {
-  padding-left: 10px;
+.dashboard .app_header .mantine-Button-root {
+  color: white;
 }
-@media screen and (min-width: 320px) {
-  .dashboard .app_header {
-    padding-left: calc(2.6315789474vw + 1.5789473684px);
-  }
-}
-@media screen and (min-width: 700px) {
-  .dashboard .app_header {
-    padding-left: 20px;
-  }
-}
-.dashboard .app_header {
-  padding-right: 10px;
-}
-@media screen and (min-width: 320px) {
-  .dashboard .app_header {
-    padding-right: calc(2.6315789474vw + 1.5789473684px);
-  }
-}
-@media screen and (min-width: 700px) {
-  .dashboard .app_header {
-    padding-right: 20px;
-  }
-}
-.dashboard .app_header .navMenu_cta {
-  background-color: #8687e7;
-}
-.dashboard .app_header .delete_cta {
-  color: #a31d00;
-}
-.dashboard .app_header .delete_cta:hover {
-  background-color: #a31d00;
-  color: rgba(255, 255, 255, 0.8705882353);
-}
-
-.mantine-Menu-item {
-  color: #979797;
-}
-.mantine-Menu-item:hover {
-  color: rgba(255, 255, 255, 0.8705882353);
+.dashboard .app_header .mantine-Button-root:hover {
+  background-color: rgba(134, 135, 231, 0.8);
 }
 
 .addTaskModal .mantine-Modal-header {
