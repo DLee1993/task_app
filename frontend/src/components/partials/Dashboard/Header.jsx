@@ -13,6 +13,7 @@ const Header = () => {
 
     return (
         <header className="app_header">
+            <h3>Welcome User</h3>
             <NavIconBar taskMenuOpen={taskMenuOpen} logoutAccountOpen={logoutAccountOpen} />
             <AddTaskModal taskMenuOpened={taskMenuOpened} close={taskMenuClose} />
             <ConfirmAccountLogout

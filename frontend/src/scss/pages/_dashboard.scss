@@ -4,7 +4,7 @@
 
     & .app_header {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
         min-height: 10vh;
@@ -16,10 +16,6 @@
             &:hover {
                 background-color: clr(colorPalette, fadedPurple);
             }
-        }
-
-        & .mantine-ButtonGroup-root{
-            background-color: red;
         }
     }
 }

@@ -113,7 +113,7 @@
 }
 .dashboard .app_header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   min-height: 10vh;
@@ -124,9 +124,6 @@
 }
 .dashboard .app_header .mantine-Button-root:hover {
   background-color: rgba(134, 135, 231, 0.8);
-}
-.dashboard .app_header .mantine-ButtonGroup-root {
-  background-color: red;
 }
 
 .addTaskForm {

@@ -1,29 +1,28 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { Button, Modal } from "@mantine/core";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ConfirmAccountLogout = ({ logoutAccountOpened, close }) => {
     const [confirmLogout, setConfirmLogout] = useState(false);
 
+    const navigate = useNavigate();
+
     const onLogoutClicked = () => {
         setConfirmLogout(!confirmLogout);
-        toast.success("You have successfully logged out of your account", {
-            position: "bottom-right",
-            autoClose: 2500,
-        });
         close();
+        navigate("/");
     };
 
     return (
         <>
-            <ToastContainer />
             <Modal
                 opened={logoutAccountOpened}
                 onClose={close}
                 title="Confirm you want to Logout of your account?"
                 padding="xl"
+                centered
             >
                 <Button.Group>
                     <Button className="cancel-cta filled_btn" onClick={close}>
