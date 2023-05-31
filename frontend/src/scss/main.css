@@ -116,7 +116,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  min-height: 10vh;
+  min-height: 75px;
   padding: 0px 20px;
 }
 .dashboard .app_header .mantine-Button-root {
@@ -185,14 +185,57 @@
   margin-left: auto;
 }
 
+.profile_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+.profile_header p {
+  margin-top: 10px;
+}
+
+.tasks_tracker {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 150px;
+}
+.tasks_tracker .current_tasks,
+.tasks_tracker .completed_tasks {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #121212;
+  color: #8687e7;
+}
+.tasks_tracker .current_tasks span,
+.tasks_tracker .completed_tasks span {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.8705882353);
+}
+
+.user {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  min-height: 200px;
+}
+
 a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
-  text-transform: uppercase;
   transition: all 0.3s;
 }
 
 .login_btn,
-.register_btn {
+.register_btn, .detail-changes {
   border: none;
   text-transform: uppercase;
   transition: all 0.3s;
@@ -204,14 +247,14 @@ a {
 
 .cancel-cta,
 .save-cta,
-.delete_account-cta {
+.logout_account-cta {
   width: 100px;
   margin: 50px 1px 0px 1px;
 }
 @media (min-width: 600px) {
   .cancel-cta,
   .save-cta,
-  .delete_account-cta {
+  .logout_account-cta {
     margin: 0px 1px;
   }
 }
@@ -239,6 +282,12 @@ a {
 .warning_btn:hover {
   border-radius: 5px;
   background-color: #951c01;
+}
+
+.filled_btn,
+.outline_btn,
+.warning_btn {
+  transition: all 0.3s;
 }
 
 .login_page_container,

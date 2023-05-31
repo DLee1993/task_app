@@ -1,13 +1,15 @@
 a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
-    text-transform: uppercase;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
 
 .login_btn,
-.register_btn {
+.register_btn, .detail-changes {
     border: none;
     text-transform: uppercase;
     -webkit-transition: all 0.3s;
@@ -21,7 +23,7 @@ a {
 
 .cancel-cta,
 .save-cta,
-.delete_account-cta {
+.logout_account-cta {
     width: 100px;
     margin: 50px 1px 0px 1px;
 
@@ -56,4 +58,12 @@ a {
         border-radius: 5px;
         background-color: clr(colorPalette, fadedWarningRed);
     }
+}
+
+.filled_btn,
+.outline_btn,
+.warning_btn {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }

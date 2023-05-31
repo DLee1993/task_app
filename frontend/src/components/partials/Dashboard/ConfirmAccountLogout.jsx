@@ -28,7 +28,7 @@ const ConfirmAccountLogout = ({ logoutAccountOpened, close }) => {
                     <Button className="cancel-cta filled_btn" onClick={close}>
                         Cancel
                     </Button>
-                    <Button className="delete_account-cta warning_btn" onClick={onLogoutClicked}>
+                    <Button className="logout_account-cta warning_btn" onClick={onLogoutClicked}>
                         Logout
                     </Button>
                 </Button.Group>
