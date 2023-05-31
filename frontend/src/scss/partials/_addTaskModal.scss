@@ -29,11 +29,13 @@
             & input,
             select {
                 height: 38px;
+                padding-left: 5px;
             }
 
             & textarea {
                 height: 200px;
                 resize: none;
+                padding-left: 5px;
             }
         }
 

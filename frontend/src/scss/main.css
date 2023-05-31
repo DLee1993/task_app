@@ -159,11 +159,13 @@
 .addTaskForm .flex_container .date_select input,
 .addTaskForm .flex_container .date_select select {
   height: 38px;
+  padding-left: 5px;
 }
 .addTaskForm .flex_container .task_details textarea,
 .addTaskForm .flex_container .date_select textarea {
   height: 200px;
   resize: none;
+  padding-left: 5px;
 }
 @media (min-width: 700px) {
   .addTaskForm .flex_container {
