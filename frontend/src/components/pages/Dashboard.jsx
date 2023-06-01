@@ -9,18 +9,21 @@ const Dashboard = () => {
     const [taskMenuOpened, { open: taskMenuOpen, close: taskMenuClose }] = useDisclosure(false);
     const [logoutAccountOpened, { open: logoutAccountOpen, close: logoutAccountClose }] =
         useDisclosure(false);
-    const [profileOpened, { open: profileOpen, close: profileClose }] =
-        useDisclosure(false);
-    
+    const [profileOpened, { open: profileOpen, close: profileClose }] = useDisclosure(false);
+
     return (
         <main className="dashboard">
-            <Header taskMenuOpen={taskMenuOpen} logoutAccountOpen={logoutAccountOpen} profileOpen={profileOpen}/>
+            <Header
+                taskMenuOpen={taskMenuOpen}
+                logoutAccountOpen={logoutAccountOpen}
+                profileOpen={profileOpen}
+            />
             <AddTaskModal taskMenuOpened={taskMenuOpened} close={taskMenuClose} />
             <ConfirmAccountLogout
                 logoutAccountOpened={logoutAccountOpened}
                 close={logoutAccountClose}
             />
-            <ProfileModal profileOpened={profileOpened} close={profileClose}/>
+            <ProfileModal profileOpened={profileOpened} close={profileClose} />
             <section className="main">
                 <TasksList />
             </section>
