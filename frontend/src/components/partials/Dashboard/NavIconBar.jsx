@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 
 const NavIconBar = ({ taskMenuOpen, logoutAccountOpen, profileOpen }) => {
     return (
-        <Group>
+        <Group className="nav-button_group">
             <Button variant="subtle" onClick={taskMenuOpen}>
                 <IoAdd size={25} />
             </Button>

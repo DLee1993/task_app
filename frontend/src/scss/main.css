@@ -9,7 +9,7 @@
   margin: auto;
 }
 .onboarding_bg_container * {
-  color: rgba(255, 255, 255, 0.8705882353);
+  color: #c1c2c5;
 }
 .onboarding_bg_container .onboarding_message {
   text-align: center;
@@ -109,7 +109,7 @@
 
 .dashboard {
   height: 100vh;
-  color: rgba(255, 255, 255, 0.8705882353);
+  color: #c1c2c5;
 }
 .dashboard .app_header {
   display: flex;
@@ -119,8 +119,36 @@
   min-height: 75px;
   padding: 0px 20px;
 }
+.dashboard .app_header .nav-button_group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 50px;
+  background-color: #25262b;
+  border-radius: 3px;
+  padding: 0 10px;
+}
+@media (min-width: 700px) {
+  .dashboard .app_header .nav-button_group {
+    display: block;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+  }
+}
 .dashboard .app_header .mantine-Button-root {
-  color: white;
+  color: #c1c2c5;
 }
 .dashboard .app_header .mantine-Button-root:hover {
   background-color: rgba(134, 135, 231, 0.8);
@@ -215,7 +243,7 @@
 .tasks_tracker .completed_tasks span {
   margin-top: 10px;
   font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.8705882353);
+  color: #c1c2c5;
 }
 
 .user {
@@ -241,7 +269,7 @@ a {
   text-transform: uppercase;
   transition: all 0.3s;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.8705882353);
+  color: #c1c2c5;
   min-width: 300px;
   height: 38px;
 }
@@ -299,7 +327,7 @@ a {
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  color: rgba(255, 255, 255, 0.8705882353);
+  color: #c1c2c5;
 }
 .login_page_container fieldset,
 .register_page_container fieldset {
@@ -336,15 +364,12 @@ input, textarea, select {
 }
 
 .task_list {
-  max-width: 95%;
+  max-width: 80%;
   margin: 0 auto;
-}
-.task_list tr {
-  cursor: pointer;
 }
 
 body {
   font-family: "Lato", sans-serif;
   font-size: 18px;
-  background-color: #1A1B1E;
+  background-color: #1a1b1e;
 }/*# sourceMappingURL=main.css.map */

@@ -4,7 +4,7 @@ import NavIconBar from "./NavIconBar";
 const Header = ({ taskMenuOpen, logoutAccountOpen, profileOpen }) => {
     return (
         <header className="app_header">
-            <h3>Welcome User</h3>
+            <h3>Good [Morning, Afternoon, Evening], User</h3>
             <NavIconBar taskMenuOpen={taskMenuOpen} logoutAccountOpen={logoutAccountOpen} profileOpen={profileOpen}/>
         </header>
     );
