@@ -332,4 +332,10 @@ a {
 input, textarea, select {
   background-color: #25262b;
   color: white;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+  background-color: #25262b;
 }/*# sourceMappingURL=main.css.map */
