@@ -1,4 +1,13 @@
-.task_list {
-    max-width: 80%;
-    margin: 0 auto;
+.tasks_list{
+    list-style: none;
+
+    & .task_listItem{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+
+    @media (min-width: 700px) {
+        width: 50%;
+    }
 }

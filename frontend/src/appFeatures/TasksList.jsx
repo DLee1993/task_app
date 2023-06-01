@@ -6,36 +6,20 @@ const TasksList = () => {
             description: "milk, bread, pasta, ketchup, mustard",
             category: "Home",
         },
-        {
-            priority: 2,
-            title: "Second List",
-            description: "milk, bread, pasta, ketchup, mustard",
-            category: "University",
-        },
-        {
-            priority: 3,
-            title: "Shopping List",
-            description: "milk, bread, pasta, ketchup, mustard",
-            category: "Home",
-        },
-        {
-            priority: 4,
-            title: "Second List",
-            description: "milk, bread, pasta, ketchup, mustard",
-            category: "University",
-        },
     ];
 
     const content = tasks.map((task) => (
-        <li key={task.priority}>
-            <div>{task.priority}</div>
-            <div>{task.title}</div>
-            <div>{task.description}</div>
+        <li key={task.title} className="task_listItem">
+            <p>{task.title}</p>
+            <p>{task.description}</p>
             <div>{task.category}</div>
+            <section>
+                <p>{task.priority}</p>
+            </section>
         </li>
     ));
 
-    return <ul>{content}</ul>;
+    return <ul className="tasks_list">{content}</ul>;
 };
 
 export default TasksList;

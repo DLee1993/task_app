@@ -117,7 +117,32 @@
   align-items: center;
   width: 100%;
   min-height: 75px;
-  padding: 0px 20px;
+}
+.dashboard .app_header {
+  padding-left: 5px;
+}
+@media screen and (min-width: 320px) {
+  .dashboard .app_header {
+    padding-left: calc(3.9473684211vw - 7.6315789474px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .dashboard .app_header {
+    padding-left: 20px;
+  }
+}
+.dashboard .app_header {
+  padding-right: 5px;
+}
+@media screen and (min-width: 320px) {
+  .dashboard .app_header {
+    padding-right: calc(3.9473684211vw - 7.6315789474px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .dashboard .app_header {
+    padding-right: 20px;
+  }
 }
 .dashboard .app_header .nav-button_group {
   display: flex;
@@ -228,7 +253,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  min-height: 150px;
+  min-height: 120px;
 }
 .tasks_tracker .current_tasks,
 .tasks_tracker .completed_tasks {
@@ -363,9 +388,18 @@ input, textarea, select {
   color: white;
 }
 
-.task_list {
-  max-width: 80%;
-  margin: 0 auto;
+.tasks_list {
+  list-style: none;
+}
+.tasks_list .task_listItem {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+@media (min-width: 700px) {
+  .tasks_list {
+    width: 50%;
+  }
 }
 
 body {
