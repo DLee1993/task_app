@@ -228,6 +228,7 @@
 
 a {
   display: flex;
+  text-transform: uppercase;
   justify-content: center;
   align-items: center;
   text-decoration: none;
@@ -332,6 +333,14 @@ a {
 input, textarea, select {
   background-color: #25262b;
   color: white;
+}
+
+.task_list {
+  max-width: 95%;
+  margin: 0 auto;
+}
+.task_list tr {
+  cursor: pointer;
 }
 
 body {

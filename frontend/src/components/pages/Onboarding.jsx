@@ -28,7 +28,7 @@ const Onboarding = () => {
             <nav className="onboarding_sign-in_options cta-links">
                 <Link
                     to="/login"
-                    className="login_cta filled_btn"
+                    className="login_cta outline_btn"
                     ref={(el) => (onboardingLoginLink = el)}
                 >
                     login
