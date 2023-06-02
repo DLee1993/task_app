@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { IoArrowBack } from "react-icons/io5";
+import { OnboardingAnim } from "../../../animations/Onboarding";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
@@ -13,6 +14,11 @@ const Register = () => {
     const [validEmail, setValidEmail] = useState(false);
     const [password, setPassword] = useState("");
     const [validPassword, setValidPassword] = useState(false);
+
+    let nameRef = useRef(null);
+    let emailRef = useRef(null);
+    let passwordRef = useRef(null);
+    let submitRef = useRef(null);
 
     const onNameChange = (e) => setName(e.target.value);
     const onEmailChange = (e) => setEmail(e.target.value);
@@ -27,6 +33,10 @@ const Register = () => {
     useEffect(() => {
         setValidPassword(PWD_REGEX.test(password));
     }, [password]);
+
+    useEffect(() => {
+        OnboardingAnim(nameRef, emailRef, passwordRef, submitRef);
+    });
 
     const canSave = [name, validEmail, validPassword].every(Boolean);
 
@@ -47,7 +57,7 @@ const Register = () => {
                 <IoArrowBack onClick={() => navigate(-1)} className="return_btn" />
                 <form onSubmit={onSubmitClicked}>
                     <section className="outer-register_flex_container">
-                        <fieldset className="name_input" autoFocus>
+                        <fieldset className="name_input" ref={(el) => (nameRef = el)} autoFocus>
                             <label htmlFor="name">Name</label>
                             <input
                                 type="text"
@@ -57,7 +67,7 @@ const Register = () => {
                                 required
                             />
                         </fieldset>
-                        <fieldset className="email_input">
+                        <fieldset className="email_input" ref={(el) => (emailRef = el)}>
                             <label htmlFor="email">Email</label>
                             <input
                                 type="text"
@@ -67,7 +77,7 @@ const Register = () => {
                                 required
                             />
                         </fieldset>
-                        <fieldset className="password_input">
+                        <fieldset className="password_input" ref={(el) => (passwordRef = el)}>
                             <label htmlFor="password">Password</label>
                             <input
                                 type="password"
@@ -78,7 +88,9 @@ const Register = () => {
                             />
                         </fieldset>
                     </section>
-                    <button className="register_btn form_btn filled">register</button>
+                    <button className="register_btn form_btn filled" ref={(el) => (submitRef = el)}>
+                        register
+                    </button>
                 </form>
             </section>
         </>

@@ -208,6 +208,8 @@ fieldset {
   display: flex;
   justify-content: start;
   flex-direction: column;
+  opacity: 0;
+  transform: translateY(50px);
 }
 
 label {
@@ -232,6 +234,11 @@ input {
   input {
     width: 300px;
   }
+}
+
+button {
+  opacity: 0;
+  transform: translateY(50px);
 }
 
 .header {

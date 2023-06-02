@@ -41,6 +41,8 @@ fieldset {
     display: flex;
     justify-content: start;
     flex-direction: column;
+    opacity: 0;
+    transform: translateY(50px);
 }
 
 label {
@@ -53,4 +55,10 @@ input {
     padding-left: 5px;
     color: clr(colorPalette, fadedWhite);
     background-color: clr(colorPalette, fadedBlack);
+}
+
+
+button{
+    opacity: 0;
+    transform: translateY(50px);
 }
