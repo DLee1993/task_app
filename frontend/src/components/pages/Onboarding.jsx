@@ -23,10 +23,10 @@ const Onboarding = () => {
                 className="onboarding_sign-in_options"
                 ref={(el) => (onboardingSignInLinks = el)}
             >
-                <Link to="/login" className="login_cta link outline">
+                <Link to="/login" className="login_cta color_transition link outline">
                     login
                 </Link>
-                <Link to="/register" className="register_cta link outline">
+                <Link to="/register" className="register_cta color_transition link outline">
                     register
                 </Link>
             </section>

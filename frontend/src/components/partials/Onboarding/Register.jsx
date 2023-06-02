@@ -46,36 +46,38 @@ const Register = () => {
             <section className="register_page_container">
                 <IoArrowBack onClick={() => navigate(-1)} className="return_btn" />
                 <form onSubmit={onSubmitClicked}>
-                    <fieldset className="name_input" autoFocus>
-                        <label htmlFor="name">Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            value={name}
-                            onChange={onNameChange}
-                            required
-                        />
-                    </fieldset>
-                    <fieldset className="email_input">
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="text"
-                            id="email"
-                            value={email}
-                            onChange={onEmailChange}
-                            required
-                        />
-                    </fieldset>
-                    <fieldset className="password_input">
-                        <label htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            value={password}
-                            onChange={onPasswordChange}
-                            required
-                        />
-                    </fieldset>
+                    <section className="outer-register_flex_container">
+                        <fieldset className="name_input" autoFocus>
+                            <label htmlFor="name">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                value={name}
+                                onChange={onNameChange}
+                                required
+                            />
+                        </fieldset>
+                        <fieldset className="email_input">
+                            <label htmlFor="email">Email</label>
+                            <input
+                                type="text"
+                                id="email"
+                                value={email}
+                                onChange={onEmailChange}
+                                required
+                            />
+                        </fieldset>
+                        <fieldset className="password_input">
+                            <label htmlFor="password">Password</label>
+                            <input
+                                type="password"
+                                id="password"
+                                value={password}
+                                onChange={onPasswordChange}
+                                required
+                            />
+                        </fieldset>
+                    </section>
                     <button className="register_btn form_btn filled">register</button>
                 </form>
             </section>

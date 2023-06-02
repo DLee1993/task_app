@@ -44,27 +44,29 @@ const Login = () => {
             <section className="login_page_container">
                 <IoArrowBack onClick={() => navigate(-1)} className="return_btn" />
                 <form onSubmit={onSubmitClicked}>
-                    <fieldset className="email_input" autoFocus>
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="text"
-                            id="email"
-                            value={email}
-                            onChange={onEmailChange}
-                            required
-                        />
-                    </fieldset>
-                    <fieldset className="password_input">
-                        <label htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            value={password}
-                            onChange={onPasswordChange}
-                            required
-                        />
-                    </fieldset>
-                    <button className="login_btn form_btn filled">Login</button>
+                    <section className="outer-login_flex_container">
+                        <fieldset className="email_input" autoFocus>
+                            <label htmlFor="email">Email</label>
+                            <input
+                                type="text"
+                                id="email"
+                                value={email}
+                                onChange={onEmailChange}
+                                required
+                            />
+                        </fieldset>
+                        <fieldset className="password_input">
+                            <label htmlFor="password">Password</label>
+                            <input
+                                type="password"
+                                id="password"
+                                value={password}
+                                onChange={onPasswordChange}
+                                required
+                            />
+                        </fieldset>
+                    </section>
+                    <button className="login_btn form_btn filled color_transition">Login</button>
                 </form>
             </section>
         </>

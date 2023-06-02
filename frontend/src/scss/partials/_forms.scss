@@ -1,0 +1,56 @@
+.login_page_container, .register_page_container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.outer-login_flex_container, .outer-register_flex_container {
+    min-height: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.outer-login_flex_container {
+    min-height: 200px;
+}
+
+.outer-register_flex_container {
+    min-height: 300px;
+}
+
+.return_btn {
+    position: absolute;
+    @include fluidType(top, 320px, 700px, 30px, 50px);
+    @include fluidType(left, 320px, 700px, 30px, 50px);
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+fieldset {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input {
+    @include fluidType(width, 320px, 700px, 200px, 300px);
+    height: 38px;
+    padding-left: 5px;
+    color: clr(colorPalette, fadedWhite);
+    background-color: clr(colorPalette, fadedBlack);
+}
