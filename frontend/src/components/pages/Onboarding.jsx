@@ -25,7 +25,7 @@ const Onboarding = () => {
                     Utilise our software to organise your daily tasks and increase your productivity
                 </p>
             </section>
-            <nav className="onboarding_sign-in_options cta-links">
+            <section className="onboarding_sign-in_options">
                 <Link
                     to="/login"
                     className="login_cta link outline"
@@ -40,7 +40,7 @@ const Onboarding = () => {
                 >
                     register
                 </Link>
-            </nav>
+            </section>
         </section>
     );
 };
