@@ -28,14 +28,14 @@ const Onboarding = () => {
             <nav className="onboarding_sign-in_options cta-links">
                 <Link
                     to="/login"
-                    className="login_cta outline_btn"
+                    className="login_cta link outline"
                     ref={(el) => (onboardingLoginLink = el)}
                 >
                     login
                 </Link>
                 <Link
                     to="/register"
-                    className="register_cta outline_btn"
+                    className="register_cta link outline"
                     ref={(el) => (onboardingRegisterLink = el)}
                 >
                     register

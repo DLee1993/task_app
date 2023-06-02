@@ -64,7 +64,7 @@ const Login = () => {
                             required
                         />
                     </fieldset>
-                    <button className="login_btn filled_btn">Login</button>
+                    <button className="login_btn form_btn filled">Login</button>
                 </form>
             </section>
         </>

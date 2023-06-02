@@ -76,7 +76,7 @@ const Register = () => {
                             required
                         />
                     </fieldset>
-                    <button className="register_btn filled_btn">register</button>
+                    <button className="register_btn form_btn filled">register</button>
                 </form>
             </section>
         </>

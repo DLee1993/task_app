@@ -1,5 +1,45 @@
+a, button, Button {
+  cursor: pointer;
+}
+
 .color_transition {
   transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.link, .form_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 18px;
+}
+.link, .form_btn {
+  width: 150px;
+}
+@media screen and (min-width: 320px) {
+  .link, .form_btn {
+    width: calc(39.4736842105vw + 23.6842105263px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .link, .form_btn {
+    width: 300px;
+  }
+}
+.link, .form_btn {
+  height: 28px;
+}
+@media screen and (min-width: 320px) {
+  .link, .form_btn {
+    height: calc(2.6315789474vw + 19.5789473684px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .link, .form_btn {
+    height: 38px;
+  }
 }
 
 .filled {
