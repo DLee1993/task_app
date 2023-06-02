@@ -5,16 +5,10 @@ import { OnboardingAnim } from "../../animations/Onboarding";
 const Onboarding = () => {
     let onboardingHeader = useRef(null);
     let onboardingText = useRef(null);
-    let onboardingLoginLink = useRef(null);
-    let onboardingRegisterLink = useRef(null);
+    let onboardingSignInLinks = useRef(null);
 
     useEffect(() => {
-        OnboardingAnim(
-            onboardingHeader,
-            onboardingText,
-            onboardingLoginLink,
-            onboardingRegisterLink
-        );
+        OnboardingAnim(onboardingHeader, onboardingText, onboardingSignInLinks);
     });
 
     return (
@@ -25,19 +19,14 @@ const Onboarding = () => {
                     Utilise our software to organise your daily tasks and increase your productivity
                 </p>
             </section>
-            <section className="onboarding_sign-in_options">
-                <Link
-                    to="/login"
-                    className="login_cta link outline"
-                    ref={(el) => (onboardingLoginLink = el)}
-                >
+            <section
+                className="onboarding_sign-in_options"
+                ref={(el) => (onboardingSignInLinks = el)}
+            >
+                <Link to="/login" className="login_cta link outline">
                     login
                 </Link>
-                <Link
-                    to="/register"
-                    className="register_cta link outline"
-                    ref={(el) => (onboardingRegisterLink = el)}
-                >
+                <Link to="/register" className="register_cta link outline">
                     register
                 </Link>
             </section>
