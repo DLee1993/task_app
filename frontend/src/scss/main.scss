@@ -1,12 +1,18 @@
 @import "./functions/colorMap";
 @import "./functions/fluidStyles";
-@import "./pages/onboarding";
-@import "./pages/dashboard";
 @import "./partials/addTaskModal";
 @import "./partials/profileModal";
 @import "./partials/buttons";
 @import "./partials/forms";
-@import "./partials/taskList"; 
+@import "./partials/taskList";
+@import "./partials/header";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
 
 body {
     font-family: "Lato", sans-serif;

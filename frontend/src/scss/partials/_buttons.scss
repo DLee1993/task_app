@@ -1,0 +1,37 @@
+//- Styling classes
+.color_transition {
+    transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.filled {
+    background-color: clr(colorPalette, fadedPurple);
+
+    &:hover {
+        background-color: clr(colorPalette, brightPurple);
+    }
+}
+
+.outline {
+    background-color: transparent;
+    border: 1px solid clr(colorPalette, fadedPurple);
+
+    &:hover {
+        background-color: clr(colorPalette, brightPurple);
+    }
+}
+
+.hover {
+    background-color: transparent;
+
+    &:hover {
+        background-color: clr(colorPalette, fadedPurple);
+    }
+}
+
+.warning {
+    background-color: clr(colorPalette, fadedWarningRed);
+
+    &:hover {
+        background-color: clr(colorPalette, warningRed);
+    }
+}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PropTypes } from "prop-types";
-import { Button, Modal } from "@mantine/core";
+import { Button, Modal, Group } from "@mantine/core";
 import "react-toastify/dist/ReactToastify.css";
 
 const ConfirmAccountLogout = ({ logoutAccountOpened, close }) => {
@@ -24,14 +24,14 @@ const ConfirmAccountLogout = ({ logoutAccountOpened, close }) => {
                 padding="xl"
                 centered
             >
-                <Button.Group>
-                    <Button className="cancel-cta filled_btn" onClick={close}>
+                <Group className="logout_select_btns">
+                    <Button className="cancel-cta outline" onClick={close}>
                         Cancel
                     </Button>
-                    <Button className="logout_account-cta warning_btn" onClick={onLogoutClicked}>
+                    <Button className="logout_cta warning" onClick={onLogoutClicked}>
                         Logout
                     </Button>
-                </Button.Group>
+                </Group>
             </Modal>
         </>
     );

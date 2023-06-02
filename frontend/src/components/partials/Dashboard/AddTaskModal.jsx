@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { PropTypes } from "prop-types";
-import { Button, Modal } from "@mantine/core";
+import { Button, Modal, Group } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
 
 const AddTaskModal = ({ taskMenuOpened, close }) => {
@@ -90,19 +90,19 @@ const AddTaskModal = ({ taskMenuOpened, close }) => {
                             />
                         </fieldset>
                     </section>
-                    <Button.Group className="addTask_btns">
-                        <Button className="cancel-cta filled_btn" onClick={formCancelled}>
+                    <Group className="addTask_btns">
+                        <Button className="cancel-cta outline" onClick={formCancelled}>
                             Cancel
                         </Button>
                         <Button
-                            className="save-cta filled_btn"
+                            className="save-cta filled"
                             type="submit"
                             onClick={close}
                             disabled={!canSave}
                         >
                             Save
                         </Button>
-                    </Button.Group>
+                    </Group>
                 </form>
             </Modal>
         </>

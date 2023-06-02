@@ -1,3 +1,76 @@
+.color_transition {
+  transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.filled {
+  background-color: rgba(134, 135, 231, 0.8);
+}
+.filled:hover {
+  background-color: #8687e7;
+}
+
+.outline {
+  background-color: transparent;
+  border: 1px solid rgba(134, 135, 231, 0.8);
+}
+.outline:hover {
+  background-color: #8687e7;
+}
+
+.hover {
+  background-color: transparent;
+}
+.hover:hover {
+  background-color: rgba(134, 135, 231, 0.8);
+}
+
+.warning {
+  background-color: #951c01;
+}
+.warning:hover {
+  background-color: #a31d00;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+  padding: 0 20px;
+}
+.header .nav-button_group {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #25262b;
+}
+.header .nav-button_group svg {
+  color: #c1c2c5;
+}
+@media (min-width: 700px) {
+  .header .nav-button_group {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+
 body {
   font-family: "Lato", sans-serif;
   font-size: 18px;

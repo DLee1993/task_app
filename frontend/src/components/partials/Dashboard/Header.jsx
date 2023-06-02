@@ -4,7 +4,7 @@ import NavIconBar from "./NavIconBar";
 const Header = ({ taskMenuOpen, logoutAccountOpen, profileOpen }) => {
     const getTime = new Date().getHours();
     return (
-        <header className="app_header">
+        <header className="header">
             <h3>
                 {getTime < 12 ? "Good Morning" : getTime < 17 ? "Good Afternoon" : "Good Evening"}{" "}
                 User

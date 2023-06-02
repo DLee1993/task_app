@@ -35,10 +35,10 @@ const ProfileModal = ({ profileOpened, close }) => {
                 <Divider />
                 <section className="user user-actions user-details">
                     <span className="user_details">Email: johnDoe@example.com</span>
-                    <Button className="detail-changes outline_btn" onClick={changeDetailsClicked}>
+                    <Button className="detail-changes filled" onClick={changeDetailsClicked}>
                         change details
                     </Button>
-                    <Button className="logout_account-cta warning_btn" onClick={onLogoutClicked}>
+                    <Button className="logout_cta warning" onClick={onLogoutClicked}>
                         logout
                     </Button>
                 </section>
