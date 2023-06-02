@@ -1,4 +1,6 @@
-a, button, Button{
+a,
+button,
+Button {
     cursor: pointer;
 }
 
@@ -7,16 +9,17 @@ a, button, Button{
     transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-.link, .form_btn {
+.link,
+.form_btn {
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     text-decoration: none;
-    @include fluidType(width, 320px, 700px, 150px, 300px);
-    @include fluidType(height, 320px, 700px, 28px, 38px);
+    @include fluidType(width, 320px, 700px, 200px, 300px);
+    height: 38px;
     text-transform: capitalize;
-    font-size: 18px;
+    @include fluidType(font-size, 320px, 700px, 16px, 18px);
 }
 
 .filled {
