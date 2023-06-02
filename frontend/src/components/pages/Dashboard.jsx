@@ -1,5 +1,5 @@
 import Header from "../partials/Dashboard/Header";
-import TasksList from "../../appFeatures/TasksList";
+import TasksList from "../../appFeatures/tasks/TasksList";
 import { useDisclosure } from "@mantine/hooks";
 import AddTaskModal from "../partials/Dashboard/AddTaskModal";
 import ConfirmAccountLogout from "../partials/Dashboard/ConfirmAccountLogout";
