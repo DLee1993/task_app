@@ -236,7 +236,7 @@ input {
   }
 }
 
-button {
+.login_btn, .register_btn {
   opacity: 0;
   transform: translateY(50px);
 }

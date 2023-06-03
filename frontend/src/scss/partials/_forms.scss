@@ -57,8 +57,7 @@ input {
     background-color: clr(colorPalette, fadedBlack);
 }
 
-
-button{
+.login_btn, .register_btn{
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(50px)
 }
