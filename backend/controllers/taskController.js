@@ -6,7 +6,7 @@ export const getAllTasks = asyncHandler(async (req, res) => {
     const tasks = await Task.find().lean();
 
     if (!tasks?.length) {
-        return res.status(400).json({ message: "No Tasks found" });
+        return res.status(404).json({ message: "You don't have any tasks" });
     }
 
     res.json(tasks);

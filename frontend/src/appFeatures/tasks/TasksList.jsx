@@ -15,11 +15,20 @@ const TasksList = () => {
             </tr>
         );
 
-    if (isError) toast.error(`${error?.data?.message}`);
+    if (isError) {
+        if (error.status === 404) {
+            content = (
+                <tr>
+                    <td>{error.data.message}, why not add one? Click the + button</td>
+                </tr>
+            );
+        } else {
+            toast.error("Oops we can't seem to get your todo's!");
+        }
+    }
 
     if (isSuccess) {
         const { ids } = tasks;
-
         content = ids?.length ? ids.map((taskId) => <Task key={taskId} taskId={taskId} />) : null;
     }
 
