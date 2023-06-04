@@ -54,7 +54,7 @@ const Register = () => {
         <>
             <ToastContainer />
             <section className="register_page_container">
-                <IoArrowBack onClick={() => navigate(-1)} className="return_btn" />
+                <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
                 <form onSubmit={onSubmitClicked}>
                     <section className="outer-register_flex_container">
                         <fieldset className="name_input" ref={(el) => (nameRef = el)} autoFocus>

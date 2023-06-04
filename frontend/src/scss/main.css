@@ -1,6 +1,6 @@
 .onboarding_bg_container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   width: 100%;
