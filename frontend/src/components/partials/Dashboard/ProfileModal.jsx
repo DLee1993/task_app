@@ -16,6 +16,7 @@ const ProfileModal = ({ profileOpened, close }) => {
     };
 
     const changeDetailsClicked = () => navigate("/dashboard/profile");
+    
     return (
         <>
             <Modal opened={profileOpened} onClose={close} className="profileModal">
