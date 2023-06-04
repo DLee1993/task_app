@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { v4 as uuid } from "uuid";
-const genID = uuid(); 
+const genID = uuid();
 
 const taskSchema = new mongoose.Schema(
     {
@@ -22,10 +22,11 @@ const taskSchema = new mongoose.Schema(
             default: "Home",
         },
         priority: {
-            type: Number
+            type: Number,
+            default: 1,
         },
         toBeCompletedBy: {
-            type: String
+            type: String,
         },
         completed: {
             type: Boolean,
@@ -33,7 +34,7 @@ const taskSchema = new mongoose.Schema(
         },
         task_id: {
             type: String,
-            default: genID
+            default: genID,
         },
     },
     {

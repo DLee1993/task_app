@@ -1,6 +1,7 @@
 .tasks_list {
     display: table;
-    margin-bottom: 100px;
+    max-width: 98%;
+    margin: 0 auto 100px auto;
 
     & .priority,
     .description {
