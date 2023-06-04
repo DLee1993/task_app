@@ -47,6 +47,15 @@ Button {
     }
 }
 
+.edit_btn {
+    color: clr(colorPalette, fadedWhite);
+
+    &:hover {
+        color: clr(colorPalette, brightPurple);
+        transform: scale(1.1);
+    }
+}
+
 .warning {
     background-color: clr(colorPalette, fadedWarningRed);
 

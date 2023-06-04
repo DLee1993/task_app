@@ -1,0 +1,22 @@
+.tasks_list {
+    display: table;
+    margin-bottom: 100px;
+
+    & .priority,
+    .description {
+        display: none;
+    }
+
+    @media (min-width: 500px) {
+        & .description {
+            display: block;
+        }
+    }
+
+    @media (min-width: 700px) {
+        margin-bottom: 0px;
+        & .priority {
+            display: block;
+        }
+    }
+}
