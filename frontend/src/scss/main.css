@@ -210,21 +210,75 @@ Button {
   background-color: #a31d00;
 }
 
-.login_page_container, .register_page_container {
+.login_page_container,
+.register_page_container {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+.login_page_container .login_btn,
+.login_page_container .register_btn,
+.register_page_container .login_btn,
+.register_page_container .register_btn {
+  opacity: 0;
+  transform: translateY(50px);
+}
+.login_page_container .return_btn,
+.register_page_container .return_btn {
+  position: absolute;
+  cursor: pointer;
+}
+.login_page_container .return_btn,
+.register_page_container .return_btn {
+  top: 30px;
+}
+@media screen and (min-width: 320px) {
+  .login_page_container .return_btn,
+  .register_page_container .return_btn {
+    top: calc(5.2631578947vw + 13.1578947368px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .login_page_container .return_btn,
+  .register_page_container .return_btn {
+    top: 50px;
+  }
+}
+.login_page_container .return_btn,
+.register_page_container .return_btn {
+  left: 30px;
+}
+@media screen and (min-width: 320px) {
+  .login_page_container .return_btn,
+  .register_page_container .return_btn {
+    left: calc(5.2631578947vw + 13.1578947368px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .login_page_container .return_btn,
+  .register_page_container .return_btn {
+    left: 50px;
+  }
+}
 
-.outer-login_flex_container, .outer-register_flex_container {
-  min-height: 200px;
+.outer-login_flex_container,
+.outer-register_flex_container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   margin-bottom: 50px;
+}
+.outer-login_flex_container .name_input,
+.outer-login_flex_container .email_input,
+.outer-login_flex_container .password_input,
+.outer-register_flex_container .name_input,
+.outer-register_flex_container .email_input,
+.outer-register_flex_container .password_input {
+  opacity: 0;
+  transform: translateY(50px);
 }
 
 .outer-login_flex_container {
@@ -235,34 +289,29 @@ Button {
   min-height: 300px;
 }
 
-.return_btn {
-  position: absolute;
-  cursor: pointer;
+.addTaskForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  max-width: 1100px;
+  min-height: 700px;
+  margin: 0 auto;
 }
-.return_btn {
-  top: 30px;
+.addTaskForm .addTask_flex_container {
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
 }
-@media screen and (min-width: 320px) {
-  .return_btn {
-    top: calc(5.2631578947vw + 13.1578947368px);
+@media (min-width: 860px) {
+  .addTaskForm .addTask_flex_container {
+    flex-direction: row;
   }
-}
-@media screen and (min-width: 700px) {
-  .return_btn {
-    top: 50px;
-  }
-}
-.return_btn {
-  left: 30px;
-}
-@media screen and (min-width: 320px) {
-  .return_btn {
-    left: calc(5.2631578947vw + 13.1578947368px);
-  }
-}
-@media screen and (min-width: 700px) {
-  .return_btn {
-    left: 50px;
+  .addTaskForm .addTask_flex_container .task_details,
+  .addTaskForm .addTask_flex_container .select_options {
+    height: 400px;
   }
 }
 
@@ -277,37 +326,56 @@ fieldset {
   display: flex;
   justify-content: start;
   flex-direction: column;
-  opacity: 0;
-  transform: translateY(50px);
+  margin-bottom: 20px;
 }
 
 label {
   margin-bottom: 5px;
 }
 
-input {
+input,
+textarea,
+select {
   height: 38px;
   padding-left: 5px;
   color: #c1c2c5;
   background-color: #25262b;
 }
-input {
-  width: 200px;
+input,
+textarea,
+select {
+  width: 300px;
 }
 @media screen and (min-width: 320px) {
-  input {
-    width: calc(26.3157894737vw + 115.7894736842px);
+  input,
+  textarea,
+  select {
+    width: calc(26.3157894737vw + 215.7894736842px);
   }
 }
 @media screen and (min-width: 700px) {
-  input {
-    width: 300px;
+  input,
+  textarea,
+  select {
+    width: 400px;
   }
 }
 
-.login_btn, .register_btn {
-  opacity: 0;
-  transform: translateY(50px);
+textarea {
+  resize: none;
+}
+textarea {
+  height: 200px;
+}
+@media screen and (min-width: 320px) {
+  textarea {
+    height: calc(26.3157894737vw + 115.7894736842px);
+  }
+}
+@media screen and (min-width: 700px) {
+  textarea {
+    height: 300px;
+  }
 }
 
 .header {

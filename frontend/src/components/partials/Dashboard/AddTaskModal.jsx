@@ -43,8 +43,8 @@ const AddTaskModal = ({ taskMenuOpened, close }) => {
                 className="addTaskModal"
             >
                 <form className="addTaskForm" onSubmit={formSubmitted}>
-                    <section className="flex_container">
-                        <fieldset className="task_details">
+                    <section className="addTask_flex_container">
+                        <section className="task_details">
                             <fieldset>
                                 <label htmlFor="task_title">Title: </label>
                                 <input
@@ -63,8 +63,8 @@ const AddTaskModal = ({ taskMenuOpened, close }) => {
                                     onChange={(e) => setTaskDescription(e.target.value)}
                                 />
                             </fieldset>
-                        </fieldset>
-                        <fieldset className="date_select">
+                        </section>
+                        <section className="select_options">
                             <fieldset>
                                 <label htmlFor="task_category">Select a Category:</label>
                                 <select
@@ -88,7 +88,7 @@ const AddTaskModal = ({ taskMenuOpened, close }) => {
                                 value={date}
                                 onChange={setDate}
                             />
-                        </fieldset>
+                        </section>
                     </section>
                     <Group className="addTask_btns">
                         <Button className="cancel-cta outline" onClick={formCancelled}>
