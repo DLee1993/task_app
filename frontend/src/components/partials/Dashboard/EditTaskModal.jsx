@@ -2,6 +2,7 @@ import { useState } from "react";
 import { PropTypes } from "prop-types";
 import { Button, Modal, Group } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
+import { toast } from "react-toastify";
 
 const EditTaskModal = ({ editTaskOpened, close }) => {
     //!- The default value needs to be the original tasks values !!!!!
@@ -9,6 +10,13 @@ const EditTaskModal = ({ editTaskOpened, close }) => {
     const [newDate, setNewDate] = useState(null);
     const [newTaskDescription, setNewTaskDescription] = useState("");
     const [newCategoryValue, setNewCategoryValue] = useState("home");
+    const [completed, setCompleted] = useState("home");
+
+    const markAsComplete = () => {
+        setCompleted(!completed);
+        close(true);
+        toast.success("Task Completed!");
+    };
 
     const formCancelled = () => {
         setNewTaskTitle("");
@@ -90,10 +98,23 @@ const EditTaskModal = ({ editTaskOpened, close }) => {
                         </section>
                     </section>
                     <Group className="editTask_btns">
-                        <Button className="cancel-cta outline" onClick={formCancelled}>
+                        <Button
+                            className="cancel-cta outline color_transition"
+                            onClick={formCancelled}
+                        >
                             Cancel
                         </Button>
-                        <Button className="save-cta filled" type="submit" onClick={close}>
+                        <Button
+                            className="markAsComplete-cta outline color_transition"
+                            onClick={markAsComplete}
+                        >
+                            Mark as Complete
+                        </Button>
+                        <Button
+                            className="save-cta filled color_transition"
+                            type="submit"
+                            onClick={close}
+                        >
                             Save
                         </Button>
                     </Group>

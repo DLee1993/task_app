@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { IoArrowBack } from "react-icons/io5";
 import { OnboardingAnim } from "../../../animations/Onboarding";
 
@@ -52,7 +51,6 @@ const Register = () => {
 
     return (
         <>
-            <ToastContainer />
             <section className="register_page_container">
                 <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
                 <form onSubmit={onSubmitClicked}>

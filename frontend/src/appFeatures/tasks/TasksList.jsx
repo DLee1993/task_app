@@ -2,7 +2,7 @@ import Task from "./Task";
 import { useGetTasksQuery } from "./tasksSlice";
 import { PropTypes } from "prop-types";
 import { Table, ScrollArea } from "@mantine/core";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const TasksList = ({ editTaskOpen }) => {
     const { data: tasks, isLoading, isSuccess, isError, error } = useGetTasksQuery();
@@ -35,7 +35,6 @@ const TasksList = ({ editTaskOpen }) => {
 
     return (
         <>
-            <ToastContainer />
             <ScrollArea h={450}>
                 <Table
                     className="tasks_list"

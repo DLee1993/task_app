@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { OnboardingAnim } from "../../../animations/Onboarding";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -49,7 +48,6 @@ const Login = () => {
 
     return (
         <>
-            <ToastContainer />
             <section className="login_page_container">
                 <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
                 <form onSubmit={onSubmitClicked}>

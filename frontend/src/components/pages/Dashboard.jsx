@@ -5,6 +5,8 @@ import AddTaskModal from "../partials/Dashboard/AddTaskModal";
 import EditTaskModal from "../partials/Dashboard/EditTaskModal";
 import ConfirmAccountLogout from "../partials/Dashboard/ConfirmAccountLogout";
 import ProfileModal from "../partials/Dashboard/ProfileModal";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Dashboard = () => {
     const [taskMenuOpened, { open: taskMenuOpen, close: taskMenuClose }] = useDisclosure(false);
@@ -15,6 +17,7 @@ const Dashboard = () => {
 
     return (
         <main className="dashboard">
+            <ToastContainer />
             <Header
                 taskMenuOpen={taskMenuOpen}
                 logoutAccountOpen={logoutAccountOpen}
