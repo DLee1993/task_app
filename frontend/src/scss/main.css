@@ -289,7 +289,7 @@ Button {
   min-height: 300px;
 }
 
-.addTaskForm {
+.addTaskForm, .editTaskForm {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -297,7 +297,7 @@ Button {
   min-height: 700px;
   margin: 0 auto;
 }
-.addTaskForm .addTask_flex_container {
+.addTaskForm .addTask_flex_container, .addTaskForm .editTask_flex_container, .editTaskForm .addTask_flex_container, .editTaskForm .editTask_flex_container {
   width: 100%;
   min-height: 500px;
   display: flex;
@@ -306,11 +306,14 @@ Button {
   flex-direction: column;
 }
 @media (min-width: 860px) {
-  .addTaskForm .addTask_flex_container {
+  .addTaskForm .addTask_flex_container, .addTaskForm .editTask_flex_container, .editTaskForm .addTask_flex_container, .editTaskForm .editTask_flex_container {
     flex-direction: row;
   }
   .addTaskForm .addTask_flex_container .task_details,
-  .addTaskForm .addTask_flex_container .select_options {
+  .addTaskForm .addTask_flex_container .select_options, .addTaskForm .editTask_flex_container .task_details,
+  .addTaskForm .editTask_flex_container .select_options, .editTaskForm .addTask_flex_container .task_details,
+  .editTaskForm .addTask_flex_container .select_options, .editTaskForm .editTask_flex_container .task_details,
+  .editTaskForm .editTask_flex_container .select_options {
     height: 400px;
   }
 }

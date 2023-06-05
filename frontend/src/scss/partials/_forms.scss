@@ -44,7 +44,7 @@
     min-height: 300px;
 }
 
-.addTaskForm {
+.addTaskForm, .editTaskForm {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -52,7 +52,7 @@
     min-height: 700px;
     margin: 0 auto;
 
-    .addTask_flex_container {
+    .addTask_flex_container, .editTask_flex_container {
         width: 100%;
         min-height: 500px;
         display: flex;

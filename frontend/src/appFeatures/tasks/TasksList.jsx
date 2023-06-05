@@ -1,9 +1,10 @@
 import Task from "./Task";
 import { useGetTasksQuery } from "./tasksSlice";
+import { PropTypes } from "prop-types";
 import { Table, ScrollArea } from "@mantine/core";
 import { ToastContainer, toast } from "react-toastify";
 
-const TasksList = () => {
+const TasksList = ({ editTaskOpen }) => {
     const { data: tasks, isLoading, isSuccess, isError, error } = useGetTasksQuery();
 
     let content;
@@ -29,7 +30,7 @@ const TasksList = () => {
 
     if (isSuccess) {
         const { ids } = tasks;
-        content = ids?.length ? ids.map((taskId) => <Task key={taskId} taskId={taskId} />) : null;
+        content = ids?.length ? ids.map((taskId) => <Task key={taskId} taskId={taskId} editTaskOpen={editTaskOpen}/>) : null;
     }
 
     return (
@@ -57,6 +58,11 @@ const TasksList = () => {
             </ScrollArea>
         </>
     );
+};
+
+TasksList.propTypes = {
+    editTaskOpen: PropTypes.func,
+    close: PropTypes.func,
 };
 
 export default TasksList;
