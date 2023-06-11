@@ -1,38 +1,32 @@
+import { useDisclosure } from "@mantine/hooks";
 import Header from "../partials/Dashboard/Header";
 import TasksList from "../../appFeatures/tasks/TasksList";
-import { useDisclosure } from "@mantine/hooks";
 import AddTaskModal from "../partials/Dashboard/AddTaskModal";
-import EditTaskModal from "../partials/Dashboard/EditTaskModal";
-import ConfirmAccountLogout from "../partials/Dashboard/ConfirmAccountLogout";
+import LogoutModal from "../partials/Dashboard/LogoutModal";
 import ProfileModal from "../partials/Dashboard/ProfileModal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Dashboard = () => {
     const [taskMenuOpened, { open: taskMenuOpen, close: taskMenuClose }] = useDisclosure(false);
-    const [editTaskOpened, { open: editTaskOpen, close: editTaskClose }] = useDisclosure(false);
-    const [logoutAccountOpened, { open: logoutAccountOpen, close: logoutAccountClose }] =
+    const [logoutMenuOpened, { open: logoutMenuOpen, close: logoutMenuClose }] =
         useDisclosure(false);
-    const [profileOpened, { open: profileOpen, close: profileClose }] = useDisclosure(false);
-
+    const [profileMenuOpened, { open: profileMenuOpen, close: profileMenuClose }] =
+        useDisclosure(false);
     return (
         <main className="dashboard">
             <ToastContainer />
             <Header
                 taskMenuOpen={taskMenuOpen}
-                logoutAccountOpen={logoutAccountOpen}
-                profileOpen={profileOpen}
+                logoutMenuOpen={logoutMenuOpen}
+                profileMenuOpen={profileMenuOpen}
             />
-            <AddTaskModal taskMenuOpened={taskMenuOpened} close={taskMenuClose} />
-            <EditTaskModal editTaskOpened={editTaskOpened} close={editTaskClose} />
-            <ConfirmAccountLogout
-                logoutAccountOpened={logoutAccountOpened}
-                close={logoutAccountClose}
-            />
-            <ProfileModal profileOpened={profileOpened} close={profileClose} />
             <section className="main">
-                <TasksList editTaskOpen={editTaskOpen} />
+                <TasksList />
             </section>
+            <AddTaskModal opened={taskMenuOpened} onClose={taskMenuClose} />
+            <LogoutModal opened={logoutMenuOpened} onClose={logoutMenuClose} />
+            <ProfileModal opened={profileMenuOpened} onClose={profileMenuClose} />
         </main>
     );
 };

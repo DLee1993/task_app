@@ -1,0 +1,7 @@
+const [taskMenuOpened, { open: taskMenuOpen, close: taskMenuClose }] = useDisclosure(false);
+
+<Header
+                taskMenuOpen={taskMenuOpen}
+                logoutAccountOpen={logoutAccountOpen}
+                profileOpen={profileOpen}
+            />

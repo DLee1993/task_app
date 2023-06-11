@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 import { Text } from "@mantine/core";
 import { BsPencilSquare } from "react-icons/bs";
 
-const Task = ({ taskId, editTaskOpen }) => {
+const Task = ({ taskId }) => {
     const task = useSelector((state) => selectTaskById(state, taskId));
 
     if (task) {
@@ -23,7 +23,6 @@ const Task = ({ taskId, editTaskOpen }) => {
                         className="edit_btn color_transition"
                         size={25}
                         style={{ cursor: "pointer" }}
-                        onClick={editTaskOpen}
                     />
                 </td>
             </tr>

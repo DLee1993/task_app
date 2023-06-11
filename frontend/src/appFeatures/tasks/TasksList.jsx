@@ -30,7 +30,9 @@ const TasksList = ({ editTaskOpen }) => {
 
     if (isSuccess) {
         const { ids } = tasks;
-        content = ids?.length ? ids.map((taskId) => <Task key={taskId} taskId={taskId} editTaskOpen={editTaskOpen}/>) : null;
+        content = ids?.length
+            ? ids.map((taskId) => <Task key={taskId} taskId={taskId} editTaskOpen={editTaskOpen} />)
+            : null;
     }
 
     return (

@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
 import NavIconBar from "./NavIconBar";
 
-const Header = ({ taskMenuOpen, logoutAccountOpen, profileOpen }) => {
+const Header = ({ taskMenuOpen, logoutMenuOpen, profileMenuOpen }) => {
     const getTime = new Date().getHours();
     return (
         <header className="header">
@@ -11,8 +11,8 @@ const Header = ({ taskMenuOpen, logoutAccountOpen, profileOpen }) => {
             </h3>
             <NavIconBar
                 taskMenuOpen={taskMenuOpen}
-                logoutAccountOpen={logoutAccountOpen}
-                profileOpen={profileOpen}
+                logoutAccountOpen={logoutMenuOpen}
+                profileOpen={profileMenuOpen}
             />
         </header>
     );
@@ -20,8 +20,8 @@ const Header = ({ taskMenuOpen, logoutAccountOpen, profileOpen }) => {
 
 Header.propTypes = {
     taskMenuOpen: PropTypes.func,
-    logoutAccountOpen: PropTypes.func,
-    profileOpen: PropTypes.func,
+    logoutMenuOpen: PropTypes.func,
+    profileMenuOpen: PropTypes.func,
 };
 
 export default Header;
