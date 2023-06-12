@@ -10,14 +10,14 @@
 
     @media (min-width: 500px) {
         & .description {
-            display: block;
+            display: table-cell;
         }
     }
 
     @media (min-width: 700px) {
         margin-bottom: 0px;
         & .priority {
-            display: block;
+            display: table-cell;
         }
     }
 }

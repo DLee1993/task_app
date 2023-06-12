@@ -70,7 +70,7 @@
 }
 @media (min-width: 500px) {
   .tasks_list .description {
-    display: block;
+    display: table-cell;
   }
 }
 @media (min-width: 700px) {
@@ -78,7 +78,7 @@
     margin-bottom: 0px;
   }
   .tasks_list .priority {
-    display: block;
+    display: table-cell;
   }
 }
 
