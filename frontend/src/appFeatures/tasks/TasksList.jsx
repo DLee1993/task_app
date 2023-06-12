@@ -43,15 +43,17 @@ const TasksList = () => {
                     verticalSpacing="md"
                     fontSize="md"
                 >
-                    <thead>
-                        <tr>
-                            <th className="title">Title</th>
-                            <th className="description">Description</th>
-                            <th className="category">Category</th>
-                            <th className="priority">Priority</th>
-                            <th className="edit"></th>
-                        </tr>
-                    </thead>
+                    {isSuccess ? (
+                        <thead>
+                            <tr>
+                                <th className="title">Title</th>
+                                <th className="description">Description</th>
+                                <th className="category">Category</th>
+                                <th className="priority">Priority</th>
+                                <th className="edit"></th>
+                            </tr>
+                        </thead>
+                    ) : null}
                     <tbody>{content}</tbody>
                 </Table>
             </ScrollArea>
