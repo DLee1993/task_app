@@ -30,7 +30,7 @@ const TasksList = () => {
 
     if (isSuccess) {
         const { ids } = tasks;
-        content = ids?.length ? ids.map((taskId) => <Task key={taskId} taskId={taskId} />) : null;
+        content = ids?.length ? ids.map((taskId) => <Task key={taskId} taskId={taskId} />).reverse() : null;
     }
 
     return (

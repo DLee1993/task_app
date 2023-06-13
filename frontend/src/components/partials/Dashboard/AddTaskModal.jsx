@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useAddNewTaskMutation } from "../../../appFeatures/tasks/tasksSlice";
 import { Modal, Button } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import { PropTypes } from "prop-types";
@@ -13,15 +14,44 @@ const AddTaskModal = ({ opened, onClose }) => {
         setTitle("");
         setDescription("");
         setCategory("home");
-        setDate(null)
+        setDate(null);
         onClose(true);
     };
 
-    const canSave = [title, description].every(Boolean);
+    const [addNewNote, { isLoading, isSuccess, isError, error }] = useAddNewTaskMutation();
+
+    const canSave = [title, description].every(Boolean) && !isLoading;
+
+    const onSaveTaskClicked = async (e) => {
+        e.preventDefault();
+        if (canSave) {
+            await addNewNote({
+                user: "645dd507c4aff17007b29a7f",
+                task_title: title,
+                task_description: description,
+                category,
+                date,
+            });
+        }
+    };
+
+    useEffect(() => {
+        if (isSuccess) {
+            setTitle("");
+            setDescription("");
+            setCategory("home");
+            setDate(null);
+            onClose(true);
+        }
+
+        if (isError) {
+            console.log(error);
+        }
+    }, [isSuccess, isError, error, onClose]);
 
     return (
         <Modal opened={opened} onClose={cancelForm} title="Add a new Task" centered fullScreen>
-            <form className="addTaskForm">
+            <form className="addTaskForm" onSubmit={onSaveTaskClicked}>
                 <fieldset className="task_title">
                     <label htmlFor="task_title">Title:</label>
                     <input
