@@ -36,19 +36,6 @@
   opacity: 0;
   transform: translateY(50px);
 }
-.onboarding_bg_container .onboarding_message p {
-  font-size: 16px;
-}
-@media screen and (min-width: 320px) {
-  .onboarding_bg_container .onboarding_message p {
-    font-size: calc(0.5263157895vw + 14.3157894737px);
-  }
-}
-@media screen and (min-width: 700px) {
-  .onboarding_bg_container .onboarding_message p {
-    font-size: 18px;
-  }
-}
 .onboarding_bg_container .onboarding_sign-in_options {
   min-height: 100px;
   display: flex;
@@ -162,22 +149,6 @@ Button {
   .link,
   .form_btn {
     width: 300px;
-  }
-}
-.link,
-.form_btn {
-  font-size: 16px;
-}
-@media screen and (min-width: 320px) {
-  .link,
-  .form_btn {
-    font-size: calc(0.5263157895vw + 14.3157894737px);
-  }
-}
-@media screen and (min-width: 700px) {
-  .link,
-  .form_btn {
-    font-size: 18px;
   }
 }
 
@@ -325,70 +296,25 @@ Button {
   min-height: 300px;
 }
 
-.addTaskForm,
-.editTaskForm {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  max-width: 1100px;
-  min-height: 700px;
-  margin: 0 auto;
+.addTaskForm {
+  height: 90vh;
+  min-height: 600px;
 }
-.addTaskForm .addTask_flex_container,
-.addTaskForm .editTask_flex_container,
-.editTaskForm .addTask_flex_container,
-.editTaskForm .editTask_flex_container {
-  width: 100%;
-  min-height: 500px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
+
+.form_btn_group {
+  margin-left: auto;
 }
-@media (min-width: 860px) {
-  .addTaskForm .addTask_flex_container,
-  .addTaskForm .editTask_flex_container,
-  .editTaskForm .addTask_flex_container,
-  .editTaskForm .editTask_flex_container {
-    flex-direction: row;
-  }
-  .addTaskForm .addTask_flex_container .task_details,
-  .addTaskForm .addTask_flex_container .select_options,
-  .addTaskForm .editTask_flex_container .task_details,
-  .addTaskForm .editTask_flex_container .select_options,
-  .editTaskForm .addTask_flex_container .task_details,
-  .editTaskForm .addTask_flex_container .select_options,
-  .editTaskForm .editTask_flex_container .task_details,
-  .editTaskForm .editTask_flex_container .select_options {
-    height: 400px;
-  }
-}
-.addTaskForm input,
-.addTaskForm textarea,
-.addTaskForm select,
-.editTaskForm input,
-.editTaskForm textarea,
-.editTaskForm select {
-  width: 300px;
+.form_btn_group {
+  margin-right: 0px;
 }
 @media screen and (min-width: 320px) {
-  .addTaskForm input,
-  .addTaskForm textarea,
-  .addTaskForm select,
-  .editTaskForm input,
-  .editTaskForm textarea,
-  .editTaskForm select {
-    width: calc(26.3157894737vw + 215.7894736842px);
+  .form_btn_group {
+    margin-right: calc(2.6315789474vw - 8.4210526316px);
   }
 }
 @media screen and (min-width: 700px) {
-  .addTaskForm input,
-  .addTaskForm textarea,
-  .addTaskForm select,
-  .editTaskForm input,
-  .editTaskForm textarea,
-  .editTaskForm select {
-    width: 400px;
+  .form_btn_group {
+    margin-right: 10px;
   }
 }
 
@@ -412,15 +338,39 @@ label {
 
 input,
 textarea,
-select {
+select,
+.mantine-hdfsgm {
   height: 38px;
   padding-left: 5px;
   color: #c1c2c5;
   background-color: #25262b;
 }
+input,
+textarea,
+select,
+.mantine-hdfsgm {
+  width: 300px;
+}
+@media screen and (min-width: 320px) {
+  input,
+  textarea,
+  select,
+  .mantine-hdfsgm {
+    width: calc(26.3157894737vw + 215.7894736842px);
+  }
+}
+@media screen and (min-width: 700px) {
+  input,
+  textarea,
+  select,
+  .mantine-hdfsgm {
+    width: 400px;
+  }
+}
 
 textarea {
   resize: none;
+  padding-top: 5px;
 }
 textarea {
   height: 200px;
@@ -514,10 +464,22 @@ textarea {
   box-sizing: border-box;
   border: none;
 }
+* {
+  font-size: 16px;
+}
+@media screen and (min-width: 320px) {
+  * {
+    font-size: calc(0.5263157895vw + 14.3157894737px);
+  }
+}
+@media screen and (min-width: 700px) {
+  * {
+    font-size: 18px;
+  }
+}
 
 body {
   font-family: "Lato", sans-serif;
-  font-size: 18px;
   background-color: #1a1b1e;
   color: #c1c2c5;
 }/*# sourceMappingURL=main.css.map */

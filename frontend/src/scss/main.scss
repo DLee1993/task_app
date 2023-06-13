@@ -13,11 +13,11 @@
     padding: 0;
     box-sizing: border-box;
     border: none;
+    @include fluidType(font-size, 320px, 700px, 16px, 18px);
 }
 
 body {
     font-family: "Lato", sans-serif;
-    font-size: 18px;
     background-color: clr(colorPalette, backgroundBlack);
     color: clr(colorPalette, fadedWhite);
 }

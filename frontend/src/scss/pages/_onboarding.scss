@@ -21,7 +21,6 @@
             transform: translateY(50px);
         }
         & p {
-            @include fluidType(font-size, 320px, 700px, 16px, 18px);
             opacity: 0;
             transform: translateY(50px);
         }

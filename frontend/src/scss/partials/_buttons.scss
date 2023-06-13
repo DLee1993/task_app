@@ -19,7 +19,6 @@ Button {
     @include fluidType(width, 320px, 700px, 200px, 300px);
     height: 38px;
     text-transform: capitalize;
-    @include fluidType(font-size, 320px, 700px, 16px, 18px);
 }
 
 .filled {

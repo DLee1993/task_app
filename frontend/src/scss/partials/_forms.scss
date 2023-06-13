@@ -45,39 +45,14 @@
     min-height: 300px;
 }
 
-.addTaskForm,
-.editTaskForm {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    max-width: 1100px;
-    min-height: 700px;
-    margin: 0 auto;
+.addTaskForm {
+    height: 90vh;
+    min-height: 600px;
+}
 
-    .addTask_flex_container,
-    .editTask_flex_container {
-        width: 100%;
-        min-height: 500px;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-direction: column;
-
-        @media (min-width: 860px) {
-            flex-direction: row;
-
-            & .task_details,
-            .select_options {
-                height: 400px;
-            }
-        }
-    }
-
-    & input,
-    textarea,
-    select {
-        @include fluidType(width, 320px, 700px, 300px, 400px);
-    }
+.form_btn_group {
+    margin-left: auto;
+    @include fluidType(margin-right, 320px, 700px, 0px, 10px);
 }
 
 form {
@@ -100,8 +75,10 @@ label {
 
 input,
 textarea,
-select {
+select,
+.mantine-hdfsgm {
     height: 38px;
+    @include fluidType(width, 320px, 700px, 300px, 400px);
     padding-left: 5px;
     color: clr(colorPalette, fadedWhite);
     background-color: clr(colorPalette, fadedBlack);
@@ -110,4 +87,5 @@ select {
 textarea {
     @include fluidType(height, 320px, 700px, 200px, 300px);
     resize: none;
+    padding-top: 5px;
 }
