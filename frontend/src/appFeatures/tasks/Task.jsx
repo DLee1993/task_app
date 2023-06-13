@@ -21,11 +21,12 @@ const Task = ({ taskId }) => {
                     <Text>{task.task_description}</Text>
                 </td>
                 <td className="category">{task.category}</td>
-                <td className="edit" onClick={handleRedirect}>
+                <td className="edit">
                     <BsPencilSquare
                         className="edit_btn color_transition"
                         size={25}
                         style={{ cursor: "pointer" }}
+                        onClick={handleRedirect}
                     />
                 </td>
             </tr>
