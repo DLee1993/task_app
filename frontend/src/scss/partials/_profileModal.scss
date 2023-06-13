@@ -1,25 +1,33 @@
-.profileModal {
-    & .profile_header {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-direction: column;
-        min-height: 100px;
-    }
+.profile_header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: 100px;
+}
 
-    & .tasks_tracker {
+.tasks_tracker {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    min-height: 200px;
+    margin: 10px 0;
+
+    & .tracker_flex_container {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        margin: 10px 0;
+        width: 100%;
 
         & .current_tasks,
         .completed_tasks {
             display: flex;
             justify-content: space-evenly;
             align-items: center;
-            flex-direction: column-reverse;
+            flex-direction: column;
             min-height: 100px;
+            width: 200px;
             background-color: clr(colorPalette, fadedBlack);
 
             & .current_number,
@@ -29,13 +37,13 @@
             }
         }
     }
+}
 
-    & .user-actions{
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-direction: column;
-        min-height: 200px;
-        margin: 10px 0;
-    }
+.user_actions {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    min-height: 150px;
+    margin: 10px 0;
 }
