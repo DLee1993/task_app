@@ -11,13 +11,13 @@
         opacity: 0;
         transform: translateY(50px);
     }
+}
 
-    & .return_btn {
-        position: absolute;
-        @include fluidType(top, 320px, 700px, 30px, 50px);
-        @include fluidType(left, 320px, 700px, 30px, 50px);
-        cursor: pointer;
-    }
+.return_btn {
+    position: absolute;
+    @include fluidType(top, 320px, 700px, 10px, 30px);
+    @include fluidType(left, 320px, 700px, 10px, 30px);
+    cursor: pointer;
 }
 
 .outer-login_flex_container,
@@ -45,9 +45,14 @@
     min-height: 300px;
 }
 
-.addTaskForm {
+.addTaskForm,
+.editTaskForm {
     height: 90vh;
     min-height: 600px;
+}
+
+.editTaskForm {
+    margin-top: 50px;
 }
 
 .form_btn_group {

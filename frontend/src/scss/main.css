@@ -218,41 +218,35 @@ Button {
   opacity: 0;
   transform: translateY(50px);
 }
-.login_page_container .return_btn,
-.register_page_container .return_btn {
+
+.return_btn {
   position: absolute;
   cursor: pointer;
 }
-.login_page_container .return_btn,
-.register_page_container .return_btn {
-  top: 30px;
+.return_btn {
+  top: 10px;
 }
 @media screen and (min-width: 320px) {
-  .login_page_container .return_btn,
-  .register_page_container .return_btn {
-    top: calc(5.2631578947vw + 13.1578947368px);
+  .return_btn {
+    top: calc(5.2631578947vw - 6.8421052632px);
   }
 }
 @media screen and (min-width: 700px) {
-  .login_page_container .return_btn,
-  .register_page_container .return_btn {
-    top: 50px;
+  .return_btn {
+    top: 30px;
   }
 }
-.login_page_container .return_btn,
-.register_page_container .return_btn {
-  left: 30px;
+.return_btn {
+  left: 10px;
 }
 @media screen and (min-width: 320px) {
-  .login_page_container .return_btn,
-  .register_page_container .return_btn {
-    left: calc(5.2631578947vw + 13.1578947368px);
+  .return_btn {
+    left: calc(5.2631578947vw - 6.8421052632px);
   }
 }
 @media screen and (min-width: 700px) {
-  .login_page_container .return_btn,
-  .register_page_container .return_btn {
-    left: 50px;
+  .return_btn {
+    left: 30px;
   }
 }
 
@@ -310,9 +304,14 @@ Button {
   min-height: 300px;
 }
 
-.addTaskForm {
+.addTaskForm,
+.editTaskForm {
   height: 90vh;
   min-height: 600px;
+}
+
+.editTaskForm {
+  margin-top: 50px;
 }
 
 .form_btn_group {
