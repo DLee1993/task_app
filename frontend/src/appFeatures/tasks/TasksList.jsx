@@ -30,12 +30,14 @@ const TasksList = () => {
 
     if (isSuccess) {
         const { ids } = tasks;
-        content = ids?.length ? ids.map((taskId) => <Task key={taskId} taskId={taskId} />).reverse() : null;
+        content = ids?.length
+            ? ids.map((taskId) => <Task key={taskId} taskId={taskId} />).reverse()
+            : null;
     }
 
     return (
         <>
-            <ScrollArea h={450}>
+            <ScrollArea>
                 <Table
                     className="tasks_list"
                     striped
@@ -49,7 +51,6 @@ const TasksList = () => {
                                 <th className="title">Title</th>
                                 <th className="description">Description</th>
                                 <th className="category">Category</th>
-                                <th className="priority">Priority</th>
                                 <th className="edit"></th>
                             </tr>
                         </thead>

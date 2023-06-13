@@ -21,7 +21,6 @@ const Task = ({ taskId }) => {
                     <Text>{task.task_description}</Text>
                 </td>
                 <td className="category">{task.category}</td>
-                <td className="priority">{task.priority}</td>
                 <td className="edit" onClick={handleRedirect}>
                     <BsPencilSquare
                         className="edit_btn color_transition"

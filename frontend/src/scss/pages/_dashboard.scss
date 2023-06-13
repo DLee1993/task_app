@@ -1,9 +1,13 @@
+.mantine-ScrollArea-root{
+    @include fluidType(height, 320px, 700px, 450px, 850px);
+}
+
 .tasks_list {
     display: table;
     max-width: 98%;
     margin: 0 auto 100px auto;
 
-    & .priority,
+    & .category,
     .description {
         display: none;
     }
@@ -16,7 +20,7 @@
 
     @media (min-width: 700px) {
         margin-bottom: 0px;
-        & .priority {
+        & .category {
             display: table-cell;
         }
     }

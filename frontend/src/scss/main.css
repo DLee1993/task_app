@@ -46,12 +46,26 @@
   transform: translateY(50px);
 }
 
+.mantine-ScrollArea-root {
+  height: 450px;
+}
+@media screen and (min-width: 320px) {
+  .mantine-ScrollArea-root {
+    height: calc(105.2631578947vw + 113.1578947368px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .mantine-ScrollArea-root {
+    height: 850px;
+  }
+}
+
 .tasks_list {
   display: table;
   max-width: 98%;
   margin: 0 auto 100px auto;
 }
-.tasks_list .priority,
+.tasks_list .category,
 .tasks_list .description {
   display: none;
 }
@@ -64,7 +78,7 @@
   .tasks_list {
     margin-bottom: 0px;
   }
-  .tasks_list .priority {
+  .tasks_list .category {
     display: table-cell;
   }
 }

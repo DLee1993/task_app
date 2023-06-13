@@ -30,7 +30,7 @@ const AddTaskModal = ({ opened, onClose }) => {
                 task_title: title,
                 task_description: description,
                 category,
-                date,
+                toBeCompletedBy: date,
             });
         }
     };

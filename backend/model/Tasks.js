@@ -21,10 +21,6 @@ const taskSchema = new mongoose.Schema(
             type: String,
             default: "Home",
         },
-        priority: {
-            type: Number,
-            default: 1,
-        },
         toBeCompletedBy: {
             type: String,
         },
