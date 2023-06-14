@@ -2,32 +2,28 @@ import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { Text, Checkbox } from "@mantine/core";
 
-const Task = ({ taskId }) => {
-    // const navigate = useNavigate();
-
-    // const handleRedirect = () => navigate(`/dashboard/tasks/${taskId}`);
-
+const Task = ({ task }) => {
     return (
         <tr>
             <td className="title">
-                <Text>Title</Text>
+                <Text>{task.task_title}</Text>
             </td>
             <td className="description">
-                <Text>description</Text>
+                <Text>{task.task_description}</Text>
             </td>
-            <td className="category">category</td>
+            <td className="category">{task.category}</td>
             <td className="completed">
                 <Checkbox size="sm" />
             </td>
             <td className="viewTask">
-                <Link to={`/dashboard/tasks/${taskId}`}>View</Link>
+                <Link to={`/dashboard/${task._id}`}>View</Link>
             </td>
         </tr>
     );
 };
 
 Task.propTypes = {
-    taskId: PropTypes.string,
+    task: PropTypes.object,
     editTaskOpen: PropTypes.func,
 };
 

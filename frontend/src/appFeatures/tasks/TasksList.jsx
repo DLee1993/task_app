@@ -1,10 +1,29 @@
+import { useSelector } from "react-redux";
+import { selectAllTasks, getTasksStatus } from "./tasksSlice";
 import Task from "./Task";
-import { PropTypes } from "prop-types";
 import { Table, ScrollArea } from "@mantine/core";
 
 const TasksList = () => {
+    const tasks = useSelector(selectAllTasks);
+    const taskStatus = useSelector(getTasksStatus);
+
     let content;
-    content = <Task />;
+
+    if (taskStatus === "loading") {
+        content = (
+            <tr>
+                <td>Loading...</td>
+            </tr>
+        );
+    } else if (taskStatus === "failed") {
+        content = (
+            <tr>
+                <td>You don`t have any tasks, click the + button to add a Task!</td>
+            </tr>
+        );
+    } else if (taskStatus === "succeeded") {
+        content = tasks.tasks.map((task, index) => <Task key={index} task={task} />).reverse();
+    }
 
     return (
         <>
@@ -31,11 +50,6 @@ const TasksList = () => {
             </ScrollArea>
         </>
     );
-};
-
-TasksList.propTypes = {
-    editMenuOpen: PropTypes.func,
-    close: PropTypes.func,
 };
 
 export default TasksList;

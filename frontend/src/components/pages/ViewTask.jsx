@@ -1,35 +1,40 @@
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { selectTaskById } from "../../appFeatures/tasks/tasksSlice";
 import { Button } from "@mantine/core";
+import { IoArrowBack } from "react-icons/io5";
 
 const ViewTask = () => {
     const { taskId } = useParams();
     const navigate = useNavigate();
 
+    const task = useSelector((state) => selectTaskById(state, taskId));
+
     const handleEditRedirect = () => {
-        navigate(`/dashboard/tasks/edit/${taskId}`);
+        navigate(`/dashboard/edit/${taskId}`);
     };
 
-    const handleDeleteRedirect = () => {
-        //- delete task here
-        navigate('/dashboard')
-    }
-
     return (
-        <article>
-            <h2>Task Title</h2>
-            <p>Task Description</p>
-            <p>Task category</p>
-            <p>priority</p>
-            <p>Completed</p>
-            <p>created on</p>
-            <p>last updated</p>
-            <section className="task_actions">
-                <Button className="warning color_tranisiton" onClick={handleDeleteRedirect}>Delete Task</Button>
-                <Button className="filled color_tranisiton" onClick={handleEditRedirect}>
-                    Update Task
-                </Button>
-            </section>
-        </article>
+        <>
+            <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
+            <article>
+                <p>{taskId}</p>
+                <h2>{task.task_title}</h2>
+                <p>{task.task_description}</p>
+                <p>{task.category}</p>
+                <p>Completed: {task.completed ? "Completed" : "Open"}</p>
+                <p>created on: {task.createdAt}</p>
+                <p>last updated: {task.updatedAt}</p>
+                <section className="task_actions">
+                    <Button className="warning color_tranisiton">
+                        Delete Task
+                    </Button>
+                    <Button className="filled color_tranisiton" onClick={handleEditRedirect}>
+                        Update Task
+                    </Button>
+                </section>
+            </article>
+        </>
     );
 };
 

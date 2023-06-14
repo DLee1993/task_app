@@ -19,8 +19,8 @@ const App = () => {
                     {/* Protected Routes - wrap dashboard path in protected route */}
                     <Route path="/dashboard">
                         <Route index element={<Dashboard />} />
-                        <Route path="tasks/:taskId" element={<ViewTask />} />
-                        <Route path="tasks/edit/:taskId" element={<EditTask />} />
+                        <Route path=":taskId" element={<ViewTask />} />
+                        <Route path="edit/:taskId" element={<EditTask />} />
                     </Route>
                 </Route>
             </Routes>
