@@ -82,7 +82,7 @@ export const updateTask = asyncHandler(async (req, res) => {
     task.completed = completed;
 
     //- save the recently updated task
-    const updatedTask = await task.save();
+    await task.save();
 
     res.json({ message: "Task Updated" });
 });

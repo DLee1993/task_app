@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { useAddNewTaskMutation } from "../../../appFeatures/tasks/tasksSlice";
+import { useState } from "react";
 import { Modal, Button } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import { PropTypes } from "prop-types";
@@ -18,36 +17,12 @@ const AddTaskModal = ({ opened, onClose }) => {
         onClose(true);
     };
 
-    const [addNewNote, { isLoading, isSuccess, isError, error }] = useAddNewTaskMutation();
-
-    const canSave = [title, description].every(Boolean) && !isLoading;
+    const canSave = [title, description].every(Boolean);
 
     const onSaveTaskClicked = async (e) => {
         e.preventDefault();
-        if (canSave) {
-            await addNewNote({
-                user: "645dd507c4aff17007b29a7f",
-                task_title: title,
-                task_description: description,
-                category,
-                toBeCompletedBy: date,
-            });
-        }
+        console.log("line 26 - save task");
     };
-
-    useEffect(() => {
-        if (isSuccess) {
-            setTitle("");
-            setDescription("");
-            setCategory("home");
-            setDate(null);
-            onClose(true);
-        }
-
-        if (isError) {
-            console.log(error);
-        }
-    }, [isSuccess, isError, error, onClose]);
 
     return (
         <Modal opened={opened} onClose={cancelForm} title="Add a new Task" centered fullScreen>

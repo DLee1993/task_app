@@ -4,6 +4,7 @@ import Login from "./components/partials/Onboarding/Login";
 import Register from "./components/partials/Onboarding/Register";
 import Dashboard from "./components/pages/Dashboard";
 import Onboarding from "./components/pages/Onboarding";
+import ViewTask from "./components/pages/ViewTask";
 import EditTask from "./components/pages/EditTask";
 
 const App = () => {
@@ -18,7 +19,8 @@ const App = () => {
                     {/* Protected Routes - wrap dashboard path in protected route */}
                     <Route path="/dashboard">
                         <Route index element={<Dashboard />} />
-                        <Route path="tasks/:taskId" element={<EditTask />} />
+                        <Route path="tasks/:taskId" element={<ViewTask />} />
+                        <Route path="tasks/edit/:taskId" element={<EditTask />} />
                     </Route>
                 </Route>
             </Routes>

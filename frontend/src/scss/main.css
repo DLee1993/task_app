@@ -65,8 +65,39 @@
   max-width: 98%;
   margin: 0 auto 100px auto;
 }
+.tasks_list a {
+  color: #c1c2c5;
+  text-decoration: none;
+}
+.tasks_list .title,
+.tasks_list .description,
 .tasks_list .category,
-.tasks_list .description {
+.tasks_list .completed,
+.tasks_list .viewTask {
+  display: table-cell;
+}
+.tasks_list .viewTask:hover {
+  text-decoration: underline;
+}
+.tasks_list .viewTask,
+.tasks_list .completed {
+  max-width: 50px;
+  text-align: center;
+}
+.tasks_list .mantine-Checkbox-root {
+  display: flex;
+  justify-content: center;
+}
+.tasks_list .mantine-Checkbox-input {
+  background-color: #c1c2c5;
+}
+.tasks_list .mantine-Checkbox-input:checked {
+  background-color: #8687e7;
+  border: #8687e7;
+}
+.tasks_list .category,
+.tasks_list .description,
+.tasks_list .completed {
   display: none;
 }
 @media (min-width: 500px) {
@@ -75,6 +106,14 @@
   }
 }
 @media (min-width: 700px) {
+  .tasks_list {
+    margin-bottom: 0px;
+  }
+  .tasks_list .completed {
+    display: table-cell;
+  }
+}
+@media (min-width: 900px) {
   .tasks_list {
     margin-bottom: 0px;
   }

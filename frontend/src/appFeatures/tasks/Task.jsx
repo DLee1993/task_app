@@ -1,37 +1,29 @@
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectTaskById } from "./tasksSlice";
+import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
-import { Text } from "@mantine/core";
-import { BsPencilSquare } from "react-icons/bs";
+import { Text, Checkbox } from "@mantine/core";
 
 const Task = ({ taskId }) => {
-    const task = useSelector((state) => selectTaskById(state, taskId));
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    const handleRedirect = () => navigate(`/dashboard/tasks/${taskId}`);
+    // const handleRedirect = () => navigate(`/dashboard/tasks/${taskId}`);
 
-    if (task) {
-        return (
-            <tr key={task.title}>
-                <td className="title">
-                    <Text>{task.task_title}</Text>
-                </td>
-                <td className="description">
-                    <Text>{task.task_description}</Text>
-                </td>
-                <td className="category">{task.category}</td>
-                <td className="edit">
-                    <BsPencilSquare
-                        className="edit_btn color_transition"
-                        size={25}
-                        style={{ cursor: "pointer" }}
-                        onClick={handleRedirect}
-                    />
-                </td>
-            </tr>
-        );
-    } else return null;
+    return (
+        <tr>
+            <td className="title">
+                <Text>Title</Text>
+            </td>
+            <td className="description">
+                <Text>description</Text>
+            </td>
+            <td className="category">category</td>
+            <td className="completed">
+                <Checkbox size="sm" />
+            </td>
+            <td className="viewTask">
+                <Link to={`/dashboard/tasks/${taskId}`}>View</Link>
+            </td>
+        </tr>
+    );
 };
 
 Task.propTypes = {

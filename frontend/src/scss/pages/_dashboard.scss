@@ -1,4 +1,4 @@
-.mantine-ScrollArea-root{
+.mantine-ScrollArea-root {
     @include fluidType(height, 320px, 700px, 450px, 850px);
 }
 
@@ -7,8 +7,46 @@
     max-width: 98%;
     margin: 0 auto 100px auto;
 
+    & a {
+        color: clr(colorPalette, fadedWhite);
+        text-decoration: none;
+    }
+
+    & .title,
+    .description,
+    .category,
+    .completed,
+    .viewTask {
+        display: table-cell;
+    }
+
+    & .viewTask:hover {
+        text-decoration: underline;
+    }
+
+    & .viewTask,
+    .completed {
+        max-width: 50px;
+        text-align: center;
+    }
+
+    & .mantine-Checkbox-root {
+        display: flex;
+        justify-content: center;
+    }
+
+    & .mantine-Checkbox-input {
+        background-color: clr(colorPalette, fadedWhite);
+
+        &:checked {
+            background-color: clr(colorPalette, brightPurple);
+            border: clr(colorPalette, brightPurple);
+        }
+    }
+
     & .category,
-    .description {
+    .description,
+    .completed {
         display: none;
     }
 
@@ -19,6 +57,13 @@
     }
 
     @media (min-width: 700px) {
+        margin-bottom: 0px;
+        & .completed {
+            display: table-cell;
+        }
+    }
+
+    @media (min-width: 900px) {
         margin-bottom: 0px;
         & .category {
             display: table-cell;
