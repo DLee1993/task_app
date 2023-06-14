@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addNewTask } from "../../../appFeatures/tasks/tasksSlice";
 import { Modal, Button } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import { PropTypes } from "prop-types";
@@ -8,6 +11,10 @@ const AddTaskModal = ({ opened, onClose }) => {
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("home");
     const [date, setDate] = useState(null);
+    const [requestStatus, setRequestStatus] = useState("idle");
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const cancelForm = () => {
         setTitle("");
@@ -17,11 +24,39 @@ const AddTaskModal = ({ opened, onClose }) => {
         onClose(true);
     };
 
-    const canSave = [title, description].every(Boolean);
+    const canSave = [title, description, category].every(Boolean) && requestStatus === "idle";
 
-    const onSaveTaskClicked = async (e) => {
-        e.preventDefault();
-        console.log("line 26 - save task");
+    const onSaveTaskClicked = async () => {
+        if (canSave) {
+            try {
+                //- set the request status to pending
+                setRequestStatus("pending");
+                //- unwrap will either extract the payload of a fulfilled action ( get the data ) or throw an error
+                dispatch(
+                    addNewTask({
+                        //! - THE USER NEEDS TO CHANGE TO THE LOGGED IN USER
+                        user: "645dd507c4aff17007b29a7f",
+                        task_title: title,
+                        task_description: description,
+                        category,
+                        toBeCompletedBy: date,
+                    })
+                ).unwrap();
+
+                //- reset the temp state
+                setTitle("");
+                setDescription("");
+                setCategory("home");
+                setDate(null);
+                navigate("/dashboard");
+            } catch (error) {
+                //- log the error if there is one
+                console.error("Failed to save the post", error);
+            } finally {
+                //- reset the request status for the next request
+                setRequestStatus("idle");
+            }
+        }
     };
 
     return (

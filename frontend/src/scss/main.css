@@ -81,7 +81,7 @@
 }
 .tasks_list .viewTask,
 .tasks_list .completed {
-  max-width: 50px;
+  max-width: 75px;
   text-align: center;
 }
 .tasks_list .mantine-Checkbox-root {
@@ -100,7 +100,7 @@
 .tasks_list .completed {
   display: none;
 }
-@media (min-width: 500px) {
+@media (min-width: 600px) {
   .tasks_list .description {
     display: table-cell;
   }
@@ -113,7 +113,7 @@
     display: table-cell;
   }
 }
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
   .tasks_list {
     margin-bottom: 0px;
   }

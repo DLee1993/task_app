@@ -26,7 +26,7 @@
 
     & .viewTask,
     .completed {
-        max-width: 50px;
+        max-width: 75px;
         text-align: center;
     }
 
@@ -50,7 +50,7 @@
         display: none;
     }
 
-    @media (min-width: 500px) {
+    @media (min-width: 600px) {
         & .description {
             display: table-cell;
         }
@@ -63,7 +63,7 @@
         }
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 1000px) {
         margin-bottom: 0px;
         & .category {
             display: table-cell;

@@ -18,7 +18,7 @@ export const fetchTasks = createAsyncThunk("tasks/fetchTasks", async () => {
 //- add new task
 export const addNewTask = createAsyncThunk("tasks/addNewTask", async (initialTask) => {
     try {
-        const res = await axios.task(TASKS_URL, initialTask);
+        const res = await axios.post(TASKS_URL, initialTask);
         return res;
     } catch (error) {
         return error.message;
