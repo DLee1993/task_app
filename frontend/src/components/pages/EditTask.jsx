@@ -1,26 +1,19 @@
 //! - THIS IS WHERE WE SELECT TASK BY ID WITH TASKSLICE
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { selectTaskById } from "../../appFeatures/tasks/tasksSlice";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import { IoArrowBack } from "react-icons/io5";
 
 const EditTask = () => {
-    const { taskId } = useParams();
-    const task = useSelector((state) => selectTaskById(state, taskId));
-    const [title, setTitle] = useState(task.task_title);
-    const [description, setDescription] = useState(task.task_description);
-    const [category, setCategory] = useState(task.category);
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [category, setCategory] = useState("");
     const [date, setDate] = useState(null);
-    const [requestStatus, setRequestStatus] = useState("idle");
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
-    const canSave = [title, description].every(Boolean) && requestStatus === "idle";
+    const canSave = [title, description].every(Boolean);
 
     const onSaveTaskClicked = async (e) => {
         e.preventDefault();
@@ -28,14 +21,6 @@ const EditTask = () => {
     };
 
     const deleteTask = () => {
-        try {
-            dispatch(deleteTask({ id: task._id })).unwrap();
-            navigate("/");
-        } catch (err) {
-            console.error("Failed to delete the post", err);
-        } finally {
-            setRequestStatus("idle");
-        }
     };
 
     return (
