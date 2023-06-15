@@ -1,11 +1,8 @@
 import mongoose from "mongoose";
 
-const date = new Date();
-let currentDay = String(date.getDate()).padStart(2, "0");
-let currentMonth = String(date.getMonth() + 1).padStart(2, "0");
-let currentYear = date.getFullYear();
-// we will display the date as DD-MM-YYYY
-let currentDate = `${currentDay}-${currentMonth}-${currentYear}`;
+const currentDate = new Date().toISOString();
+const date = currentDate.slice(0, 10);
+const today = date.split("-").reverse().join("-");
 
 const taskSchema = new mongoose.Schema(
     {
@@ -28,7 +25,7 @@ const taskSchema = new mongoose.Schema(
         },
         toBeCompletedBy: {
             type: String,
-            default: currentDate,
+            default: today,
         },
         completed: {
             type: Boolean,
