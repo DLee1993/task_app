@@ -1,6 +1,4 @@
 import mongoose from "mongoose";
-import Inc from "mongoose-sequence";
-const AutoIncrement = Inc(mongoose);
 
 const date = new Date();
 let currentDay = String(date.getDate()).padStart(2, "0");
@@ -41,11 +39,5 @@ const taskSchema = new mongoose.Schema(
         timestamps: true,
     }
 );
-
-taskSchema.plugin(AutoIncrement, {
-    inc_field: "ticket",
-    id: "ticketNum",
-    start_seq: 100,
-});
 
 export const Task = mongoose.model("tasks", taskSchema);
