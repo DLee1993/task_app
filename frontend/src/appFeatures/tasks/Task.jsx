@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
-import { Text, Checkbox } from "@mantine/core";
+import { Text } from "@mantine/core";
+import { useSelector } from "react-redux";
+import { selectTaskById } from "./tasksSlice";
+import { FaCheck } from "react-icons/fa";
 
-const Task = ({ task }) => {
+const Task = ({ taskId }) => {
+    const task = useSelector((state) => selectTaskById(state, taskId));
+
     return (
         <tr>
             <td className="title">
@@ -12,9 +17,7 @@ const Task = ({ task }) => {
                 <Text>{task.task_description}</Text>
             </td>
             <td className="category">{task.category}</td>
-            <td className="completed">
-                <Checkbox size="sm" />
-            </td>
+            <td className="completed">{task.completed ? <FaCheck /> : null}</td>
             <td className="viewTask">
                 <Link to={`/dashboard/${task._id}`}>View</Link>
             </td>
@@ -23,8 +26,7 @@ const Task = ({ task }) => {
 };
 
 Task.propTypes = {
-    task: PropTypes.object,
-    editTaskOpen: PropTypes.func,
+    taskId: PropTypes.string,
 };
 
 export default Task;

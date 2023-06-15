@@ -1,12 +1,24 @@
+import { useGetTasksQuery } from "./tasksSlice";
 import Task from "./Task";
 import { Table, ScrollArea } from "@mantine/core";
 
 const TasksList = () => {
-    let content;
-    <Task />;
+    const { data: tasks, isLoading, isSuccess, isError, error } = useGetTasksQuery();
 
-    return (
-        <>
+    let content;
+
+    if (isLoading) content = <p>Loading...</p>;
+
+    if (isError) content = <p>{error.data.message}</p>;
+
+    if (isSuccess) {
+        const { ids } = tasks;
+
+        const taskTableContent = ids?.length
+            ? ids.map((taskId) => <Task key={taskId} taskId={taskId} />)
+            : null;
+
+        content = (
             <ScrollArea>
                 <Table
                     className="tasks_list"
@@ -25,11 +37,13 @@ const TasksList = () => {
                             <th className="viewTask"></th>
                         </tr>
                     </thead>
-                    <tbody>{content}</tbody>
+                    <tbody>{taskTableContent}</tbody>
                 </Table>
             </ScrollArea>
-        </>
-    );
+        );
+    }
+
+    return content;
 };
 
 export default TasksList;
