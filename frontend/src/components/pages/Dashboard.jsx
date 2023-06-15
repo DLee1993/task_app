@@ -1,9 +1,9 @@
 import { useDisclosure } from "@mantine/hooks";
-import Header from "../partials/Dashboard/Header";
+import Header from "../Dashboard/Header";
 import TasksList from "../../appFeatures/tasks/TasksList";
-import AddTaskModal from "../partials/Dashboard/AddTaskModal";
-import LogoutModal from "../partials/Dashboard/LogoutModal";
-import ProfileModal from "../partials/Dashboard/ProfileModal";
+import AddTaskModal from "../Dashboard/AddTaskModal";
+import LogoutModal from "../Dashboard/LogoutModal";
+import ProfileModal from "../Dashboard/ProfileModal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

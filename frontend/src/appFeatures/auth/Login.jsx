@@ -1,21 +1,21 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { IoArrowBack } from "react-icons/io5";
-import { OnboardingAnim } from "../../../animations/Onboarding";
+import { toast } from "react-toastify";
+import { OnboardingAnim } from "../../animations/Onboarding";
 
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
 
-const Register = () => {
-    const [name, setName] = useState("");
+const Login = () => {
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [validPassword, setValidPassword] = useState(false);
 
-    let nameRef = useRef(null);
+    let usernameRef = useRef(null);
     let passwordRef = useRef(null);
     let submitRef = useRef(null);
 
-    const onNameChange = (e) => setName(e.target.value);
+    const onUsernameChange = (e) => setUsername(e.target.value);
     const onPasswordChange = (e) => setPassword(e.target.value);
 
     const navigate = useNavigate();
@@ -25,10 +25,10 @@ const Register = () => {
     }, [password]);
 
     useEffect(() => {
-        OnboardingAnim(nameRef, passwordRef, submitRef);
+        OnboardingAnim(usernameRef, passwordRef, submitRef);
     });
 
-    const canSave = [name, validPassword].every(Boolean);
+    const canSave = [username, validPassword].every(Boolean);
 
     const onSubmitClicked = (e) => {
         e.preventDefault();
@@ -42,17 +42,21 @@ const Register = () => {
 
     return (
         <>
-            <section className="register_page_container">
+            <section className="login_page_container">
                 <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
                 <form onSubmit={onSubmitClicked}>
-                    <section className="outer-register_flex_container">
-                        <fieldset className="name_input" ref={(el) => (nameRef = el)} autoFocus>
-                            <label htmlFor="name">Name</label>
+                    <section className="outer-login_flex_container">
+                        <fieldset
+                            className="username_input"
+                            ref={(el) => (usernameRef = el)}
+                            autoFocus
+                        >
+                            <label htmlFor="username">Username</label>
                             <input
                                 type="text"
-                                id="name"
-                                value={name}
-                                onChange={onNameChange}
+                                id="username"
+                                value={username}
+                                onChange={onUsernameChange}
                                 required
                             />
                         </fieldset>
@@ -67,8 +71,11 @@ const Register = () => {
                             />
                         </fieldset>
                     </section>
-                    <button className="register_btn form_btn filled" ref={(el) => (submitRef = el)}>
-                        register
+                    <button
+                        className="login_btn form_btn filled color_transition"
+                        ref={(el) => (submitRef = el)}
+                    >
+                        Login
                     </button>
                 </form>
             </section>
@@ -76,4 +83,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;
