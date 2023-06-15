@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
-import { v4 as uuid } from "uuid";
-const genID = uuid();
+
+const date = new Date();
+let currentDay = String(date.getDate()).padStart(2, "0");
+let currentMonth = String(date.getMonth() + 1).padStart(2, "0");
+let currentYear = date.getFullYear();
+// we will display the date as DD-MM-YYYY
+let currentDate = `${currentDay}-${currentMonth}-${currentYear}`;
 
 const taskSchema = new mongoose.Schema(
     {
@@ -23,14 +28,11 @@ const taskSchema = new mongoose.Schema(
         },
         toBeCompletedBy: {
             type: String,
+            default: currentDate
         },
         completed: {
             type: Boolean,
             default: false,
-        },
-        task_id: {
-            type: String,
-            default: genID,
         },
     },
     {
