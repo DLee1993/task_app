@@ -29,7 +29,7 @@
     margin-bottom: 50px;
 
     & .name_input,
-    .email_input,
+    .username_input,
     .password_input {
         opacity: 0;
         transform: translateY(50px);
@@ -37,12 +37,8 @@
     }
 }
 
-.outer-login_flex_container {
+.outer-login_flex_container, .outer-register_flex_container {
     min-height: 200px;
-}
-
-.outer-register_flex_container {
-    min-height: 300px;
 }
 
 .addTaskForm,

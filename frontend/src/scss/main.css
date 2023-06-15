@@ -309,49 +309,45 @@ Button {
   margin-bottom: 50px;
 }
 .outer-login_flex_container .name_input,
-.outer-login_flex_container .email_input,
+.outer-login_flex_container .username_input,
 .outer-login_flex_container .password_input,
 .outer-register_flex_container .name_input,
-.outer-register_flex_container .email_input,
+.outer-register_flex_container .username_input,
 .outer-register_flex_container .password_input {
   opacity: 0;
   transform: translateY(50px);
 }
 .outer-login_flex_container .name_input,
-.outer-login_flex_container .email_input,
+.outer-login_flex_container .username_input,
 .outer-login_flex_container .password_input,
 .outer-register_flex_container .name_input,
-.outer-register_flex_container .email_input,
+.outer-register_flex_container .username_input,
 .outer-register_flex_container .password_input {
   width: 200px;
 }
 @media screen and (min-width: 320px) {
   .outer-login_flex_container .name_input,
-  .outer-login_flex_container .email_input,
+  .outer-login_flex_container .username_input,
   .outer-login_flex_container .password_input,
   .outer-register_flex_container .name_input,
-  .outer-register_flex_container .email_input,
+  .outer-register_flex_container .username_input,
   .outer-register_flex_container .password_input {
     width: calc(26.3157894737vw + 115.7894736842px);
   }
 }
 @media screen and (min-width: 700px) {
   .outer-login_flex_container .name_input,
-  .outer-login_flex_container .email_input,
+  .outer-login_flex_container .username_input,
   .outer-login_flex_container .password_input,
   .outer-register_flex_container .name_input,
-  .outer-register_flex_container .email_input,
+  .outer-register_flex_container .username_input,
   .outer-register_flex_container .password_input {
     width: 300px;
   }
 }
 
-.outer-login_flex_container {
+.outer-login_flex_container, .outer-register_flex_container {
   min-height: 200px;
-}
-
-.outer-register_flex_container {
-  min-height: 300px;
 }
 
 .addTaskForm,

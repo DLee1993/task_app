@@ -4,37 +4,31 @@ import { IoArrowBack } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { OnboardingAnim } from "../../../animations/Onboarding";
 
-const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [validEmail, setValidEmail] = useState(false);
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [validPassword, setValidPassword] = useState(false);
 
-    let emailRef = useRef(null);
+    let usernameRef = useRef(null);
     let passwordRef = useRef(null);
     let submitRef = useRef(null);
 
-    const onEmailChange = (e) => setEmail(e.target.value);
+    const onUsernameChange = (e) => setUsername(e.target.value);
     const onPasswordChange = (e) => setPassword(e.target.value);
 
     const navigate = useNavigate();
-
-    useEffect(() => {
-        setValidEmail(EMAIL_REGEX.test(email));
-    }, [email]);
 
     useEffect(() => {
         setValidPassword(PWD_REGEX.test(password));
     }, [password]);
 
     useEffect(() => {
-        OnboardingAnim(emailRef, passwordRef, submitRef);
+        OnboardingAnim(usernameRef, passwordRef, submitRef);
     });
 
-    const canSave = [validEmail, validPassword].every(Boolean);
+    const canSave = [username, validPassword].every(Boolean);
 
     const onSubmitClicked = (e) => {
         e.preventDefault();
@@ -52,13 +46,13 @@ const Login = () => {
                 <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
                 <form onSubmit={onSubmitClicked}>
                     <section className="outer-login_flex_container">
-                        <fieldset className="email_input" ref={(el) => (emailRef = el)} autoFocus>
-                            <label htmlFor="email">Email</label>
+                        <fieldset className="username_input" ref={(el) => (usernameRef = el)} autoFocus>
+                            <label htmlFor="username">Username</label>
                             <input
                                 type="text"
-                                id="email"
-                                value={email}
-                                onChange={onEmailChange}
+                                id="username"
+                                value={username}
+                                onChange={onUsernameChange}
                                 required
                             />
                         </fieldset>
