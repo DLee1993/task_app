@@ -132,7 +132,7 @@
   justify-content: space-evenly;
   align-items: flex-start;
   flex-direction: column;
-  min-height: 100px;
+  min-height: 75px;
 }
 
 .tasks_tracker {
@@ -140,7 +140,7 @@
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  min-height: 200px;
+  min-height: 175px;
   margin: 10px 0;
 }
 .tasks_tracker .tracker_flex_container {
