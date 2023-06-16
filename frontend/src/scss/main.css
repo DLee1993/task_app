@@ -67,7 +67,6 @@
 }
 .tasks_list .viewTask,
 .tasks_list .completed {
-  max-width: 75px;
   text-align: center;
 }
 .tasks_list .mantine-Checkbox-root {
