@@ -122,6 +122,11 @@
   }
 }
 
+.error_message {
+  text-align: center;
+  padding: 20px 0;
+}
+
 .profile_header {
   display: flex;
   justify-content: space-evenly;
@@ -353,7 +358,7 @@ Button {
 .addTaskForm,
 .editTaskForm {
   height: 90vh;
-  min-height: 600px;
+  min-height: 650px;
 }
 
 .editTaskForm {
