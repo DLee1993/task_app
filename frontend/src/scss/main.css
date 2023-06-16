@@ -439,6 +439,9 @@ textarea {
 }
 .addTaskForm section .form_btn_group,
 .editTaskForm section .form_btn_group {
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
   margin-left: auto;
 }
 .addTaskForm section .form_btn_group,
@@ -456,6 +459,11 @@ textarea {
   .editTaskForm section .form_btn_group {
     margin-top: 0px;
   }
+}
+.addTaskForm section .form_btn_group Button,
+.editTaskForm section .form_btn_group Button {
+  border-radius: 0px;
+  margin: 5px 0;
 }
 @media (min-width: 900px) {
   .addTaskForm,

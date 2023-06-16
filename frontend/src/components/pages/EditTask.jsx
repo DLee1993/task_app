@@ -18,6 +18,7 @@ const EditTask = () => {
     const [title, setTitle] = useState(task.task_title);
     const [description, setDescription] = useState(task.task_description);
     const [category, setCategory] = useState(task.category);
+    const [completed, setCompleted] = useState(task.completed);
 
     const navigate = useNavigate();
 
@@ -36,6 +37,16 @@ const EditTask = () => {
         }
     }, [isSuccess, isError, error, navigate]);
 
+    const markAsComplete = () => {
+        setCompleted(true);
+        toast.success("Whoohoo another task done!");
+    };
+
+    const markAsIncomplete = () => {
+        setCompleted(false);
+        toast.info("Task Marked as incomplete");
+    };
+
     const onSaveTaskClicked = async (e) => {
         e.preventDefault();
         await updateTask({
@@ -44,7 +55,7 @@ const EditTask = () => {
             task_title: title,
             task_description: description,
             category,
-            completed: task.completed,
+            completed: completed,
         });
         navigate("/dashboard");
         window.location.reload();
@@ -101,12 +112,21 @@ const EditTask = () => {
                         <Button onClick={onDeleteTaskClicked} className="warning color_transition">
                             Delete Task
                         </Button>
+                        {!task.completed ? (
+                            <Button className="outline color_transition" onClick={markAsComplete}>
+                                Mark as completed
+                            </Button>
+                        ) : (
+                            <Button className="outline color_transition" onClick={markAsIncomplete}>
+                                Mark as incomplete
+                            </Button>
+                        )}
                         <Button
                             type="submit"
                             disabled={!canSave}
                             className="filled color_transition"
                         >
-                            Update Task
+                            Save Task
                         </Button>
                     </Button.Group>
                 </section>

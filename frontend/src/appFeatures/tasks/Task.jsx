@@ -31,7 +31,7 @@ const Task = ({ taskId }) => {
             <td className="completed">{task.completed ? <FaCheck /> : <RxCrossCircled />}</td>
             <td className="viewTask">
                 <Link to={`/dashboard/${task._id}`}>
-                    <Button className="filled color_transition">Edit</Button>
+                    <Button className="filled color_transition">View Task</Button>
                 </Link>
             </td>
         </tr>

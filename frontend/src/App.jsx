@@ -6,10 +6,12 @@ import Dashboard from "./components/pages/Dashboard";
 import Onboarding from "./components/pages/Onboarding";
 import ViewTask from "./components/pages/ViewTask";
 import EditTask from "./components/pages/EditTask";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
     return (
         <>
+            <ToastContainer />
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Onboarding />} />
