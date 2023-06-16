@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 const currentDate = new Date().toISOString();
 const date = currentDate.slice(0, 10);
-const today = date.split("-").reverse().join("-");
 
 const taskSchema = new mongoose.Schema(
     {
@@ -25,7 +24,7 @@ const taskSchema = new mongoose.Schema(
         },
         toBeCompletedBy: {
             type: String,
-            default: today,
+            default: date,
         },
         completed: {
             type: Boolean,

@@ -13,6 +13,16 @@ const ViewTask = () => {
     const createdAt = task.createdAt.slice(0, 10);
     const updatedAt = task.updatedAt.slice(0, 10);
 
+    let formattedDate;
+
+    if (task.toBeCompletedBy !== null) {
+        const date = task.toBeCompletedBy.slice(0, 10);
+        formattedDate = date
+            .split(/[-/,]+/)
+            .reverse()
+            .join("-");
+    }
+
     const [deleteTask, { isSuccess, isError, error }] = useDeleteTaskMutation();
 
     useEffect(() => {
@@ -43,7 +53,7 @@ const ViewTask = () => {
                 <p>{task.task_description}</p>
                 <p></p>
                 <p>
-                    Complete by: <span>{task.toBeCompletedBy}</span>
+                    Complete by: <span>{formattedDate}</span>
                 </p>
                 <p>
                     Created on: <span>{createdAt.split("-").reverse().join("-")}</span>
