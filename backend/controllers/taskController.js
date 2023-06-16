@@ -16,7 +16,7 @@ export const getAllTasks = asyncHandler(async (req, res) => {
 
 //- Create a new task
 export const createTask = asyncHandler(async (req, res) => {
-    const { user, task_title, task_description, category, completed, toBeCompletedBy } = req.body;
+    const { user, task_title, task_description, category, completed } = req.body;
 
     //- confirm data
     if (!user || !task_title || !task_description) {
@@ -31,7 +31,7 @@ export const createTask = asyncHandler(async (req, res) => {
     }
 
     //- create new user
-    const taskObject = { user, task_title, task_description, category, completed, toBeCompletedBy };
+    const taskObject = { user, task_title, task_description, category, completed };
 
     const task = await Task.create(taskObject);
 

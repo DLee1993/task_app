@@ -12,7 +12,6 @@ const ProfileModal = ({ opened, onClose }) => {
     return (
         <Modal opened={opened} onClose={onClose} title="[Users name] Profile" centered>
             <section className="profile_header">
-                <p>Email: [user email here]</p>
                 <p>Joined on: [created at here]</p>
             </section>
             <Divider />

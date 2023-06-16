@@ -22,10 +22,6 @@ const taskSchema = new mongoose.Schema(
             type: String,
             default: "Home",
         },
-        toBeCompletedBy: {
-            type: String,
-            default: date,
-        },
         completed: {
             type: Boolean,
             default: false,

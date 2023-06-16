@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAddNewTaskMutation } from "../../appFeatures/tasks/tasksSlice";
 import { Modal, Button } from "@mantine/core";
-import { DateInput } from "@mantine/dates";
 import { PropTypes } from "prop-types";
 import { toast } from "react-toastify";
 
@@ -10,7 +9,6 @@ const AddTaskModal = ({ opened, onClose }) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("home");
-    const [date, setDate] = useState();
     const navigate = useNavigate();
 
     const [addNewTask, { isLoading, isSuccess, isError, error }] = useAddNewTaskMutation();
@@ -28,7 +26,6 @@ const AddTaskModal = ({ opened, onClose }) => {
         setTitle("");
         setDescription("");
         setCategory("home");
-        setDate(null);
         onClose(true);
     };
 
@@ -42,7 +39,6 @@ const AddTaskModal = ({ opened, onClose }) => {
                 task_title: title,
                 task_description: description,
                 category,
-                toBeCompletedBy: date,
             });
             onClose(true);
             window.location.reload();
@@ -84,16 +80,6 @@ const AddTaskModal = ({ opened, onClose }) => {
                         <option value="exercise">Exercise</option>
                         <option value="health">Health</option>
                     </select>
-                </fieldset>
-                <fieldset className="date_select">
-                    <DateInput
-                        value={date}
-                        onChange={setDate}
-                        label="Date input ( optional )"
-                        placeholder="Set yourself a date to complete the task"
-                        maw={400}
-                        mx="auto"
-                    />
                 </fieldset>
                 <Button.Group className="form_btn_group">
                     <Button onClick={cancelForm} className="outline color_transition">

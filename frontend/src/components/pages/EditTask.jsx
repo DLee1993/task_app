@@ -1,26 +1,59 @@
 //! - THIS IS WHERE WE SELECT TASK BY ID WITH TASKSLICE
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import {
+    selectTaskById,
+    useDeleteTaskMutation,
+    useUpdateTaskMutation,
+} from "../../appFeatures/tasks/tasksSlice";
+import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "@mantine/core";
-import { DateInput } from "@mantine/dates";
 import { IoArrowBack } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 const EditTask = () => {
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [category, setCategory] = useState("");
-    const [date, setDate] = useState(null);
+    const { id } = useParams();
+    const task = useSelector((state) => selectTaskById(state, id));
+
+    const [title, setTitle] = useState(task.task_title);
+    const [description, setDescription] = useState(task.task_description);
+    const [category, setCategory] = useState(task.category);
 
     const navigate = useNavigate();
 
-    const canSave = [title, description].every(Boolean);
+    const [deleteTask] = useDeleteTaskMutation();
+    const [updateTask, { isLoading, isSuccess, isError, error }] = useUpdateTaskMutation();
+
+    const canSave = [title, description, category].every(Boolean) && !isLoading;
+
+    useEffect(() => {
+        if (isSuccess) {
+            navigate("/dashboard");
+        }
+
+        if (isError) {
+            toast.error(`${error.data.message}`);
+        }
+    }, [isSuccess, isError, error, navigate]);
 
     const onSaveTaskClicked = async (e) => {
         e.preventDefault();
-        console.log("this is where we save the form");
+        await updateTask({
+            id,
+            user: "645dd507c4aff17007b29a7f",
+            task_title: title,
+            task_description: description,
+            category,
+            completed: task.completed,
+        });
+        navigate("/dashboard");
+        window.location.reload();
     };
 
-    const deleteTask = () => {
+    const onDeleteTaskClicked = async () => {
+        await deleteTask({ id: task.id });
+        navigate("/dashboard");
+        window.location.reload();
     };
 
     return (
@@ -60,18 +93,8 @@ const EditTask = () => {
                         <option value="health">Health</option>
                     </select>
                 </fieldset>
-                <fieldset className="date_select">
-                    <DateInput
-                        value={date}
-                        onChange={setDate}
-                        label="Date input ( optional )"
-                        placeholder="Set yourself a date to complete the task"
-                        maw={400}
-                        mx="auto"
-                    />
-                </fieldset>
                 <Button.Group className="form_btn_group">
-                    <Button onClick={deleteTask} className="warning color_transition">
+                    <Button onClick={onDeleteTaskClicked} className="warning color_transition">
                         Delete Task
                     </Button>
                     <Button type="submit" disabled={!canSave} className="filled color_transition">
