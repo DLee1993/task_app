@@ -37,23 +37,9 @@
     }
 }
 
-.outer-login_flex_container, .outer-register_flex_container {
+.outer-login_flex_container,
+.outer-register_flex_container {
     min-height: 200px;
-}
-
-.addTaskForm,
-.editTaskForm {
-    height: 90vh;
-    min-height: 650px;
-}
-
-.editTaskForm {
-    margin-top: 50px;
-}
-
-.form_btn_group {
-    margin-left: auto;
-    @include fluidType(margin-right, 320px, 700px, 0px, 10px);
 }
 
 form {
@@ -68,6 +54,10 @@ fieldset {
     justify-content: start;
     flex-direction: column;
     margin-bottom: 20px;
+
+    @media (min-width: 900px) {
+        margin-bottom: 0px;
+    }
 }
 
 label {
@@ -76,8 +66,7 @@ label {
 
 input,
 textarea,
-select,
-.mantine-hdfsgm {
+select {
     height: 38px;
     @include fluidType(width, 320px, 700px, 300px, 400px);
     padding-left: 5px;
@@ -89,4 +78,51 @@ textarea {
     @include fluidType(height, 320px, 700px, 200px, 300px);
     resize: none;
     padding-top: 5px;
+}
+
+//- seperated the add & edit task forms as it requires flex styling to accomodate the addtional inputs
+
+.edit_task_form_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 700px;
+
+    @media (min-width: 900px) {
+        min-height: auto;
+    }
+}
+
+.addTaskForm,
+.editTaskForm {
+    width: 90%;
+    height: 80vh;
+    min-height: 650px;
+    flex-direction: column;
+
+    section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+
+        .form_btn_group {
+            margin-left: auto;
+            @include fluidType(margin-top, 320px, 800px, 50px, 0px)
+        }
+    }
+
+    @media (min-width: 900px) {
+        flex-direction: row;
+        min-height: 450px;
+
+        section {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+        }
+    }
 }

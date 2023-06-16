@@ -44,7 +44,7 @@ const Register = () => {
         <>
             <section className="register_page_container">
                 <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
-                <form onSubmit={onSubmitClicked}>
+                <form onSubmit={onSubmitClicked} className="register_form">
                     <section className="outer-register_flex_container">
                         <fieldset className="name_input" ref={(el) => (nameRef = el)} autoFocus>
                             <label htmlFor="name">Name</label>

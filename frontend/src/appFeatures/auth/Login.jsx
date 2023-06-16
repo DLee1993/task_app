@@ -44,7 +44,7 @@ const Login = () => {
         <>
             <section className="login_page_container">
                 <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
-                <form onSubmit={onSubmitClicked}>
+                <form onSubmit={onSubmitClicked} className="login_form">
                     <section className="outer-login_flex_container">
                         <fieldset
                             className="username_input"

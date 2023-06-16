@@ -46,24 +46,10 @@
   transform: translateY(50px);
 }
 
-.mantine-ScrollArea-root {
-  height: 450px;
-}
-@media screen and (min-width: 320px) {
-  .mantine-ScrollArea-root {
-    height: calc(105.2631578947vw + 113.1578947368px);
-  }
-}
-@media screen and (min-width: 700px) {
-  .mantine-ScrollArea-root {
-    height: 850px;
-  }
-}
-
 .tasks_list {
   display: table;
   max-width: 98%;
-  margin: 0 auto 100px auto;
+  margin: 0 auto 0 auto;
 }
 .tasks_list a {
   color: #c1c2c5;
@@ -351,35 +337,9 @@ Button {
   }
 }
 
-.outer-login_flex_container, .outer-register_flex_container {
+.outer-login_flex_container,
+.outer-register_flex_container {
   min-height: 200px;
-}
-
-.addTaskForm,
-.editTaskForm {
-  height: 90vh;
-  min-height: 650px;
-}
-
-.editTaskForm {
-  margin-top: 50px;
-}
-
-.form_btn_group {
-  margin-left: auto;
-}
-.form_btn_group {
-  margin-right: 0px;
-}
-@media screen and (min-width: 320px) {
-  .form_btn_group {
-    margin-right: calc(2.6315789474vw - 8.4210526316px);
-  }
-}
-@media screen and (min-width: 700px) {
-  .form_btn_group {
-    margin-right: 10px;
-  }
 }
 
 form {
@@ -395,6 +355,11 @@ fieldset {
   flex-direction: column;
   margin-bottom: 20px;
 }
+@media (min-width: 900px) {
+  fieldset {
+    margin-bottom: 0px;
+  }
+}
 
 label {
   margin-bottom: 5px;
@@ -402,8 +367,7 @@ label {
 
 input,
 textarea,
-select,
-.mantine-hdfsgm {
+select {
   height: 38px;
   padding-left: 5px;
   color: #c1c2c5;
@@ -411,23 +375,20 @@ select,
 }
 input,
 textarea,
-select,
-.mantine-hdfsgm {
+select {
   width: 300px;
 }
 @media screen and (min-width: 320px) {
   input,
   textarea,
-  select,
-  .mantine-hdfsgm {
+  select {
     width: calc(26.3157894737vw + 215.7894736842px);
   }
 }
 @media screen and (min-width: 700px) {
   input,
   textarea,
-  select,
-  .mantine-hdfsgm {
+  select {
     width: 400px;
   }
 }
@@ -447,6 +408,69 @@ textarea {
 @media screen and (min-width: 700px) {
   textarea {
     height: 300px;
+  }
+}
+
+.edit_task_form_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  min-height: 700px;
+}
+@media (min-width: 900px) {
+  .edit_task_form_container {
+    min-height: auto;
+  }
+}
+
+.addTaskForm,
+.editTaskForm {
+  width: 90%;
+  height: 80vh;
+  min-height: 650px;
+  flex-direction: column;
+}
+.addTaskForm section,
+.editTaskForm section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.addTaskForm section .form_btn_group,
+.editTaskForm section .form_btn_group {
+  margin-left: auto;
+}
+.addTaskForm section .form_btn_group,
+.editTaskForm section .form_btn_group {
+  margin-top: 50px;
+}
+@media screen and (min-width: 320px) {
+  .addTaskForm section .form_btn_group,
+  .editTaskForm section .form_btn_group {
+    margin-top: calc(-10.4166666667vw + 83.3333333333px);
+  }
+}
+@media screen and (min-width: 800px) {
+  .addTaskForm section .form_btn_group,
+  .editTaskForm section .form_btn_group {
+    margin-top: 0px;
+  }
+}
+@media (min-width: 900px) {
+  .addTaskForm,
+  .editTaskForm {
+    flex-direction: row;
+    min-height: 450px;
+  }
+  .addTaskForm section,
+  .editTaskForm section {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
   }
 }
 

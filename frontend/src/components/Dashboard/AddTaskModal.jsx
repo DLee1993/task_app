@@ -48,47 +48,56 @@ const AddTaskModal = ({ opened, onClose }) => {
     return (
         <Modal opened={opened} onClose={cancelForm} title="Add a new Task" centered fullScreen>
             <form className="addTaskForm" onSubmit={onSaveTaskClicked}>
-                <fieldset className="task_title">
-                    <label htmlFor="task_title">Title:</label>
-                    <input
-                        type="text"
-                        id="task_title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                </fieldset>
-                <fieldset className="task_description">
-                    <label htmlFor="task_description">Description:</label>
-                    <textarea
-                        type="text"
-                        id="task_description"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                    />
-                </fieldset>
-                <fieldset className="task_category">
-                    <select
-                        name="task_category"
-                        id="task_category"
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
-                    >
-                        <option value="home">Home</option>
-                        <option value="work">Work</option>
-                        <option value="university">University</option>
-                        <option value="social">Social</option>
-                        <option value="exercise">Exercise</option>
-                        <option value="health">Health</option>
-                    </select>
-                </fieldset>
-                <Button.Group className="form_btn_group">
-                    <Button onClick={cancelForm} className="outline color_transition">
-                        Cancel
-                    </Button>
-                    <Button type="submit" disabled={!canSave} className="filled color_transition">
-                        Submit
-                    </Button>
-                </Button.Group>
+                <section>
+                    <fieldset className="task_title">
+                        <label htmlFor="task_title">Title:</label>
+                        <input
+                            type="text"
+                            id="task_title"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
+                    </fieldset>
+                    <fieldset className="task_description">
+                        <label htmlFor="task_description">Description:</label>
+                        <textarea
+                            type="text"
+                            id="task_description"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                        />
+                    </fieldset>
+                </section>
+                <section>
+                    <fieldset className="task_category">
+                    <label htmlFor="task_category">Pick a category for your task:</label>
+                        <select
+                            name="task_category"
+                            id="task_category"
+                            value={category}
+                            onChange={(e) => setCategory(e.target.value)}
+                        >
+                            <option value="home">Home</option>
+                            <option value="work">Work</option>
+                            <option value="university">University</option>
+                            <option value="social">Social</option>
+                            <option value="exercise">Exercise</option>
+                            <option value="health">Health</option>
+                        </select>
+                    </fieldset>
+                    <Button.Group className="form_btn_group">
+                        <Button onClick={cancelForm} className="outline color_transition">
+                            Cancel
+                        </Button>
+                        <Button
+                            type="submit"
+                            disabled={!canSave}
+                            className="filled color_transition"
+                        >
+                            Submit
+                        </Button>
+                    </Button.Group>
+                </section>
             </form>
         </Modal>
     );

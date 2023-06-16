@@ -1,11 +1,7 @@
-.mantine-ScrollArea-root {
-    @include fluidType(height, 320px, 700px, 450px, 850px);
-}
-
 .tasks_list {
     display: table;
     max-width: 98%;
-    margin: 0 auto 100px auto;
+    margin: 0 auto 0 auto;
 
     & a {
         color: clr(colorPalette, fadedWhite);
