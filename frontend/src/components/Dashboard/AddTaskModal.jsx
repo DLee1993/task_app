@@ -16,13 +16,18 @@ const AddTaskModal = ({ opened, onClose }) => {
     useEffect(() => {
         if (isSuccess) {
             navigate("/dashboard");
+            onClose(true);
+            setTitle("");
+            setDescription("");
+            setCategory("home");
         }
         if (isError) {
             toast.error(`${error.data.message}`);
+            setTitle("");
         }
-    }, [isSuccess, isError, error, navigate]);
+    }, [isSuccess, isError, error, navigate, onClose]);
 
-    const cancelForm = () => {
+    const resetForm = () => {
         setTitle("");
         setDescription("");
         setCategory("home");
@@ -40,13 +45,13 @@ const AddTaskModal = ({ opened, onClose }) => {
                 task_description: description,
                 category,
             });
-            onClose(true);
-            window.location.reload();
+        } else {
+            toast.error(`${error.data.message}`);
         }
     };
 
     return (
-        <Modal opened={opened} onClose={cancelForm} title="Add a new Task" centered fullScreen>
+        <Modal opened={opened} onClose={resetForm} title="Add a new Task" centered fullScreen>
             <form className="addTaskForm" onSubmit={onSaveTaskClicked}>
                 <section>
                     <fieldset className="task_title">
@@ -70,7 +75,7 @@ const AddTaskModal = ({ opened, onClose }) => {
                 </section>
                 <section>
                     <fieldset className="task_category">
-                    <label htmlFor="task_category">Pick a category for your task:</label>
+                        <label htmlFor="task_category">Pick a category for your task:</label>
                         <select
                             name="task_category"
                             id="task_category"
@@ -86,7 +91,7 @@ const AddTaskModal = ({ opened, onClose }) => {
                         </select>
                     </fieldset>
                     <Button.Group className="form_btn_group">
-                        <Button onClick={cancelForm} className="outline color_transition">
+                        <Button onClick={resetForm} className="outline color_transition">
                             Cancel
                         </Button>
                         <Button

@@ -19,7 +19,7 @@ const TasksList = () => {
             : null;
 
         content = (
-            <ScrollArea>
+            <ScrollArea h={400} type="auto">
                 <Table
                     className="tasks_list"
                     striped
