@@ -7,7 +7,6 @@ import {
     useUpdateTaskMutation,
 } from "../../appFeatures/tasks/tasksSlice";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button } from "@mantine/core";
 import { IoArrowBack } from "react-icons/io5";
 import { toast } from "react-toastify";
 
@@ -108,27 +107,27 @@ const EditTask = () => {
                             <option value="health">Health</option>
                         </select>
                     </fieldset>
-                    <Button.Group className="form_btn_group">
-                        <Button onClick={onDeleteTaskClicked} className="warning color_transition">
+                    <section className="form_btn_group">
+                        <button onClick={onDeleteTaskClicked} className="warning color_transition">
                             Delete Task
-                        </Button>
+                        </button>
                         {!task.completed ? (
-                            <Button className="outline color_transition" onClick={markAsComplete}>
+                            <button className="outline color_transition" onClick={markAsComplete}>
                                 Mark as completed
-                            </Button>
+                            </button>
                         ) : (
-                            <Button className="outline color_transition" onClick={markAsIncomplete}>
+                            <button className="outline color_transition" onClick={markAsIncomplete}>
                                 Mark as incomplete
-                            </Button>
+                            </button>
                         )}
-                        <Button
+                        <button
                             type="submit"
                             disabled={!canSave}
                             className="filled color_transition"
                         >
                             Save Task
-                        </Button>
-                    </Button.Group>
+                        </button>
+                    </section>
                 </section>
             </form>
         </section>

@@ -82,7 +82,7 @@ textarea {
 
 //- seperated the add & edit task forms as it requires flex styling to accomodate the addtional inputs
 
-.edit_task_form_container {
+.edit_task_form_container, .add_task_form_container {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -4,6 +4,7 @@ import Login from "./appFeatures/auth/Login";
 import Register from "./appFeatures/auth/Register";
 import Dashboard from "./components/pages/Dashboard";
 import Onboarding from "./components/pages/Onboarding";
+import AddTask from "./components/pages/AddTask";
 import ViewTask from "./components/pages/ViewTask";
 import EditTask from "./components/pages/EditTask";
 import { ToastContainer } from "react-toastify";
@@ -21,6 +22,7 @@ const App = () => {
                     {/* Protected Routes - wrap dashboard path in protected route */}
                     <Route path="dashboard">
                         <Route index element={<Dashboard />} />
+                        <Route path="newTask" element={<AddTask />} />
                         <Route path=":id" element={<ViewTask />} />
                         <Route path="edit/:id" element={<EditTask />} />
                     </Route>

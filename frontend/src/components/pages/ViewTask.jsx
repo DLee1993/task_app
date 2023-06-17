@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button } from "@mantine/core";
 import { IoArrowBack } from "react-icons/io5";
 import { selectTaskById, useDeleteTaskMutation } from "../../appFeatures/tasks/tasksSlice";
 import { useSelector } from "react-redux";
@@ -48,12 +47,12 @@ const ViewTask = () => {
                     Last updated: <span>{updatedAt.split("-").reverse().join("-")}</span>
                 </p>
                 <section className="task_actions">
-                    <Button className="warning color_tranisiton" onClick={onDeleteTaskClicked}>
+                    <button className="warning color_tranisiton" onClick={onDeleteTaskClicked}>
                         Delete Task
-                    </Button>
-                    <Button className="filled color_tranisiton" onClick={handleEditRedirect}>
+                    </button>
+                    <button className="filled color_tranisiton" onClick={handleEditRedirect}>
                         Update Task
-                    </Button>
+                    </button>
                 </section>
             </article>
         </>

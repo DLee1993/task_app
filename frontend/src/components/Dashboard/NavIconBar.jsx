@@ -1,27 +1,21 @@
-import { Group, Button } from "@mantine/core";
-import { IoAdd, IoPersonCircleOutline, IoLogOut } from "react-icons/io5";
-import { PropTypes } from "prop-types";
+import { Link } from "react-router-dom";
+import { IoAdd, IoLogOut } from "react-icons/io5";
 
-const NavIconBar = ({ taskMenuOpen, logoutAccountOpen, profileOpen }) => {
+const NavIconBar = () => {
+    const logoutClicked = () => {
+        console.log("logout here");
+    };
+
     return (
-        <Group className="nav-button_group">
-            <Button variant="subtle" onClick={taskMenuOpen} className="hover color_transition">
+        <section className="nav-button_group">
+            <Link to="/dashboard/newTask" variant="subtle" className="hover color_transition">
                 <IoAdd size={25} />
-            </Button>
-            <Button variant="subtle" onClick={profileOpen} className="hover color_transition">
-                <IoPersonCircleOutline size={25} />
-            </Button>
-            <Button variant="subtle" onClick={logoutAccountOpen} className="hover color_transition">
+            </Link>
+            <button onClick={logoutClicked} className="hover color_transition">
                 <IoLogOut size={25} />
-            </Button>
-        </Group>
+            </button>
+        </section>
     );
-};
-
-NavIconBar.propTypes = {
-    taskMenuOpen: PropTypes.func,
-    logoutAccountOpen: PropTypes.func,
-    profileOpen: PropTypes.func,
 };
 
 export default NavIconBar;

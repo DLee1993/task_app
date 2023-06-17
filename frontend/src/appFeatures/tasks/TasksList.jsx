@@ -1,6 +1,5 @@
 import { useGetTasksQuery } from "./tasksSlice";
 import Task from "./Task";
-import { Table, ScrollArea } from "@mantine/core";
 
 const TasksList = () => {
     const { data: tasks, isLoading, isSuccess, isError, error } = useGetTasksQuery();
@@ -19,27 +18,18 @@ const TasksList = () => {
             : null;
 
         content = (
-            <ScrollArea h={400} type="auto">
-                <Table
-                    className="tasks_list"
-                    striped
-                    highlightOnHover
-                    verticalSpacing="md"
-                    horizontalSpacing="lg"
-                    fontSize="md"
-                >
-                    <thead>
-                        <tr>
-                            <th className="title">Title</th>
-                            <th className="description">Description</th>
-                            <th className="category">Category</th>
-                            <th className="completed">Completed</th>
-                            <th className="viewTask"></th>
-                        </tr>
-                    </thead>
-                    <tbody>{taskTableContent}</tbody>
-                </Table>
-            </ScrollArea>
+            <table className="tasks_list">
+                <thead>
+                    <tr>
+                        <th className="title">Title</th>
+                        <th className="description">Description</th>
+                        <th className="category">Category</th>
+                        <th className="completed">Completed</th>
+                        <th className="viewTask"></th>
+                    </tr>
+                </thead>
+                <tbody>{taskTableContent}</tbody>
+            </table>
         );
     }
 

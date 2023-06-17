@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
-import { Text, Button } from "@mantine/core";
 import { useSelector } from "react-redux";
 import { selectTaskById } from "./tasksSlice";
 import { FaCheck } from "react-icons/fa";
@@ -22,16 +21,16 @@ const Task = ({ taskId }) => {
     return (
         <tr>
             <td className="title">
-                <Text>{titleContent}</Text>
+                <p>{titleContent}</p>
             </td>
             <td className="description">
-                <Text>{descriptionContent}</Text>
+                <p>{descriptionContent}</p>
             </td>
             <td className="category">{task.category}</td>
             <td className="completed">{task.completed ? <FaCheck /> : <RxCrossCircled />}</td>
             <td className="viewTask">
                 <Link to={`/dashboard/${task._id}`}>
-                    <Button className="filled color_transition">View Task</Button>
+                    <button className="filled color_transition">View Task</button>
                 </Link>
             </td>
         </tr>
