@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAddNewTaskMutation } from "../../appFeatures/tasks/tasksSlice";
 import { Modal, Button } from "@mantine/core";
@@ -9,9 +9,18 @@ const AddTaskModal = ({ opened, onClose }) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("home");
+    const inputRef = useRef();
     const navigate = useNavigate();
 
     const [addNewTask, { isLoading, isSuccess, isError, error }] = useAddNewTaskMutation();
+
+    useEffect(() => {
+        if (opened) {
+            setTimeout(() => {
+                inputRef.current.focus();
+            }, 100);
+        }
+    }, [opened]);
 
     useEffect(() => {
         if (isSuccess) {
@@ -40,7 +49,7 @@ const AddTaskModal = ({ opened, onClose }) => {
         e.preventDefault();
         if (canSave) {
             await addNewTask({
-                user: "645dd507c4aff17007b29a7f", //! - CHANGE THIS TO THE LOGGED IN USER 
+                user: "645dd507c4aff17007b29a7f", //! - CHANGE THIS TO THE LOGGED IN USER
                 task_title: title,
                 task_description: description,
                 category,
@@ -59,6 +68,7 @@ const AddTaskModal = ({ opened, onClose }) => {
                             id="task_title"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
+                            ref={inputRef}
                         />
                     </fieldset>
                     <fieldset className="task_description">
