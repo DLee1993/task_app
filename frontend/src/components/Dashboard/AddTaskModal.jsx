@@ -40,13 +40,11 @@ const AddTaskModal = ({ opened, onClose }) => {
         e.preventDefault();
         if (canSave) {
             await addNewTask({
-                user: "645dd507c4aff17007b29a7f",
+                user: "645dd507c4aff17007b29a7f", //! - CHANGE THIS TO THE LOGGED IN USER 
                 task_title: title,
                 task_description: description,
                 category,
             });
-        } else {
-            toast.error(`${error.data.message}`);
         }
     };
 

@@ -27,7 +27,7 @@ export const createTask = asyncHandler(async (req, res) => {
     const duplicate = await Task.findOne({ task_title }).lean().exec();
 
     if (duplicate) {
-        return res.status(409).json({ message: "task title already exists" });
+        return res.status(409).json({ message: "Task Title already exists" });
     }
 
     //- create new user
@@ -73,7 +73,7 @@ export const updateTask = asyncHandler(async (req, res) => {
         .exec();
 
     if (duplicate && duplicate?._id.toString() !== id) {
-        return res.status(409).json({ message: "Duplicate Note title" });
+        return res.status(409).json({ message: "Task Title already exists" });
     }
 
     //- add the new values to the task
