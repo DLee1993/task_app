@@ -6,6 +6,8 @@
     & a {
         color: clr(colorPalette, fadedWhite);
         text-decoration: none;
+        max-width: 120px;
+        margin: 0 auto;
     }
 
     & .title,
@@ -16,27 +18,9 @@
         display: table-cell;
     }
 
-    & .viewTask:hover {
-        text-decoration: underline;
-    }
-
     & .viewTask,
     .completed {
         text-align: center;
-    }
-
-    & .mantine-Checkbox-root {
-        display: flex;
-        justify-content: center;
-    }
-
-    & .mantine-Checkbox-input {
-        background-color: clr(colorPalette, fadedWhite);
-
-        &:checked {
-            background-color: clr(colorPalette, brightPurple);
-            border: clr(colorPalette, brightPurple);
-        }
     }
 
     & .category,
@@ -64,9 +48,4 @@
             display: table-cell;
         }
     }
-}
-
-.error_message {
-    text-align: center;
-    padding: 20px 0;
 }

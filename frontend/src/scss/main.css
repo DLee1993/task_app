@@ -54,6 +54,8 @@
 .tasks_list a {
   color: #c1c2c5;
   text-decoration: none;
+  max-width: 120px;
+  margin: 0 auto;
 }
 .tasks_list .title,
 .tasks_list .description,
@@ -62,23 +64,9 @@
 .tasks_list .viewTask {
   display: table-cell;
 }
-.tasks_list .viewTask:hover {
-  text-decoration: underline;
-}
 .tasks_list .viewTask,
 .tasks_list .completed {
   text-align: center;
-}
-.tasks_list .mantine-Checkbox-root {
-  display: flex;
-  justify-content: center;
-}
-.tasks_list .mantine-Checkbox-input {
-  background-color: #c1c2c5;
-}
-.tasks_list .mantine-Checkbox-input:checked {
-  background-color: #8687e7;
-  border: #8687e7;
 }
 .tasks_list .category,
 .tasks_list .description,
@@ -105,11 +93,6 @@
   .tasks_list .category {
     display: table-cell;
   }
-}
-
-.error_message {
-  text-align: center;
-  padding: 20px 0;
 }
 
 .profile_header {
@@ -170,8 +153,10 @@
 }
 
 a,
-button,
-Button {
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -179,7 +164,19 @@ Button {
   transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-.link,
+.header_btn {
+  width: 70px;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.viewTask_btn {
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  color: #c1c2c5;
+}
+
 .form_btn {
   display: flex;
   justify-content: center;
@@ -189,18 +186,15 @@ Button {
   height: 38px;
   text-transform: capitalize;
 }
-.link,
 .form_btn {
   width: 200px;
 }
 @media screen and (min-width: 320px) {
-  .link,
   .form_btn {
     width: calc(26.3157894737vw + 115.7894736842px);
   }
 }
 @media screen and (min-width: 700px) {
-  .link,
   .form_btn {
     width: 300px;
   }
@@ -233,7 +227,6 @@ Button {
 }
 .edit_btn:hover {
   color: #8687e7;
-  transform: scale(1.1);
 }
 
 .warning {
@@ -257,6 +250,94 @@ Button {
 .register_page_container .register_btn {
   opacity: 0;
   transform: translateY(50px);
+}
+.login_page_container input,
+.register_page_container input {
+  width: 200px;
+}
+@media screen and (min-width: 320px) {
+  .login_page_container input,
+  .register_page_container input {
+    width: calc(26.3157894737vw + 115.7894736842px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .login_page_container input,
+  .register_page_container input {
+    width: 300px;
+  }
+}
+.login_page_container .outer-login_flex_container,
+.login_page_container .outer-register_flex_container,
+.register_page_container .outer-login_flex_container,
+.register_page_container .outer-register_flex_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+  min-height: 200px;
+}
+.login_page_container .outer-login_flex_container .name_input,
+.login_page_container .outer-login_flex_container .username_input,
+.login_page_container .outer-login_flex_container .password_input,
+.login_page_container .outer-register_flex_container .name_input,
+.login_page_container .outer-register_flex_container .username_input,
+.login_page_container .outer-register_flex_container .password_input,
+.register_page_container .outer-login_flex_container .name_input,
+.register_page_container .outer-login_flex_container .username_input,
+.register_page_container .outer-login_flex_container .password_input,
+.register_page_container .outer-register_flex_container .name_input,
+.register_page_container .outer-register_flex_container .username_input,
+.register_page_container .outer-register_flex_container .password_input {
+  opacity: 0;
+  transform: translateY(50px);
+}
+.login_page_container .outer-login_flex_container .name_input,
+.login_page_container .outer-login_flex_container .username_input,
+.login_page_container .outer-login_flex_container .password_input,
+.login_page_container .outer-register_flex_container .name_input,
+.login_page_container .outer-register_flex_container .username_input,
+.login_page_container .outer-register_flex_container .password_input,
+.register_page_container .outer-login_flex_container .name_input,
+.register_page_container .outer-login_flex_container .username_input,
+.register_page_container .outer-login_flex_container .password_input,
+.register_page_container .outer-register_flex_container .name_input,
+.register_page_container .outer-register_flex_container .username_input,
+.register_page_container .outer-register_flex_container .password_input {
+  width: 200px;
+}
+@media screen and (min-width: 320px) {
+  .login_page_container .outer-login_flex_container .name_input,
+  .login_page_container .outer-login_flex_container .username_input,
+  .login_page_container .outer-login_flex_container .password_input,
+  .login_page_container .outer-register_flex_container .name_input,
+  .login_page_container .outer-register_flex_container .username_input,
+  .login_page_container .outer-register_flex_container .password_input,
+  .register_page_container .outer-login_flex_container .name_input,
+  .register_page_container .outer-login_flex_container .username_input,
+  .register_page_container .outer-login_flex_container .password_input,
+  .register_page_container .outer-register_flex_container .name_input,
+  .register_page_container .outer-register_flex_container .username_input,
+  .register_page_container .outer-register_flex_container .password_input {
+    width: calc(26.3157894737vw + 115.7894736842px);
+  }
+}
+@media screen and (min-width: 700px) {
+  .login_page_container .outer-login_flex_container .name_input,
+  .login_page_container .outer-login_flex_container .username_input,
+  .login_page_container .outer-login_flex_container .password_input,
+  .login_page_container .outer-register_flex_container .name_input,
+  .login_page_container .outer-register_flex_container .username_input,
+  .login_page_container .outer-register_flex_container .password_input,
+  .register_page_container .outer-login_flex_container .name_input,
+  .register_page_container .outer-login_flex_container .username_input,
+  .register_page_container .outer-login_flex_container .password_input,
+  .register_page_container .outer-register_flex_container .name_input,
+  .register_page_container .outer-register_flex_container .username_input,
+  .register_page_container .outer-register_flex_container .password_input {
+    width: 300px;
+  }
 }
 
 .return_btn {
@@ -288,57 +369,6 @@ Button {
   .return_btn {
     left: 30px;
   }
-}
-
-.outer-login_flex_container,
-.outer-register_flex_container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 50px;
-}
-.outer-login_flex_container .name_input,
-.outer-login_flex_container .username_input,
-.outer-login_flex_container .password_input,
-.outer-register_flex_container .name_input,
-.outer-register_flex_container .username_input,
-.outer-register_flex_container .password_input {
-  opacity: 0;
-  transform: translateY(50px);
-}
-.outer-login_flex_container .name_input,
-.outer-login_flex_container .username_input,
-.outer-login_flex_container .password_input,
-.outer-register_flex_container .name_input,
-.outer-register_flex_container .username_input,
-.outer-register_flex_container .password_input {
-  width: 200px;
-}
-@media screen and (min-width: 320px) {
-  .outer-login_flex_container .name_input,
-  .outer-login_flex_container .username_input,
-  .outer-login_flex_container .password_input,
-  .outer-register_flex_container .name_input,
-  .outer-register_flex_container .username_input,
-  .outer-register_flex_container .password_input {
-    width: calc(26.3157894737vw + 115.7894736842px);
-  }
-}
-@media screen and (min-width: 700px) {
-  .outer-login_flex_container .name_input,
-  .outer-login_flex_container .username_input,
-  .outer-login_flex_container .password_input,
-  .outer-register_flex_container .name_input,
-  .outer-register_flex_container .username_input,
-  .outer-register_flex_container .password_input {
-    width: 300px;
-  }
-}
-
-.outer-login_flex_container,
-.outer-register_flex_container {
-  min-height: 200px;
 }
 
 form {
@@ -410,7 +440,8 @@ textarea {
   }
 }
 
-.edit_task_form_container, .add_task_form_container {
+.edit_task_form_container,
+.add_task_form_container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -418,67 +449,112 @@ textarea {
   min-height: 700px;
 }
 @media (min-width: 900px) {
-  .edit_task_form_container, .add_task_form_container {
+  .edit_task_form_container,
+  .add_task_form_container {
     min-height: auto;
   }
 }
-
-.addTaskForm,
-.editTaskForm {
+.edit_task_form_container .addTaskForm,
+.edit_task_form_container .editTaskForm,
+.add_task_form_container .addTaskForm,
+.add_task_form_container .editTaskForm {
   width: 90%;
   height: 80vh;
   min-height: 650px;
   flex-direction: column;
 }
-.addTaskForm section,
-.editTaskForm section {
+.edit_task_form_container .addTaskForm section,
+.edit_task_form_container .editTaskForm section,
+.add_task_form_container .addTaskForm section,
+.add_task_form_container .editTaskForm section {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
 }
-.addTaskForm section .form_btn_group,
-.editTaskForm section .form_btn_group {
+.edit_task_form_container .addTaskForm section .form_btn_group,
+.edit_task_form_container .editTaskForm section .form_btn_group,
+.add_task_form_container .addTaskForm section .form_btn_group,
+.add_task_form_container .editTaskForm section .form_btn_group {
   width: 100%;
   display: flex;
   flex-direction: column-reverse;
   margin-left: auto;
 }
-.addTaskForm section .form_btn_group,
-.editTaskForm section .form_btn_group {
+.edit_task_form_container .addTaskForm section .form_btn_group,
+.edit_task_form_container .editTaskForm section .form_btn_group,
+.add_task_form_container .addTaskForm section .form_btn_group,
+.add_task_form_container .editTaskForm section .form_btn_group {
   margin-top: 50px;
 }
 @media screen and (min-width: 320px) {
-  .addTaskForm section .form_btn_group,
-  .editTaskForm section .form_btn_group {
+  .edit_task_form_container .addTaskForm section .form_btn_group,
+  .edit_task_form_container .editTaskForm section .form_btn_group,
+  .add_task_form_container .addTaskForm section .form_btn_group,
+  .add_task_form_container .editTaskForm section .form_btn_group {
     margin-top: calc(-10.4166666667vw + 83.3333333333px);
   }
 }
 @media screen and (min-width: 800px) {
-  .addTaskForm section .form_btn_group,
-  .editTaskForm section .form_btn_group {
+  .edit_task_form_container .addTaskForm section .form_btn_group,
+  .edit_task_form_container .editTaskForm section .form_btn_group,
+  .add_task_form_container .addTaskForm section .form_btn_group,
+  .add_task_form_container .editTaskForm section .form_btn_group {
     margin-top: 0px;
   }
 }
-.addTaskForm section .form_btn_group Button,
-.editTaskForm section .form_btn_group Button {
+.edit_task_form_container .addTaskForm section .form_btn_group Button,
+.edit_task_form_container .editTaskForm section .form_btn_group Button,
+.add_task_form_container .addTaskForm section .form_btn_group Button,
+.add_task_form_container .editTaskForm section .form_btn_group Button {
   border-radius: 0px;
   margin: 5px 0;
 }
 @media (min-width: 900px) {
-  .addTaskForm,
-  .editTaskForm {
+  .edit_task_form_container .addTaskForm,
+  .edit_task_form_container .editTaskForm,
+  .add_task_form_container .addTaskForm,
+  .add_task_form_container .editTaskForm {
     flex-direction: row;
     min-height: 450px;
   }
-  .addTaskForm section,
-  .editTaskForm section {
+  .edit_task_form_container .addTaskForm section,
+  .edit_task_form_container .editTaskForm section,
+  .add_task_form_container .addTaskForm section,
+  .add_task_form_container .editTaskForm section {
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
   }
+}
+
+.tasks_list {
+  width: 100%;
+  max-height: 450px;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.tasks_list thead tr th {
+  padding: 20px 0 20px 5px;
+  text-align: left;
+}
+.tasks_list tbody .tableContent_row:nth-child(odd) {
+  transition: all 0.2s ease;
+  background-color: #25262b;
+}
+.tasks_list tbody .tableContent_row:nth-child(odd):hover {
+  background-color: #373A40;
+}
+.tasks_list tbody .tableContent_row:nth-child(even) {
+  transition: all 0.2s ease;
+}
+.tasks_list tbody .tableContent_row:nth-child(even):hover {
+  background-color: #373A40;
+}
+.tasks_list tbody .tableContent_row td {
+  padding: 20px 0 20px 5px;
 }
 
 .header {
@@ -547,7 +623,7 @@ textarea {
     position: relative;
     bottom: 0;
     left: 0;
-    width: auto;
+    width: 200px;
     height: auto;
     background-color: transparent;
   }

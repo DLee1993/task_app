@@ -8,10 +8,14 @@ const NavIconBar = () => {
 
     return (
         <section className="nav-button_group">
-            <Link to="/dashboard/newTask" variant="subtle" className="hover color_transition">
+            <Link
+                to="/dashboard/newTask"
+                variant="subtle"
+                className="header_btn filled color_transition"
+            >
                 <IoAdd size={25} />
             </Link>
-            <button onClick={logoutClicked} className="hover color_transition">
+            <button onClick={logoutClicked} className="header_btn filled color_transition">
                 <IoLogOut size={25} />
             </button>
         </section>

@@ -11,6 +11,28 @@
         opacity: 0;
         transform: translateY(50px);
     }
+
+    & input {
+        @include fluidType(width, 320px, 700px, 200px, 300px);
+    }
+
+    .outer-login_flex_container,
+    .outer-register_flex_container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 50px;
+        min-height: 200px;
+
+        & .name_input,
+        .username_input,
+        .password_input {
+            opacity: 0;
+            transform: translateY(50px);
+            @include fluidType(width, 320px, 700px, 200px, 300px);
+        }
+    }
 }
 
 .return_btn {
@@ -20,27 +42,7 @@
     cursor: pointer;
 }
 
-.outer-login_flex_container,
-.outer-register_flex_container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 50px;
-
-    & .name_input,
-    .username_input,
-    .password_input {
-        opacity: 0;
-        transform: translateY(50px);
-        @include fluidType(width, 320px, 700px, 200px, 300px);
-    }
-}
-
-.outer-login_flex_container,
-.outer-register_flex_container {
-    min-height: 200px;
-}
+//- general styling for all forms
 
 form {
     display: flex;
@@ -82,7 +84,8 @@ textarea {
 
 //- seperated the add & edit task forms as it requires flex styling to accomodate the addtional inputs
 
-.edit_task_form_container, .add_task_form_container {
+.edit_task_form_container,
+.add_task_form_container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,45 +95,45 @@ textarea {
     @media (min-width: 900px) {
         min-height: auto;
     }
-}
 
-.addTaskForm,
-.editTaskForm {
-    width: 90%;
-    height: 80vh;
-    min-height: 650px;
-    flex-direction: column;
-
-    section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .addTaskForm,
+    .editTaskForm {
+        width: 90%;
+        height: 80vh;
+        min-height: 650px;
         flex-direction: column;
 
-        .form_btn_group {
-            width: 100%;
-            display: flex;
-            flex-direction: column-reverse;
-            margin-left: auto;
-            @include fluidType(margin-top, 320px, 800px, 50px, 0px);
-
-            & Button {
-                border-radius: 0px;
-                margin: 5px 0;
-            }
-        }
-    }
-
-    @media (min-width: 900px) {
-        flex-direction: row;
-        min-height: 450px;
-
         section {
-            height: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-direction: column;
+
+            .form_btn_group {
+                width: 100%;
+                display: flex;
+                flex-direction: column-reverse;
+                margin-left: auto;
+                @include fluidType(margin-top, 320px, 800px, 50px, 0px);
+
+                & Button {
+                    border-radius: 0px;
+                    margin: 5px 0;
+                }
+            }
+        }
+
+        @media (min-width: 900px) {
+            flex-direction: row;
+            min-height: 450px;
+
+            section {
+                height: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+            }
         }
     }
 }

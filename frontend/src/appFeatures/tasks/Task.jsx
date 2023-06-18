@@ -19,7 +19,7 @@ const Task = ({ taskId }) => {
         : (titleContent = task.task_title);
 
     return (
-        <tr>
+        <tr className="tableContent_row">
             <td className="title">
                 <p>{titleContent}</p>
             </td>
@@ -30,7 +30,7 @@ const Task = ({ taskId }) => {
             <td className="completed">{task.completed ? <FaCheck /> : <RxCrossCircled />}</td>
             <td className="viewTask">
                 <Link to={`/dashboard/${task._id}`}>
-                    <button className="filled color_transition">View Task</button>
+                    <button className="viewTask_btn outline color_transition">View Task</button>
                 </Link>
             </td>
         </tr>

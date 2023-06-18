@@ -1,6 +1,8 @@
 a,
-button,
-Button {
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
 }
 
@@ -9,7 +11,20 @@ Button {
     transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-.link,
+.header_btn {
+    width: 70px;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.viewTask_btn {
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    color: clr(colorPalette, fadedWhite);
+}
+
+
 .form_btn {
     display: flex;
     justify-content: center;
@@ -51,7 +66,6 @@ Button {
 
     &:hover {
         color: clr(colorPalette, brightPurple);
-        transform: scale(1.1);
     }
 }
 
