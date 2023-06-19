@@ -8,7 +8,7 @@ export const getAllTasks = asyncHandler(async (req, res) => {
     if (!tasks?.length) {
         return res
             .status(404)
-            .json({ message: "You don't have any tasks, click the + button to add a new task" });
+            .json({ message: "Click the + button to add a new task" });
     }
 
     res.json(tasks);

@@ -95,61 +95,36 @@
   }
 }
 
-.profile_header {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  flex-direction: column;
-  min-height: 75px;
-}
-
-.tasks_tracker {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  min-height: 175px;
-  margin: 10px 0;
-}
-.tasks_tracker .tracker_flex_container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-}
-.tasks_tracker .tracker_flex_container .current_tasks,
-.tasks_tracker .tracker_flex_container .completed_tasks {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100px;
-  width: 200px;
+.error_message {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 0;
   background-color: #25262b;
 }
-.tasks_tracker .tracker_flex_container .current_tasks .current_number,
-.tasks_tracker .tracker_flex_container .current_tasks .completed_number,
-.tasks_tracker .tracker_flex_container .completed_tasks .current_number,
-.tasks_tracker .tracker_flex_container .completed_tasks .completed_number {
-  font-weight: 900;
-  color: white;
-}
 
-.user_actions {
+.viewTask_container {
+  height: 100vh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  min-height: 150px;
-  margin: 10px 0;
 }
-
-.logout_modal_inner {
+.viewTask_container .task_view {
+  width: 90%;
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
   flex-direction: column;
-  min-height: 100px;
+  background-color: #25262b;
+}
+.viewTask_container .task_view p {
+  margin: 20px 0;
+}
+.viewTask_container .task_view .task_actions {
+  display: flex;
+}
+.viewTask_container .task_view .task_actions button {
+  margin: 0px 5px;
 }
 
 a,
@@ -477,7 +452,11 @@ textarea {
 .add_task_form_container .addTaskForm section .form_btn_group,
 .add_task_form_container .editTaskForm section .form_btn_group {
   width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
   display: flex;
+  justify-content: center;
+  align-items: flex-end;
   flex-direction: column-reverse;
   margin-left: auto;
 }

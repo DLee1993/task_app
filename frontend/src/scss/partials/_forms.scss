@@ -111,7 +111,10 @@ textarea {
 
             .form_btn_group {
                 width: 100%;
+                height: fit-content;
                 display: flex;
+                justify-content: center;
+                align-items: flex-end;
                 flex-direction: column-reverse;
                 margin-left: auto;
                 @include fluidType(margin-top, 320px, 800px, 50px, 0px);

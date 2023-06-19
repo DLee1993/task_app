@@ -17,10 +17,14 @@ const ViewTask = () => {
     useEffect(() => {
         if (isSuccess) {
             navigate("/dashboard");
+            toast.success("Task Deleted", {
+                toastId: "deleteSuccessToast",
+            });
         }
-
         if (isError) {
-            toast.error(`${error.data.message}`);
+            toast.error(error.data.message, {
+                toastId: "deleteErrorToast",
+            });
         }
     }, [isSuccess, isError, error, navigate]);
 
@@ -30,16 +34,18 @@ const ViewTask = () => {
 
     const onDeleteTaskClicked = async () => {
         await deleteTask({ id: task.id });
-        navigate("/dashboard");
-        window.location.reload();
     };
 
     return (
-        <>
+        <main className="viewTask_container">
             <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
             <article className="task_view">
-                <h2>{task.task_title}</h2>
-                <p>{task.task_description}</p>
+                <p>
+                    Title: <span>{task.task_title}</span>
+                </p>
+                <p>
+                    Description: <span>{task.task_description}</span>
+                </p>
                 <p>
                     Created on: <span>{createdAt.split("-").reverse().join("-")}</span>
                 </p>
@@ -47,15 +53,21 @@ const ViewTask = () => {
                     Last updated: <span>{updatedAt.split("-").reverse().join("-")}</span>
                 </p>
                 <section className="task_actions">
-                    <button className="warning color_tranisiton" onClick={onDeleteTaskClicked}>
+                    <button
+                        className="form_btn warning color_tranisiton"
+                        onClick={onDeleteTaskClicked}
+                    >
                         Delete Task
                     </button>
-                    <button className="filled color_tranisiton" onClick={handleEditRedirect}>
+                    <button
+                        className="form_btn filled color_tranisiton"
+                        onClick={handleEditRedirect}
+                    >
                         Update Task
                     </button>
                 </section>
             </article>
-        </>
+        </main>
     );
 };
 

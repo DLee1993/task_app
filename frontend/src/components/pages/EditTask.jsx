@@ -21,7 +21,8 @@ const EditTask = () => {
 
     const navigate = useNavigate();
 
-    const [deleteTask] = useDeleteTaskMutation();
+    const [deleteTask, { isSuccess: isDeleteSuccess, isError: isDeleteError, error: deleteError }] =
+        useDeleteTaskMutation();
     const [updateTask, { isLoading, isSuccess, isError, error }] = useUpdateTaskMutation();
 
     const canSave = [title, description, category].every(Boolean) && !isLoading;
@@ -29,41 +30,53 @@ const EditTask = () => {
     useEffect(() => {
         if (isSuccess) {
             navigate("/dashboard");
+            toast.success("Task Updated", {
+                toastId: "updateSuccessToast",
+            });
+        }
+        if (isDeleteSuccess) {
+            navigate("/dashboard");
+            toast.success("Task Deleted", {
+                toastId: "deleteSuccessToast",
+            });
         }
 
         if (isError) {
-            toast.error(`${error.data.message}`);
+            toast.error(error.data.message, {
+                toastId: "saveErrorToast",
+            });
         }
-    }, [isSuccess, isError, error, navigate]);
 
-    const markAsComplete = () => {
-        setCompleted(true);
-        toast.success("Whoohoo another task done!");
-    };
+        if (isDeleteError) {
+            toast.error(deleteError.data.message, {
+                toastId: "deleteErrorToast",
+            });
+        }
+    }, [isSuccess, isDeleteSuccess, isDeleteError, isError, error, deleteError, navigate]);
 
-    const markAsIncomplete = () => {
-        setCompleted(false);
-        toast.info("Task Marked as incomplete");
+    const checkMark = () => {
+        setCompleted(!completed);
+        toast.info("Task completed Status Updated", {
+            toastId: "infoToast",
+        });
     };
 
     const onSaveTaskClicked = async (e) => {
         e.preventDefault();
-        await updateTask({
-            id,
-            user: "645dd507c4aff17007b29a7f",
-            task_title: title,
-            task_description: description,
-            category,
-            completed: completed,
-        });
-        navigate("/dashboard");
-        window.location.reload();
+        if (canSave) {
+            await updateTask({
+                id,
+                user: "645dd507c4aff17007b29a7f",
+                task_title: title,
+                task_description: description,
+                category,
+                completed: completed,
+            });
+        }
     };
 
     const onDeleteTaskClicked = async () => {
         await deleteTask({ id: task.id });
-        navigate("/dashboard");
-        window.location.reload();
     };
 
     return (
@@ -108,22 +121,24 @@ const EditTask = () => {
                         </select>
                     </fieldset>
                     <section className="form_btn_group">
-                        <button onClick={onDeleteTaskClicked} className="warning color_transition">
+                        <button
+                            type="button"
+                            onClick={onDeleteTaskClicked}
+                            className="form_btn warning color_transition"
+                        >
                             Delete Task
                         </button>
-                        {!task.completed ? (
-                            <button className="outline color_transition" onClick={markAsComplete}>
-                                Mark as completed
-                            </button>
-                        ) : (
-                            <button className="outline color_transition" onClick={markAsIncomplete}>
-                                Mark as incomplete
-                            </button>
-                        )}
+                        <button
+                            type="button"
+                            className="form_btn outline color_transition"
+                            onClick={checkMark}
+                        >
+                            {!completed ? "Mark as complete" : "Mark as incomplete"}
+                        </button>
                         <button
                             type="submit"
                             disabled={!canSave}
-                            className="filled color_transition"
+                            className="form_btn filled color_transition"
                         >
                             Save Task
                         </button>
