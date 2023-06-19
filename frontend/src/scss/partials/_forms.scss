@@ -85,7 +85,8 @@ textarea {
 //- seperated the add & edit task forms as it requires flex styling to accomodate the addtional inputs
 
 .edit_task_form_container,
-.add_task_form_container {
+.add_task_form_container,
+.viewTask_container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,7 +98,8 @@ textarea {
     }
 
     .addTaskForm,
-    .editTaskForm {
+    .editTaskForm,
+    .viewTask {
         width: 90%;
         height: 80vh;
         min-height: 650px;
@@ -115,7 +117,6 @@ textarea {
                 display: flex;
                 justify-content: center;
                 align-items: flex-end;
-                flex-direction: column-reverse;
                 margin-left: auto;
                 @include fluidType(margin-top, 320px, 800px, 50px, 0px);
 

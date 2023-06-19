@@ -1,5 +1,6 @@
 .tasks_list {
     display: table;
+    table-layout: fixed;
     max-width: 98%;
     margin: 0 auto 0 auto;
 
@@ -50,7 +51,7 @@
     }
 }
 
-.error_message{
+.error_message {
     width: 50%;
     margin: 0 auto;
     text-align: center;

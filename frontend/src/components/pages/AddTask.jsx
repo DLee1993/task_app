@@ -82,13 +82,15 @@ const AddTask = () => {
                                 <option value="health">Health</option>
                             </select>
                         </fieldset>
-                        <button
-                            type="submit"
-                            disabled={!canSave}
-                            className="filled color_transition"
-                        >
-                            Submit
-                        </button>
+                        <section className="form_btn_group">
+                            <button
+                                type="submit"
+                                disabled={!canSave}
+                                className="form_btn filled color_transition"
+                            >
+                                Submit
+                            </button>
+                        </section>
                     </section>
                 </form>
             </section>

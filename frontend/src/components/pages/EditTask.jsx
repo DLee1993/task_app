@@ -91,6 +91,7 @@ const EditTask = () => {
                             id="task_title"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
+                            autoFocus
                         />
                     </fieldset>
                     <fieldset className="task_description">
@@ -122,11 +123,11 @@ const EditTask = () => {
                     </fieldset>
                     <section className="form_btn_group">
                         <button
-                            type="button"
-                            onClick={onDeleteTaskClicked}
-                            className="form_btn warning color_transition"
+                            type="submit"
+                            disabled={!canSave}
+                            className="form_btn filled color_transition"
                         >
-                            Delete Task
+                            Save Task
                         </button>
                         <button
                             type="button"
@@ -136,11 +137,11 @@ const EditTask = () => {
                             {!completed ? "Mark as complete" : "Mark as incomplete"}
                         </button>
                         <button
-                            type="submit"
-                            disabled={!canSave}
-                            className="form_btn filled color_transition"
+                            type="button"
+                            onClick={onDeleteTaskClicked}
+                            className="form_btn warning color_transition"
                         >
-                            Save Task
+                            Delete Task
                         </button>
                     </section>
                 </section>

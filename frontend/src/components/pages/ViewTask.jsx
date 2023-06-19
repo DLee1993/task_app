@@ -37,37 +37,56 @@ const ViewTask = () => {
     };
 
     return (
-        <main className="viewTask_container">
+        <section className="viewTask_container">
             <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
-            <article className="task_view">
-                <p>
-                    Title: <span>{task.task_title}</span>
-                </p>
-                <p>
-                    Description: <span>{task.task_description}</span>
-                </p>
-                <p>
-                    Created on: <span>{createdAt.split("-").reverse().join("-")}</span>
-                </p>
-                <p>
-                    Last updated: <span>{updatedAt.split("-").reverse().join("-")}</span>
-                </p>
-                <section className="task_actions">
-                    <button
-                        className="form_btn warning color_tranisiton"
-                        onClick={onDeleteTaskClicked}
-                    >
-                        Delete Task
-                    </button>
-                    <button
-                        className="form_btn filled color_tranisiton"
-                        onClick={handleEditRedirect}
-                    >
-                        Update Task
-                    </button>
+            <form className="viewTask">
+                <section>
+                    <fieldset className="task_title">
+                        <label htmlFor="task_title">Title:</label>
+                        <input type="text" id="task_title" value={task.task_title} readOnly />
+                    </fieldset>
+                    <fieldset className="task_description">
+                        <label htmlFor="task_description">Description:</label>
+                        <textarea
+                            type="text"
+                            id="task_desciption"
+                            value={task.task_description}
+                            readOnly
+                        />
+                    </fieldset>
                 </section>
-            </article>
-        </main>
+                <section>
+                    <fieldset>
+                        <label htmlFor="task_title">Category:</label>
+                        <input type="text" id="task_title" value={task.category} readOnly />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="task_title">Created On:</label>
+                        <input type="text" id="task_title" value={createdAt} readOnly />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="task_title">Last Updated:</label>
+                        <input type="text" id="task_title" value={updatedAt} readOnly />
+                    </fieldset>
+                    <section className="form_btn_group">
+                        <button
+                            type="button"
+                            className="form_btn filled color_tranisiton"
+                            onClick={handleEditRedirect}
+                        >
+                            Update Task
+                        </button>
+                        <button
+                            type="button"
+                            className="form_btn warning color_tranisiton"
+                            onClick={onDeleteTaskClicked}
+                        >
+                            Delete Task
+                        </button>
+                    </section>
+                </section>
+            </form>
+        </section>
     );
 };
 

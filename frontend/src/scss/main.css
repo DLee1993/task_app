@@ -48,6 +48,7 @@
 
 .tasks_list {
   display: table;
+  table-layout: fixed;
   max-width: 98%;
   margin: 0 auto 0 auto;
 }
@@ -103,30 +104,6 @@
   background-color: #25262b;
 }
 
-.viewTask_container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.viewTask_container .task_view {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: column;
-  background-color: #25262b;
-}
-.viewTask_container .task_view p {
-  margin: 20px 0;
-}
-.viewTask_container .task_view .task_actions {
-  display: flex;
-}
-.viewTask_container .task_view .task_actions button {
-  margin: 0px 5px;
-}
-
 a,
 button {
   display: flex;
@@ -158,21 +135,9 @@ button {
   align-items: center;
   color: white;
   text-decoration: none;
+  width: 300px;
   height: 38px;
   text-transform: capitalize;
-}
-.form_btn {
-  width: 200px;
-}
-@media screen and (min-width: 320px) {
-  .form_btn {
-    width: calc(26.3157894737vw + 115.7894736842px);
-  }
-}
-@media screen and (min-width: 700px) {
-  .form_btn {
-    width: 300px;
-  }
 }
 
 .filled {
@@ -416,7 +381,8 @@ textarea {
 }
 
 .edit_task_form_container,
-.add_task_form_container {
+.add_task_form_container,
+.viewTask_container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -425,14 +391,20 @@ textarea {
 }
 @media (min-width: 900px) {
   .edit_task_form_container,
-  .add_task_form_container {
+  .add_task_form_container,
+  .viewTask_container {
     min-height: auto;
   }
 }
 .edit_task_form_container .addTaskForm,
 .edit_task_form_container .editTaskForm,
+.edit_task_form_container .viewTask,
 .add_task_form_container .addTaskForm,
-.add_task_form_container .editTaskForm {
+.add_task_form_container .editTaskForm,
+.add_task_form_container .viewTask,
+.viewTask_container .addTaskForm,
+.viewTask_container .editTaskForm,
+.viewTask_container .viewTask {
   width: 90%;
   height: 80vh;
   min-height: 650px;
@@ -440,8 +412,13 @@ textarea {
 }
 .edit_task_form_container .addTaskForm section,
 .edit_task_form_container .editTaskForm section,
+.edit_task_form_container .viewTask section,
 .add_task_form_container .addTaskForm section,
-.add_task_form_container .editTaskForm section {
+.add_task_form_container .editTaskForm section,
+.add_task_form_container .viewTask section,
+.viewTask_container .addTaskForm section,
+.viewTask_container .editTaskForm section,
+.viewTask_container .viewTask section {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -449,58 +426,92 @@ textarea {
 }
 .edit_task_form_container .addTaskForm section .form_btn_group,
 .edit_task_form_container .editTaskForm section .form_btn_group,
+.edit_task_form_container .viewTask section .form_btn_group,
 .add_task_form_container .addTaskForm section .form_btn_group,
-.add_task_form_container .editTaskForm section .form_btn_group {
+.add_task_form_container .editTaskForm section .form_btn_group,
+.add_task_form_container .viewTask section .form_btn_group,
+.viewTask_container .addTaskForm section .form_btn_group,
+.viewTask_container .editTaskForm section .form_btn_group,
+.viewTask_container .viewTask section .form_btn_group {
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  flex-direction: column-reverse;
   margin-left: auto;
 }
 .edit_task_form_container .addTaskForm section .form_btn_group,
 .edit_task_form_container .editTaskForm section .form_btn_group,
+.edit_task_form_container .viewTask section .form_btn_group,
 .add_task_form_container .addTaskForm section .form_btn_group,
-.add_task_form_container .editTaskForm section .form_btn_group {
+.add_task_form_container .editTaskForm section .form_btn_group,
+.add_task_form_container .viewTask section .form_btn_group,
+.viewTask_container .addTaskForm section .form_btn_group,
+.viewTask_container .editTaskForm section .form_btn_group,
+.viewTask_container .viewTask section .form_btn_group {
   margin-top: 50px;
 }
 @media screen and (min-width: 320px) {
   .edit_task_form_container .addTaskForm section .form_btn_group,
   .edit_task_form_container .editTaskForm section .form_btn_group,
+  .edit_task_form_container .viewTask section .form_btn_group,
   .add_task_form_container .addTaskForm section .form_btn_group,
-  .add_task_form_container .editTaskForm section .form_btn_group {
+  .add_task_form_container .editTaskForm section .form_btn_group,
+  .add_task_form_container .viewTask section .form_btn_group,
+  .viewTask_container .addTaskForm section .form_btn_group,
+  .viewTask_container .editTaskForm section .form_btn_group,
+  .viewTask_container .viewTask section .form_btn_group {
     margin-top: calc(-10.4166666667vw + 83.3333333333px);
   }
 }
 @media screen and (min-width: 800px) {
   .edit_task_form_container .addTaskForm section .form_btn_group,
   .edit_task_form_container .editTaskForm section .form_btn_group,
+  .edit_task_form_container .viewTask section .form_btn_group,
   .add_task_form_container .addTaskForm section .form_btn_group,
-  .add_task_form_container .editTaskForm section .form_btn_group {
+  .add_task_form_container .editTaskForm section .form_btn_group,
+  .add_task_form_container .viewTask section .form_btn_group,
+  .viewTask_container .addTaskForm section .form_btn_group,
+  .viewTask_container .editTaskForm section .form_btn_group,
+  .viewTask_container .viewTask section .form_btn_group {
     margin-top: 0px;
   }
 }
 .edit_task_form_container .addTaskForm section .form_btn_group Button,
 .edit_task_form_container .editTaskForm section .form_btn_group Button,
+.edit_task_form_container .viewTask section .form_btn_group Button,
 .add_task_form_container .addTaskForm section .form_btn_group Button,
-.add_task_form_container .editTaskForm section .form_btn_group Button {
+.add_task_form_container .editTaskForm section .form_btn_group Button,
+.add_task_form_container .viewTask section .form_btn_group Button,
+.viewTask_container .addTaskForm section .form_btn_group Button,
+.viewTask_container .editTaskForm section .form_btn_group Button,
+.viewTask_container .viewTask section .form_btn_group Button {
   border-radius: 0px;
   margin: 5px 0;
 }
 @media (min-width: 900px) {
   .edit_task_form_container .addTaskForm,
   .edit_task_form_container .editTaskForm,
+  .edit_task_form_container .viewTask,
   .add_task_form_container .addTaskForm,
-  .add_task_form_container .editTaskForm {
+  .add_task_form_container .editTaskForm,
+  .add_task_form_container .viewTask,
+  .viewTask_container .addTaskForm,
+  .viewTask_container .editTaskForm,
+  .viewTask_container .viewTask {
     flex-direction: row;
     min-height: 450px;
   }
   .edit_task_form_container .addTaskForm section,
   .edit_task_form_container .editTaskForm section,
+  .edit_task_form_container .viewTask section,
   .add_task_form_container .addTaskForm section,
-  .add_task_form_container .editTaskForm section {
+  .add_task_form_container .editTaskForm section,
+  .add_task_form_container .viewTask section,
+  .viewTask_container .addTaskForm section,
+  .viewTask_container .editTaskForm section,
+  .viewTask_container .viewTask section {
     height: 100%;
     display: flex;
     justify-content: space-between;
