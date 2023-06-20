@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAddNewTaskMutation } from "../../appFeatures/tasks/tasksSlice";
 import { toast } from "react-toastify";
-import { IoArrowBack } from "react-icons/io5";
+import GoBack from "../../assets/corner-down-left.svg";
 
 const AddTask = () => {
     const [title, setTitle] = useState("");
@@ -42,7 +42,12 @@ const AddTask = () => {
     return (
         <>
             <section className="add_task_form_container">
-                <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
+                <img
+                    src={GoBack}
+                    alt="back to previous page"
+                    onClick={() => navigate(-1)}
+                    className="return_btn"
+                />
                 <form className="addTaskForm" onSubmit={onSaveTaskClicked}>
                     <section>
                         <fieldset className="task_title">
@@ -87,6 +92,7 @@ const AddTask = () => {
                                 type="submit"
                                 disabled={!canSave}
                                 className="form_btn filled color_transition"
+                                aria-label="submit new task button"
                             >
                                 Submit
                             </button>

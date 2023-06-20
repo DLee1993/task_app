@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { useSelector } from "react-redux";
 import { selectTaskById } from "./tasksSlice";
-import { FaCheck } from "react-icons/fa";
-import { RxCrossCircled } from "react-icons/rx";
+import CompleteIcon from "../../assets/check.svg";
+import IncompleteIcon from "../../assets/x-circle.svg";
 
 const Task = ({ taskId }) => {
     const task = useSelector((state) => selectTaskById(state, taskId));
@@ -27,10 +27,21 @@ const Task = ({ taskId }) => {
                 <p>{descriptionContent}</p>
             </td>
             <td className="category">{task.category}</td>
-            <td className="completed">{task.completed ? <FaCheck /> : <RxCrossCircled />}</td>
+            <td className="completed">
+                {task.completed ? (
+                    <img src={CompleteIcon} alt="addTask icon" />
+                ) : (
+                    <img src={IncompleteIcon} alt="addTask icon" />
+                )}
+            </td>
             <td className="viewTask">
                 <Link to={`/dashboard/${task._id}`}>
-                    <button className="viewTask_btn outline color_transition">View Task</button>
+                    <button
+                        className="viewTask_btn outline color_transition"
+                        aria-label="view the task in full"
+                    >
+                        View Task
+                    </button>
                 </Link>
             </td>
         </tr>

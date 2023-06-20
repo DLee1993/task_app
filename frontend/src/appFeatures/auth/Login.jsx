@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { IoArrowBack } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { OnboardingAnim } from "../../animations/Onboarding";
+import GoBack from "../../assets/corner-down-left.svg";
 
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
 
@@ -43,7 +43,12 @@ const Login = () => {
     return (
         <>
             <section className="login_page_container">
-                <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
+                <img
+                    src={GoBack}
+                    alt="back to previous page"
+                    onClick={() => navigate(-1)}
+                    className="return_btn"
+                />
                 <form onSubmit={onSubmitClicked} className="login_form">
                     <section className="outer-login_flex_container">
                         <fieldset
@@ -73,6 +78,7 @@ const Login = () => {
                     </section>
                     <button
                         className="login_btn form_btn filled color_transition"
+                        aria-label="login into your account button"
                         ref={(el) => (submitRef = el)}
                     >
                         Login

@@ -7,8 +7,8 @@ import {
     useUpdateTaskMutation,
 } from "../../appFeatures/tasks/tasksSlice";
 import { useNavigate, useParams } from "react-router-dom";
-import { IoArrowBack } from "react-icons/io5";
 import { toast } from "react-toastify";
+import GoBack from "../../assets/corner-down-left.svg";
 
 const EditTask = () => {
     const { id } = useParams();
@@ -81,24 +81,29 @@ const EditTask = () => {
 
     return (
         <section className="edit_task_form_container">
-            <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
+            <img
+                src={GoBack}
+                alt="back to previous page"
+                onClick={() => navigate(-1)}
+                className="return_btn"
+            />
             <form className="editTaskForm" onSubmit={onSaveTaskClicked}>
                 <section>
                     <fieldset className="task_title">
-                        <label htmlFor="task_title">Title:</label>
+                        <label htmlFor="editTask_title">Title:</label>
                         <input
                             type="text"
-                            id="task_title"
+                            id="editTask_title"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             autoFocus
                         />
                     </fieldset>
                     <fieldset className="task_description">
-                        <label htmlFor="task_description">Description:</label>
+                        <label htmlFor="editTask_description">Description:</label>
                         <textarea
                             type="text"
-                            id="task_description"
+                            id="editTask_description"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                         />
@@ -106,10 +111,10 @@ const EditTask = () => {
                 </section>
                 <section>
                     <fieldset className="task_category">
-                        <label htmlFor="task_category">Pick a category for your task:</label>
+                        <label htmlFor="editTask_category">Pick a category for your task:</label>
                         <select
                             name="task_category"
-                            id="task_category"
+                            id="editTask_category"
                             value={category}
                             onChange={(e) => setCategory(e.target.value)}
                         >
@@ -126,6 +131,7 @@ const EditTask = () => {
                             type="submit"
                             disabled={!canSave}
                             className="form_btn filled color_transition"
+                            aria-label="submit updated task button"
                         >
                             Save Task
                         </button>
@@ -133,6 +139,7 @@ const EditTask = () => {
                             type="button"
                             className="form_btn outline color_transition"
                             onClick={checkMark}
+                            aria-label="check task button"
                         >
                             {!completed ? "Mark as complete" : "Mark as incomplete"}
                         </button>
@@ -140,6 +147,7 @@ const EditTask = () => {
                             type="button"
                             onClick={onDeleteTaskClicked}
                             className="form_btn warning color_transition"
+                            aria-label="delete task button"
                         >
                             Delete Task
                         </button>

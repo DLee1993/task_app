@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { IoArrowBack } from "react-icons/io5";
 import { selectTaskById, useDeleteTaskMutation } from "../../appFeatures/tasks/tasksSlice";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import GoBack from "../../assets/corner-down-left.svg";
 
 const ViewTask = () => {
     const navigate = useNavigate();
@@ -38,18 +38,23 @@ const ViewTask = () => {
 
     return (
         <section className="viewTask_container">
-            <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
+            <img
+                src={GoBack}
+                alt="back to previous page"
+                onClick={() => navigate(-1)}
+                className="return_btn"
+            />
             <form className="viewTask">
                 <section>
                     <fieldset className="task_title">
-                        <label htmlFor="task_title">Title:</label>
-                        <input type="text" id="task_title" value={task.task_title} readOnly />
+                        <label htmlFor="viewTask_title">Title:</label>
+                        <input type="text" id="viewTask_title" value={task.task_title} readOnly />
                     </fieldset>
                     <fieldset className="task_description">
-                        <label htmlFor="task_description">Description:</label>
+                        <label htmlFor="viewTask_description">Description:</label>
                         <textarea
                             type="text"
-                            id="task_desciption"
+                            id="viewTask_description"
                             value={task.task_description}
                             readOnly
                         />
@@ -57,22 +62,23 @@ const ViewTask = () => {
                 </section>
                 <section>
                     <fieldset>
-                        <label htmlFor="task_title">Category:</label>
-                        <input type="text" id="task_title" value={task.category} readOnly />
+                        <label htmlFor="viewTask_category">Category:</label>
+                        <input type="text" id="viewTask_category" value={task.category} readOnly />
                     </fieldset>
                     <fieldset>
-                        <label htmlFor="task_title">Created On:</label>
-                        <input type="text" id="task_title" value={createdAt} readOnly />
+                        <label htmlFor="task_createdOn">Created On:</label>
+                        <input type="text" id="task_createdOn" value={createdAt} readOnly />
                     </fieldset>
                     <fieldset>
-                        <label htmlFor="task_title">Last Updated:</label>
-                        <input type="text" id="task_title" value={updatedAt} readOnly />
+                        <label htmlFor="task_updatedAt">Last Updated:</label>
+                        <input type="text" id="task_updatedAt" value={updatedAt} readOnly />
                     </fieldset>
                     <section className="form_btn_group">
                         <button
                             type="button"
                             className="form_btn filled color_tranisiton"
                             onClick={handleEditRedirect}
+                            aria-label="edit task button"
                         >
                             Update Task
                         </button>
@@ -80,6 +86,7 @@ const ViewTask = () => {
                             type="button"
                             className="form_btn warning color_tranisiton"
                             onClick={onDeleteTaskClicked}
+                            aria-label="delete task button"
                         >
                             Delete Task
                         </button>

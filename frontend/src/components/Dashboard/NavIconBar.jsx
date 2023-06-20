@@ -1,5 +1,6 @@
+import PlusIcon from "../../assets/plus.svg";
+import LogoutIcon from "../../assets/log-out.svg";
 import { Link } from "react-router-dom";
-import { IoAdd, IoLogOut } from "react-icons/io5";
 
 const NavIconBar = () => {
     const logoutClicked = () => {
@@ -12,11 +13,16 @@ const NavIconBar = () => {
                 to="/dashboard/newTask"
                 variant="subtle"
                 className="header_btn filled color_transition"
+                aria-label="navigate to the add new task form page link"
             >
-                <IoAdd size={25} />
+                <img src={PlusIcon} alt="addTask icon" />
             </Link>
-            <button onClick={logoutClicked} className="header_btn filled color_transition">
-                <IoLogOut size={25} />
+            <button
+                onClick={logoutClicked}
+                className="header_btn filled color_transition"
+                aria-label="logout of your account button"
+            >
+                <img src={LogoutIcon} alt="logout icon" />
             </button>
         </section>
     );

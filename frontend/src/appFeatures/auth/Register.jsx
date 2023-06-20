@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { IoArrowBack } from "react-icons/io5";
 import { OnboardingAnim } from "../../animations/Onboarding";
+import GoBack from "../../assets/corner-down-left.svg";
 
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
 
@@ -43,7 +43,12 @@ const Register = () => {
     return (
         <>
             <section className="register_page_container">
-                <IoArrowBack size={25} onClick={() => navigate(-1)} className="return_btn" />
+                <img
+                    src={GoBack}
+                    alt="back to previous page"
+                    onClick={() => navigate(-1)}
+                    className="return_btn"
+                />
                 <form onSubmit={onSubmitClicked} className="register_form">
                     <section className="outer-register_flex_container">
                         <fieldset className="name_input" ref={(el) => (nameRef = el)} autoFocus>
@@ -67,7 +72,11 @@ const Register = () => {
                             />
                         </fieldset>
                     </section>
-                    <button className="register_btn form_btn filled" ref={(el) => (submitRef = el)}>
+                    <button
+                        className="register_btn form_btn filled"
+                        aria-label="register as a user button"
+                        ref={(el) => (submitRef = el)}
+                    >
                         register
                     </button>
                 </form>

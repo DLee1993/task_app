@@ -4,6 +4,13 @@ button {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    text-decoration: none;
+    color: clr(colorPalette, fadedWhite);
+}
+
+img{
+    width: 20px;
+    height: 20px;
 }
 
 //- Styling classes
@@ -12,9 +19,10 @@ button {
 }
 
 .header_btn {
-    width: 70px;
+    width: 80px;
     border-radius: 5px;
     padding: 5px 10px;
+    font-size: 20px;
 }
 
 .viewTask_btn {
