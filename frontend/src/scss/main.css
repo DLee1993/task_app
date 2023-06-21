@@ -46,64 +46,6 @@
   transform: translateY(50px);
 }
 
-.tasks_list {
-  display: table;
-  table-layout: fixed;
-  max-width: 98%;
-  margin: 0 auto 0 auto;
-}
-.tasks_list a {
-  color: #c1c2c5;
-  text-decoration: none;
-  max-width: 120px;
-  margin: 0 auto;
-}
-.tasks_list .title,
-.tasks_list .description,
-.tasks_list .category,
-.tasks_list .completed,
-.tasks_list .viewTask {
-  display: table-cell;
-}
-.tasks_list .viewTask,
-.tasks_list .completed {
-  text-align: center;
-}
-.tasks_list .category,
-.tasks_list .description,
-.tasks_list .completed {
-  display: none;
-}
-@media (min-width: 600px) {
-  .tasks_list .description {
-    display: table-cell;
-  }
-}
-@media (min-width: 700px) {
-  .tasks_list {
-    margin-bottom: 0px;
-  }
-  .tasks_list .completed {
-    display: table-cell;
-  }
-}
-@media (min-width: 1000px) {
-  .tasks_list {
-    margin-bottom: 0px;
-  }
-  .tasks_list .category {
-    display: table-cell;
-  }
-}
-
-.error_message {
-  width: 50%;
-  margin: 0 auto;
-  text-align: center;
-  padding: 40px 0;
-  background-color: #25262b;
-}
-
 a,
 button {
   display: flex;
@@ -414,7 +356,7 @@ textarea {
 .viewTask_container .editTaskForm,
 .viewTask_container .viewTask {
   width: 90%;
-  height: 80vh;
+  height: 50vh;
   min-height: 650px;
   flex-direction: column;
 }
@@ -529,7 +471,10 @@ textarea {
 }
 
 .tasks_list {
+  display: table;
+  margin: 0 auto 0 auto;
   width: 100%;
+  max-width: 98%;
   max-height: 450px;
   border-spacing: 0;
   border-collapse: collapse;
@@ -553,6 +498,57 @@ textarea {
 }
 .tasks_list tbody .tableContent_row td {
   padding: 20px 0 20px 5px;
+}
+.tasks_list .title,
+.tasks_list .description,
+.tasks_list .category,
+.tasks_list .completed,
+.tasks_list .viewTask {
+  display: table-cell;
+}
+.tasks_list .viewTask,
+.tasks_list .completed {
+  text-align: center;
+}
+.tasks_list .category,
+.tasks_list .description,
+.tasks_list .completed {
+  display: none;
+}
+@media (min-width: 600px) {
+  .tasks_list .description {
+    display: table-cell;
+  }
+}
+@media (min-width: 700px) {
+  .tasks_list {
+    margin-bottom: 0px;
+  }
+  .tasks_list .completed {
+    display: table-cell;
+  }
+}
+@media (min-width: 1000px) {
+  .tasks_list {
+    margin-bottom: 0px;
+  }
+  .tasks_list .category {
+    display: table-cell;
+  }
+}
+.tasks_list a {
+  color: #c1c2c5;
+  text-decoration: none;
+  max-width: 120px;
+  margin: 0 auto;
+}
+
+.error_message {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 0;
+  background-color: #25262b;
 }
 
 .header {
