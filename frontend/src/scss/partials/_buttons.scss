@@ -44,6 +44,15 @@ img{
     text-transform: capitalize;
 }
 
+button:disabled{
+    background-color: clr(colorPalette, plainGray);
+    cursor: not-allowed;
+
+    &:hover{
+        background-color: clr(colorPalette, plainGray);
+    }
+}
+
 .filled {
     background-color: clr(colorPalette, fadedPurple);
 

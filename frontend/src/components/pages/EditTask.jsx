@@ -129,7 +129,6 @@ const EditTask = () => {
                     <section className="form_btn_group">
                         <button
                             type="submit"
-                            disabled={!canSave}
                             className="form_btn filled color_transition"
                             aria-label="submit updated task button"
                         >

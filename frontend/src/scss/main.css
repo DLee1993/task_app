@@ -90,6 +90,14 @@ img {
   text-transform: capitalize;
 }
 
+button:disabled {
+  background-color: #979797;
+  cursor: not-allowed;
+}
+button:disabled:hover {
+  background-color: #979797;
+}
+
 .filled {
   background-color: rgba(134, 135, 231, 0.8);
 }
