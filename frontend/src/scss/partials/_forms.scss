@@ -37,8 +37,8 @@
 
 .return_btn {
     position: absolute;
-    @include fluidType(top, 320px, 700px, 10px, 30px);
-    @include fluidType(left, 320px, 700px, 10px, 30px);
+    @include fluidType(top, 320px, 700px, 10px, 100px);
+    @include fluidType(left, 320px, 700px, 10px, 20px);
     cursor: pointer;
 }
 
@@ -89,12 +89,11 @@ textarea {
 .viewTask_container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-end;
     min-height: 700px;
 
     @media (min-width: 900px) {
-        min-height: auto;
+        min-height: 450px;
     }
 
     .addTaskForm,
@@ -122,14 +121,14 @@ textarea {
 
                 & Button {
                     border-radius: 0px;
-                    margin: 5px 0;
+                    margin: 5px 0 0 0;
                 }
             }
         }
 
         @media (min-width: 900px) {
             flex-direction: row;
-            min-height: 450px;
+            min-height: 425px;
 
             section {
                 height: 100%;

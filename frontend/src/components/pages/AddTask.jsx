@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAddNewTaskMutation } from "../../appFeatures/tasks/tasksSlice";
 import { toast } from "react-toastify";
+import Header from "../Dashboard/Header";
 import GoBack from "../../assets/corner-down-left.svg";
 
 const AddTask = () => {
@@ -18,9 +19,14 @@ const AddTask = () => {
             setTitle("");
             setDescription("");
             setCategory("home");
+            toast.success("New Task added", {
+                position: toast.POSITION.BOTTOM_CENTER,
+            });
         }
         if (isError) {
-            toast.error(`${error.data.message}`);
+            toast.error(`${error.data.message}`, {
+                position: toast.POSITION.BOTTOM_CENTER,
+            });
             setTitle("");
         }
     }, [isSuccess, isError, error, navigate]);
@@ -41,6 +47,7 @@ const AddTask = () => {
 
     return (
         <>
+            <Header />
             <section className="add_task_form_container">
                 <img
                     src={GoBack}

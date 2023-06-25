@@ -247,12 +247,12 @@ button:disabled:hover {
 }
 @media screen and (min-width: 320px) {
   .return_btn {
-    top: calc(5.2631578947vw - 6.8421052632px);
+    top: calc(23.6842105263vw - 65.7894736842px);
   }
 }
 @media screen and (min-width: 700px) {
   .return_btn {
-    top: 30px;
+    top: 100px;
   }
 }
 .return_btn {
@@ -260,12 +260,12 @@ button:disabled:hover {
 }
 @media screen and (min-width: 320px) {
   .return_btn {
-    left: calc(5.2631578947vw - 6.8421052632px);
+    left: calc(2.6315789474vw + 1.5789473684px);
   }
 }
 @media screen and (min-width: 700px) {
   .return_btn {
-    left: 30px;
+    left: 20px;
   }
 }
 
@@ -343,15 +343,14 @@ textarea {
 .viewTask_container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: flex-end;
   min-height: 700px;
 }
 @media (min-width: 900px) {
   .edit_task_form_container,
   .add_task_form_container,
   .viewTask_container {
-    min-height: auto;
+    min-height: 450px;
   }
 }
 .edit_task_form_container .addTaskForm,
@@ -446,7 +445,7 @@ textarea {
 .viewTask_container .editTaskForm section .form_btn_group Button,
 .viewTask_container .viewTask section .form_btn_group Button {
   border-radius: 0px;
-  margin: 5px 0;
+  margin: 5px 0 0 0;
 }
 @media (min-width: 900px) {
   .edit_task_form_container .addTaskForm,
@@ -459,7 +458,7 @@ textarea {
   .viewTask_container .editTaskForm,
   .viewTask_container .viewTask {
     flex-direction: row;
-    min-height: 450px;
+    min-height: 425px;
   }
   .edit_task_form_container .addTaskForm section,
   .edit_task_form_container .editTaskForm section,
@@ -606,10 +605,29 @@ textarea {
   }
 }
 .header .nav-button_group {
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 200px;
+  width: 100%;
+  background-color: #121212;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+}
+@media (min-width: 500px) {
+  .header .nav-button_group {
+    position: relative;
+    transform: none;
+    left: 0;
+    width: 300px;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+  }
 }
 
 * {

@@ -36,6 +36,7 @@ const Login = () => {
             ? console.log("Logging in")
             : toast.error("Please Enter Valid Credentials", {
                   theme: "colored",
+                  position: toast.POSITION.BOTTOM_CENTER,
               });
         //! - THIS IS WHERE WE ADD THE TOKENS AND CHECK THE REGISTER DETAILS
     };
