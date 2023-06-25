@@ -1,5 +1,6 @@
 import { store } from "../../app/store";
 import { tasksApiSlice } from "../tasks/tasksSlice";
+import { usersApiSlice } from "../users/usersSlice";
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
@@ -17,6 +18,7 @@ const Prefetch = () => {
         */
 
         const tasks = store.dispatch(tasksApiSlice.endpoints.getTasks.initiate());
+        const users = store.dispatch(usersApiSlice.endpoints.getUsers.initiate());
 
         return () => {
             /*
@@ -29,6 +31,7 @@ const Prefetch = () => {
             */
 
             tasks.unsubscribe();
+            users.unsubscribe();
         };
     }, []);
 
