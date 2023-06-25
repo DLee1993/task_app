@@ -4,7 +4,6 @@ import { selectTaskById, useDeleteTaskMutation } from "../../appFeatures/tasks/t
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import Header from "../Dashboard/Header";
-import GoBack from "../../assets/corner-down-left.svg";
 
 const ViewTask = () => {
     const navigate = useNavigate();
@@ -43,12 +42,6 @@ const ViewTask = () => {
         <>
             <Header />
             <section className="viewTask_container">
-                <img
-                    src={GoBack}
-                    alt="back to previous page"
-                    onClick={() => navigate(-1)}
-                    className="return_btn"
-                />
                 <form className="viewTask">
                     <section>
                         <fieldset className="task_title">

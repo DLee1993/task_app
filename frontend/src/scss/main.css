@@ -247,12 +247,12 @@ button:disabled:hover {
 }
 @media screen and (min-width: 320px) {
   .return_btn {
-    top: calc(23.6842105263vw - 65.7894736842px);
+    top: calc(13.1578947368vw - 32.1052631579px);
   }
 }
 @media screen and (min-width: 700px) {
   .return_btn {
-    top: 100px;
+    top: 60px;
   }
 }
 .return_btn {
@@ -260,12 +260,12 @@ button:disabled:hover {
 }
 @media screen and (min-width: 320px) {
   .return_btn {
-    left: calc(2.6315789474vw + 1.5789473684px);
+    left: calc(7.8947368421vw - 15.2631578947px);
   }
 }
 @media screen and (min-width: 700px) {
   .return_btn {
-    left: 20px;
+    left: 40px;
   }
 }
 

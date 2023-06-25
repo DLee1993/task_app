@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useAddNewTaskMutation } from "../../appFeatures/tasks/tasksSlice";
 import { toast } from "react-toastify";
 import Header from "../Dashboard/Header";
-import GoBack from "../../assets/corner-down-left.svg";
 
 const AddTask = () => {
     const [title, setTitle] = useState("");
@@ -49,12 +48,6 @@ const AddTask = () => {
         <>
             <Header />
             <section className="add_task_form_container">
-                <img
-                    src={GoBack}
-                    alt="back to previous page"
-                    onClick={() => navigate(-1)}
-                    className="return_btn"
-                />
                 <form className="addTaskForm" onSubmit={onSaveTaskClicked}>
                     <section>
                         <fieldset className="task_title">

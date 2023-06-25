@@ -55,7 +55,6 @@ const Login = () => {
                         <fieldset
                             className="username_input"
                             ref={(el) => (usernameRef = el)}
-                            autoFocus
                         >
                             <label htmlFor="username">Username</label>
                             <input
@@ -64,6 +63,7 @@ const Login = () => {
                                 value={username}
                                 onChange={onUsernameChange}
                                 required
+                                autoFocus
                             />
                         </fieldset>
                         <fieldset className="password_input" ref={(el) => (passwordRef = el)}>

@@ -9,7 +9,6 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Header from "../Dashboard/Header";
-import GoBack from "../../assets/corner-down-left.svg";
 
 const EditTask = () => {
     const { id } = useParams();
@@ -89,12 +88,6 @@ const EditTask = () => {
         <>
             <Header />
             <section className="edit_task_form_container">
-                <img
-                    src={GoBack}
-                    alt="back to previous page"
-                    onClick={() => navigate(-1)}
-                    className="return_btn"
-                />
                 <form className="editTaskForm" onSubmit={onSaveTaskClicked}>
                     <section>
                         <fieldset className="task_title">

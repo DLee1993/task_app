@@ -60,6 +60,7 @@ const Register = () => {
                                 value={name}
                                 onChange={onNameChange}
                                 required
+                                autoFocus
                             />
                         </fieldset>
                         <fieldset className="password_input" ref={(el) => (passwordRef = el)}>
