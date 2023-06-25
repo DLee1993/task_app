@@ -40,7 +40,7 @@ const ViewTask = () => {
 
     return (
         <>
-            <Header />
+            <Header title={"Task Details"} />
             <section className="viewTask_container">
                 <form className="viewTask">
                     <section>

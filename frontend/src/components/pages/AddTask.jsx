@@ -46,7 +46,7 @@ const AddTask = () => {
 
     return (
         <>
-            <Header />
+            <Header title={"Add a new Task"}/>
             <section className="add_task_form_container">
                 <form className="addTaskForm" onSubmit={onSaveTaskClicked}>
                     <section>

@@ -86,7 +86,7 @@ const EditTask = () => {
 
     return (
         <>
-            <Header />
+            <Header title={"Edit a Task"} />
             <section className="edit_task_form_container">
                 <form className="editTaskForm" onSubmit={onSaveTaskClicked}>
                     <section>
