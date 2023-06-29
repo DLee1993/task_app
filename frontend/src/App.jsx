@@ -14,7 +14,7 @@ import { ToastContainer } from "react-toastify";
 const App = () => {
     return (
         <>
-            <ToastContainer autoClose={1000} closeOnClick />
+            <ToastContainer autoClose={1500} closeOnClick />
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Onboarding />} />

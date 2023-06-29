@@ -37,7 +37,7 @@ const EditTask = () => {
         }
         if (isDeleteSuccess) {
             navigate("/dashboard");
-            toast.success("Task Deleted", {
+            toast.error("Task Deleted", {
                 toastId: "deleteSuccessToast",
                 position: toast.POSITION.BOTTOM_CENTER,
             });
@@ -60,7 +60,7 @@ const EditTask = () => {
 
     const checkMark = () => {
         setCompleted(!completed);
-        toast.info("Task completed Status Updated", {
+        toast.info("Task Status Updated", {
             toastId: "infoToast",
             position: toast.POSITION.BOTTOM_CENTER,
         });
