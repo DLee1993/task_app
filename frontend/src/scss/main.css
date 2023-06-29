@@ -352,6 +352,25 @@ textarea {
   .viewTask_container {
     min-height: 450px;
   }
+  .edit_task_form_container,
+  .add_task_form_container,
+  .viewTask_container {
+    min-height: 450px;
+  }
+}
+@media screen and (min-width: 900px) and (min-width: 900px) {
+  .edit_task_form_container,
+  .add_task_form_container,
+  .viewTask_container {
+    min-height: calc(25vw + 225px);
+  }
+}
+@media screen and (min-width: 900px) and (min-width: 1500px) {
+  .edit_task_form_container,
+  .add_task_form_container,
+  .viewTask_container {
+    min-height: 600px;
+  }
 }
 .edit_task_form_container .addTaskForm,
 .edit_task_form_container .editTaskForm,

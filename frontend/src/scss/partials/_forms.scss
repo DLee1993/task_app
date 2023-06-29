@@ -94,6 +94,7 @@ textarea {
 
     @media (min-width: 900px) {
         min-height: 450px;
+        @include fluidType(min-height, 900px, 1500px, 450px, 600px);
     }
 
     .addTaskForm,
