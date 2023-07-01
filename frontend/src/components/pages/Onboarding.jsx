@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import { OnboardingAnim } from "../../animations/Onboarding";
+import { EntryButton } from "../partials/Buttons";
 
 const Onboarding = () => {
     let onboardingHeader = useRef(null);
@@ -23,12 +23,8 @@ const Onboarding = () => {
                 </p>
             </section>
             <section id="onboarding_sign-in_options" ref={(el) => (onboardingSignInLinks = el)}>
-                <Link to="/login" className="entry" id="login_cta">
-                    login
-                </Link>
-                <Link to="/register" className="entry" id="register_cta">
-                    register
-                </Link>
+                <EntryButton endpoint={"login"} />
+                <EntryButton endpoint={"register"} />
             </section>
         </section>
     );
