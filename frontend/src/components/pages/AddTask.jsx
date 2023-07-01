@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAddNewTaskMutation } from "../../appFeatures/tasks/tasksSlice";
 import { toast } from "react-toastify";
-import Header from "../Dashboard/Header";
+import Header from "../partials/Header";
 
 const AddTask = () => {
     const [title, setTitle] = useState("");

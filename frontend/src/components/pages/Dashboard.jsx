@@ -1,4 +1,4 @@
-import Header from "../Dashboard/Header";
+import Header from "../partials/Header";
 import TasksList from "../../appFeatures/tasks/TasksList";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

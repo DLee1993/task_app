@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { selectTaskById, useDeleteTaskMutation } from "../../appFeatures/tasks/tasksSlice";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import Header from "../Dashboard/Header";
+import Header from "../partials/Header";
 
 const ViewTask = () => {
     const navigate = useNavigate();

@@ -8,7 +8,7 @@ import {
 } from "../../appFeatures/tasks/tasksSlice";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import Header from "../Dashboard/Header";
+import Header from "../partials/Header";
 
 const EditTask = () => {
     const { id } = useParams();
