@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import { OnboardingAnim } from "../../animations/Onboarding";
 
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
 
@@ -9,20 +8,12 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [validPassword, setValidPassword] = useState(false);
 
-    let usernameRef = useRef(null);
-    let passwordRef = useRef(null);
-    let submitRef = useRef(null);
-
     const onUsernameChange = (e) => setUsername(e.target.value);
     const onPasswordChange = (e) => setPassword(e.target.value);
 
     useEffect(() => {
         setValidPassword(PWD_REGEX.test(password));
     }, [password]);
-
-    useEffect(() => {
-        OnboardingAnim(usernameRef, passwordRef, submitRef);
-    });
 
     const canSave = [username, validPassword].every(Boolean);
 
@@ -43,7 +34,7 @@ const Login = () => {
                 className="flex justify-evenly items-center flex-col h-screen"
                 id="login_page_container"
             >
-                <div className="w-full px-10">
+                <div className="w-full px-5">
                     <a href="/" className="block w-fit">
                         <span className="sr-only">go back</span>
                         <svg
@@ -65,10 +56,9 @@ const Login = () => {
                     </a>
                 </div>
                 <h1 className="text-lg">Login to your account</h1>
-                <form onSubmit={onSubmitClicked} id="login_form">
+                <form onSubmit={onSubmitClicked} id="login_form" className="min-h-[25rem]">
                     <fieldset
                         id="username_input"
-                        ref={(el) => (usernameRef = el)}
                         className="flex flex-col mb-10"
                     >
                         <label htmlFor="username" className="text-lg pb-2">
@@ -86,7 +76,6 @@ const Login = () => {
                     </fieldset>
                     <fieldset
                         id="password_input"
-                        ref={(el) => (passwordRef = el)}
                         className="flex flex-col mb-16"
                     >
                         <label htmlFor="password" className="text-lg pb-2">
@@ -104,7 +93,6 @@ const Login = () => {
                     <button
                         id="login_btn"
                         aria-label="login into your account button"
-                        ref={(el) => (submitRef = el)}
                         className="w-full sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center bg-transparent border-brightPurple border-2 hover:bg-brightPurple hover:border-transparent transition duration-200"
                     >
                         Login
