@@ -8,27 +8,4 @@
     body {
         @apply bg-backgroundBlack text-fadedWhite h-screen;
     }
-    form {
-        @apply text-lg md:text-xl;
-    }
-    fieldset {
-        @apply my-10 flex flex-col;
-    }
-    label {
-        @apply mb-2;
-    }
-    input {
-        @apply w-full min-w-[20rem] h-10 text-backgroundBlack pl-1;
-    }
-}
-
-@layer components {
-    /* return button for the login/register forms */
-    .return_btn {
-        @apply hidden md:block md:absolute md:top-5 md:left-5 cursor-pointer;
-    }
-    /* login and register page links */
-    .entry_btn {
-        @apply w-full sm:max-w-xs h-10 sm:h-12 flex justify-center items-center bg-transparent border-brightPurple border-2 hover:bg-brightPurple hover:border-transparent transition duration-200;
-    }
 }

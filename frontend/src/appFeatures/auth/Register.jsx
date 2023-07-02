@@ -44,20 +44,27 @@ const Register = () => {
     return (
         <>
             <section
-                className="flex justify-center items-center flex-col h-screen"
+                className="flex justify-evenly items-center flex-col h-screen"
                 id="register_page_container"
             >
                 <img
                     src={GoBack}
                     alt="back to previous page"
                     onClick={() => navigate(-1)}
-                    className="return_btn"
+                    className="hidden md:block md:absolute md:top-5 md:left-5 cursor-pointer"
                 />
                 <h1 className="text-lg">Create an account</h1>
                 <form onSubmit={onSubmitClicked} id="register_form">
-                    <fieldset id="name_input" ref={(el) => (nameRef = el)} autoFocus>
-                        <label htmlFor="name">Name</label>
+                    <fieldset
+                        id="name_input"
+                        ref={(el) => (nameRef = el)}
+                        className="flex flex-col mb-10"
+                    >
+                        <label htmlFor="name" className="text-lg pb-2">
+                            Name
+                        </label>
                         <input
+                            className="h-10 w-80 bg-fadedBlack text-fadedWhite pl-2"
                             type="text"
                             id="name"
                             value={name}
@@ -66,9 +73,12 @@ const Register = () => {
                             autoFocus
                         />
                     </fieldset>
-                    <fieldset id="password_input" ref={(el) => (passwordRef = el)}>
-                        <label htmlFor="password">Password</label>
+                    <fieldset id="password_input" ref={(el) => (passwordRef = el)} className="flex flex-col mb-10">
+                        <label htmlFor="password" className="text-lg pb-2">
+                            Password
+                        </label>
                         <input
+                            className="h-10 w-80 bg-fadedBlack text-fadedWhite pl-2"
                             type="password"
                             id="password"
                             value={password}
@@ -80,7 +90,7 @@ const Register = () => {
                         id="register_btn"
                         aria-label="register as a user button"
                         ref={(el) => (submitRef = el)}
-                        className="entry_btn"
+                        className="w-full sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center bg-transparent border-brightPurple border-2 hover:bg-brightPurple hover:border-transparent transition duration-200"
                     >
                         Register
                     </button>

@@ -43,18 +43,28 @@ const Login = () => {
 
     return (
         <>
-            <section className="flex justify-center items-center flex-col h-screen" id="login_page_container">
+            <section
+                className="flex justify-evenly items-center flex-col h-screen"
+                id="login_page_container"
+            >
                 <img
                     src={GoBack}
                     alt="back to previous page"
                     onClick={() => navigate(-1)}
-                    className="return_btn"
+                    className="hidden md:block md:absolute md:top-5 md:left-5 cursor-pointer"
                 />
                 <h1 className="text-lg">Login to your account</h1>
                 <form onSubmit={onSubmitClicked} id="login_form">
-                    <fieldset id="username_input" ref={(el) => (usernameRef = el)}>
-                        <label htmlFor="username">Username</label>
+                    <fieldset
+                        id="username_input"
+                        ref={(el) => (usernameRef = el)}
+                        className="flex flex-col mb-10"
+                    >
+                        <label htmlFor="username" className="text-lg pb-2">
+                            Username
+                        </label>
                         <input
+                            className="h-10 w-80 bg-fadedBlack text-fadedWhite pl-2"
                             type="text"
                             id="username"
                             value={username}
@@ -66,9 +76,13 @@ const Login = () => {
                     <fieldset
                         id="password_input"
                         ref={(el) => (passwordRef = el)}
+                        className="flex flex-col mb-16"
                     >
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password" className="text-lg pb-2">
+                            Password
+                        </label>
                         <input
+                            className="h-10 w-80 bg-fadedBlack text-fadedWhite pl-2"
                             type="password"
                             id="password"
                             value={password}
@@ -80,7 +94,7 @@ const Login = () => {
                         id="login_btn"
                         aria-label="login into your account button"
                         ref={(el) => (submitRef = el)}
-                        className="entry_btn"
+                        className="w-full sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center bg-transparent border-brightPurple border-2 hover:bg-brightPurple hover:border-transparent transition duration-200"
                     >
                         Login
                     </button>
