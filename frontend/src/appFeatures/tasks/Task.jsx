@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { useSelector } from "react-redux";
 import { selectTaskById } from "./tasksSlice";
-import CompleteIcon from "../../assets/check.svg";
-import IncompleteIcon from "../../assets/x-circle.svg";
 
 const Task = ({ taskId }) => {
     const task = useSelector((state) => selectTaskById(state, taskId));
@@ -19,25 +17,55 @@ const Task = ({ taskId }) => {
         : (titleContent = task.task_title);
 
     return (
-        <tr className="tableContent_row">
-            <td className="title">
+        <tr id="tableContent_row" className="h-16 bg-fadedBlack border-b-2 border-backgroundBlack">
+            <td id="title" className="pl-2">
                 <p>{titleContent}</p>
             </td>
-            <td className="description">
+            <td id="description">
                 <p>{descriptionContent}</p>
             </td>
-            <td className="category">{task.category}</td>
-            <td className="completed">
+            <td id="category" className="text-center">
+                {task.category}
+            </td>
+            <td id="completed">
                 {task.completed ? (
-                    <img src={CompleteIcon} alt="addTask icon" />
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#c1c2c5"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="mx-auto"
+                    >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
                 ) : (
-                    <img src={IncompleteIcon} alt="addTask icon" />
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#c1c2c5"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="mx-auto"
+                    >
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="15" y1="9" x2="9" y2="15"></line>
+                        <line x1="9" y1="9" x2="15" y2="15"></line>
+                    </svg>
                 )}
             </td>
-            <td className="viewTask">
-                <Link to={`/dashboard/${task._id}`}>
+            <td id="viewTask" className="text-center">
+                <Link to={`/dashboard/${task._id}`} className="border-2 border-brightPurple rounded w-2/3 mx-auto h-10 flex justify-center hover:bg-brightPurple hover:border-transparent transition duration-200">
                     <button
-                        className="viewTask_btn outline color_transition"
+                        id="viewTask_btn outline color_transition"
                         aria-label="view the task in full"
                     >
                         View Task
