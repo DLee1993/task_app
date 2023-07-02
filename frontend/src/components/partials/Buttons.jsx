@@ -6,7 +6,7 @@ export const EntryButton = ({ endpoint }) => {
     return (
         <Link
             to={`/${endpoint}`}
-            className="flex justify-center items-center w-56 h-12 m-10 text-xl cursor-pointer border-2 border-fadedPurple hover:bg-brightPurple hover:border-transparent transition-all transition-200"
+            className="flex justify-center items-center w-60 h-12 text-xl cursor-pointer border-2 border-fadedPurple hover:bg-brightPurple hover:border-transparent transition-all transition-200"
             id="login_cta"
         >
             {formatEndpoint}
