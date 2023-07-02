@@ -43,14 +43,18 @@ const Register = () => {
 
     return (
         <>
-            <section className="flex_container" id="register_page_container">
+            <section
+                className="flex justify-center items-center flex-col h-screen"
+                id="register_page_container"
+            >
                 <img
                     src={GoBack}
                     alt="back to previous page"
                     onClick={() => navigate(-1)}
                     className="return_btn"
                 />
-                <form onSubmit={onSubmitClicked} id="register_form" className="w-1/5">
+                <h1 className="text-lg">Create an account</h1>
+                <form onSubmit={onSubmitClicked} id="register_form">
                     <fieldset id="name_input" ref={(el) => (nameRef = el)} autoFocus>
                         <label htmlFor="name">Name</label>
                         <input
@@ -78,7 +82,7 @@ const Register = () => {
                         ref={(el) => (submitRef = el)}
                         className="entry_btn"
                     >
-                        register
+                        Register
                     </button>
                 </form>
             </section>

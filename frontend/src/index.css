@@ -8,14 +8,17 @@
     body {
         @apply bg-backgroundBlack text-fadedWhite h-screen;
     }
+    form {
+        @apply text-lg md:text-xl;
+    }
     fieldset {
         @apply my-10 flex flex-col;
     }
     label {
-        @apply text-lg md:text-xl mb-2;
+        @apply mb-2;
     }
     input {
-        @apply max-w-md h-10 text-backgroundBlack pl-1;
+        @apply w-full max-w-[75%] sm:min-w-[20rem] h-10 text-backgroundBlack pl-1;
     }
 }
 
