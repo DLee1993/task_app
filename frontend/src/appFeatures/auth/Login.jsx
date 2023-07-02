@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { OnboardingAnim } from "../../animations/Onboarding";
 
@@ -16,8 +15,6 @@ const Login = () => {
 
     const onUsernameChange = (e) => setUsername(e.target.value);
     const onPasswordChange = (e) => setPassword(e.target.value);
-
-    const navigate = useNavigate();
 
     useEffect(() => {
         setValidPassword(PWD_REGEX.test(password));
@@ -46,23 +43,27 @@ const Login = () => {
                 className="flex justify-evenly items-center flex-col h-screen"
                 id="login_page_container"
             >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#c1c2c5"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    id="feather feather-corner-down-left"
-                    className="hidden md:block md:absolute md:top-5 md:left-5 cursor-pointer"
-                    onClick={() => navigate(-1)}
-                >
-                    <polyline points="9 10 4 15 9 20"></polyline>
-                    <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
-                </svg>
+                <div className="w-full px-10">
+                    <a href="/">
+                        <span className="sr-only">go back</span>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#c1c2c5"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            id="feather feather-corner-down-left"
+                            className="hidden md:block cursor-pointer"
+                        >
+                            <polyline points="9 10 4 15 9 20"></polyline>
+                            <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+                        </svg>
+                    </a>
+                </div>
                 <h1 className="text-lg">Login to your account</h1>
                 <form onSubmit={onSubmitClicked} id="login_form">
                     <fieldset
