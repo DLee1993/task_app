@@ -44,7 +44,7 @@ const Register = () => {
                 id="register_page_container"
             >
                 <div className="w-full px-10">
-                    <a href="/">
+                    <a href="/" className="block w-fit">
                         <span className="sr-only">go back</span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
