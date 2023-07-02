@@ -43,41 +43,40 @@ const Register = () => {
 
     return (
         <>
-            <section className="register_page_container">
+            <section className="flex_container" id="register_page_container">
                 <img
                     src={GoBack}
                     alt="back to previous page"
                     onClick={() => navigate(-1)}
                     className="return_btn"
                 />
-                <form onSubmit={onSubmitClicked} className="register_form">
-                    <section className="outer-register_flex_container">
-                        <fieldset className="name_input" ref={(el) => (nameRef = el)} autoFocus>
-                            <label htmlFor="name">Name</label>
-                            <input
-                                type="text"
-                                id="name"
-                                value={name}
-                                onChange={onNameChange}
-                                required
-                                autoFocus
-                            />
-                        </fieldset>
-                        <fieldset className="password_input" ref={(el) => (passwordRef = el)}>
-                            <label htmlFor="password">Password</label>
-                            <input
-                                type="password"
-                                id="password"
-                                value={password}
-                                onChange={onPasswordChange}
-                                required
-                            />
-                        </fieldset>
-                    </section>
+                <form onSubmit={onSubmitClicked} id="register_form" className="w-1/5">
+                    <fieldset id="name_input" ref={(el) => (nameRef = el)} autoFocus>
+                        <label htmlFor="name">Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            value={name}
+                            onChange={onNameChange}
+                            required
+                            autoFocus
+                        />
+                    </fieldset>
+                    <fieldset id="password_input" ref={(el) => (passwordRef = el)}>
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={onPasswordChange}
+                            required
+                        />
+                    </fieldset>
                     <button
-                        className="register_btn form_btn filled"
+                        id="register_btn"
                         aria-label="register as a user button"
                         ref={(el) => (submitRef = el)}
+                        className="entry_btn"
                     >
                         register
                     </button>

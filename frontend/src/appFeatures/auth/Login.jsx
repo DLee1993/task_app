@@ -43,44 +43,43 @@ const Login = () => {
 
     return (
         <>
-            <section className="login_page_container">
+            <section className="flex_container" id="login_page_container">
                 <img
                     src={GoBack}
                     alt="back to previous page"
                     onClick={() => navigate(-1)}
                     className="return_btn"
                 />
-                <form onSubmit={onSubmitClicked} className="login_form">
-                    <section className="outer-login_flex_container">
-                        <fieldset
-                            className="username_input"
-                            ref={(el) => (usernameRef = el)}
-                        >
-                            <label htmlFor="username">Username</label>
-                            <input
-                                type="text"
-                                id="username"
-                                value={username}
-                                onChange={onUsernameChange}
-                                required
-                                autoFocus
-                            />
-                        </fieldset>
-                        <fieldset className="password_input" ref={(el) => (passwordRef = el)}>
-                            <label htmlFor="password">Password</label>
-                            <input
-                                type="password"
-                                id="password"
-                                value={password}
-                                onChange={onPasswordChange}
-                                required
-                            />
-                        </fieldset>
-                    </section>
+                <form onSubmit={onSubmitClicked} id="login_form" className="w-1/5">
+                    <fieldset id="username_input" ref={(el) => (usernameRef = el)}>
+                        <label htmlFor="username">Username</label>
+                        <input
+                            type="text"
+                            id="username"
+                            value={username}
+                            onChange={onUsernameChange}
+                            required
+                            autoFocus
+                        />
+                    </fieldset>
+                    <fieldset
+                        id="password_input"
+                        ref={(el) => (passwordRef = el)}
+                    >
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={onPasswordChange}
+                            required
+                        />
+                    </fieldset>
                     <button
-                        className="login_btn form_btn filled color_transition"
+                        id="login_btn"
                         aria-label="login into your account button"
                         ref={(el) => (submitRef = el)}
+                        className="entry_btn"
                     >
                         Login
                     </button>

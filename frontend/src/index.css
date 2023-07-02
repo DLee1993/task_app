@@ -3,3 +3,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-backgroundBlack text-fadedWhite h-screen;
+    }
+    fieldset {
+        @apply my-10 flex flex-col;
+    }
+    label {
+        @apply text-lg md:text-xl mb-2;
+    }
+    input {
+        @apply max-w-md h-10 text-backgroundBlack pl-1;
+    }
+}
+
+@layer components {
+    /* return button for the login/register forms */
+    .return_btn {
+        @apply hidden md:block md:absolute md:top-5 md:left-5 cursor-pointer;
+    }
+    /* login and register page links */
+    .entry_btn {
+        @apply w-full max-w-[75%] sm:max-w-xs h-10 sm:h-12 flex justify-center items-center bg-transparent border-brightPurple border-2 hover:bg-brightPurple hover:border-transparent transition duration-200;
+    }
+}
