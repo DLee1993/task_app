@@ -23,15 +23,12 @@ const Onboarding = () => {
                 >
                     Welcome to Upto
                 </h1>
-                <p
-                    className="max-w-md my-10"
-                    ref={(el) => (onboardingText = el)}
-                >
+                <p className="max-w-md my-10" ref={(el) => (onboardingText = el)}>
                     Utilise our software to organise your daily tasks and increase your productivity
                 </p>
             </section>
             <section
-                className="w-80 h-28 flex flex-col justify-between items-center"
+                className="w-80 h-28 flex flex-col justify-evenly items-center"
                 id="onboarding_sign-in_options"
                 ref={(el) => (onboardingSignInLinks = el)}
             >
