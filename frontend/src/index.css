@@ -9,3 +9,20 @@
         @apply bg-backgroundBlack text-fadedWhite h-screen;
     }
 }
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #c1c2c5 #8687e7;
+}
+
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #c1c2c5;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #8687e7;
+}

@@ -17,17 +17,20 @@ const Task = ({ taskId }) => {
         : (titleContent = task.task_title);
 
     return (
-        <tr id="tableContent_row" className="h-16 bg-fadedBlack border-b-2 border-backgroundBlack">
+        <tr
+            id="tableContent_row"
+            className="odd:bg-fadedBlack odd:hover:bg-tableHover even:bg-transparent even:hover:bg-tableHover cursor-pointer h-[64px]"
+        >
             <td id="title" className="pl-2">
                 <p>{titleContent}</p>
             </td>
-            <td id="description">
+            <td id="description" className="hidden sm:table-cell">
                 <p>{descriptionContent}</p>
             </td>
-            <td id="category" className="text-center">
+            <td id="category" className="text-center hidden md:table-cell">
                 {task.category}
             </td>
-            <td id="completed">
+            <td id="completed" className="hidden lg:table-cell">
                 {task.completed ? (
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +66,10 @@ const Task = ({ taskId }) => {
                 )}
             </td>
             <td id="viewTask" className="text-center">
-                <Link to={`/dashboard/${task._id}`} className="border-2 border-brightPurple rounded w-2/3 mx-auto h-10 flex justify-center hover:bg-brightPurple hover:border-transparent transition duration-200">
+                <Link
+                    to={`/dashboard/${task._id}`}
+                    className="border-2 border-brightPurple rounded w-3/4 sm:w-2/3 mx-auto h-10 flex justify-center hover:bg-brightPurple hover:border-transparent transition duration-200"
+                >
                     <button
                         id="viewTask_btn outline color_transition"
                         aria-label="view the task in full"

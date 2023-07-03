@@ -18,13 +18,21 @@ const TasksList = () => {
             : null;
 
         content = (
-            <table id="tasks_list" className="w-full max-w-[99%] mx-auto table-auto border-spacing-1">
-                <thead>
-                    <tr className="h-16">
-                        <th id="title" className="text-left pl-2">Title</th>
-                        <th id="description" className="text-left">Description</th>
-                        <th id="category">Category</th>
-                        <th id="completed">Completed</th>
+            <table id="tasks_list" className="w-full">
+                <thead className="sticky top-0 bg-backgroundBlack">
+                    <tr className="h-16 border-b-2 border-fadedBlack">
+                        <th id="title" className="text-left pl-2">
+                            Title
+                        </th>
+                        <th id="description" className="text-left hidden sm:table-cell">
+                            Description
+                        </th>
+                        <th id="category" className="hidden md:table-cell">
+                            Category
+                        </th>
+                        <th id="completed" className="hidden lg:table-cell">
+                            Completed
+                        </th>
                         <th id="viewTask"></th>
                     </tr>
                 </thead>
