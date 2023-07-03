@@ -17,7 +17,7 @@ const ViewTask = () => {
     useEffect(() => {
         if (isSuccess) {
             navigate("/dashboard");
-            toast.success("Task Deleted", {
+            toast.error("Task Deleted", {
                 toastId: "deleteSuccessToast",
                 position: toast.POSITION.BOTTOM_CENTER,
             });

@@ -8,7 +8,12 @@ const TasksList = () => {
 
     if (isLoading) content = <p>Loading...</p>;
 
-    if (isError) content = <p id="error_message">{error.data.message}</p>;
+    if (isError)
+        content = (
+            <p id="error_message" className="text-center">
+                {error.data.message}
+            </p>
+        );
 
     if (isSuccess) {
         const { ids } = tasks;
