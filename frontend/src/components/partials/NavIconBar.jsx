@@ -19,7 +19,7 @@ const NavIconBar = () => {
                 aria-label="navigate to the add new task form page link"
                 className="bg-fadedPurple w-16 p-1 rounded hover:bg-brightPurple transition-all duration-200"
             >
-                <img src={Home} alt="go to dashboard icon" className="m-auto w-6 h-auto" />
+                <img src={Home} alt="go to dashboard icon" className="m-auto w-5 h-auto" />
             </Link>
             <Link
                 to="/dashboard/newTask"
@@ -27,7 +27,7 @@ const NavIconBar = () => {
                 aria-label="navigate to the add new task form page link"
                 className="bg-fadedPurple w-16 p-1 rounded sm:mx-5 hover:bg-brightPurple transition-all duration-200"
             >
-                <img src={PlusIcon} alt="addTask icon" className="m-auto w-6 h-auto" />
+                <img src={PlusIcon} alt="addTask icon" className="m-auto w-5 h-auto" />
             </Link>
             <button
                 onClick={logoutClicked}
@@ -35,7 +35,7 @@ const NavIconBar = () => {
                 aria-label="logout of your account button"
                 className="bg-fadedPurple w-16 p-1 rounded hover:bg-brightPurple transition-all duration-200"
             >
-                <img src={LogoutIcon} alt="logout icon" className="m-auto w-6 h-auto" />
+                <img src={LogoutIcon} alt="logout icon" className="m-auto w-5 h-auto" />
             </button>
         </section>
     );
