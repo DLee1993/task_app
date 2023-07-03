@@ -119,7 +119,7 @@ const EditTask = () => {
                                 id="editTask_description"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
-                                className="bg-fadedBlack w-80 h-10 text-fadedWhite pl-1"
+                                className="bg-fadedBlack w-80 h-52 text-fadedWhite pl-1 resize-none"
                             />
                         </fieldset>
                     </section>
