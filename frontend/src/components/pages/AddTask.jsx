@@ -10,14 +10,18 @@ const AddTask = () => {
     const [category, setCategory] = useState("home");
     const navigate = useNavigate();
 
+    const resetForm = () => {
+        setTitle("");
+        setDescription("");
+        setCategory("home");
+    };
+
     const [addNewTask, { isLoading, isSuccess, isError, error }] = useAddNewTaskMutation();
 
     useEffect(() => {
         if (isSuccess) {
             navigate("/dashboard");
-            setTitle("");
-            setDescription("");
-            setCategory("home");
+            resetForm();
             toast.success("New Task added", {
                 position: toast.POSITION.BOTTOM_CENTER,
             });

@@ -14,10 +14,10 @@ const EditTask = () => {
     const { id } = useParams();
     const task = useSelector((state) => selectTaskById(state, id));
 
-    const [title, setTitle] = useState(task.task_title);
-    const [description, setDescription] = useState(task.task_description);
-    const [category, setCategory] = useState(task.category);
-    const [completed, setCompleted] = useState(task.completed);
+    const [title, setTitle] = useState(task?.task_title);
+    const [description, setDescription] = useState(task?.task_description);
+    const [category, setCategory] = useState(task?.category);
+    const [completed, setCompleted] = useState(task?.completed);
 
     const navigate = useNavigate();
 
@@ -145,7 +145,7 @@ const EditTask = () => {
                         </fieldset>
                         <fieldset className="w-full flex justify-between items-center">
                             <label htmlFor="completedStatus" className="text-lg pb-2 h-5">
-                                Mark as {completed ? "incompleted" : "complete"}
+                                Mark as {completed ? "incomplete" : "complete"}
                             </label>
                             <input
                                 type="checkbox"

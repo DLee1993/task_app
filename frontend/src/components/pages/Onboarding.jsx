@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import { OnboardingAnim } from "../../animations/Onboarding";
 import { EntryButton } from "../partials/Buttons";
+import gsap from "gsap";
 
 const Onboarding = () => {
     let onboardingHeader = useRef(null);
@@ -8,6 +8,15 @@ const Onboarding = () => {
     let onboardingSignInLinks = useRef(null);
 
     useEffect(() => {
+        const tl = gsap.timeline();
+
+        const OnboardingAnim = (node1, node2, node3) => {
+            tl.to([node1, node2, node3], {
+                y: 0,
+                opacity: 1,
+                stagger: 0.2,
+            });
+        };
         OnboardingAnim(onboardingHeader, onboardingText, onboardingSignInLinks);
     });
 
@@ -23,7 +32,10 @@ const Onboarding = () => {
                 >
                     Welcome to Upto
                 </h1>
-                <p className="max-w-md my-10 opacity-0 translate-y-5" ref={(el) => (onboardingText = el)}>
+                <p
+                    className="max-w-md my-10 opacity-0 translate-y-5"
+                    ref={(el) => (onboardingText = el)}
+                >
                     Utilise our software to organise your daily tasks and increase your productivity
                 </p>
             </section>

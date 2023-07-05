@@ -8,7 +8,7 @@ const TasksList = () => {
 
     if (isLoading) content = <p>Loading...</p>;
 
-    if (isError)
+    if (isError && error)
         content = (
             <p id="error_message" className="text-center">
                 {error.data.message}
@@ -16,9 +16,9 @@ const TasksList = () => {
         );
 
     if (isSuccess) {
-        const { ids } = tasks;
+        const ids = tasks?.ids;
 
-        const taskTableContent = ids?.length
+        const taskTableContent = ids && ids?.length
             ? ids.map((taskId) => <Task key={taskId} taskId={taskId} />)
             : null;
 
