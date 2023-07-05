@@ -112,8 +112,8 @@ const AddTask = () => {
                                 type="submit"
                                 id="form_btn filled color_transition"
                                 aria-label="submit new task button"
-                                disabled={!canSave}
-                                className="w-full cursor-pointer disabled:opacity-50 disabled:border-brightPurple enabled:bg-fadedPurple enabled:border-0 enabled:hover:bg-brightPurple border-2 sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center transition duration-200"
+                                aria-disabled={!canSave}
+                                className="w-full cursor-pointer aria-disabled:cursor-not-allowed aria-disabled:opacity-50 enabled:bg-fadedPurple enabled:border-0 enabled:hover:bg-brightPurple border-2 sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center transition duration-200"
                             >
                                 Submit
                             </button>

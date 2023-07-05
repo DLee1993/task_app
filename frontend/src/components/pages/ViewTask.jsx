@@ -60,6 +60,7 @@ const ViewTask = () => {
                                 value={task.task_title}
                                 readOnly
                                 className="bg-fadedBlack w-80 h-10 text-fadedWhite pl-1"
+                                aria-disabled="true"
                             />
                         </fieldset>
                         <fieldset id="task_description" className="flex flex-col">
@@ -72,6 +73,7 @@ const ViewTask = () => {
                                 value={task.task_description}
                                 readOnly
                                 className="bg-fadedBlack w-80 h-48 text-fadedWhite pl-1 resize-none"
+                                aria-disabled="true"
                             />
                         </fieldset>
                         <fieldset className="flex flex-col">
@@ -84,6 +86,7 @@ const ViewTask = () => {
                                 value={task.category}
                                 readOnly
                                 className="bg-fadedBlack w-80 h-10 text-fadedWhite pl-1"
+                                aria-disabled="true"
                             />
                         </fieldset>
                     </section>
@@ -98,6 +101,7 @@ const ViewTask = () => {
                                 value={createdAt}
                                 readOnly
                                 className="bg-fadedBlack w-80 h-10 text-fadedWhite pl-1"
+                                aria-disabled="true"
                             />
                         </fieldset>
                         <fieldset className="flex flex-col">
@@ -110,6 +114,7 @@ const ViewTask = () => {
                                 value={updatedAt}
                                 readOnly
                                 className="bg-fadedBlack w-80 h-10 text-fadedWhite pl-1"
+                                aria-disabled="true"
                             />
                         </fieldset>
                         <section id="form_btn_group" className="w-full my-10 sm:my-0">
