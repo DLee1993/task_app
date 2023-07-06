@@ -42,7 +42,7 @@ const Task = ({ taskId }) => {
                 >
                     <button
                         id="viewTask_btn outline color_transition"
-                        aria-label="view the task in full"
+                        aria-label="press enter to view the task in full"
                     >
                         View Task
                     </button>

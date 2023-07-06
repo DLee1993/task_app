@@ -149,9 +149,15 @@ const EditTask = () => {
                             </label>
                             <input
                                 type="checkbox"
+                                checked={completed}
+                                onChange={() => setCompleted(!completed)}
                                 name="completed"
                                 id="completedStatus"
-                                aria-label="check task"
+                                aria-label={
+                                    completed
+                                        ? "press spacebar to uncheck the task"
+                                        : "press spacebar to check the task"
+                                }
                                 onClick={checkMark}
                                 className="w-5 h-5"
                             />
