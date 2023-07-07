@@ -38,7 +38,7 @@ const Task = ({ taskId }) => {
             <td id="viewTask" className="text-center">
                 <Link
                     to={`/dashboard/${_id}`}
-                    className="border-2 border-brightPurple rounded w-3/4 sm:w-2/3 mx-auto h-10 flex justify-center hover:bg-brightPurple hover:border-transparent transition duration-200"
+                    className="border-2 border-brightPurple rounded w-3/4 sm:w-2/3 sm:max-w-[150px]  mx-auto h-10 flex justify-center hover:bg-brightPurple hover:border-transparent transition duration-200"
                 >
                     <button
                         id="viewTask_btn outline color_transition"
