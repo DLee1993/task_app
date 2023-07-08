@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "./authSlice";
 import { useLoginMutation } from "./authApiSlice";
@@ -72,7 +72,7 @@ const Login = () => {
                 id="login_page_container"
             >
                 <div className="w-full px-5">
-                    <a href="/" className="block w-fit">
+                    <Link to="/" className="block w-fit">
                         <span className="sr-only">go back</span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,7 @@ const Login = () => {
                             <polyline points="9 10 4 15 9 20"></polyline>
                             <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
                         </svg>
-                    </a>
+                    </Link>
                 </div>
                 <h1 className="text-lg">Login to your account</h1>
                 <form onSubmit={onSubmitClicked} id="login_form" className="min-h-[25rem]">

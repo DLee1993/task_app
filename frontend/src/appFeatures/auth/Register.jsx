@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useAddNewUserMutation } from "../users/usersSlice";
 import { setCredentials } from "./authSlice";
@@ -53,7 +53,7 @@ const Register = () => {
             try {
                 //- destructure the access token from the result of calling login with users username and valid password
                 const { accessToken } = await login({ username, password }).unwrap();
-                
+
                 //- then set the credentials with the above access token
                 //- remember set Credentials just sets the access token to state.token
                 dispatch(setCredentials({ accessToken }));
@@ -89,7 +89,7 @@ const Register = () => {
                 id="register_page_container"
             >
                 <div className="w-full px-5">
-                    <a href="/" className="block w-fit">
+                    <Link to="/" className="block w-fit">
                         <span className="sr-only">go back</span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +107,7 @@ const Register = () => {
                             <polyline points="9 10 4 15 9 20"></polyline>
                             <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
                         </svg>
-                    </a>
+                    </Link>
                 </div>
                 <h1 className="text-lg">Create an account</h1>
                 <form onSubmit={onSubmitClicked} id="register_form" className="min-h-[25rem]">
