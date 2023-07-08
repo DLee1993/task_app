@@ -2,7 +2,17 @@ import { useGetTasksQuery } from "./tasksSlice";
 import Task from "./Task";
 
 const TasksList = () => {
-    const { data: tasks, isLoading, isSuccess, isError, error } = useGetTasksQuery();
+    const {
+        data: tasks,
+        isLoading,
+        isSuccess,
+        isError,
+        error,
+    } = useGetTasksQuery("tasksList", {
+        pollingInterval: 15000,
+        refetchOnFocus: true,
+        refetchOnMountOrArgChange: true,
+    });
 
     let content;
 
@@ -18,9 +28,8 @@ const TasksList = () => {
     if (isSuccess) {
         const ids = tasks?.ids;
 
-        const taskTableContent = ids && ids?.length
-            ? ids.map((taskId) => <Task key={taskId} taskId={taskId} />)
-            : null;
+        const taskTableContent =
+            ids && ids?.length ? ids.map((taskId) => <Task key={taskId} taskId={taskId} />) : null;
 
         content = (
             <table id="tasks_list" className="w-full">

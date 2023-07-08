@@ -34,7 +34,7 @@ export const login = async (req, res) => {
             },
         },
         process.env.ACCESS_TOKEN,
-        { expiresIn: "1m" }
+        { expiresIn: "15m" }
     );
 
     //- create the refresh token
@@ -43,7 +43,7 @@ export const login = async (req, res) => {
             username: foundUser.username,
         },
         process.env.REFRESH_TOKEN,
-        { expiresIn: "1d" }
+        { expiresIn: "7d" }
     );
 
     //- create cookie with refresh token
@@ -86,7 +86,7 @@ export const refresh = (req, res) => {
                 },
             },
             process.env.ACCESS_TOKEN,
-            { expiresIn: "1m" }
+            { expiresIn: "15m" }
         );
 
         res.json({ accessToken });

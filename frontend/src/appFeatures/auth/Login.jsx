@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "./authSlice";
 import { useLoginMutation } from "./authApiSlice";
+import usePersistLogin from "../../hooks/usePersistLogin";
 import { toast } from "react-toastify";
 
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
@@ -11,9 +12,11 @@ const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [validPassword, setValidPassword] = useState(false);
+    const [persist, setPersist] = usePersistLogin();
 
     const onUsernameChange = (e) => setUsername(e.target.value);
     const onPasswordChange = (e) => setPassword(e.target.value);
+    const handleToggle = () => setPersist((prev) => !prev);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -40,7 +43,7 @@ const Login = () => {
                 //- reset state
                 setUsername("");
                 setPassword("");
-                
+
                 //- navigate to dashboard
                 navigate("/dashboard");
             } catch (error) {
@@ -129,6 +132,16 @@ const Login = () => {
                         Login
                     </button>
                 </form>
+                <label htmlFor="persist" className="text-lg">
+                        Trust this device?
+                        <input
+                            type="checkbox"
+                            id="persist"
+                            onChange={handleToggle}
+                            checked={persist}
+                            className="ml-5 w-5 h-5 cursor-pointer"
+                        />
+                    </label>
             </section>
         </>
     );

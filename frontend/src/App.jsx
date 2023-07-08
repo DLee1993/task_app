@@ -9,6 +9,7 @@ import ViewTask from "./components/pages/ViewTask";
 import EditTask from "./components/pages/EditTask";
 import UserList from "./appFeatures/users/UsersList";
 import Prefetch from "./appFeatures/auth/Prefetch";
+import PersistLogin from "./appFeatures/auth/PersistLogin";
 import { ToastContainer } from "react-toastify";
 
 const App = () => {
@@ -22,15 +23,17 @@ const App = () => {
                     <Route path="register" element={<Register />} />
 
                     {/* Protected Routes - wrap dashboard path in protected route */}
-                    <Route element={<Prefetch />}>
-                        <Route path="dashboard">
-                            <Route index element={<Dashboard />} />
-                            <Route path="newTask" element={<AddTask />} />
-                            <Route path=":id" element={<ViewTask />} />
-                            <Route path="edit/:id" element={<EditTask />} />
-                        </Route>
-                        <Route path="users">
-                            <Route index element={<UserList />} />
+                    <Route element={<PersistLogin />}>
+                        <Route element={<Prefetch />}>
+                            <Route path="dashboard">
+                                <Route index element={<Dashboard />} />
+                                <Route path="newTask" element={<AddTask />} />
+                                <Route path=":id" element={<ViewTask />} />
+                                <Route path="edit/:id" element={<EditTask />} />
+                            </Route>
+                            <Route path="users">
+                                <Route index element={<UserList />} />
+                            </Route>
                         </Route>
                     </Route>
                 </Route>
