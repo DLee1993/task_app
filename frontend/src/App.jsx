@@ -11,6 +11,7 @@ import UserList from "./appFeatures/users/UsersList";
 import Prefetch from "./appFeatures/auth/Prefetch";
 import PersistLogin from "./appFeatures/auth/PersistLogin";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
     return (

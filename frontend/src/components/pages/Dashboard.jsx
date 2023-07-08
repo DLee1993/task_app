@@ -1,15 +1,18 @@
 import Header from "../partials/Header";
 import TasksList from "../../appFeatures/tasks/TasksList";
-import "react-toastify/dist/ReactToastify.css";
+import useAuth from "../../hooks/useAuth";
 
 const Dashboard = () => {
+    //- destructure the username from useAuth
+    const { username } = useAuth();
+
     const getTime = new Date().getHours();
     const headerMessage =
         getTime < 12
-            ? "Good Morning User"
+            ? `Good Morning, ${username}`
             : getTime < 17
-            ? "Good Afternoon User"
-            : "Good Evening User";
+            ? `Good Afternoon, ${username}`
+            : `Good Evening, ${username}`;
     return (
         <main className="dashboard">
             <Header title={headerMessage} />
