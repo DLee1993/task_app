@@ -6,6 +6,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import { corsOptions } from "./config/corsOptions.js";
+import authRouter from "./routes/authRoutes.js";
 import taskRouter from "./routes/taskRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import rootRouter from "./routes/root.js";
@@ -31,6 +32,8 @@ app.use(cookieParser());
 app.use("/", express.static(path.join(__dirname, "public")));
 
 app.use("/", rootRouter);
+
+app.use("/auth", authRouter);
 
 app.use("/dashboard", taskRouter);
 
