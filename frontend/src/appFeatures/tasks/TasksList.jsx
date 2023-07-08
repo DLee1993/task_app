@@ -1,7 +1,9 @@
 import { useGetTasksQuery } from "./tasksSlice";
 import Task from "./Task";
+import useAuth from "../../hooks/useAuth";
 
 const TasksList = () => {
+    const { username } = useAuth();
     const {
         data: tasks,
         isLoading,
@@ -26,33 +28,41 @@ const TasksList = () => {
         );
 
     if (isSuccess) {
-        const ids = tasks?.ids;
+        const { ids, entities } = tasks;
+
+        let filteredIds = ids.filter((taskId) => entities[taskId].username === username);
 
         const taskTableContent =
-            ids && ids?.length ? ids.map((taskId) => <Task key={taskId} taskId={taskId} />) : null;
+            ids?.length && filteredIds.map((taskId) => <Task key={taskId} taskId={taskId} />);
 
-        content = (
-            <table id="tasks_list" className="w-full">
-                <thead className="sticky top-0 bg-backgroundBlack">
-                    <tr className="h-16 border-b-2 border-fadedBlack">
-                        <th id="title" className="text-left pl-2">
-                            Title
-                        </th>
-                        <th id="description" className="text-left hidden sm:table-cell">
-                            Description
-                        </th>
-                        <th id="category" className="hidden md:table-cell">
-                            Category
-                        </th>
-                        <th id="completed" className="hidden lg:table-cell">
-                            Completed
-                        </th>
-                        <th id="viewTask"></th>
-                    </tr>
-                </thead>
-                <tbody>{taskTableContent}</tbody>
-            </table>
-        );
+        !filteredIds.length
+            ? (content = (
+                  <p id="error_message" className="text-center">
+                      Click the + button to add a new task
+                  </p>
+              ))
+            : (content = (
+                  <table id="tasks_list" className="w-full">
+                      <thead className="sticky top-0 bg-backgroundBlack">
+                          <tr className="h-16 border-b-2 border-fadedBlack">
+                              <th id="title" className="text-left pl-2">
+                                  Title
+                              </th>
+                              <th id="description" className="text-left hidden sm:table-cell">
+                                  Description
+                              </th>
+                              <th id="category" className="hidden md:table-cell">
+                                  Category
+                              </th>
+                              <th id="completed" className="hidden lg:table-cell">
+                                  Completed
+                              </th>
+                              <th id="viewTask"></th>
+                          </tr>
+                      </thead>
+                      <tbody>{taskTableContent}</tbody>
+                  </table>
+              ));
     }
 
     return content;
