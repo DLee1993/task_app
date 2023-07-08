@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "./authSlice";
+import { useLoginMutation } from "./authApiSlice";
 import { toast } from "react-toastify";
 
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
@@ -11,22 +15,55 @@ const Login = () => {
     const onUsernameChange = (e) => setUsername(e.target.value);
     const onPasswordChange = (e) => setPassword(e.target.value);
 
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    //- destructure login and is loading
+    const [login, { isLoading }] = useLoginMutation();
+
     useEffect(() => {
         setValidPassword(PWD_REGEX.test(password));
     }, [password]);
 
     const canSave = [username, validPassword].every(Boolean);
 
-    const onSubmitClicked = (e) => {
+    const onSubmitClicked = async (e) => {
         e.preventDefault();
-        canSave
-            ? console.log("Logging in")
-            : toast.error("Please Enter Valid Credentials", {
-                  theme: "colored",
-                  position: toast.POSITION.BOTTOM_CENTER,
-              });
-        //! - THIS IS WHERE WE ADD THE TOKENS AND CHECK THE REGISTER DETAILS
+        if (canSave) {
+            try {
+                //- destructure the access token from the result of calling login with users username and valid password
+                const { accessToken } = await login({ username, password }).unwrap();
+                //- then set the credentials with the above access token
+                //- remember set Credentials just sets the access token to state.token
+                dispatch(setCredentials({ accessToken }));
+
+                //- reset state
+                setUsername("");
+                setPassword("");
+                
+                //- navigate to dashboard
+                navigate("/dashboard");
+            } catch (error) {
+                //- add custom toasts for errors
+                if (!error.status) {
+                    toast.error("No server response");
+                } else if (error.status === 400) {
+                    toast.error("Missing Username or Password");
+                } else if (error.status === 401) {
+                    toast.error("Unauthorized Access");
+                } else {
+                    toast.error(error.data?.message);
+                }
+            }
+        } else {
+            toast.error("Please Enter Valid Credentials", {
+                theme: "colored",
+                position: toast.POSITION.BOTTOM_CENTER,
+            });
+        }
     };
+
+    if (isLoading) return <p>Checking Credentials</p>;
 
     return (
         <>
@@ -57,10 +94,7 @@ const Login = () => {
                 </div>
                 <h1 className="text-lg">Login to your account</h1>
                 <form onSubmit={onSubmitClicked} id="login_form" className="min-h-[25rem]">
-                    <fieldset
-                        id="username_input"
-                        className="flex flex-col mb-10"
-                    >
+                    <fieldset id="username_input" className="flex flex-col mb-10">
                         <label htmlFor="username" className="text-lg pb-2">
                             Username
                         </label>
@@ -74,10 +108,7 @@ const Login = () => {
                             autoFocus
                         />
                     </fieldset>
-                    <fieldset
-                        id="password_input"
-                        className="flex flex-col mb-16"
-                    >
+                    <fieldset id="password_input" className="flex flex-col mb-16">
                         <label htmlFor="password" className="text-lg pb-2">
                             Password
                         </label>

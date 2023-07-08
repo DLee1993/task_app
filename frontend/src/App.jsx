@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Login from "./appFeatures/auth/Login";
-import Register from "./appFeatures/auth/Register";
 import Dashboard from "./components/pages/Dashboard";
 import Onboarding from "./components/pages/Onboarding";
 import AddTask from "./components/pages/AddTask";
@@ -19,7 +18,6 @@ const App = () => {
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Onboarding />} />
                     <Route path="login" element={<Login />} />
-                    <Route path="register" element={<Register />} />
 
                     {/* Protected Routes - wrap dashboard path in protected route */}
                     <Route element={<Prefetch />}>

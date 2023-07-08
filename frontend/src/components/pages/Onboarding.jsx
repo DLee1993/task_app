@@ -44,8 +44,8 @@ const Onboarding = () => {
                 id="onboarding_sign-in_options"
                 ref={(el) => (onboardingSignInLinks = el)}
             >
+                <p>Please request Login Details to continue</p>
                 <EntryButton endpoint={"login"} />
-                <EntryButton endpoint={"register"} />
             </section>
         </section>
     );

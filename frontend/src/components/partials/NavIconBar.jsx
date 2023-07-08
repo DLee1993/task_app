@@ -1,12 +1,24 @@
+import { useEffect } from "react";
 import PlusIcon from "../../assets/plus.svg";
 import LogoutIcon from "../../assets/log-out.svg";
 import Home from "../../assets/home.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSendLogoutMutation } from "../../appFeatures/auth/authApiSlice";
+import { toast } from "react-toastify";
 
 const NavIconBar = () => {
-    const logoutClicked = () => {
-        console.log("logout here");
-    };
+    const navigate = useNavigate();
+    const [sendLogout, { isloading, isSuccess, isError, error }] = useSendLogoutMutation();
+
+    useEffect(() => {
+        if (isSuccess) navigate("/");
+    }, [isSuccess, navigate]);
+
+    const logoutClicked = () => sendLogout();
+
+    if (isloading) return <p>Logging Out...</p>;
+
+    if (isError) return toast.error(`Error: ${error.data?.message}`);
 
     return (
         <section
