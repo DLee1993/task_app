@@ -7,7 +7,6 @@ import Onboarding from "./components/pages/Onboarding";
 import AddTask from "./components/pages/AddTask";
 import ViewTask from "./components/pages/ViewTask";
 import EditTask from "./components/pages/EditTask";
-import UserList from "./appFeatures/users/UsersList";
 import Prefetch from "./appFeatures/auth/Prefetch";
 import PersistLogin from "./appFeatures/auth/PersistLogin";
 import { ToastContainer } from "react-toastify";
@@ -31,9 +30,6 @@ const App = () => {
                                 <Route path="newTask" element={<AddTask />} />
                                 <Route path=":id" element={<ViewTask />} />
                                 <Route path="edit/:id" element={<EditTask />} />
-                            </Route>
-                            <Route path="users">
-                                <Route index element={<UserList />} />
                             </Route>
                         </Route>
                     </Route>

@@ -71,7 +71,7 @@ const EditTask = () => {
         if (canSave) {
             await updateTask({
                 id,
-                user: "645dd507c4aff17007b29a7f",
+                user: task.user,
                 task_title: title,
                 task_description: description,
                 category,

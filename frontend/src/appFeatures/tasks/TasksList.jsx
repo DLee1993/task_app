@@ -1,9 +1,14 @@
 import { useGetTasksQuery } from "./tasksSlice";
 import Task from "./Task";
 import useAuth from "../../hooks/useAuth";
+import { selectAllUsers } from "../../appFeatures/users/usersSlice";
+import { useSelector } from "react-redux";
 
 const TasksList = () => {
     const { username } = useAuth();
+    const users = useSelector(selectAllUsers);
+    let taskCreator;
+
     const {
         data: tasks,
         isLoading,
@@ -30,7 +35,13 @@ const TasksList = () => {
     if (isSuccess) {
         const { ids, entities } = tasks;
 
-        let filteredIds = ids.filter((taskId) => entities[taskId].username === username);
+        users.forEach((user) => {
+            if (user.username === username) {
+                taskCreator = user._id;
+            }
+        });
+
+        let filteredIds = ids.filter((taskId) => entities[taskId].user === taskCreator);
 
         const taskTableContent =
             ids?.length && filteredIds.map((taskId) => <Task key={taskId} taskId={taskId} />);

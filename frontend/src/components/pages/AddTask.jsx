@@ -1,14 +1,28 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAddNewTaskMutation } from "../../appFeatures/tasks/tasksSlice";
+import { selectAllUsers } from "../../appFeatures/users/usersSlice";
 import { toast } from "react-toastify";
 import Header from "../partials/Header";
+import useAuth from "../../hooks/useAuth";
+import { useSelector } from "react-redux";
 
 const AddTask = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("home");
+
     const navigate = useNavigate();
+
+    const { username } = useAuth();
+    const users = useSelector(selectAllUsers);
+    let taskCreator;
+
+    users.forEach((user) => {
+        if (user.username === username) {
+            taskCreator = user._id;
+        }
+    });
 
     const resetForm = () => {
         setTitle("");
@@ -40,7 +54,7 @@ const AddTask = () => {
         e.preventDefault();
         if (canSave) {
             await addNewTask({
-                user: "645dd507c4aff17007b29a7f", //! - CHANGE THIS TO THE LOGGED IN USER
+                user: `${taskCreator}`, //! - CHANGE THIS TO THE LOGGED IN USER
                 task_title: title,
                 task_description: description,
                 category,
