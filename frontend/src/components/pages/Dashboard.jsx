@@ -5,14 +5,15 @@ import useAuth from "../../hooks/useAuth";
 const Dashboard = () => {
     //- destructure the username from useAuth
     const { username } = useAuth();
+    const usersName = username.split(" ");
 
     const getTime = new Date().getHours();
     const headerMessage =
         getTime < 12
-            ? `Good Morning, ${username}`
+            ? `Good Morning, ${usersName[0]}`
             : getTime < 17
-            ? `Good Afternoon, ${username}`
-            : `Good Evening, ${username}`;
+            ? `Good Afternoon, ${usersName[0]}`
+            : `Good Evening, ${usersName[0]}`;
     return (
         <main className="dashboard">
             <Header title={headerMessage} />
