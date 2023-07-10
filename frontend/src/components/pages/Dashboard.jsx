@@ -17,7 +17,7 @@ const Dashboard = () => {
     return (
         <main className="dashboard">
             <Header title={headerMessage} />
-            <section className="h-[26rem] sm:h-[29rem] w-full max-w-[98%] mx-auto mt-2 overflow-y-auto">
+            <section className="max-w-[98%] max-h-[85vh] mx-auto mt-2 overflow-y-auto">
                 <TasksList />
             </section>
         </main>

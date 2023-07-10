@@ -60,7 +60,7 @@ const NavBar = () => {
     }
 
     return (
-        <section className="flex justify-between items-center w-64" id="nav-button_group">
+        <section className="flex justify-between items-center min-w-64" id="nav-button_group">
             {dashboardLink}
             {profileLink}
             {addTaskLink}
