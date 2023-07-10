@@ -50,7 +50,7 @@ const NavBar = () => {
                 onClick={logoutClicked}
                 id="logout_btn"
                 aria-label="logout of your account button"
-                className="hover:text-brightPurple"
+                className="hover:text-warningRed"
             >
                 Logout
             </button>

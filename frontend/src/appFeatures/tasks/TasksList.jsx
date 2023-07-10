@@ -65,7 +65,7 @@ const TasksList = () => {
                               <th id="category" className="hidden md:table-cell">
                                   Category
                               </th>
-                              <th id="completed" className="hidden lg:table-cell">
+                              <th id="completed" className="sm:hidden lg:table-cell">
                                   Completed
                               </th>
                               <th id="viewTask"></th>
