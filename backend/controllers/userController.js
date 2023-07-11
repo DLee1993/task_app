@@ -89,7 +89,7 @@ export const deleteUser = asyncHandler(async (req, res) => {
     const task = await Task.findOne({ user: id }).lean().exec();
 
     if (task) {
-        return res.status(400).json({ message: "User has tasks!" });
+        return res.status(400).json({ message: "Please delete your tasks first" });
     }
 
     const user = await User.findById(id).exec();

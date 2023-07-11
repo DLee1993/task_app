@@ -15,7 +15,11 @@ import "react-toastify/dist/ReactToastify.css";
 const App = () => {
     return (
         <>
-            <ToastContainer autoClose={1500} closeOnClick />
+            <ToastContainer
+                autoClose={1500}
+                closeOnClick
+                toastStyle={{ backgroundColor: "#25262b", color: "white" }}
+            />
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Onboarding />} />
