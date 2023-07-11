@@ -3,7 +3,6 @@ import Layout from "./components/Layout";
 import Login from "./appFeatures/auth/Login";
 import Register from "./appFeatures/auth/Register";
 import Dashboard from "./components/pages/Dashboard";
-import Profile from "./components/pages/Profile";
 import Onboarding from "./components/pages/Onboarding";
 import AddTask from "./components/pages/AddTask";
 import ViewTask from "./components/pages/ViewTask";
@@ -31,10 +30,6 @@ const App = () => {
                                 <Route path="newTask" element={<AddTask />} />
                                 <Route path=":id" element={<ViewTask />} />
                                 <Route path="edit/:id" element={<EditTask />} />
-                            </Route>
-
-                            <Route path="profile">
-                                <Route index element={<Profile/>}/>
                             </Route>
                         </Route>
                     </Route>
