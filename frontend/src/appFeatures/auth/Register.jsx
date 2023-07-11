@@ -6,7 +6,7 @@ import { setCredentials } from "./authSlice";
 import { useLoginMutation } from "./authApiSlice";
 import { toast } from "react-toastify";
 
-const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
+const PWD_REGEX = /^[A-z0-9!@#$%]{4,20}$/;
 
 const Register = () => {
     const [username, setUsername] = useState("");
@@ -74,7 +74,6 @@ const Register = () => {
             }
         } else {
             toast.error("Please Enter Valid Credentials", {
-                theme: "colored",
                 position: toast.POSITION.BOTTOM_CENTER,
             });
         }
