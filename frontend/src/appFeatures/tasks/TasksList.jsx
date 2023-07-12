@@ -59,13 +59,13 @@ const TasksList = () => {
                               <th id="title" className="text-left pl-2">
                                   Title
                               </th>
-                              <th id="description" className="text-left hidden sm:table-cell">
+                              <th id="description" className="text-left hidden min-[480px]:table-cell sm:table-cell">
                                   Description
                               </th>
-                              <th id="category" className="hidden md:table-cell">
+                              <th id="category" className="hidden sm:table-cell">
                                   Category
                               </th>
-                              <th id="completed" className="sm:hidden lg:table-cell">
+                              <th id="completed" className="hidden md:table-cell">
                                   Completed
                               </th>
                               <th id="viewTask"></th>
