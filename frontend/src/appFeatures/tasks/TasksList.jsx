@@ -53,7 +53,7 @@ const TasksList = () => {
                   </p>
               ))
             : (content = (
-                  <table id="tasks_list" className="w-full">
+                  <table id="tasks_list" className="w-full table-fixed">
                       <thead className="sticky top-0 border-b-2 border-blue">
                           <tr className="h-16">
                               <th id="title" className="text-left pl-2">
