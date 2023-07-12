@@ -49,7 +49,7 @@ const TasksList = () => {
         !filteredIds.length
             ? (content = (
                   <p id="error_message" className="text-center">
-                      Click the + button to add a new task
+                      Click the menu button to add a new task
                   </p>
               ))
             : (content = (

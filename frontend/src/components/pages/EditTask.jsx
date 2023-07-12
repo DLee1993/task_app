@@ -30,7 +30,7 @@ const EditTask = () => {
     useEffect(() => {
         if (isSuccess) {
             navigate("/dashboard");
-            toast.success("Task Updated", {
+            toast.success("Task Saved", {
                 toastId: "updateSuccessToast",
                 position: toast.POSITION.BOTTOM_CENTER,
             });
