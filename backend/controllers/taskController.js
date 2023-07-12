@@ -6,9 +6,7 @@ export const getAllTasks = asyncHandler(async (req, res) => {
     const tasks = await Task.find().lean();
 
     if (!tasks?.length) {
-        return res
-            .status(404)
-            .json({ message: "Click the + button to add a new task" });
+        return res.status(404).json({ message: "Add a new task via the menu" });
     }
 
     res.json(tasks);
