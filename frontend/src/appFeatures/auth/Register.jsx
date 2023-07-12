@@ -96,7 +96,7 @@ const Register = () => {
                             height="24"
                             viewBox="0 0 24 24"
                             fill="none"
-                            stroke="#c1c2c5"
+                            stroke="#8d99ae"
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -115,7 +115,7 @@ const Register = () => {
                             Name
                         </label>
                         <input
-                            className="h-10 w-80 bg-fadedBlack text-fadedWhite pl-2"
+                            className="h-10 w-80 bg-transparent border-2 border-gray text-blue pl-2 rounded"
                             type="text"
                             id="name"
                             value={username}
@@ -129,7 +129,7 @@ const Register = () => {
                             Password
                         </label>
                         <input
-                            className="h-10 w-80 bg-fadedBlack text-fadedWhite pl-2"
+                            className="h-10 w-80 bg-transparent border-2 border-gray text-blue pl-2 rounded"
                             type="password"
                             id="password"
                             value={password}
@@ -140,7 +140,7 @@ const Register = () => {
                     <button
                         id="register_btn"
                         aria-label="register as a user button"
-                        className="w-full sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center bg-transparent border-brightPurple border-2 hover:bg-brightPurple hover:border-transparent transition duration-200"
+                        className="w-full sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center bg-transparent border-gray/50 border-2 hover:border-blue transition duration-200"
                     >
                         Register
                     </button>

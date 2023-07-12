@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 const Header = ({ title }) => {
     return (
         <header
-            className="flex justify-between items-center h-16 px-2 sm:px-5 border-b-2 border-plainGray"
+            className="flex justify-between items-center h-20 px-2 bg-blue text-silver"
             id="header"
         >
             <h3 className="text-lg">{title}</h3>
@@ -14,7 +14,7 @@ const Header = ({ title }) => {
 };
 
 Header.propTypes = {
-    title: PropTypes.string,
+    title: PropTypes.object,
 };
 
 export default Header;

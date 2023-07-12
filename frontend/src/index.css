@@ -6,13 +6,17 @@
 
 @layer base {
     body {
-        @apply bg-backgroundBlack text-fadedWhite h-screen;
+        @apply bg-silver text-blue h-screen;
+    }
+
+    * {
+        @apply outline-blue outline-offset-4 outline-8;
     }
 }
 
 * {
     scrollbar-width: thin;
-    scrollbar-color: #c1c2c5 #8687e7;
+    scrollbar-color: #edf2f4 #ef233c;
 }
 
 *::-webkit-scrollbar {
@@ -20,9 +24,9 @@
 }
 
 *::-webkit-scrollbar-track {
-    background: #c1c2c5;
+    background: #edf2f4;
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #8687e7;
+    background-color: #ef233c;
 }

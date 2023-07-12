@@ -59,7 +59,7 @@ const ViewTask = () => {
                                 id="viewTask_title"
                                 value={task.task_title}
                                 readOnly
-                                className="bg-fadedBlack w-80 h-10 text-fadedWhite pl-1"
+                                className="w-80 h-10 pl-1 bg-blue text-silver rounded"
                                 aria-disabled="true"
                             />
                         </fieldset>
@@ -72,7 +72,7 @@ const ViewTask = () => {
                                 id="viewTask_description"
                                 value={task.task_description}
                                 readOnly
-                                className="bg-fadedBlack w-80 h-48 text-fadedWhite pl-1 resize-none"
+                                className="w-80 h-48 pl-1 resize-none bg-blue text-silver rounded"
                                 aria-disabled="true"
                             />
                         </fieldset>
@@ -85,7 +85,7 @@ const ViewTask = () => {
                                 id="viewTask_category"
                                 value={task.category}
                                 readOnly
-                                className="bg-fadedBlack w-80 h-10 text-fadedWhite pl-1"
+                                className="w-80 h-10 pl-1 bg-blue text-silver rounded"
                                 aria-disabled="true"
                             />
                         </fieldset>
@@ -100,7 +100,7 @@ const ViewTask = () => {
                                 id="task_createdOn"
                                 value={createdAt}
                                 readOnly
-                                className="bg-fadedBlack w-80 h-10 text-fadedWhite pl-1"
+                                className="w-80 h-10 pl-1 bg-blue text-silver rounded"
                                 aria-disabled="true"
                             />
                         </fieldset>
@@ -113,7 +113,7 @@ const ViewTask = () => {
                                 id="task_updatedAt"
                                 value={updatedAt}
                                 readOnly
-                                className="bg-fadedBlack w-80 h-10 text-fadedWhite pl-1"
+                                className="w-80 h-10 pl-1 bg-blue text-silver rounded"
                                 aria-disabled="true"
                             />
                         </fieldset>
@@ -123,7 +123,7 @@ const ViewTask = () => {
                                 id="form_btn filled color_tranisiton"
                                 onClick={handleEditRedirect}
                                 aria-label="edit task button"
-                                className="w-full mb-2 cursor-pointer sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center bg-fadedPurple hover:bg-brightPurple transition duration-200"
+                                className="w-full mb-2 cursor-pointer sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center bg-transparent text-blue border-2 border-gray hover:bg-blue hover:border-0 hover:text-silver transition duration-200"
                             >
                                 Update Task
                             </button>
@@ -132,7 +132,7 @@ const ViewTask = () => {
                                 id="form_btn warning color_tranisiton"
                                 onClick={onDeleteTaskClicked}
                                 aria-label="delete task button"
-                                className="w-full cursor-pointer sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center bg-fadedWarningRed hover:bg-warningRed transition duration-200"
+                                className="w-full cursor-pointer sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center bg-warningRed hover:bg-red text-silver transition duration-200"
                             >
                                 Delete Task
                             </button>

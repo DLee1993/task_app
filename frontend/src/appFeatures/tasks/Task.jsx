@@ -22,7 +22,7 @@ const Task = ({ taskId }) => {
     return (
         <tr
             id="tableContent_row"
-            className="odd:bg-fadedBlack odd:hover:bg-tableHover even:bg-transparent even:hover:bg-tableHover cursor-pointer h-[64px]"
+            className="hover:bg-gray/10 border-b-2 border-gray/20 cursor-pointer h-[70px]"
         >
             <td id="title" className="pl-2">
                 <p>{titleContent}</p>
@@ -39,10 +39,10 @@ const Task = ({ taskId }) => {
             <td id="viewTask" className="text-center">
                 <Link
                     to={`/dashboard/${task._id}`}
-                    className="border-2 border-brightPurple rounded sm:w-2/3 sm:max-w-[150px]  mx-auto h-10 flex justify-center hover:bg-brightPurple hover:border-transparent transition duration-200"
+                    className="border-2 border-blue rounded sm:w-2/3 sm:max-w-[150px]  mx-auto h-10 flex justify-center hover:bg-blue hover:text-silver hover:border-transparent transition duration-200"
                 >
                     <button
-                        id="viewTask_btn outline color_transition"
+                        id="viewTask_btn"
                         aria-label="press enter to view the task in full"
                     >
                         View Task

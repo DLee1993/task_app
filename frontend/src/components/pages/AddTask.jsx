@@ -85,7 +85,7 @@ const AddTask = () => {
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                                 autoFocus
-                                className="bg-fadedBlack w-80 h-10 text-fadedWhite pl-1"
+                                className="w-80 h-10 pl-1 bg-blue text-silver rounded"
                             />
                         </fieldset>
                         <fieldset id="task_description_input" className="flex flex-col">
@@ -97,7 +97,7 @@ const AddTask = () => {
                                 id="task_description"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
-                                className="bg-fadedBlack w-80 h-52 text-fadedWhite pl-1 resize-none"
+                                className="w-80 h-52 pl-1 resize-none bg-blue text-silver rounded"
                             />
                         </fieldset>
                     </section>
@@ -111,7 +111,7 @@ const AddTask = () => {
                                 id="task_category"
                                 value={category}
                                 onChange={(e) => setCategory(e.target.value)}
-                                className="bg-fadedBlack w-80 h-10 text-fadedWhite pl-1"
+                                className="w-80 h-10 pl-1 bg-blue text-silver rounded"
                             >
                                 <option value="home">Home</option>
                                 <option value="work">Work</option>
@@ -127,7 +127,7 @@ const AddTask = () => {
                                 id="form_btn filled color_transition"
                                 aria-label="submit new task button"
                                 aria-disabled={!canSave}
-                                className="w-full cursor-pointer aria-disabled:cursor-not-allowed aria-disabled:opacity-50 enabled:bg-fadedPurple enabled:border-0 enabled:hover:bg-brightPurple border-2 sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center transition duration-200"
+                                className="w-full cursor-pointer aria-disabled:cursor-not-allowed aria-disabled:opacity-50 enabled:opacity-100 bg-blue text-silver sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center transition duration-200"
                             >
                                 Submit
                             </button>

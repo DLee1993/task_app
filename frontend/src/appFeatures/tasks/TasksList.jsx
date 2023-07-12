@@ -54,8 +54,8 @@ const TasksList = () => {
               ))
             : (content = (
                   <table id="tasks_list" className="w-full">
-                      <thead className="sticky top-0 bg-backgroundBlack">
-                          <tr className="h-16 border-b-2 border-fadedBlack">
+                      <thead className="sticky top-0 border-b-2 border-blue">
+                          <tr className="h-16">
                               <th id="title" className="text-left pl-2">
                                   Title
                               </th>

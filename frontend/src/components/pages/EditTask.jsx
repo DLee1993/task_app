@@ -107,7 +107,7 @@ const EditTask = () => {
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                                 autoFocus
-                                className="bg-fadedBlack w-80 h-10 text-fadedWhite pl-1"
+                                className="w-80 h-10 pl-1 bg-blue text-silver rounded"
                             />
                         </fieldset>
                         <fieldset id="task_description" className="flex flex-col">
@@ -119,7 +119,7 @@ const EditTask = () => {
                                 id="editTask_description"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
-                                className="bg-fadedBlack w-80 h-52 text-fadedWhite pl-1 resize-none"
+                                className="w-80 h-52 pl-1 bg-blue text-silver rounded resize-none"
                             />
                         </fieldset>
                     </section>
@@ -133,7 +133,7 @@ const EditTask = () => {
                                 id="editTask_category"
                                 value={category}
                                 onChange={(e) => setCategory(e.target.value)}
-                                className="bg-fadedBlack w-80 h-10 text-fadedWhite pl-1"
+                                className="w-80 h-10 pl-1 bg-blue text-silver rounded"
                             >
                                 <option value="home">Home</option>
                                 <option value="work">Work</option>
@@ -159,7 +159,7 @@ const EditTask = () => {
                                         : "press spacebar to check the task"
                                 }
                                 onClick={checkMark}
-                                className="w-5 h-5"
+                                className="w-5 h-5 cursor-pointer"
                             />
                         </fieldset>
                         <section id="form_btn_group" className="w-full my-10 sm:my-0">
@@ -167,7 +167,7 @@ const EditTask = () => {
                                 type="submit"
                                 id="form_btn filled color_transition"
                                 aria-label="submit updated task button"
-                                className="w-full mb-2 cursor-pointer sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center bg-fadedPurple hover:bg-brightPurple transition duration-200"
+                                className="w-full mb-2 cursor-pointer sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center bg-transparent text-blue border-2 border-gray hover:bg-blue hover:border-0 hover:text-silver transition duration-200"
                             >
                                 Save Task
                             </button>
@@ -176,7 +176,7 @@ const EditTask = () => {
                                 onClick={onDeleteTaskClicked}
                                 id="form_btn warning color_transition"
                                 aria-label="delete task button"
-                                className="w-full cursor-pointer sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center bg-fadedWarningRed hover:bg-warningRed transition duration-200"
+                                className="w-full cursor-pointer sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center bg-warningRed hover:bg-red text-silver transition duration-200"
                             >
                                 Delete Task
                             </button>
