@@ -64,7 +64,7 @@ const AddTask = () => {
 
     return (
         <>
-            <Header title={"Add a new Task"} />
+            <Header title={"Add a new task"}/>
             <section
                 id="add_task_form_container"
                 className="flex justify-center items-center flex-col h-screen sm:h-full min-h-[650px] sm:min-h-0 sm:mt-10"

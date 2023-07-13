@@ -98,7 +98,7 @@ const Menu = () => {
             <div
                 className={
                     open
-                        ? "absolute z-10 top-16 right-0 w-64 min-h-[200px] opacity-100 bg-blue text-gray rounded transition-opacity"
+                        ? "absolute z-10 top-16 right-0 w-64 opacity-100 bg-blue text-gray rounded transition-opacity"
                         : "absolute z-10 top-16 right-0 w-0 min-h-0 opacity-0 overflow-hidden transition-opacity"
                 }
             >

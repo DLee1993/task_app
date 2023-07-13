@@ -7,14 +7,14 @@ const Header = ({ title }) => {
             className="flex justify-between items-center h-20 px-2 bg-blue text-silver"
             id="header"
         >
-            <h3 className="text-lg">{title}</h3>
+            <h3 className="text-lg max-w-[120px] min-[420px]:max-w-none">{title}</h3>
             <Menu />
         </header>
     );
 };
 
 Header.propTypes = {
-    title: PropTypes.object,
+    title: PropTypes.string,
 };
 
 export default Header;

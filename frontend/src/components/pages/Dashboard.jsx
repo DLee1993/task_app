@@ -8,23 +8,16 @@ const Dashboard = () => {
 
     const getTime = new Date().getHours();
 
-    const headerMessage =
-        getTime < 12 ? (
-            <p className="flex">
-                <span className="hidden sm:block">Good Morning, &nbsp; </span>
-                {username}
-            </p>
-        ) : getTime < 17 ? (
-            <p className="flex">
-                <span className="hidden sm:block">Good Afternoon, &nbsp; </span>
-                {username}
-            </p>
-        ) : (
-            <p className="flex">
-                <span className="hidden sm:block">Good Evening, &nbsp; </span>
-                {username}
-            </p>
-        );
+    let headerMessage;
+
+    if(getTime < 12){
+        headerMessage = `Good Morning, ${username}`
+    } else if(getTime < 17){
+        headerMessage = `Good Afternoon, ${username}`
+    } else {
+        headerMessage = `Good Evening, ${username}`
+    }
+
     return (
         <main className="dashboard">
             <Header title={headerMessage} />
