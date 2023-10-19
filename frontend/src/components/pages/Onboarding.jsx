@@ -28,7 +28,7 @@ const Onboarding = () => {
 
     return (
         <section
-            className="h-screen flex flex-col justify-evenly items-center text-center text-base sm:text-lg"
+            className="h-screen flex flex-col justify-center items-center text-center text-base sm:text-lg"
             id="onboarding_bg_container"
         >
             <section id="onboarding_message">
@@ -46,7 +46,7 @@ const Onboarding = () => {
                 </p>
             </section>
             <section
-                className="w-80 h-28 flex flex-col justify-evenly items-center"
+                className="w-80 h-28 mt-40 flex flex-col justify-evenly items-center"
                 id="onboarding_sign-in_options"
             >
                 <Link

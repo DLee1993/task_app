@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useAddNewUserMutation } from "../users/usersSlice";
 import { setCredentials } from "./authSlice";
 import { useLoginMutation } from "./authApiSlice";
+import homeSVG from "../../assets/home.svg";
 import { toast } from "react-toastify";
 import {
     TextInput,
@@ -93,25 +94,10 @@ const Register = () => {
 
     return (
         <section className="relative w-full h-screen flex justify-center items-center flex-col">
-            <aside className="w-full px-5">
-                <Link to="/" className="absolute top-20 left-10 block w-fit">
+            <aside className="absolute top-[5%] left-[10%]">
+                <Link to="/" className="block w-8">
                     <span className="sr-only">go back</span>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#2b2d42"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        id="feather feather-corner-down-left"
-                        className="hidden md:block cursor-pointer"
-                    >
-                        <polyline points="9 10 4 15 9 20"></polyline>
-                        <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
-                    </svg>
+                    <img src={homeSVG} alt="" />
                 </Link>
             </aside>
             <Paper unstyled component="section" p="xl" shadow="lg" className="baseFormStyling">
@@ -166,6 +152,9 @@ const Register = () => {
                         /> */}
                     </Group>
                 </form>
+                <Link to="/login" className="block text-center sm:text-left underline mt-10">
+                    Already have an account? Login now
+                </Link>
             </Paper>
         </section>
     );
