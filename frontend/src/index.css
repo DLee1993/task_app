@@ -12,21 +12,34 @@
     * {
         @apply outline-blue outline-offset-4 outline-8;
     }
+
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: #edf2f4 #ef233c;
+    }
+
+    *::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: #edf2f4;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: #ef233c;
+    }
 }
 
-* {
-    scrollbar-width: thin;
-    scrollbar-color: #edf2f4 #ef233c;
-}
+@layer components {
+    .baseFormStyling {
+        @apply w-1/2 bg-white border-2 border-blue rounded;
+    }
+    .formSubmitBtn {
+        @apply border-2 border-blue text-blue hover:bg-blue hover:text-white px-8 py-[6px] rounded-full text-base transition-colors;
+    }
 
-*::-webkit-scrollbar {
-    width: 5px;
-}
-
-*::-webkit-scrollbar-track {
-    background: #edf2f4;
-}
-
-*::-webkit-scrollbar-thumb {
-    background-color: #ef233c;
+    .onBoardingButton {
+        @apply block w-4/5 p-2 opacity-0 translate-y-5 border-2 border-blue rounded hover:bg-blue hover:text-white focus:bg-blue focus:text-white transition-colors;
+    }
 }

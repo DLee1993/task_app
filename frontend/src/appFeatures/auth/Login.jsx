@@ -5,6 +5,17 @@ import { setCredentials } from "./authSlice";
 import { useLoginMutation } from "./authApiSlice";
 import usePersistLogin from "../../hooks/usePersistLogin";
 import { toast } from "react-toastify";
+import {
+    TextInput,
+    PasswordInput,
+    Text,
+    Paper,
+    Group,
+    Button,
+    Divider,
+    Checkbox,
+    Stack,
+} from "@mantine/core";
 
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,20}$/;
 
@@ -68,81 +79,76 @@ const Login = () => {
     if (isLoading) return <p>Checking Credentials</p>;
 
     return (
-        <>
-            <section
-                className="flex justify-evenly items-center flex-col h-screen"
-                id="login_page_container"
-            >
-                <div className="w-full px-5">
-                    <Link to="/" className="block w-fit">
-                        <span className="sr-only">go back</span>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="#8d99ae"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            id="feather feather-corner-down-left"
-                            className="hidden md:block cursor-pointer"
-                        >
-                            <polyline points="9 10 4 15 9 20"></polyline>
-                            <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
-                        </svg>
-                    </Link>
-                </div>
-                <h1 className="text-lg">Login to your account</h1>
-                <form onSubmit={onSubmitClicked} id="login_form" className="min-h-[25rem]">
-                    <fieldset id="username_input" className="flex flex-col mb-10">
-                        <label htmlFor="username" className="text-lg pb-2">
-                            Username
-                        </label>
-                        <input
-                            className="h-10 w-80 bg-transparent border-2 border-gray text-blue pl-2 rounded"
+        <section className="relative w-full h-screen flex justify-center items-center flex-col">
+            <aside className="w-full px-5">
+                <Link to="/" className="absolute top-20 left-10 block w-fit">
+                    <span className="sr-only">go back</span>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#2b2d42"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        id="feather feather-corner-down-left"
+                        className="hidden md:block cursor-pointer"
+                    >
+                        <polyline points="9 10 4 15 9 20"></polyline>
+                        <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+                    </svg>
+                </Link>
+            </aside>
+            <Paper unstyled component="section" p="xl" shadow="lg" className="baseFormStyling">
+                <Text size="lg" fw={500}>
+                    Login to your account
+                </Text>
+
+                <Divider labelPosition="center" my="lg" />
+
+                <form onSubmit={onSubmitClicked}>
+                    <Stack>
+                        <TextInput
+                            label="Username"
                             type="text"
                             id="username"
                             value={username}
                             onChange={onUsernameChange}
                             required
                             autoFocus
+                            radius="md"
                         />
-                    </fieldset>
-                    <fieldset id="password_input" className="flex flex-col mb-16">
-                        <label htmlFor="password" className="text-lg pb-2">
-                            Password
-                        </label>
-                        <input
-                            className="h-10 w-80 bg-transparent border-2 border-gray text-blue pl-2 rounded"
+
+                        <PasswordInput
+                            required
+                            label="Password"
                             type="password"
                             id="password"
                             value={password}
                             onChange={onPasswordChange}
-                            required
+                            radius="md"
                         />
-                    </fieldset>
-                    <button
-                        id="login_btn"
-                        aria-label="login into your account button"
-                        className="w-full sm:max-w-xs h-10 sm:h-12 text-lg flex justify-center items-center bg-transparent border-gray/50 border-2 hover:border-blue transition duration-200"
-                    >
-                        Login
-                    </button>
+                    </Stack>
+
+                    <Group justify="space-between" mt="xl">
+                        <Button unstyled type="submit" className="formSubmitBtn">
+                            Login
+                        </Button>
+
+                        <Checkbox
+                            label="Trust this Device?"
+                            aria-label="select to remain logged in when refreshing the page"
+                            id="persist"
+                            onChange={handleToggle}
+                            checked={persist}
+                            color="#2b2d42"
+                        />
+                    </Group>
                 </form>
-                <label htmlFor="persist" className="text-lg">
-                    Trust this device?
-                    <input
-                        type="checkbox"
-                        id="persist"
-                        onChange={handleToggle}
-                        checked={persist}
-                        className="ml-5 w-5 h-5 cursor-pointer"
-                    />
-                </label>
-            </section>
-        </>
+            </Paper>
+        </section>
     );
 };
 
