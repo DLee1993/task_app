@@ -19,6 +19,7 @@ const App = () => {
                 autoClose={1500}
                 closeOnClick
                 toastStyle={{ backgroundColor: "#2b2d42", color: "#edf2f4" }}
+                position="bottom-right"
             />
             <Routes>
                 <Route path="/" element={<Layout />}>

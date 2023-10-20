@@ -54,7 +54,7 @@ const AddTask = () => {
         e.preventDefault();
         if (canSave) {
             await addNewTask({
-                user: `${taskCreator}`, //! - CHANGE THIS TO THE LOGGED IN USER
+                user: `${taskCreator}`,
                 task_title: title,
                 task_description: description,
                 category,
