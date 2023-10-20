@@ -1,109 +1,51 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { selectAllUsers } from "../../appFeatures/users/usersSlice";
-import { useSendLogoutMutation } from "../../appFeatures/auth/authApiSlice";
-import { useDeleteUserMutation } from "../../appFeatures/users/usersSlice";
-import useAuth from "../../hooks/useAuth";
+import { PropTypes } from "prop-types";
 import { Menu, Button } from "@mantine/core";
-import { toast } from "react-toastify";
+import settingsIcon from "../../assets/settings.svg";
 
-const NavMenu = () => {
-    const { username } = useAuth();
-    const users = useSelector(selectAllUsers);
-    let accountHolderId;
-    const navigate = useNavigate();
-    const [sendLogout, { isloading, isSuccess, isError, error }] = useSendLogoutMutation();
-    const [
-        sendDelete,
-        {
-            isloading: deleteLoading,
-            isSuccess: deleteSuccess,
-            isError: IsDeleteError,
-            error: deleteError,
-        },
-    ] = useDeleteUserMutation();
-
-    users.forEach((user) => {
-        if (user.username === username) {
-            accountHolderId = user._id;
-        }
-    });
-
-    useEffect(() => {
-        if (isSuccess) {
-            navigate("/");
-            toast.success("Succesfully Logged out", { position: toast.POSITION.BOTTOM_RIGHT });
-        }
-        if (deleteSuccess) {
-            navigate("/");
-            toast.success("Succesfully deleted account", {
-                position: toast.POSITION.BOTTOM_RIGHT,
-            });
-        }
-    }, [isSuccess, deleteSuccess, navigate]);
-
-    useEffect(() => {
-        if (isError) {
-            toast.error(error.data?.message, {
-                position: toast.POSITION.BOTTOM_CENTER,
-            });
-        }
-
-        if (IsDeleteError) {
-            toast.error(deleteError.data?.message, { position: toast.POSITION.BOTTOM_CENTER });
-        }
-    }, [deleteError, error, isError, IsDeleteError]);
-
-    useEffect(() => {
-        if (isloading || deleteLoading) {
-            return <p>Please wait...</p>;
-        }
-    }, [isloading, deleteLoading]);
-
-    const logoutClicked = () => sendLogout();
-    const deleteClicked = () => sendDelete({ id: accountHolderId });
-
+const NavMenu = ({ openLogout, openDelete, username }) => {
     return (
         <Menu shadow="md" width={200}>
             <Menu.Target>
-                <Button color="#2b2d42">Menu</Button>
+                <Button color="#2b2d42">
+                    <img src={settingsIcon} alt="icon for menu button" className="w-5" />
+                </Button>
             </Menu.Target>
 
             <Menu.Dropdown>
-                <Menu.Item>Dashboard</Menu.Item>
-                <Menu.Item>
-                    <Link>Add Task</Link>
-                </Menu.Item>
+                <Menu.Label>Settings</Menu.Label>
 
                 <Menu.Divider />
 
-                <Menu.Label>Account</Menu.Label>
                 <Menu.Item
                     color="red"
-                    onClick={logoutClicked}
+                    onClick={openLogout}
                     id="logout_account_btn"
                     aria-label="Click to logout"
                 >
-                    Logout
+                    <p className="text-base">Logout</p>
                 </Menu.Item>
 
                 <Menu.Divider />
 
                 {username !== "Guest" && (
                     <Menu.Item
-                        onClick={deleteClicked}
+                        onClick={openDelete}
                         id="delete_account_btn"
                         aria-label="Click to delete your account"
+                        color="red"
                     >
-                        <Button variant="filled" color="red" fullWidth>
-                            Delete Account
-                        </Button>
+                        <p className="text-base">Delete Account</p>
                     </Menu.Item>
                 )}
             </Menu.Dropdown>
         </Menu>
     );
+};
+
+NavMenu.propTypes = {
+    openLogout: PropTypes.func,
+    openDelete: PropTypes.func,
+    username: PropTypes.string,
 };
 
 export default NavMenu;

@@ -11,7 +11,7 @@ export default {
                 blue: "#2b2d42",
                 gray: "#8d99ae",
                 red: "#ef233c",
-                warningRed: "#d90429",
+                warningRed: "#fa5252",
             },
         },
     },
