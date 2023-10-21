@@ -9,8 +9,10 @@ import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import { useDisclosure } from "@mantine/hooks";
 import NavMenu from "./NavMenu";
-import { LogoutModal, DeleteAccountModal } from "./Modals";
-const Header = ({ title }) => {
+import { LogoutModal } from "../../appFeatures/auth/LogoutModal";
+import { DeleteAccountModal } from "../../appFeatures/auth/DeleteAccountModal";
+import { Button, Group } from "@mantine/core";
+const Header = ({ title, openAddTask, openEditTask }) => {
     let accountHolderId;
 
     const { username } = useAuth();
@@ -64,7 +66,11 @@ const Header = ({ title }) => {
         <>
             <header className="flex justify-between items-center h-20 px-4 shadow-md" id="header">
                 <h3 className="text-lg max-w-[120px] min-[420px]:max-w-none capitalize">{title}</h3>
-                <NavMenu openLogout={openLogout} openDelete={openDelete} username={username} />
+                <Group>
+                    <Button onClick={openEditTask}>Edit Task</Button>
+                    <Button onClick={openAddTask}>Add Task</Button>
+                    <NavMenu openLogout={openLogout} openDelete={openDelete} username={username} />
+                </Group>
             </header>
             <LogoutModal
                 logoutOpened={logoutOpened}
@@ -83,6 +89,8 @@ const Header = ({ title }) => {
 
 Header.propTypes = {
     title: PropTypes.string,
+    openAddTask: PropTypes.func,
+    openEditTask: PropTypes.func,
 };
 
 export default Header;
