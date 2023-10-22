@@ -12,7 +12,7 @@ export const EditTaskModal = ({ editTaskOpened, closeEditTask }) => {
     const [completed, setCompleted] = useState(true);
 
     return (
-        <Modal opened={editTaskOpened} onClose={closeEditTask} title="Add a New Task" centered>
+        <Modal opened={editTaskOpened} onClose={closeEditTask} title="Edit Task" centered>
             <form>
                 <Stack>
                     <TextInput
