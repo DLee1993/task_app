@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { useGetTasksQuery } from "./tasksSlice";
 import { CompletedSVG, NotCompletedSVG } from "./TaskSvg";
+import { Button } from "@mantine/core";
 
 const Task = ({ taskId }) => {
     const { task } = useGetTasksQuery("tasksList", {
@@ -20,10 +21,7 @@ const Task = ({ taskId }) => {
     titleContent = truncateText(task.task_title);
 
     return (
-        <tr
-            id="tableContent_row"
-            className="hover:bg-gray/10 border-b-2 border-gray/20 cursor-pointer h-[70px]"
-        >
+        <tr id="tableContent_row" className="border-b-2 border-gray/20 h-[70px]">
             <td id="title" className="pl-2">
                 <p>{titleContent}</p>
             </td>
@@ -37,16 +35,15 @@ const Task = ({ taskId }) => {
                 {task.completed ? <CompletedSVG /> : <NotCompletedSVG />}
             </td>
             <td id="viewTask" className="text-center">
-                <Link
-                    to={`/dashboard/${task._id}`}
-                    className="border-2 border-blue rounded w-2/3 max-w-[100px] sm:w-2/3 sm:max-w-[150px]  mx-auto h-10 flex justify-center hover:bg-blue hover:text-silver hover:border-transparent transition duration-200"
-                >
-                    <button
+                <Link to={`/dashboard/${task._id}`} className="cursor-pointer">
+                    <Button
+                        tabIndex={-1}
                         id="viewTask_btn"
                         aria-label="press enter to view the task in full"
+                        color="#2b2d42"
                     >
                         View Task
-                    </button>
+                    </Button>
                 </Link>
             </td>
         </tr>
