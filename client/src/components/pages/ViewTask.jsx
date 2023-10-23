@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { selectTaskById, useDeleteTaskMutation } from "../../appFeatures/tasks/tasksSlice";
 import { useSelector } from "react-redux";
@@ -7,12 +7,27 @@ import Header from "../partials/Header";
 
 const ViewTask = () => {
     const navigate = useNavigate();
+
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [category, setCategory] = useState("");
+    const [createdAt, setCreatedAt] = useState("");
+    const [updatedAt, setUpdatedAt] = useState("");
+
     const { id } = useParams();
     const task = useSelector((state) => selectTaskById(state, id));
-    const createdAt = task.createdAt.slice(0, 10);
-    const updatedAt = task.updatedAt.slice(0, 10);
 
     const [deleteTask, { isSuccess, isError, error }] = useDeleteTaskMutation();
+
+    useEffect(() => {
+        if (task) {
+            setTitle(task.task_title);
+            setDescription(task.task_description);
+            setCategory(task.category);
+            setCreatedAt(task?.createdAt.slice(0, 10));
+            setUpdatedAt(task?.updatedAt.slice(0, 10));
+        }
+    }, [task]);
 
     useEffect(() => {
         if (isSuccess) {
@@ -57,7 +72,7 @@ const ViewTask = () => {
                             <input
                                 type="text"
                                 id="viewTask_title"
-                                value={task.task_title}
+                                value={title}
                                 readOnly
                                 className="w-80 h-10 pl-1 bg-blue text-silver rounded"
                                 aria-disabled="true"
@@ -70,7 +85,7 @@ const ViewTask = () => {
                             <textarea
                                 type="text"
                                 id="viewTask_description"
-                                value={task.task_description}
+                                value={description}
                                 readOnly
                                 className="w-80 h-48 pl-1 resize-none bg-blue text-silver rounded"
                                 aria-disabled="true"
@@ -83,7 +98,7 @@ const ViewTask = () => {
                             <input
                                 type="text"
                                 id="viewTask_category"
-                                value={task.category}
+                                value={category}
                                 readOnly
                                 className="w-80 h-10 pl-1 bg-blue text-silver rounded"
                                 aria-disabled="true"
