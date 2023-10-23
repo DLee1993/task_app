@@ -24,7 +24,7 @@ export const createTask = asyncHandler(async (req, res) => {
     //- check for existing user with same data
     const duplicate = await Task.findOne({ task_title }).lean().exec();
 
-    if (duplicate) {
+    if (duplicate && duplicate.user === user) {
         return res.status(409).json({ message: "Task Title already exists" });
     }
 
@@ -70,7 +70,7 @@ export const updateTask = asyncHandler(async (req, res) => {
         .lean()
         .exec();
 
-    if (duplicate && duplicate?._id.toString() !== id) {
+    if (duplicate && duplicate?._id.toString() !== id && task.user === user) {
         return res.status(409).json({ message: "Task Title already exists" });
     }
 

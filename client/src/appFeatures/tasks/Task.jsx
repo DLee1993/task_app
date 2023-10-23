@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { EditTaskModal } from "../../appFeatures/tasks/EditTaskModal";
 import { PropTypes } from "prop-types";
+import { useDisclosure } from "@mantine/hooks";
 import { useGetTasksQuery } from "./tasksSlice";
-import { CompletedSVG, NotCompletedSVG } from "./TaskSvg";
-import { Button } from "@mantine/core";
+import { Badge } from "@mantine/core";
 
 const Task = ({ taskId }) => {
+    const [editTaskOpened, { open: openEditTask, close: closeEditTask }] = useDisclosure(false);
+
     const { task } = useGetTasksQuery("tasksList", {
         selectFromResult: ({ data }) => ({
             task: data?.entities[taskId],
@@ -20,33 +22,33 @@ const Task = ({ taskId }) => {
     descriptionContent = truncateText(task.task_description);
     titleContent = truncateText(task.task_title);
 
+    function onKeyUp(e) {
+        if (e.key === "Enter" && !editTaskOpened) {
+            openEditTask();
+        }
+    }
+
     return (
-        <tr id="tableContent_row" className="border-b-2 border-gray/20 h-[70px]">
-            <td id="title" className="pl-2">
-                <p>{titleContent}</p>
-            </td>
-            <td id="description" className="hidden min-[480px]:table-cell sm:table-cell">
+        <>
+            <article
+                tabIndex={0}
+                onClick={openEditTask}
+                onKeyDown={(e) => onKeyUp(e)}
+                id={`viewTask_${taskId}`}
+                aria-label="view task"
+                className="hover:shadow-lg border-2 border-[#8d99ae]/20 rounded p-4"
+            >
+                <p className="font-bold text-lg">{titleContent}</p>
                 <p>{descriptionContent}</p>
-            </td>
-            <td id="category" className="text-center hidden sm:table-cell">
-                {task.category}
-            </td>
-            <td id="completed" className="hidden md:table-cell">
-                {task.completed ? <CompletedSVG /> : <NotCompletedSVG />}
-            </td>
-            <td id="viewTask" className="text-center">
-                <Link to={`/dashboard/${task._id}`} className="cursor-pointer">
-                    <Button
-                        tabIndex={-1}
-                        id="viewTask_btn"
-                        aria-label="press enter to view the task in full"
-                        color="#2b2d42"
-                    >
-                        View Task
-                    </Button>
-                </Link>
-            </td>
-        </tr>
+                <Badge>{task.createdAt}</Badge>
+                <Badge>{task.category}</Badge>
+            </article>
+            <EditTaskModal
+                editTaskOpened={editTaskOpened}
+                closeEditTask={closeEditTask}
+                task={task}
+            />
+        </>
     );
 };
 

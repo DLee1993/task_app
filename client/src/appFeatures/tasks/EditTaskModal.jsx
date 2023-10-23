@@ -1,15 +1,70 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { categories } from "./DocumentCategories";
+import { useDeleteTaskMutation, useUpdateTaskMutation } from "../../appFeatures/tasks/tasksSlice";
 import { PropTypes } from "prop-types";
 import { Button, Modal, Group, TextInput, Textarea, Stack, Select, Checkbox } from "@mantine/core";
-import { categories } from "./DocumentCategories";
 
-export const EditTaskModal = ({ editTaskOpened, closeEditTask }) => {
-    //! - all state needs to have an initial value of the current task
+import { toast } from "react-toastify";
 
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [category, setCategory] = useState("");
-    const [completed, setCompleted] = useState(true);
+export const EditTaskModal = ({ editTaskOpened, closeEditTask, task }) => {
+    const [title, setTitle] = useState(task?.task_title);
+    const [description, setDescription] = useState(task?.task_description);
+    const [category, setCategory] = useState(task?.category);
+    const [completed, setCompleted] = useState(task.completed);
+
+    const [deleteTask, { isSuccess: isDeleteSuccess, isError: isDeleteError, error: deleteError }] =
+        useDeleteTaskMutation();
+    const [updateTask, { isLoading, isSuccess, isError, error }] = useUpdateTaskMutation();
+
+    const canSave = [title, description, category].every(Boolean) && !isLoading;
+
+    useEffect(() => {
+        if (isSuccess) {
+            closeEditTask();
+            toast.success("Task Saved");
+        }
+        if (isDeleteSuccess) {
+            closeEditTask();
+            toast.error("Task Deleted");
+        }
+
+        if (isError) {
+            toast.error(error.data.message, {
+                toastId: "saveErrorToast",
+                position: toast.POSITION.BOTTOM_CENTER,
+            });
+        }
+
+        if (isDeleteError) {
+            toast.error(deleteError.data.message, {
+                toastId: "deleteErrorToast",
+                position: toast.POSITION.BOTTOM_CENTER,
+            });
+        }
+    }, [isSuccess, isDeleteSuccess, isDeleteError, isError, error, deleteError, closeEditTask]);
+
+    const checkMark = () => {
+        setCompleted(!completed);
+        toast.info("Task Status Updated");
+    };
+
+    const onSaveTaskClicked = async (e) => {
+        e.preventDefault();
+        if (canSave) {
+            await updateTask({
+                id: task.id,
+                user: task.user,
+                task_title: title,
+                task_description: description,
+                category,
+                completed: completed,
+            });
+        }
+    };
+
+    const onDeleteTaskClicked = async () => {
+        await deleteTask({ id: task.id });
+    };
 
     return (
         <Modal opened={editTaskOpened} onClose={closeEditTask} title="Edit Task" centered>
@@ -48,13 +103,23 @@ export const EditTaskModal = ({ editTaskOpened, closeEditTask }) => {
                         mt="lg"
                         mb="lg"
                         checked={completed}
-                        onChange={(event) => setCompleted(event.currentTarget.checked)}
+                        onChange={checkMark}
                         label="Mark as complete"
+                        aria-label="checkbox to mark task as complete or incomplete"
                     />
                 </Stack>
                 <Group mt="lg" justify="space-between">
-                    <Button>Save</Button>
-                    <Button onClick={closeEditTask}>Cancel</Button>
+                    <Group>
+                        <Button onClick={onSaveTaskClicked} color="teal">
+                            Save
+                        </Button>
+                        <Button color="red" onClick={onDeleteTaskClicked}>
+                            Delete
+                        </Button>
+                    </Group>
+                    <Button onClick={closeEditTask} color="rgba(43, 45, 66, 1)" variant="outline">
+                        Cancel
+                    </Button>
                 </Group>
             </form>
         </Modal>
@@ -64,4 +129,5 @@ export const EditTaskModal = ({ editTaskOpened, closeEditTask }) => {
 EditTaskModal.propTypes = {
     editTaskOpened: PropTypes.bool,
     closeEditTask: PropTypes.func,
+    task: PropTypes.object,
 };

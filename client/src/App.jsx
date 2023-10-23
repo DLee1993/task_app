@@ -4,9 +4,6 @@ import Login from "./appFeatures/auth/Login";
 import Register from "./appFeatures/auth/Register";
 import Dashboard from "./components/pages/Dashboard";
 import Onboarding from "./components/pages/Onboarding";
-import AddTask from "./components/pages/AddTask";
-import ViewTask from "./components/pages/ViewTask";
-import EditTask from "./components/pages/EditTask";
 import Prefetch from "./appFeatures/auth/Prefetch";
 import PersistLogin from "./appFeatures/auth/PersistLogin";
 import { ToastContainer } from "react-toastify";
@@ -18,7 +15,7 @@ const App = () => {
             <ToastContainer
                 autoClose={1500}
                 closeOnClick
-                toastStyle={{ backgroundColor: "#2b2d42", color: "#edf2f4" }}
+                toastStyle={{ border: "#2b2d42", color: "#2b2d42" }}
                 position="bottom-right"
             />
             <Routes>
@@ -32,9 +29,6 @@ const App = () => {
                         <Route element={<Prefetch />}>
                             <Route path="dashboard">
                                 <Route index element={<Dashboard />} />
-                                <Route path="newTask" element={<AddTask />} />
-                                <Route path=":id" element={<ViewTask />} />
-                                <Route path="edit/:id" element={<EditTask />} />
                             </Route>
                         </Route>
                     </Route>

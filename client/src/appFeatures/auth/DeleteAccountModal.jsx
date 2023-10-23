@@ -12,8 +12,12 @@ export const DeleteAccountModal = ({ deleteOpened, closeDelete, deleteClicked })
                 This action can not be undone
             </Alert>
             <Group mt="lg">
-                <Button onClick={deleteClicked}>Confirm</Button>
-                <Button onClick={closeDelete}>Cancel</Button>
+                <Button onClick={deleteClicked} color="red">
+                    Confirm
+                </Button>
+                <Button onClick={closeDelete} color="rgba(43, 45, 66, 1)" variant="outline">
+                    Cancel
+                </Button>
             </Group>
         </Modal>
     );

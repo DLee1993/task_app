@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { selectAllUsers } from "../../appFeatures/users/usersSlice";
 import { useSendLogoutMutation } from "../../appFeatures/auth/authApiSlice";
 import { useDeleteUserMutation } from "../../appFeatures/users/usersSlice";
@@ -12,20 +12,29 @@ import NavMenu from "./NavMenu";
 import { LogoutModal } from "../../appFeatures/auth/LogoutModal";
 import { DeleteAccountModal } from "../../appFeatures/auth/DeleteAccountModal";
 import { Button, Group } from "@mantine/core";
-const Header = ({ title }) => {
+const Header = ({ openAddTask }) => {
     let accountHolderId;
+    const getTime = new Date().getHours();
+    const navigate = useNavigate();
+    let headerMessage;
 
     const { username } = useAuth();
-
-    const navigate = useNavigate();
-
     const users = useSelector(selectAllUsers);
+    const firstName = username.split(" ")[0];
 
     users.forEach((user) => {
         if (user.username === username) {
             accountHolderId = user._id;
         }
     });
+
+    if (getTime < 12) {
+        headerMessage = `Good Morning, ${firstName}`;
+    } else if (getTime < 17) {
+        headerMessage = `Good Afternoon, ${firstName}`;
+    } else {
+        headerMessage = `Good Evening, ${firstName}`;
+    }
 
     const [logoutOpened, { open: openLogout, close: closeLogout }] = useDisclosure(false);
     const [deleteOpened, { open: openDelete, close: closeDelete }] = useDisclosure(false);
@@ -65,13 +74,13 @@ const Header = ({ title }) => {
     return (
         <>
             <header className="flex justify-between items-center h-20 px-4 shadow-md" id="header">
-                <h3 className="text-lg max-w-[120px] min-[420px]:max-w-none capitalize">{title}</h3>
+                <h3 className="text-lg max-w-[120px] min-[420px]:max-w-none capitalize">
+                    {headerMessage}
+                </h3>
                 <Group>
-                    <Link to="/dashboard/newTask">
-                        <Button color="#2b2d42" tabIndex={-1}>
-                            Add Task
-                        </Button>
-                    </Link>
+                    <Button color="rgba(43, 45, 66, 1)" variant="outline" onClick={openAddTask}>
+                        Add Task
+                    </Button>
                     <NavMenu openLogout={openLogout} openDelete={openDelete} username={username} />
                 </Group>
             </header>
