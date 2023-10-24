@@ -40,7 +40,9 @@ const Task = ({ taskId }) => {
                 onKeyDown={(e) => onKeyUp(e)}
                 id={`viewTask_${taskId}`}
                 aria-label="view task"
-                className="hover:shadow-lg border-2 border-[#8d99ae]/20 rounded p-4 cursor-pointer"
+                className={`hover:shadow-lg border-2 border-[#8d99ae]/20 rounded p-4 cursor-pointer ${
+                    task.completed ? "bg-green/10" : 'bg-warningRed/10'
+                }`}
             >
                 <Group justify="space-between">
                     <p className="text-lg font-medium">{titleContent}</p>
@@ -49,8 +51,8 @@ const Task = ({ taskId }) => {
                 <p className="my-5">{descriptionContent}</p>
 
                 <Group justify="space-between">
-                    {task.category && <Badge variant="outline">{task.category}</Badge>}
-                    <Badge variant="outline">{date}</Badge>
+                    {task.category && <Badge variant="outline" color="rgba(43, 45, 66, 0.5)">{task.category}</Badge>}
+                    <Badge variant="outline" color="rgba(43, 45, 66, 0.5)">{date}</Badge>
                 </Group>
             </article>
             <EditTaskModal
