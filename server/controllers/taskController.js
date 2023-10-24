@@ -51,7 +51,6 @@ export const updateTask = asyncHandler(async (req, res) => {
         !user ||
         !task_title ||
         !task_description ||
-        !category ||
         typeof completed !== "boolean"
     ) {
         return res.status(400).json({ message: "All Fields are required" });

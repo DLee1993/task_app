@@ -16,7 +16,7 @@ export const EditTaskModal = ({ editTaskOpened, closeEditTask, task }) => {
         useDeleteTaskMutation();
     const [updateTask, { isLoading, isSuccess, isError, error }] = useUpdateTaskMutation();
 
-    const canSave = [title, description, category].every(Boolean) && !isLoading;
+    const canSave = [title, description].every(Boolean) && !isLoading;
 
     useEffect(() => {
         if (isSuccess) {
