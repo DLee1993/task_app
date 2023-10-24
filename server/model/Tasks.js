@@ -1,8 +1,5 @@
 import mongoose from "mongoose";
 
-const currentDate = new Date().toISOString();
-const date = currentDate.slice(0, 10);
-
 const taskSchema = new mongoose.Schema(
     {
         user: {

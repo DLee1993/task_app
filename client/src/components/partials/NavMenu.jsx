@@ -1,6 +1,7 @@
 import { PropTypes } from "prop-types";
 import { Menu, Button } from "@mantine/core";
 import settingsIcon from "../../assets/settings.svg";
+import logoutIcon from "../../assets/log-out.svg";
 
 const NavMenu = ({ openLogout, openDelete, username }) => {
     return (
@@ -21,6 +22,7 @@ const NavMenu = ({ openLogout, openDelete, username }) => {
                     onClick={openLogout}
                     id="logout_account_btn"
                     aria-label="Click to logout"
+                    rightSection={<img src={logoutIcon} alt="logout" className="w-4"/>}
                 >
                     <p className="text-base">Logout</p>
                 </Menu.Item>
@@ -33,6 +35,7 @@ const NavMenu = ({ openLogout, openDelete, username }) => {
                         id="delete_account_btn"
                         aria-label="Click to delete your account"
                         color="red"
+                        rightSection={<img src={logoutIcon} alt="logout" className="w-4"/>}
                     >
                         <p className="text-base">Delete Account</p>
                     </Menu.Item>

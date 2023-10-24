@@ -7,7 +7,7 @@ const Onboarding = () => {
     let onboardingText = useRef(null);
     let onboardingLoginLink = useRef(null);
     let onboardingRegisterLink = useRef(null);
-''
+    ("");
     useEffect(() => {
         const tl = gsap.timeline();
 
@@ -36,7 +36,7 @@ const Onboarding = () => {
                     className="text-3xl sm:text-4xl md:text-5xl max-w-prose opacity-0 translate-y-5"
                     ref={(el) => (onboardingHeader = el)}
                 >
-                    Welcome to Upto
+                    Welcome to Noted
                 </h1>
                 <p
                     className="max-w-md my-10 opacity-0 translate-y-5"

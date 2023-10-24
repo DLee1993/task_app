@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { setCredentials } from "./authSlice";
 import { useLoginMutation } from "./authApiSlice";
 import usePersistLogin from "../../hooks/usePersistLogin";
-import homeSVG from "../../assets/home.svg";
+import goBackSVG from "../../assets/corner-down-left.svg";
 import { toast } from "react-toastify";
 import {
     TextInput,
@@ -84,7 +84,7 @@ const Login = () => {
             <aside className="absolute top-[5%] left-[10%]">
                 <Link to="/" className="block w-8">
                     <span className="sr-only">go back</span>
-                    <img src={homeSVG} alt="" />
+                    <img src={goBackSVG} alt="return to homepage" className="w-7" />
                 </Link>
             </aside>
             <Paper unstyled component="section" p="xl" shadow="lg" className="baseFormStyling">
@@ -111,9 +111,9 @@ const Login = () => {
                 <form onSubmit={onSubmitClicked}>
                     <Stack>
                         <TextInput
-                            label="Username"
+                            label="Name"
                             type="text"
-                            id="username"
+                            id="name"
                             value={username}
                             onChange={onUsernameChange}
                             required

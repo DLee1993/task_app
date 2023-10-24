@@ -12,6 +12,7 @@ import NavMenu from "./NavMenu";
 import { LogoutModal } from "../../appFeatures/auth/LogoutModal";
 import { DeleteAccountModal } from "../../appFeatures/auth/DeleteAccountModal";
 import { Button, Group } from "@mantine/core";
+import plusIcon from "../../assets/plus.svg";
 const Header = ({ openAddTask }) => {
     let accountHolderId;
     const getTime = new Date().getHours();
@@ -78,7 +79,12 @@ const Header = ({ openAddTask }) => {
                     {headerMessage}
                 </h3>
                 <Group>
-                    <Button color="rgba(43, 45, 66, 1)" variant="outline" onClick={openAddTask}>
+                    <Button
+                        color="rgba(43, 45, 66, 1)"
+                        variant="outline"
+                        onClick={openAddTask}
+                        leftSection={<img src={plusIcon} alt="add task" className="w-5"/>}
+                    >
                         Add Task
                     </Button>
                     <NavMenu openLogout={openLogout} openDelete={openDelete} username={username} />

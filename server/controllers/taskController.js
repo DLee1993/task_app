@@ -21,12 +21,12 @@ export const createTask = asyncHandler(async (req, res) => {
         return res.status(400).json({ message: "All Fields required" });
     }
 
-    //- check for existing user with same data
-    const duplicate = await Task.findOne({ task_title }).lean().exec();
+    // //- check for existing user with same data
+    // const duplicate = await Task.findOne({ task_title }).lean().exec();
 
-    if (duplicate && duplicate.user === user) {
-        return res.status(409).json({ message: "Task Title already exists" });
-    }
+    // if (duplicate && duplicate.user !== user) {
+    //     return res.status(409).json({ message: "Task Title already exists" });
+    // }
 
     //- create new user
     const taskObject = { user, task_title, task_description, category, completed };
@@ -65,14 +65,14 @@ export const updateTask = asyncHandler(async (req, res) => {
     }
 
     //- check for duplicate title
-    const duplicate = await Task.findOne({ task_title })
-        .collation({ locale: "en", strength: 2 })
-        .lean()
-        .exec();
+    // const duplicate = await Task.findOne({ task_title })
+    //     .collation({ locale: "en", strength: 2 })
+    //     .lean()
+    //     .exec();
 
-    if (duplicate && duplicate?._id.toString() !== id && task.user === user) {
-        return res.status(409).json({ message: "Task Title already exists" });
-    }
+    // if (duplicate && duplicate?._id.toString() !== id) {
+    //     return res.status(409).json({ message: "Task Title already exists" });
+    // }
 
     //- add the new values to the task
     task.user = user;
