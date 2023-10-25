@@ -61,12 +61,16 @@ export const updateTask = asyncHandler(async (req, res) => {
         res.status(404).json({ message: "Task not found" });
     }
 
-    const taskArray = await Task.find({ user }).lean().exec();
+    const taskArray = await Task.find({ task_title })
+        .collation({ locale: "en", strength: 2 })
+        .lean()
+        .exec();
 
-    let duplicate = taskArray.filter((task) => task.task_title === task_title);
+    let duplicate = taskArray.filter((task) => task.user === user);
 
-    if (duplicate[0]._id.toString() !== id) {
-        return res.status(409).json({ message: "Task Title already exists" });
+    // Allow renaming of the original note
+    if (duplicate.length > 0 && duplicate?._id.toString() !== id) {
+        return res.status(409).json({ message: "Duplicate note title" });
     }
 
     //- add the new values to the task
@@ -77,9 +81,14 @@ export const updateTask = asyncHandler(async (req, res) => {
     task.completed = completed;
 
     //- save the recently updated task
-    await task.save();
+    const updatedTask = await task.save();
 
-    res.json({ message: "Task Updated" });
+    if (updatedTask) {
+        //- updated
+        res.status(201).json({ message: "Task Updated" });
+    } else {
+        res.status(400).json({ message: "Task Failed to Update" });
+    }
 });
 
 //- delete a task

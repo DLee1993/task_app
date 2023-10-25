@@ -99,7 +99,7 @@ const Login = () => {
                         Guest Credentials
                     </Text>
                     <Text size="md">
-                        <span className="font-medium">Email:</span> guest1@guestEmail.com
+                        <span className="font-medium">Name:</span> Guest
                     </Text>
                     <Text size="md">
                         <span className="font-medium">Password:</span> guestPassword2023
