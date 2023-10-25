@@ -21,7 +21,7 @@ export const EditTaskModal = ({ editTaskOpened, closeEditTask, task }) => {
     useEffect(() => {
         if (isSuccess) {
             closeEditTask();
-            toast.success("Task Saved");
+            toast.info("Task Updated");
         }
         if (isDeleteSuccess) {
             closeEditTask();
@@ -45,7 +45,6 @@ export const EditTaskModal = ({ editTaskOpened, closeEditTask, task }) => {
 
     const checkMark = () => {
         setCompleted(!completed);
-        toast.info("Task Status Updated");
     };
 
     const onSaveTaskClicked = async (e) => {

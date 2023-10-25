@@ -21,12 +21,16 @@ export const createTask = asyncHandler(async (req, res) => {
         return res.status(400).json({ message: "All Fields required" });
     }
 
-    // //- check for existing user with same data
-    // const duplicate = await Task.findOne({ task_title }).lean().exec();
+    //- find all of the users tasks
+    const taskArray = await Task.find({ user }).lean().exec();
 
-    // if (duplicate && duplicate.user !== user) {
-    //     return res.status(409).json({ message: "Task Title already exists" });
-    // }
+    //- filter out tasks that have the same task title
+    let duplicate = taskArray.filter((task) => task.task_title === task_title);
+
+    //- if the above variable has a task then return the error as there is a duplicate
+    if (duplicate && duplicate.length > 0) {
+        return res.status(409).json({ message: "Task Title already exists" });
+    }
 
     //- create new user
     const taskObject = { user, task_title, task_description, category, completed };
@@ -46,13 +50,7 @@ export const updateTask = asyncHandler(async (req, res) => {
     const { id, user, task_title, category, task_description, completed } = req.body;
 
     //- confirm data
-    if (
-        !id ||
-        !user ||
-        !task_title ||
-        !task_description ||
-        typeof completed !== "boolean"
-    ) {
+    if (!id || !user || !task_title || !task_description || typeof completed !== "boolean") {
         return res.status(400).json({ message: "All Fields are required" });
     }
 
@@ -63,15 +61,13 @@ export const updateTask = asyncHandler(async (req, res) => {
         res.status(404).json({ message: "Task not found" });
     }
 
-    //- check for duplicate title
-    // const duplicate = await Task.findOne({ task_title })
-    //     .collation({ locale: "en", strength: 2 })
-    //     .lean()
-    //     .exec();
+    const taskArray = await Task.find({ user }).lean().exec();
 
-    // if (duplicate && duplicate?._id.toString() !== id) {
-    //     return res.status(409).json({ message: "Task Title already exists" });
-    // }
+    let duplicate = taskArray.filter((task) => task.task_title === task_title);
+
+    if (duplicate._id === id) {
+        return res.status(409).json({ message: "Task Title already exists" });
+    }
 
     //- add the new values to the task
     task.user = user;
