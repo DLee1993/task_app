@@ -103,7 +103,7 @@ export const EditTaskModal = ({ editTaskOpened, closeEditTask, task }) => {
                         mb="lg"
                         checked={completed}
                         onChange={checkMark}
-                        label="Mark as complete"
+                        label={completed ? "Mark as incomplete" : "Mark as complete"}
                         aria-label="checkbox to mark task as complete or incomplete"
                         className="hover:cursor-pointer"
                     />

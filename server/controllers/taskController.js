@@ -66,10 +66,16 @@ export const updateTask = asyncHandler(async (req, res) => {
         .lean()
         .exec();
 
-    let duplicate = taskArray.filter((task) => task.user === user);
+    let duplicate = taskArray.filter((task) => task.user.toString() === user);
+
+    let duplicateUserTitles = duplicate.filter((task) => task.task_title === task_title);
+
+    // console.log(taskArray);
+    // console.log(duplicate);
+    // console.log(duplicateUserTitles);
 
     // Allow renaming of the original note
-    if (duplicate.length > 0 && duplicate?._id.toString() !== id) {
+    if (duplicateUserTitles.length > 0 && duplicate[0]._id.toString() !== id) {
         return res.status(409).json({ message: "Duplicate note title" });
     }
 
