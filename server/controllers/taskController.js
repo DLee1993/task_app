@@ -65,7 +65,7 @@ export const updateTask = asyncHandler(async (req, res) => {
 
     let duplicate = taskArray.filter((task) => task.task_title === task_title);
 
-    if (duplicate._id === id) {
+    if (duplicate[0]._id.toString() !== id) {
         return res.status(409).json({ message: "Task Title already exists" });
     }
 
