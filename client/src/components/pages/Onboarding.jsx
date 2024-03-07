@@ -46,7 +46,7 @@ const Onboarding = () => {
                 </p>
             </section>
             <section
-                className="w-80 h-28 mt-40 flex flex-col justify-evenly items-center"
+                className="h-28 flex justify-center items-center gap-x-10"
                 id="onboarding_sign-in_options"
             >
                 <Link
